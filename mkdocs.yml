@@ -1,0 +1,58 @@
+site_name: YouQu Blog
+theme:
+  name: material
+#  custom_dir: overrides
+  palette:
+  # 自动亮/暗模式
+  - media: '(prefers-color-scheme: light)'
+    # 配色方案
+    scheme: default
+    # 原色
+    primary: teal
+    accent: amber
+    toggle:
+      icon: material/lightbulb
+      name: Switch to light mode
+  - media: '(prefers-color-scheme: dark)'
+    scheme: slate
+    primary: teal
+    accent: amber
+    toggle:
+      icon: material/lightbulb-outline
+      name: Switch to dark mode
+  features:
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+
+  logo: "img/logo.png"
+  favicon: img/logo.png
+
+# 右上角
+repo_name: youqu
+repo_url: ""
+
+plugins:
+- search
+#- markdownextradata:
+#    data: data
+
+nav:
+  - Home: index.md
+  - 自动化:
+    - 自动化/Pytest从入门到起飞.md
+    - 自动化/Playwright—8小时入门版.md
+  - 爬虫:
+    - 爬虫/爬虫—8小时入门版.md
+  - 后端:
+    - 后端/FastAPI—8小时入门版.md
+  - 视觉:
+    - 视觉/OpenCV(Python)基础—9小时入门版.md
+  - Python:
+    - Python/Python从进阶到高级—通俗易懂版.md
+    - Python/Python基础语法—8小时入门版.md
+
+extra:
+  analytics:
+    provider: google
+#    property: G-YNEVN69SC3
