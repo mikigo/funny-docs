@@ -92,7 +92,7 @@ if __name__ == '__main__':
 
 FastAPI 的一个特点就是自带接口文档，只需要在 url 后面加 `docs`：
 
-<center>    <img style="border-radius: 0.3125em;    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"     src="../img/fastapi/docs.png">    <br>    <div style="color:orange; border-bottom: 1px solid #d9d9d9;    display: inline-block;    color: #999;    padding: 2px;">接口文档</div> </center>
+![](../img/fastapi/docs.png)
 
 你如果不喜欢 Swagger 风格的文档，可以将 `docs` 改成 `redoc`，FastAPI 默认携带两种风格的接口文档。
 
@@ -495,7 +495,7 @@ async def cookie_set(response: Response):
 
 请求一下，查看 cookie 设置是否成功:
 
-<center>    <img style="border-radius: 0.3125em;    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"     src="../img/fastapi/set_cookie.png">    <br>    <div style="color:orange; border-bottom: 1px solid #d9d9d9;    display: inline-block;    color: #999;    padding: 2px;">set cookie</div> </center>
+![](../img/fastapi/set_cookie.png)
 
 然后再定义 Cookie 参数：
 
@@ -513,7 +513,7 @@ async def cookie_get(
 
 请求一把：
 
-<center>    <img style="border-radius: 0.3125em;    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"     src="../img/fastapi/get_cookie.png">    <br>    <div style="color:orange; border-bottom: 1px solid #d9d9d9;    display: inline-block;    color: #999;    padding: 2px;">get cookie</div> </center>
+![](../img/fastapi/get_cookie.png)
 
 ### 4.5、Header
 
@@ -606,7 +606,7 @@ async def resp_info(name_id: str):
 
 发送请求：
 
-<center>    <img style="border-radius: 0.3125em;    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"     src="../img/fastapi/resp_info.png">    <br>    <div style="color:orange; border-bottom: 1px solid #d9d9d9;    display: inline-block;    color: #999;    padding: 2px;">返回信息</div> </center>
+![](../img/fastapi/resp_info.png)
 
 # 七、表单及文件
 
@@ -630,9 +630,7 @@ pip3 install python-multipart
 
 再重启服务之后，通过表单字段发送，注意不能用 JSON 发送；
 
-<center>    <img style="border-radius: 0.3125em;    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"     src="../img/fastapi/form.png">    <br>    <div style="color:orange; border-bottom: 1px solid #d9d9d9;    display: inline-block;    color: #999;    padding: 2px;">form</div> </center>
-
-
+![](../img/fastapi/form.png)
 
 ## 2、上传文件
 
@@ -795,7 +793,7 @@ async def auth_test(token: str = Depends(oauth2_scheme)):
 
 查看 `OpenAPI` 文档你会发现，右上角有个 **Authorize** 按钮，点它：
 
-<center>    <img style="border-radius: 0.3125em;    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"     src="../img/fastapi/auth.png">    <br>    <div style="color:orange; border-bottom: 1px solid #d9d9d9;    display: inline-block;    color: #999;    padding: 2px;">auth</div> </center>
+![](../img/fastapi/auth.png)
 
 弹出授权表单，输入 `username` 与 `password` 及其它可选字段；
 
@@ -1154,6 +1152,6 @@ def read_items(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
 uvicorn sql_app.main:app --reload
 ```
 
-<center>    <img style="border-radius: 0.3125em;    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"     src="../img/fastapi/sql.png">    <br>    <div style="color:orange; border-bottom: 1px solid #d9d9d9;    display: inline-block;    color: #999;    padding: 2px;">sql api</div> </center>
+![](../img/fastapi/sql.png)
 
 以上内容是入门版知识，还有一些进阶的内容或者更加工程化的内容，我想放到 FastAPI 实战里面去写，好啦就先到这里吧，期待进阶内容。
