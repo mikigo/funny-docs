@@ -1,6 +1,6 @@
 # YouQu Blog
 
-![](../img/index.jpg)
+![](./img/index.png)
 
     过去岁月不可追，
     
