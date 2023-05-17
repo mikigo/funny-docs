@@ -11,7 +11,7 @@
 
 Requests 是 Python 最久负盛名的 HTTP 库，没有之一；K 神（Kenneth Reitz）的 for humans 系列中最有名的一个；
 
-<center>    <img style="border-radius: 0.3125em;    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"     src="../img/spider/k.png">    <br>    <div style="color:orange; border-bottom: 1px solid #d9d9d9;    display: inline-block;    color: #999;    padding: 2px;">K 神帅照</div> </center>
+![](../img/spider/k.png)
 
 做爬虫、数据分析、接口自动化会经常用到它，非常多有名的 Python 库依赖于 Requests 提供基础能力，比如：httpx（支持异步的 HTTP 库）、locust（性能[负载]测试框架）、HttpRunner（接口自动化框架）等等，都是基于 Requests 构建起来的。
 
@@ -207,7 +207,7 @@ r 为返回值的对象（Response），通常在项目中我一般用 `rsp` 来
 
 rsp 既然是对象，那来看下对象的方法和属性，咱们 Debug 跑一下就很清楚：
 
-<center>    <img style="border-radius: 0.3125em;    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"     src="../img/spider/rsp.png">    <br>    <div style="color:orange; border-bottom: 1px solid #d9d9d9;    display: inline-block;    color: #999;    padding: 2px;">rsp的方法和属性</div> </center>
+![](../img/spider/rsp.png)
 
 接下来讲几个比较常用的属性和方法；
 

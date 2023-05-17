@@ -101,7 +101,7 @@ scrapy crawl bbs_spider
 
 跑完之后，终端就会有输出爬取到的帖子信息：
 
-<center>    <img style="border-radius: 0.3125em;    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"     src="../img/spider/bbs_show.png">    <br>    <div style="color:orange; border-bottom: 1px solid #d9d9d9;    display: inline-block;    color: #999;    padding: 2px;">爬取数据展示</div> </center>
+![](../img/spider/bbs_show.png)
 
 你先别管其他的，至少咱们能爬到数据了，接下来咱们慢慢介绍上面这些代码是怎么来的~；
 
@@ -159,7 +159,7 @@ class BbsSpiderSpider(scrapy.Spider):
 
 首先来讲 css 提取方法，css 的解析是非常灵活的，先用 F12 看下 html 源码：
 
-<center>    <img style="border-radius: 0.3125em;    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"     src="../img/spider/html.png">    <br>    <div style="color:orange; border-bottom: 1px solid #d9d9d9;    display: inline-block;    color: #999;    padding: 2px;">html 源码</div> </center>
+![](../img/spider/html.png)
 
 可以看到所有的帖子都在 `app-post-pc` 标签下面，咱们可以这样写：
 
@@ -172,7 +172,7 @@ def parse(self, response):
 
 这样的话，`post_items` 就获取到了所有帖子的 `app-post-pc` 标签，再看下 `app-post-pc` 标签下都有啥：
 
-<center>    <img style="border-radius: 0.3125em;    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"     src="../img/spider/a_tag.png">    <br>    <div style="color:orange; border-bottom: 1px solid #d9d9d9;    display: inline-block;    color: #999;    padding: 2px;">帖子标题</div> </center>
+![](../img/spider/a_tag.png)
 
 可以看到在 `app-post-pc` 标签下还有 a 标签，保存了帖子的详情地址(`post_url`)，然后在 a 标签下的 span 标签保存了帖子的类型和标题(`title`)，因此咱们想办法把这两个拿到：
 
@@ -259,7 +259,7 @@ scrapy crawl bbs_spider -o bbs.csv
 
 `-o` 表示导出数据，执行后，查看 bbs.csv 文件：
 
-<center>    <img style="border-radius: 0.3125em;    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"     src="../img/spider/csv.png">    <br>    <div style="color:orange; border-bottom: 1px solid #d9d9d9;    display: inline-block;    color: #999;    padding: 2px;">csv 文件</div> </center>
+![](../img/spider/csv.png)
 
 这样就将爬取到的数据保存到了一个 csv 文件；
 
@@ -331,7 +331,7 @@ value 主要用于多个管道排序的，因为在 `pipelines.py` 里面可以�
 
 正文内容在帖子的 `url` 里面，如果我们要同时获取帖子的正文内容，就需要做以下处理；
 
-<center>    <img style="border-radius: 0.3125em;    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"     src="../img/spider/detail.png">    <br>    <div style="color:orange; border-bottom: 1px solid #d9d9d9;    display: inline-block;    color: #999;    padding: 2px;">正文</div> </center>
+![](../img/spider/detail.png)
 
 #### 5.5.1、回调逻辑
 
@@ -390,7 +390,7 @@ class BbsSpiderSpider(scrapy.Spider):
 
 下层页面的解析，逻辑和前面一样，先看下 html 源码：
 
-<center>    <img style="border-radius: 0.3125em;    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"     src="../img/spider/post_info.png">    <br>    <div style="color:orange; border-bottom: 1px solid #d9d9d9;    display: inline-block;    color: #999;    padding: 2px;">正文 html</div> </center>
+![](../img/spider/post_info.png)
 
 获取正文：
 
@@ -492,7 +492,7 @@ scrapy crawl bbs_spider -o bbs.csv
 
 通过仔细观察，我们可以发现一些规律：
 
-<center>    <img style="border-radius: 0.3125em;    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"     src="../img/spider/urls.png">    <br>    <div style="color:orange; border-bottom: 1px solid #d9d9d9;    display: inline-block;    color: #999;    padding: 2px;">多页地址</div> </center>
+![](../img/spider/urls.png)
 
 在地址中只有 `offset` 参数在变化，第一页是 0，第二页是 1，非常有规律，因此咱们可以动态生成：
 
@@ -629,7 +629,7 @@ Scrapy 由于封装得比较好，启动爬虫是通过命令行启动，但是�
 
 （1）先在工程下随便找一个 `py` 文件，里面啥也不写，执行一下，然后点这里：
 
-<center>    <img style="border-radius: 0.3125em;    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"     src="../img/spider/go_config.png">    <br>    <div style="color:orange; border-bottom: 1px solid #d9d9d9;    display: inline-block;    color: #999;    padding: 2px;">配置1</div> </center>
+![](../img/spider/go_config.png)
 
 （2）在系统中找到 scrapy 包中的 cmdline.py 文件，这个你得稍微知道点 Python 包管理的一些知识，比如我的在这里：
 
@@ -643,11 +643,11 @@ Scrapy 由于封装得比较好，启动爬虫是通过命令行启动，但是�
 
 （5）在 `Parameters` 里面填入 Scrapy 的参数：`crawl bbs_spider -o bbs.csv`；
 
-<center>    <img style="border-radius: 0.3125em;    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"     src="../img/spider/args_config.png">    <br>    <div style="color:orange; border-bottom: 1px solid #d9d9d9;    display: inline-block;    color: #999;    padding: 2px;">配置2</div> </center>
+![](../img/spider/args_config.png)
 
 （6）点击右下角的 【ok】，在主界面点【Debug】就可以进行调试了，妙啊~~
 
-<center>    <img style="border-radius: 0.3125em;    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"     src="../img/spider/debug.png">    <br>    <div style="color:orange; border-bottom: 1px solid #d9d9d9;    display: inline-block;    color: #999;    padding: 2px;">Debug</div> </center>
+![](../img/spider/debug.png)
 
 ## 7、结束语
 
