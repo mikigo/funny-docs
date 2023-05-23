@@ -1,0 +1,1210 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../%E8%87%AA%E5%8A%A8%E5%8C%96/Playwright%E2%80%948%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/">
+      
+      
+        <link rel="next" href="../Httpx/">
+      
+      <link rel="icon" href="../../img/logo.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
+    
+    
+      
+        <title>Requests - YouQu Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.85bb2934.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a6bdf11c.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../termynal.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#requests" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="YouQu Blog" class="md-header__button md-logo" aria-label="YouQu Blog" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            YouQu Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Requests
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/mikigo/funny-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    mikigo/funny-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="YouQu Blog" class="md-nav__button md-logo" aria-label="YouQu Blog" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    YouQu Blog
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/mikigo/funny-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    mikigo/funny-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        首页
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          自动化
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          自动化
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%87%AA%E5%8A%A8%E5%8C%96/Pytest%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E8%B5%B7%E9%A3%9E/" class="md-nav__link">
+        Pytest 从入门到起飞
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%87%AA%E5%8A%A8%E5%8C%96/Playwright%E2%80%948%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        Playwright—8小时入门版
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          爬虫
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          爬虫
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Requests
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Requests
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1、简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2、安装
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3、请求
+  </a>
+  
+    <nav class="md-nav" aria-label="3、请求">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1、导入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32get" class="md-nav__link">
+    3.2、GET 请求
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33post" class="md-nav__link">
+    3.3、POST 请求
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    3.4、其他请求
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35headers" class="md-nav__link">
+    3.5、请求头（headers）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36" class="md-nav__link">
+    3.6、参数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4、响应
+  </a>
+  
+    <nav class="md-nav" aria-label="4、响应">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    4.1、响应内容
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2、二进制响应内容
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43json" class="md-nav__link">
+    4.3、JSON响应内容
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5、高阶用法
+  </a>
+  
+    <nav class="md-nav" aria-label="5、高阶用法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51session" class="md-nav__link">
+    5.1、Session
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52request" class="md-nav__link">
+    5.2、Request
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Httpx/" class="md-nav__link">
+        Httpx
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scrapy/" class="md-nav__link">
+        Scrapy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          后端
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          后端
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%90%8E%E7%AB%AF/FastAPI%E2%80%948%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        FastAPI—8小时入门版
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          视觉
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          视觉
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%A7%86%E8%A7%89/OpenCV%28Python%29%E5%9F%BA%E7%A1%80%E2%80%949%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        OpenCV(Python)基础—9小时入门版
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/Python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E2%80%948%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        Python基础语法—8小时入门版
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/Python%E4%BB%8E%E8%BF%9B%E9%98%B6%E5%88%B0%E9%AB%98%E7%BA%A7%E2%80%94%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82%E7%89%88/" class="md-nav__link">
+        Python从进阶到高级—通俗易懂版
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1、简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2、安装
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3、请求
+  </a>
+  
+    <nav class="md-nav" aria-label="3、请求">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1、导入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32get" class="md-nav__link">
+    3.2、GET 请求
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33post" class="md-nav__link">
+    3.3、POST 请求
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    3.4、其他请求
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35headers" class="md-nav__link">
+    3.5、请求头（headers）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36" class="md-nav__link">
+    3.6、参数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4、响应
+  </a>
+  
+    <nav class="md-nav" aria-label="4、响应">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    4.1、响应内容
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2、二进制响应内容
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43json" class="md-nav__link">
+    4.3、JSON响应内容
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5、高阶用法
+  </a>
+  
+    <nav class="md-nav" aria-label="5、高阶用法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51session" class="md-nav__link">
+    5.1、Session
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52request" class="md-nav__link">
+    5.2、Request
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="requests">Requests</h1>
+<pre><code class="language-shell"># =============================
+# Author : mikigo
+# Time   : 2023/3/17
+# =============================
+</code></pre>
+<h2 id="1">1、简介</h2>
+<p>Requests 是 Python 最久负盛名的 HTTP 库，没有之一；K 神（Kenneth Reitz）的 for humans 系列中最有名的一个；</p>
+<p><img alt="" src="../../img/spider/k.png" /></p>
+<p>做爬虫、数据分析、接口自动化会经常用到它，非常多有名的 Python 库依赖于 Requests 提供基础能力，比如：httpx（支持异步的 HTTP 库）、locust（性能[负载]测试框架）、HttpRunner（接口自动化框架）等等，都是基于 Requests 构建起来的。</p>
+<p>有人甚至建议将 Requests 库合入 Python 标准库发布。只要你想做 HTTP 请求，你肯定会想到 Requests。</p>
+<p>Requests 特点：简单、简洁、优雅。</p>
+<h2 id="2">2、安装</h2>
+<p>系统环境：deepin</p>
+<p>
+<div class="termy" data-termynal>
+<span data-ty>pip3 install requests</span>
+<span data-ty="progress"></span>
+<span data-ty></span>
+</div></p>
+<h2 id="3">3、请求</h2>
+<h3 id="31">3.1、导入</h3>
+<pre><code class="language-python">import requests
+</code></pre>
+<p>所有的功能都在 requests 这个名称空间下。</p>
+<h3 id="32get">3.2、GET 请求</h3>
+<pre><code class="language-python">r = requests.get(&quot;https://www.baidu.com&quot;)
+print(r.status_code)
+print(r.text)
+</code></pre>
+<p>终端打印：</p>
+<p>
+<div class="termy" data-termynal>
+<span data-ty>200</span>
+<span data-ty>&lt;!DOCTYPE html&gt;</span>
+<span data-ty>&lt;!--STATUS OK--&gt;&lt;html&gt; &lt;head&gt;&lt;meta http-equ ...... # 省略</span>
+<span data-ty></span>
+</div></p>
+<h3 id="33post">3.3、POST 请求</h3>
+<p><code>https://httpbin.org</code> 是 K 神的一个简单的 HTTP 服务，主要用于试用 requests 里面的一些功能，方便理解； </p>
+<pre><code class="language-python">r = requests.post('https://httpbin.org/post', data={'key': 'value'})
+print(r.status_code)
+print(r.text)
+</code></pre>
+<p>终端打印：</p>
+<pre><code class="language-python">200
+{
+  &quot;args&quot;: {}, 
+  &quot;data&quot;: &quot;&quot;, 
+  &quot;files&quot;: {}, 
+  &quot;form&quot;: {
+    &quot;key&quot;: &quot;value&quot;
+  }, 
+  &quot;headers&quot;: {
+    &quot;Accept&quot;: &quot;*/*&quot;, 
+    &quot;Accept-Encoding&quot;: &quot;gzip, deflate&quot;, 
+    &quot;Content-Length&quot;: &quot;9&quot;, 
+    &quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;, 
+    &quot;Host&quot;: &quot;httpbin.org&quot;, 
+    &quot;User-Agent&quot;: &quot;python-requests/2.28.1&quot;, 
+    &quot;X-Amzn-Trace-Id&quot;: &quot;Root=1-642aa9b9-259b189c1acb1e114a5d6bc7&quot;
+  }, 
+  &quot;json&quot;: null, 
+  &quot;origin&quot;: &quot;110.191.179.216&quot;, 
+  &quot;url&quot;: &quot;https://httpbin.org/post&quot;
+}
+</code></pre>
+<h3 id="34">3.4、其他请求</h3>
+<p>其他请求方式不常用，如下：</p>
+<pre><code class="language-python">r = requests.put('https://httpbin.org/put', data={'key': 'value'})
+r = requests.delete('https://httpbin.org/delete')
+r = requests.head('https://httpbin.org/get')
+r = requests.options('https://httpbin.org/get')
+</code></pre>
+<h3 id="35headers">3.5、请求头（headers）</h3>
+<p>请求头通常会加 UA（user agent），这个主要是模仿浏览器的行为，比如模仿使用 Firefox 浏览器：</p>
+<pre><code class="language-python">headers = {
+    &quot;User-Agent&quot;: &quot;Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/109.0&quot;
+}
+
+requests.get(url, headers=headers)
+requests.post(url, headers=headers)
+</code></pre>
+<h3 id="36">3.6、参数</h3>
+<p>(1) get 请求参数</p>
+<p>get 请求的参数可以直接在url后面加参数，<code>url?key1=value1&amp;key2=value2</code>，即 url 后面加问号，然后紧接着多个参数的键和值，多个键值之间用 &amp; 符号链接；</p>
+<p>这种方式简单是简单，但是参数多了之后，url 会变得很长，看起来胀眼睛，为了更好的可读性，requests 支持这样传递 get 请求的参数：</p>
+<pre><code class="language-python">params = {'key1': 'value1', 'key2': 'value2'}
+r = requests.get('https://httpbin.org/get', params=params)
+</code></pre>
+<p>通过打印 r.url 你会发现，实际上也是给你转换成了前面那种 &amp; 连接的方式；</p>
+<p>（2）post 请求参数</p>
+<p>post 请求参数一般是通过data参数传递，通常 data 是一个字典形式：</p>
+<pre><code class="language-python">data = {'key1': 'value1', 'key2': 'value2'}
+r = requests.post('https://httpbin.org/post', data=data)
+print(r.text)
+</code></pre>
+<p>执行后终端输出：</p>
+<p>
+<div class="termy" data-termynal>
+<span data-ty>{</span>
+<span data-ty>  &quot;args&quot;: {}, </span>
+<span data-ty>  &quot;data&quot;: &quot;&quot;, </span>
+<span data-ty>  &quot;files&quot;: {}, </span>
+<span data-ty>  &quot;form&quot;: {</span>
+<span data-ty>    &quot;key1&quot;: &quot;value1&quot;, </span>
+<span data-ty>    &quot;key2&quot;: &quot;value2&quot;</span>
+<span data-ty>  }, </span>
+<span data-ty>  &quot;headers&quot;: {</span>
+<span data-ty>    &quot;Accept&quot;: &quot;<em>/</em>&quot;, </span>
+<span data-ty>    &quot;Accept-Encoding&quot;: &quot;gzip, deflate&quot;, </span>
+<span data-ty>    &quot;Content-Length&quot;: &quot;23&quot;, </span>
+<span data-ty>    &quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;, </span>
+<span data-ty>    &quot;Host&quot;: &quot;httpbin.org&quot;, </span>
+<span data-ty>    &quot;User-Agent&quot;: &quot;python-requests/2.28.1&quot;, </span>
+<span data-ty>    &quot;X-Amzn-Trace-Id&quot;: &quot;Root=1-642e7884-7f20428d523e7fda1da61f1a&quot;</span>
+<span data-ty>  }, </span>
+<span data-ty>  &quot;json&quot;: null, </span>
+<span data-ty>  &quot;origin&quot;: &quot;110.191.179.216&quot;, </span>
+<span data-ty>  &quot;url&quot;: &quot;https://httpbin.org/post&quot;</span>
+<span data-ty>}</span>
+<span data-ty></span>
+</div></p>
+<p>如果你拿到的参数，是一个 json 格式，可以直接传递给 json 参数：</p>
+<pre><code class="language-python">jsons = '{&quot;key1&quot;: &quot;value1&quot;, &quot;key2&quot;: &quot;value2&quot;}'
+r = requests.post('https://httpbin.org/post', json=jsons)
+print(r.text)
+</code></pre>
+<p>执行后终端输出：</p>
+<p>
+<div class="termy" data-termynal>
+<span data-ty>{</span>
+<span data-ty>  &quot;args&quot;: {}, </span>
+<span data-ty>  &quot;data&quot;: &quot;\&quot;{\\&quot;key1\\&quot;: \\&quot;value1\\&quot;, \\&quot;key2\\&quot;: \\&quot;value2\\&quot;}\&quot;&quot;, </span>
+<span data-ty>  &quot;files&quot;: {}, </span>
+<span data-ty>  &quot;form&quot;: {}, </span>
+<span data-ty>  &quot;headers&quot;: {</span>
+<span data-ty>    &quot;Accept&quot;: &quot;<em>/</em>&quot;, </span>
+<span data-ty>    &quot;Accept-Encoding&quot;: &quot;gzip, deflate&quot;, </span>
+<span data-ty>    &quot;Content-Length&quot;: &quot;46&quot;, </span>
+<span data-ty>    &quot;Content-Type&quot;: &quot;application/json&quot;, </span>
+<span data-ty>    &quot;Host&quot;: &quot;httpbin.org&quot;, </span>
+<span data-ty>    &quot;User-Agent&quot;: &quot;python-requests/2.28.1&quot;, </span>
+<span data-ty>    &quot;X-Amzn-Trace-Id&quot;: &quot;Root=1-642e79d4-1f0aeb1370ea94cf2c858f9d&quot;</span>
+<span data-ty>  }, </span>
+<span data-ty>  &quot;json&quot;: &quot;{\&quot;key1\&quot;: \&quot;value1\&quot;, \&quot;key2\&quot;: \&quot;value2\&quot;}&quot;, </span>
+<span data-ty>  &quot;origin&quot;: &quot;110.191.179.216&quot;, </span>
+<span data-ty>  &quot;url&quot;: &quot;https://httpbin.org/post&quot;</span>
+<span data-ty>}</span>
+<span data-ty></span>
+</div></p>
+<h2 id="4">4、响应</h2>
+<p>其实前面的例子已经有体现一点响应了；</p>
+<pre><code class="language-python">r = requests.post('https://httpbin.org/post', data={'key': 'value'})
+</code></pre>
+<p>r 为返回值的对象（Response），通常在项目中我一般用 <code>rsp</code> 来表示（后面的 <code>rsp</code> 和 r 是一个意思，都是表示返回值的对象）；</p>
+<p>rsp 既然是对象，那来看下对象的方法和属性，咱们 Debug 跑一下就很清楚：</p>
+<p><img alt="" src="../../img/spider/rsp.png" /></p>
+<p>接下来讲几个比较常用的属性和方法；</p>
+<h3 id="41">4.1、响应内容</h3>
+<pre><code class="language-python">r.text
+</code></pre>
+<p>前面例子已经打印过，这里就不打印了；</p>
+<p><code>text</code> 的解码是自动的，大多数情况下都能正常解码；</p>
+<p>可以通过 <code>encoding</code> 来查看或修改编码方式：</p>
+<pre><code class="language-python">print(r.encoding)
+r.encoding = 'ISO-8859-1'
+</code></pre>
+<p>修改编码方式之后，再使用 <code>r.text</code> 就会以新的编码方式解码。</p>
+<p>如果你发现返回的内容编码不对，你可以尝试修改不同的编码，这是个经验积累的过程。</p>
+<h3 id="42">4.2、二进制响应内容</h3>
+<p>非文本类请求，一般返回的是二进制内容，此时我们应该使用 <code>content</code> 方法：</p>
+<pre><code class="language-python">r.content
+</code></pre>
+<p>将二进制文件保存下来，比如请求返回一个 mp3 文件：</p>
+<pre><code class="language-python">with open(&quot;my.mp3&quot;, &quot;wb&quot;) as f：
+    f.write(r.content)
+</code></pre>
+<h3 id="43json">4.3、JSON响应内容</h3>
+<p>一些 RESTful API 返回通常是 json 内容，我们可以直接使用：</p>
+<pre><code class="language-python">r.json()
+</code></pre>
+<p>获取的类型为 Python 的字典类型；</p>
+<p>如果响应包含无效JSON，会抛 <code>requests.exceptions.JSONDecodeError</code> 异常。</p>
+<h2 id="5">5、高阶用法</h2>
+<h3 id="51session">5.1、Session</h3>
+<p>Session 对象可以在一次会话中可以有效的处理 cookie 持久化的问题；</p>
+<pre><code class="language-python">s = requests.Session()
+# 设置一个cookie为123456789
+s.get('https://httpbin.org/cookies/set/sessioncookie/123456789')
+# 请求一下
+r = s.get('https://httpbin.org/cookies')
+print(r.text)
+</code></pre>
+<p>执行后终端输出：</p>
+<p>
+<div class="termy" data-termynal>
+<span data-ty>{</span>
+<span data-ty>  &quot;cookies&quot;: {</span>
+<span data-ty>    &quot;sessioncookie&quot;: &quot;123456789&quot;</span>
+<span data-ty>  }</span>
+<span data-ty>}</span>
+<span data-ty></span>
+</div></p>
+<h3 id="52request">5.2、Request</h3>
+<p>无论是前面讲到的 GET 、 POST 等请求方法：</p>
+<pre><code class="language-python">requests.get()
+requests.post()
+</code></pre>
+<p>其底层都是通过调用 Request 这个类来实现的：</p>
+<pre><code class="language-python">class Request():
+    def __init__(
+        self,
+        method=None,
+        url=None,
+        headers=None,
+        files=None,
+        data=None,
+        params=None,
+        auth=None,
+        cookies=None,
+        hooks=None,
+        json=None,
+    ):
+        pass
+</code></pre>
+<p>因此我们当然可以直接跨过这一步，不让中间商赚差价，直接用 Request：</p>
+<pre><code class="language-python">frome requests import Request
+r = Request(&quot;GET&quot;, url, headers=headers)
+r = Request(&quot;POST&quot;, url, headers=headers)
+</code></pre>
+<p>还没完，记得调用一下 <code>prepare()</code> 方法，然后使用 Session 里面的 send 方法：</p>
+<p>举例：</p>
+<pre><code class="language-python">from  requests import Session, Request
+s = Session()
+r = Request(&quot;GET&quot;, 'https://httpbin.org/get')
+prepped = r.prepare()
+resp = s.send(prepped)
+print(resp.text)
+</code></pre>
+<p>执行终端输出：</p>
+<p>
+<div class="termy" data-termynal>
+<span data-ty>{</span>
+<span data-ty>  &quot;args&quot;: {}, </span>
+<span data-ty>  &quot;headers&quot;: {</span>
+<span data-ty>    &quot;Accept-Encoding&quot;: &quot;identity&quot;, </span>
+<span data-ty>    &quot;Host&quot;: &quot;httpbin.org&quot;, </span>
+<span data-ty>    &quot;User-Agent&quot;: &quot;python-urllib3/1.26.13&quot;, </span>
+<span data-ty>    &quot;X-Amzn-Trace-Id&quot;: &quot;Root=1-642e84e2-1328a0210e2252741f20c648&quot;</span>
+<span data-ty>  }, </span>
+<span data-ty>  &quot;origin&quot;: &quot;110.191.179.216&quot;, </span>
+<span data-ty>  &quot;url&quot;: &quot;https://httpbin.org/get&quot;</span>
+<span data-ty>}</span>
+<span data-ty></span>
+</div></p>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Powder By Mikigo
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      
+        <script src="../../termynal.js"></script>
+      
+    
+  </body>
+</html>

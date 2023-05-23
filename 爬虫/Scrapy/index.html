@@ -1,0 +1,1497 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Httpx/">
+      
+      
+        <link rel="next" href="../../%E5%90%8E%E7%AB%AF/FastAPI%E2%80%948%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/">
+      
+      <link rel="icon" href="../../img/logo.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
+    
+    
+      
+        <title>Scrapy - YouQu Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.85bb2934.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a6bdf11c.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../termynal.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#scrapy" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="YouQu Blog" class="md-header__button md-logo" aria-label="YouQu Blog" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            YouQu Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Scrapy
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/mikigo/funny-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    mikigo/funny-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="YouQu Blog" class="md-nav__button md-logo" aria-label="YouQu Blog" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    YouQu Blog
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/mikigo/funny-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    mikigo/funny-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        首页
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          自动化
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          自动化
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%87%AA%E5%8A%A8%E5%8C%96/Pytest%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E8%B5%B7%E9%A3%9E/" class="md-nav__link">
+        Pytest 从入门到起飞
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%87%AA%E5%8A%A8%E5%8C%96/Playwright%E2%80%948%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        Playwright—8小时入门版
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          爬虫
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          爬虫
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Requests/" class="md-nav__link">
+        Requests
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Httpx/" class="md-nav__link">
+        Httpx
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Scrapy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Scrapy
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1、简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2、安装
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3、创建项目
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4、开始写爬虫
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5、逻辑讲解
+  </a>
+  
+    <nav class="md-nav" aria-label="5、逻辑讲解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    5.1、生成爬虫模板
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    5.2、爬虫编写方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    5.3、获取数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54" class="md-nav__link">
+    5.4、处理数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55" class="md-nav__link">
+    5.5、从下层页面解析数据
+  </a>
+  
+    <nav class="md-nav" aria-label="5.5、从下层页面解析数据">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#551" class="md-nav__link">
+    5.5.1、回调逻辑
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#552" class="md-nav__link">
+    5.5.2、下层页面解析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#553" class="md-nav__link">
+    5.5.3、多层数据传递问题
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#554" class="md-nav__link">
+    5.5.4、多页面爬取
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#555" class="md-nav__link">
+    5.5.5、完整的示例
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6、调试
+  </a>
+  
+    <nav class="md-nav" aria-label="6、调试">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    6.1、数据获取调试
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62pycharm-debug" class="md-nav__link">
+    6.2、Pycharm Debug
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    7、结束语
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          后端
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          后端
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%90%8E%E7%AB%AF/FastAPI%E2%80%948%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        FastAPI—8小时入门版
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          视觉
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          视觉
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%A7%86%E8%A7%89/OpenCV%28Python%29%E5%9F%BA%E7%A1%80%E2%80%949%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        OpenCV(Python)基础—9小时入门版
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/Python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E2%80%948%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        Python基础语法—8小时入门版
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/Python%E4%BB%8E%E8%BF%9B%E9%98%B6%E5%88%B0%E9%AB%98%E7%BA%A7%E2%80%94%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82%E7%89%88/" class="md-nav__link">
+        Python从进阶到高级—通俗易懂版
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1、简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2、安装
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3、创建项目
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4、开始写爬虫
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5、逻辑讲解
+  </a>
+  
+    <nav class="md-nav" aria-label="5、逻辑讲解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    5.1、生成爬虫模板
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    5.2、爬虫编写方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    5.3、获取数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54" class="md-nav__link">
+    5.4、处理数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55" class="md-nav__link">
+    5.5、从下层页面解析数据
+  </a>
+  
+    <nav class="md-nav" aria-label="5.5、从下层页面解析数据">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#551" class="md-nav__link">
+    5.5.1、回调逻辑
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#552" class="md-nav__link">
+    5.5.2、下层页面解析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#553" class="md-nav__link">
+    5.5.3、多层数据传递问题
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#554" class="md-nav__link">
+    5.5.4、多页面爬取
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#555" class="md-nav__link">
+    5.5.5、完整的示例
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6、调试
+  </a>
+  
+    <nav class="md-nav" aria-label="6、调试">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    6.1、数据获取调试
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62pycharm-debug" class="md-nav__link">
+    6.2、Pycharm Debug
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    7、结束语
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="scrapy">Scrapy</h1>
+<pre><code class="language-shell"># =============================
+# Author : mikigo
+# Time   : 2023/3/17
+# =============================
+</code></pre>
+<h2 id="1">1、简介</h2>
+<p>Scrapy 是现阶段 Python 社区最流行的爬虫框架，它能够极大的简化爬虫的编写难度，简化代码。</p>
+<p>当然它不是 Python 社区唯一的爬虫框架，但我认为是现阶段最好用的爬虫框架。</p>
+<p>经常用同学问，为啥要用 Scrapy，我用 requests 不可以吗？</p>
+<p>我觉得这样解释：</p>
+<ul>
+<li>不是一个类型</li>
+</ul>
+<p>requests 最多算是爬虫工具，不同的人写出来的爬虫代码都不同，重复代码还多，而且对于一些高级的应用场景，如：多线程处理、异步处理、持久化等，估计没几个人能处理的很完美，最后爬下来的数据还要找一堆工具来解析处理，比如：re、BeautifulSoup、lxml等，属实让人挠头；</p>
+<p>而爬虫框架通常提供了简单的配置，使用很少的代码就能实现复杂的功能，代码量少了，而且底层也为你处理了很对问题，框架在解析数据也有自带的方案，所以你只需要按照框架所定义好的规范，就可以轻松完成各种任务；</p>
+<ul>
+<li>不是一个圈子</li>
+</ul>
+<p>Scrapy 主要用于数据爬取，所以说它是爬虫框架，你说用它来做一些 POST 请求发个数据啥的，咱们貌似没这么用过；</p>
+<p>而 requests 只要是网络接口请求都能用，爬数据也可以，但你要说爬数据有多强呢，就要看使用的人有多强了；</p>
+<p>总结：</p>
+<ul>
+<li>新手、老司机做小任务，用哪个都无所谓，用框架的话会轻松很多；</li>
+<li>新手做大任务，用框架，不要想，省时省力；</li>
+<li>老司机做大任务，用工具可以做，就是有点麻烦；用框架也能搞，但是不能秀出你的实力；</li>
+</ul>
+<h2 id="2">2、安装</h2>
+<p>系统环境：deepin</p>
+<p>
+<div class="termy" data-termynal>
+<span data-ty>pip3 install Scrapy</span>
+<span data-ty="progress"></span>
+<span data-ty></span>
+</div></p>
+<h2 id="3">3、创建项目</h2>
+<p>咱们就爬取 deepin 论坛的贴子，找找感觉；</p>
+<p>创建一个爬虫项目名为：deepin_bbs_spider</p>
+<p>
+<div class="termy" data-termynal>
+<span data-ty>cd ~</span>
+<span data-ty>scrapy startproject deepin_bbs_spider</span>
+<span data-ty></span>
+</div></p>
+<p>工程目录结构：</p>
+<p>
+<div class="termy" data-termynal>
+<span data-ty>deepin_bbs_spider</span>
+<span data-ty>├── deepin_bbs_spider</span>
+<span data-ty>│   ├── <strong>init</strong>.py</span>
+<span data-ty>│   ├── items.py  # 数据类型定义</span>
+<span data-ty>│   ├── middlewares.py  # 中间件</span>
+<span data-ty>│   ├── pipelines.py  # 数据管道</span>
+<span data-ty>│   ├── settings.py  # 配置项</span>
+<span data-ty>│   └── spiders  # 放爬虫脚本的目录</span>
+<span data-ty>│       └── <strong>init</strong>.py</span>
+<span data-ty>└── scrapy.cfg  # 部署配置文件</span>
+<span data-ty></span>
+</div></p>
+<h2 id="4">4、开始写爬虫</h2>
+<p>在 <code>~/deepin_bbs_spider/deepin_bbs_spider/spiders</code> 目录下写我们的爬虫脚本文件，创建一个爬虫，目标是爬取论坛里面帖子内容：</p>
+<pre><code class="language-python"># bbs_spider.py
+
+import scrapy
+
+class BbsSpiderSpider(scrapy.Spider):
+    name = &quot;bbs_spider&quot;
+    allowed_domains = [&quot;bbs.deepin.org&quot;]
+    start_urls = [&quot;https://bbs.deepin.org/?offset=0&amp;limit=20&amp;order=updated_at&amp;where=&amp;languages=zh_CN#comment_title&quot;]
+
+    def parse(self, response):
+        post_items = response.css(&quot;app-main-pc &gt; div &gt; div:nth-child(3) &gt; app-post-pc&quot;)
+        for post_item in post_items:
+            url = post_item.css(&quot;a.post_lin_pc::attr(href)&quot;).get()
+            title = post_item.css(&quot;span.ng-star-inserted::text&quot;).getall()
+            print(&quot;url:&quot;, url)
+            print(&quot;title&quot;, title)
+</code></pre>
+<p>啥也不说，先跑起来试试：</p>
+<p>
+<div class="termy" data-termynal>
+<span data-ty>cd ~/deepin_bbs_spider</span>
+<span data-ty>scrapy crawl bbs_spider</span>
+<span data-ty></span>
+</div></p>
+<p>跑完之后，终端就会有输出爬取到的帖子信息：</p>
+<p><img alt="" src="../../img/spider/bbs_show.png" /></p>
+<p>你先别管其他的，至少咱们能爬到数据了，接下来咱们慢慢介绍上面这些代码是怎么来的~；</p>
+<h2 id="5">5、逻辑讲解</h2>
+<h3 id="51">5.1、生成爬虫模板</h3>
+<p>看了上面的示例，有同学肯定要问，你咋知道要写个类呢，你咋知道要写个 <code>parse</code> 函数呢？</p>
+<p>我确实不知道，<code>scrapy</code> 也知道咱们不知道，所以做了个工具自动生成：</p>
+<p>
+<div class="termy" data-termynal>
+<span data-ty>scrapy genspider &lt;spider name&gt; &lt;spider url&gt;</span>
+<span data-ty></span>
+</div></p>
+<p>用子命令 <code>genspider</code>，后面加爬虫的名称（spider name），再加要爬取地址（url），就可以在 <code>spiders</code> 目录下自动生成一个 <code>py</code> 文件；</p>
+<p>比如，咱们像这样：</p>
+<p>
+<div class="termy" data-termynal>
+<span data-ty>scrapy genspider bbs_spider &quot;https://bbs.deepin.org&quot;</span>
+<span data-ty></span>
+</div></p>
+<p>执行之后就会自动生成 <code>py</code> 文件：</p>
+<pre><code class="language-python">import scrapy
+
+class BbsSpiderSpider(scrapy.Spider):
+    name = &quot;bbs_spider&quot;
+    allowed_domains = [&quot;bbs.deepin.org&quot;]
+    start_urls = [&quot;https://bbs.deepin.org&quot;]
+
+    def parse(self, response):
+        pass
+</code></pre>
+<p>简单讲解一下：</p>
+<ul>
+<li>爬虫类是要继承 <code>scrapy.Spider</code> 的，这个不要去动，知道继承就对了；</li>
+<li>类变量 <code>name</code> 是爬虫的名称，这玩意儿就是个代号，你想改成王大锤都行，一般赖得去管；</li>
+<li>类变量 <code>allowed_domains</code> 爬虫域名；</li>
+<li>类变量 <code>start_urls</code> 爬虫目标地址，可以给多个；</li>
+<li>实例方法 <code>parse(self, response)</code> 也是固定写法，函数名称最好不动，参数名称不能改，因为是 scrapy 返回的一个 Selector 对象；</li>
+</ul>
+<p>这里面核心逻辑就是在 <code>parse</code> 函数里面去写，你可以理解成 <code>response</code> 就是返回的页面信息，你只需要在这里面去提取想要的数据就好了；</p>
+<p><code>response</code> 提供一些方法，能够很方便的进行页面信息提取；</p>
+<h3 id="52">5.2、爬虫编写方法</h3>
+<p>前面说到爬虫脚本里面 <code>response</code>，它是我们编写代码的核心，所有的数据提取都从这里来；</p>
+<p>下面我们讲讲数据的提取方法，这里多嘴一句，我默认大家都是有一点前端基础的，不然下面部分内容可能需要去学习下 html、css相关知识；</p>
+<p>首先来讲 css 提取方法，css 的解析是非常灵活的，先用 F12 看下 html 源码：</p>
+<p><img alt="" src="../../img/spider/html.png" /></p>
+<p>可以看到所有的帖子都在 <code>app-post-pc</code> 标签下面，咱们可以这样写：</p>
+<pre><code class="language-python">def parse(self, response):
+    post_items = response.css(&quot;app-post-pc&quot;)
+</code></pre>
+<p>如果你是使用右键复制的选择器，可能是一个很长的表达式，不太优雅也不利于维护，我个人不太建议使用直接复制表达式，而应该通过观察自己写；</p>
+<p>这样的话，<code>post_items</code> 就获取到了所有帖子的 <code>app-post-pc</code> 标签，再看下 <code>app-post-pc</code> 标签下都有啥：</p>
+<p><img alt="" src="../../img/spider/a_tag.png" /></p>
+<p>可以看到在 <code>app-post-pc</code> 标签下还有 a 标签，保存了帖子的详情地址(<code>post_url</code>)，然后在 a 标签下的 span 标签保存了帖子的类型和标题(<code>title</code>)，因此咱们想办法把这两个拿到：</p>
+<pre><code class="language-python">def parse(self, response):
+    post_items = response.css(&quot;app-post-pc&quot;)
+    for post_item in post_items:
+        url = post_item.css(&quot;a.post_lin_pc::attr(href)&quot;).get()
+        title = post_item.css(&quot;span.ng-star-inserted::text&quot;).getall()
+        print(&quot;url:&quot;, url)
+        print(&quot;title&quot;, title)
+</code></pre>
+<p>先用 for 循环把 <code>post_items</code> 里面每个 <code>Selector</code> 对象里面的 <code>url</code> 和 <code>title</code> 拿到；</p>
+<p><code>post_item</code> 就是单个的 <code>Selector</code> 对象，我们在它的基础上再通过 css 方法获取到我们想要的数据；（也可以使用 Xpath 技术获取）</p>
+<ul>
+<li><code>url</code> 是在 a 标签里面的 href 属性里面，因此：</li>
+</ul>
+<pre><code class="language-python">post_item.css(&quot;a.post_lin_pc::attr(href)&quot;).get()
+</code></pre>
+<p>表达式里面的 <code>::attr(href)</code> 这部分是 Scrapy 特有的，<code>::</code> 表示取值，<code>attr(href)</code> 表示通过 <code>href</code> 属性取值；</p>
+<p><code>get()</code> 方法表示取第一个值，<code>getall()</code> 方法表示取所有的值；（也兼容老版本的 <code>extract_first()</code> 和 <code>extract()</code> 方法，意思是对应一样的，不过明显<code>get()</code> 这种可读性更好更易于理解。）</p>
+<ul>
+<li><code>title</code> 在 span 标签里面：</li>
+</ul>
+<pre><code class="language-python">post_item.css(&quot;span.ng-star-inserted::text&quot;).getall()
+</code></pre>
+<p><code>text</code> 也是 Scrapy 特有的，表示把标签的文本取出来；</p>
+<p>非常好理解对吧，只要你稍微有点前端知识，就能够轻松把表达式写出来；</p>
+<h3 id="53">5.3、获取数据</h3>
+<p>前面例子是将获取到的数据打印出来，实际业务里面我们肯定是需要将数据保存下来的；</p>
+<p>首先我们在 <code>items.py</code> 里面定义数据类型：</p>
+<pre><code class="language-python"># items.py
+
+import scrapy
+
+class DeepinBbsSpiderItem(scrapy.Item):
+    # define the fields for your item here like:
+    url = scrapy.Field()
+    title = scrapy.Field()
+</code></pre>
+<p>写法非常简单，统一使用 <code>scrapy.Field()</code> 来定义就行了；</p>
+<p>然后，回到爬虫脚本里面：</p>
+<pre><code class="language-python">import scrapy
+from deepin_bbs_spider.items import DeepinBbsSpiderItem
+
+class BbsSpiderSpider(scrapy.Spider):
+    ... # 省略部分代码
+
+    def parse(self, response):
+        item = DeepinBbsSpiderItem()
+        post_items = response.css(&quot;app-post-pc&quot;)
+        for post_item in post_items:
+            item[&quot;url&quot;] = post_item.css(&quot;a.post_lin_pc::attr(href)&quot;).get()
+            item[&quot;title&quot;] = post_item.css(&quot;span.ng-star-inserted::text&quot;).getall()
+            yield item
+</code></pre>
+<p>将 <code>items.py</code> 里面的 <code>DeepinBbsSpiderItem</code> 导进来，实例化一个对象，然后将获取到的数据复制给这个对象，使用 <code>item["url"]</code> 这种给字典添加的方式，注意要和 <code>items.py</code> 里面定义的字段名称保持一致；</p>
+<p>最后，使用 <code>yield</code> 将数据返回出来就行了；</p>
+<p>将数据写入到 csv 文件里面：</p>
+<p>
+<div class="termy" data-termynal>
+<span data-ty>scrapy crawl bbs_spider -o bbs.csv</span>
+<span data-ty></span>
+</div></p>
+<p><code>-o</code> 表示导出数据，执行后，查看 bbs.csv 文件：</p>
+<p><img alt="" src="../../img/spider/csv.png" /></p>
+<p>这样就将爬取到的数据保存到了一个 csv 文件；</p>
+<h3 id="54">5.4、处理数据</h3>
+<p>在爬虫脚本里面获取到原始数据之后，我们还有可能会拿数据做进一步处理，比如还想写入数据库、写入 Excel等等；</p>
+<p>这些进一步的操作，我们通常是在数据管道 <code>pipelines.py</code> 里面来处理：</p>
+<pre><code class="language-python">class DeepinBbsSpiderPipeline:
+    def process_item(self, item, spider):
+        return item
+</code></pre>
+<p>这里的 <code>item</code> 就是每一条数据；</p>
+<p>比如，你想写入 <code>MySQL</code>数据库（首先要确保数据库表、字段等正常）：</p>
+<pre><code class="language-python">import pymysql
+
+class DeepinBbsSpiderPipeline:
+
+    def __init__(self):
+        # 在构造函数里面创建数据库连接和游标
+
+    def open_spider(self, spider):
+        # open_spider 是这个管道开始时要执行的；这里可以不要
+
+    def close_spider(self, spider):
+        # close_spider 写入关闭数据库的代码
+
+    def process_item(self, item, spider):
+        # 在这里做写入数据库的动作
+        return item 
+</code></pre>
+<p>在上面注释里面写了写入数据库的编写逻辑，由于我们主要想讲解数据管道的操作逻辑，数据库的代码数据基本操作，就不做详细代码示例了，往上搜 <code>pymysql</code> 的使用很多，按照注释的逻辑，对号入座就行了；</p>
+<p>如果想写入 Excel 表格逻辑是一样的，也可以表格和数据库同时写入，在 <code>pipelines.py</code> 里面再定义一个管道类就行了；</p>
+<p>注意，数据管道逻辑写完之后，要在 <code>settings.py</code> 里面修改配置：</p>
+<pre><code class="language-python">ITEM_PIPELINES = {
+    &quot;deepin_bbs_spider.pipelines.DeepinBbsSpiderPipeline&quot;: 300,
+    # &quot;deepin_bbs_spider.pipelines.XxxxPipeline&quot;: 2,
+}
+</code></pre>
+<p><code>ITEM_PIPELINES</code> 是一个字典，key 是数据管道，value 是一个数字；</p>
+<p>value 主要用于多个管道排序的，因为在 <code>pipelines.py</code> 里面可以定义多个数据管道类，它们执行的先后顺序由 value 来控制，数字越小越先执行；</p>
+<p>如果你就一个数据管道类，这个 value 给多少都无所谓；</p>
+<p>另外提醒，在 <code>process_item()</code> 最后一定要 <code>return item</code>，不然存在多个数据管道的时候，后执行的数据管道就拿不到数据了；</p>
+<p>好，配置完之后，就可以再次执行了；</p>
+<h3 id="55">5.5、从下层页面解析数据</h3>
+<p>这部分内容相对来讲是难点，搞懂了这部分，就几乎能处理对大部分数据爬取了；</p>
+<p>来，开始燥起来~~</p>
+<p>前面我们获取到了帖子的 <code>url</code> 和 <code>title</code>，有同学可能要问了，这个帖子的正文内容哪里；</p>
+<p>正文内容在帖子的 <code>url</code> 里面，如果我们要同时获取帖子的正文内容，就需要做以下处理；</p>
+<p><img alt="" src="../../img/spider/detail.png" /></p>
+<h4 id="551">5.5.1、回调逻辑</h4>
+<p>首先，前面获取的 <code>url</code> 不是一个完整的链接，咱们需要稍微处理以下：</p>
+<pre><code class="language-python">class BbsSpiderSpider(scrapy.Spider):
+
+    base_url = &quot;https://bbs.deepin.org&quot;
+
+    def parse(self, response):
+        item = DeepinBbsSpiderItem()
+        post_items = response.css(&quot;app-post-pc&quot;)
+        for post_item in post_items:
+            item[&quot;url&quot;] = post_item.css(&quot;a.post_lin_pc::attr(href)&quot;).get().replace(&quot;/en&quot;, self.base_url)
+    # 省略部分代码
+</code></pre>
+<p>我们前面获取的 <code>url</code> 是这样的: <code>/en/post/254787</code> ，因此做一个替换处理；</p>
+<p>然后，咱们拿着这个 <code>url</code> 继续做请求：</p>
+<pre><code class="language-python">class BbsSpiderSpider(scrapy.Spider):
+
+    base_url = &quot;https://bbs.deepin.org&quot;
+
+    def parse(self, response):
+        item = DeepinBbsSpiderItem()
+        post_items = response.css(&quot;app-post-pc&quot;)
+        for post_item in post_items:
+            item[&quot;url&quot;] = post_item.css(&quot;a.post_lin_pc::attr(href)&quot;).get().replace(&quot;/en&quot;, self.base_url)
+            yield scrapy.Request(
+                url=item[&quot;url&quot;], 
+                callback=self.post_parse, 
+                cb_kwargs={&quot;item&quot;: item}
+            )
+
+    def post_parse(self, response, **kwargs):
+        item = kwargs.get(&quot;item&quot;)
+</code></pre>
+<p>这里需要用 <code>yield</code> 返回并构造 scrapy.Request 对象，传入三个参数：</p>
+<ul>
+<li>
+<p>url 就是下层页面的地址；</p>
+</li>
+<li>
+<p>callback 传入回调函数对象，因为 <code>parse()</code> 这个函数是处理当前页面的逻辑，下层页面就不能在这个函数里面继续处理了，而是要新写一个函数来处理；</p>
+</li>
+</ul>
+<p>写法和 <code>parse()</code> 类似，函数名可以自己定， 参数仍然是 response 对象；</p>
+<p>注意，参数传入是 <code>callback=self.post_parse</code>，后面没有加括号哈，因为我们不是在这里调用函数，是传入函数对象，也就是只要函数名；</p>
+<ul>
+<li>cb_kwargs 是为了给 <code>post_parse()</code> 函数传递 item 参数，是一个字典类型，这样在 <code>post_parse(self, response, **kwargs)</code> 里面的 <code>kwargs</code> 就能拿到 item 的值，咱们后续拿到正文之后，继续组装到 item 里面就行了；</li>
+</ul>
+<h4 id="552">5.5.2、下层页面解析</h4>
+<p>下层页面的解析，逻辑和前面一样，先看下 html 源码：</p>
+<p><img alt="" src="../../img/spider/post_info.png" /></p>
+<p>获取正文：</p>
+<pre><code class="language-python">    def post_parse(self, response, **kwargs):
+        item = kwargs.get(&quot;item&quot;)
+        post_info = response.css(&quot;div.post_conten &gt; div.post_edit.ng-star-inserted &gt; div &gt; div &gt; p::text&quot;).getall()
+</code></pre>
+<p><code>post_info</code> 获取的结果为：</p>
+<p>
+<div class="termy" data-termynal>
+<span data-ty>['1、系统盘分配了40g,这才一个月就快满了，怎么调大点，后面还有100G空间。', '2、应用商店啥时候放出conky？']</span>
+<span data-ty></span>
+</div></p>
+<p>做一个字符串组装：</p>
+<pre><code class="language-python">post_info = &quot;&quot;.join(response.css(&quot;div.post_conten &gt; div.post_edit.ng-star-inserted &gt; div &gt; div &gt; p::text&quot;).getall())
+</code></pre>
+<p>这样的话，我们就获取到了正文的数据，添加到 item 对象中：</p>
+<pre><code class="language-python">def post_parse(self, response, **kwargs):
+    item = kwargs.get(&quot;item&quot;)
+    post_info = &quot;&quot;.join(response.css(&quot;div.post_conten &gt; div.post_edit.ng-star-inserted &gt; div &gt; div &gt; p::text&quot;).getall())
+    item[&quot;post_info&quot;] = post_info
+    yield item
+</code></pre>
+<p>注意，在 <code>items.py</code> 中把新的字段也添加上：</p>
+<pre><code class="language-python"># items.py
+
+class DeepinBbsSpiderItem(scrapy.Item):
+    ...
+    post_info = scrapy.Field()
+</code></pre>
+<p>最后，跑一下爬虫；</p>
+<h4 id="553">5.5.3、多层数据传递问题</h4>
+<p>到目前位置，完整的爬虫脚本：</p>
+<pre><code class="language-python">import scrapy
+from deepin_bbs_spider.items import DeepinBbsSpiderItem
+
+class BbsSpiderSpider(scrapy.Spider):
+    name = &quot;bbs_spider&quot;
+    allowed_domains = [&quot;bbs.deepin.org&quot;]
+    start_urls = [&quot;https://bbs.deepin.org/?offset=0&amp;limit=20&amp;order=updated_at&amp;where=&amp;languages=zh_CN#comment_title&quot;]
+    base_url = &quot;https://bbs.deepin.org&quot;
+
+    def parse(self, response):
+        item = DeepinBbsSpiderItem()
+        post_items = response.css(&quot;app-main-pc &gt; div &gt; div:nth-child(3) &gt; app-post-pc&quot;)
+        for post_item in post_items:
+            item[&quot;url&quot;] = post_item.css(&quot;a.post_lin_pc::attr(href)&quot;).get().replace(&quot;/en&quot;, self.base_url)
+            item[&quot;title&quot;] = &quot;&quot;.join(post_item.css(&quot;span.ng-star-inserted::text&quot;).getall()[:2])
+            yield scrapy.Request(
+                url=item[&quot;url&quot;],
+                callback=self.post_parse,
+                cb_kwargs={&quot;item&quot;: item}
+            )
+
+    def post_parse(self, response, **kwargs):
+        item = kwargs.get(&quot;item&quot;)
+        post_info = &quot;&quot;.join(response.css(&quot;div.post_conten &gt; div.post_edit.ng-star-inserted &gt; div &gt; div &gt; p::text&quot;).getall())
+        item[&quot;post_info&quot;] = post_info
+        yield item
+</code></pre>
+<p>使用命令跑一下爬虫：</p>
+<p>
+<div class="termy" data-termynal>
+<span data-ty>scrapy crawl bbs_spider -o bbs.csv</span>
+<span data-ty></span>
+</div></p>
+<p>你会惊奇的发现，怎么所有的 title 和 url 数据相同，开始怀疑自己逻辑是不是写错了；</p>
+<p>其实，我们代码逻辑是没问题的，只不过在多层数据传递的过程中，需要特殊处理下，处理方法很简单：</p>
+<ul>
+<li>导入<code>from copy import deepcopy</code>模块，将<code>cb_kwargs={'item': item}</code> 更改为 <code>cb_kwargs={'item': deepcopy(item)</code>；</li>
+<li>最后一行代码<code>yield item</code> 修改成 <code>yield deepcopy(item)</code>就完全 <code>ok</code> 了；</li>
+</ul>
+<p>改完之后再跑一下，简直完美。</p>
+<h4 id="554">5.5.4、多页面爬取</h4>
+<p>到现在我们怕去了第一页的数据，那还想爬取后面的页怎么办？</p>
+<p>有同学说，好办，<code>start_urls</code> 不是一个列表吗，把多个 url 放进去不就完了；</p>
+<p>不得不说，这样是可以的，就是不够优雅。</p>
+<p>通过仔细观察，我们可以发现一些规律：</p>
+<p><img alt="" src="../../img/spider/urls.png" /></p>
+<p>在地址中只有 <code>offset</code> 参数在变化，第一页是 0，第二页是 1，非常有规律，因此咱们可以动态生成：</p>
+<pre><code class="language-python">class BbsSpiderSpider(scrapy.Spider):
+    # start_urls = [&quot;https://bbs.deepin.org/?offset=0&amp;limit=20&amp;order=updated_at&amp;where=&amp;languages=zh_CN#comment_title&quot;]
+
+    def start_requests(self):
+        for i in range(5):
+            yield scrapy.Request(url=f&quot;https://bbs.deepin.org/?offset={i}&amp;limit=20&amp;order=updated_at&amp;where=&amp;languages=zh_CN#comment_title&quot;)
+</code></pre>
+<p>使用 <code>start_requests()</code> 函数替代 <code>start_urls</code>；</p>
+<p>在里面写个 for 循环，要爬取多少页填入 <code>range</code> 函数就行了，动态生成多个 <code>scrapy.Request</code> 对象，注意要用 yield 哦~~</p>
+<h4 id="555">5.5.5、完整的示例</h4>
+<p>爬虫脚本 <code>bbs_spider.py</code>：</p>
+<pre><code class="language-python">from copy import deepcopy
+
+import scrapy
+
+from deepin_bbs_spider.items import DeepinBbsSpiderItem
+
+
+class BbsSpiderSpider(scrapy.Spider):
+    name = &quot;bbs_spider&quot;
+    allowed_domains = [&quot;bbs.deepin.org&quot;]
+    base_url = &quot;https://bbs.deepin.org&quot;
+
+    def start_requests(self):
+        for i in range(5):
+            yield scrapy.Request(url=f&quot;https://bbs.deepin.org/?offset={i}&amp;limit=20&amp;order=updated_at&amp;where=&amp;languages=zh_CN#comment_title&quot;)
+
+    def parse(self, response):
+        item = DeepinBbsSpiderItem()
+        post_items = response.css(&quot;app-main-pc &gt; div &gt; div:nth-child(3) &gt; app-post-pc&quot;)
+        for post_item in post_items:
+            item[&quot;url&quot;] = post_item.css(&quot;a.post_lin_pc::attr(href)&quot;).get().replace(&quot;/en&quot;, self.base_url)
+            item[&quot;title&quot;] = &quot;&quot;.join(post_item.css(&quot;span.ng-star-inserted::text&quot;).getall()[:2])
+            yield scrapy.Request(
+                url=item[&quot;url&quot;],
+                callback=self.post_parse,
+                cb_kwargs={&quot;item&quot;: deepcopy(item)}
+            )
+
+    def post_parse(self, response, **kwargs):
+        item = kwargs[&quot;item&quot;]
+        post_info = &quot;&quot;.join(
+            response.css(&quot;div.post_conten &gt; div.post_edit.ng-star-inserted &gt; div &gt; div &gt; p::text&quot;).getall()
+        )
+        item[&quot;post_info&quot;] = post_info
+        yield deepcopy(item)
+</code></pre>
+<p>数据类型 <code>items.py</code>：</p>
+<pre><code class="language-python">import scrapy
+
+class DeepinBbsSpiderItem(scrapy.Item):
+    # define the fields for your item here like:
+    # name = scrapy.Field()
+    url = scrapy.Field()
+    title = scrapy.Field()
+    post_info = scrapy.Field()
+</code></pre>
+<p>配置 <code>settings.py</code>：（省略了没有启用的配置项）</p>
+<pre><code class="language-python">BOT_NAME = &quot;deepin_bbs_spider&quot;
+
+SPIDER_MODULES = [&quot;deepin_bbs_spider.spiders&quot;]
+NEWSPIDER_MODULE = &quot;deepin_bbs_spider.spiders&quot;
+
+
+# Crawl responsibly by identifying yourself (and your website) on the user-agent
+USER_AGENT = &quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36&quot;
+
+# Obey robots.txt rules
+ROBOTSTXT_OBEY = True
+
+
+# Override the default request headers:
+DEFAULT_REQUEST_HEADERS = {
+   &quot;Accept&quot;: &quot;text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&quot;,
+   &quot;Accept-Language&quot;: &quot;en&quot;,
+}
+
+# Set settings whose default value is deprecated to a future-proof value
+REQUEST_FINGERPRINTER_IMPLEMENTATION = &quot;2.7&quot;
+TWISTED_REACTOR = &quot;twisted.internet.asyncioreactor.AsyncioSelectorReactor&quot;
+FEED_EXPORT_ENCODING = &quot;utf-8&quot;
+</code></pre>
+<p>如果你自己玩起来有点小问题，可以尝试参考我的代码：https://github.com/mikigo/deepin_bbs_spider</p>
+<h2 id="6">6、调试</h2>
+<h3 id="61">6.1、数据获取调试</h3>
+<p>在使用 <code>response.css()</code> 表达式时，通常我们需要进行调试，看表达式写得对不对，当然你可以通过执行爬虫然后打印数据，但是这种方式有点麻烦；</p>
+<p>Scrapy 提供了一个快捷的调试方法，在终端输入：</p>
+<p>
+<div class="termy" data-termynal>
+<span data-ty>scrapy shell &lt;scrapy url&gt;</span>
+<span data-ty></span>
+</div></p>
+<p><code>&lt;scrapy url&gt;</code> 是你要爬取的地址，比如前面我们想获取帖子正文的内容，可以这样调试：</p>
+<p>
+<div class="termy" data-termynal>
+<span data-ty>scrapy shell https://bbs.deepin.org/post/254892</span>
+<span data-ty></span>
+</div></p>
+<p>进入终端交互式，输入：</p>
+<p>
+<div class="termy" data-termynal>
+<span data-ty>&gt;&gt;&gt; response.css(&quot;div.post_conten &gt; div.post_edit.ng-star-inserted &gt; div &gt; div &gt; p::text&quot;).getall()</span>
+<span data-ty>['1、系统盘分配了40g,这才一个月就快满了，怎么调大点，后面还有100G空间。', '2、应用商店啥时候放出conky？']</span>
+<span data-ty></span>
+</div></p>
+<p>可以看到返回的结果，如果返回为空，就说明表达式可能有点问题；</p>
+<h3 id="62pycharm-debug">6.2、Pycharm Debug</h3>
+<p>Scrapy 由于封装得比较好，启动爬虫是通过命令行启动，但是这有个问题，就是不支持在编辑器里面 Debug 运行，导致你调试代码过程中可能会不停的在终端启动爬虫，有点费劲；</p>
+<p>经过一番折腾，终于道破了天机~</p>
+<p>（1）先在工程下随便找一个 <code>py</code> 文件，里面啥也不写，执行一下，然后点这里：</p>
+<p><img alt="" src="../../img/spider/go_config.png" /></p>
+<p>（2）在系统中找到 scrapy 包中的 cmdline.py 文件，这个你得稍微知道点 Python 包管理的一些知识，比如我的在这里：</p>
+<p>
+<div class="termy" data-termynal>
+<span data-ty>/home/mikigo/.local/lib/python3.7/site-packages/scrapy/cmdline.py</span>
+<span data-ty></span>
+</div></p>
+<p>（4）在 <code>Name</code> 里面写个你喜欢的名字，比如我写：Scrapy</p>
+<p>（4）在 <code>Script path</code> 里面把 <code>cmdline.py</code> 的路径填进去；</p>
+<p>（5）在 <code>Parameters</code> 里面填入 Scrapy 的参数：<code>crawl bbs_spider -o bbs.csv</code>；</p>
+<p><img alt="" src="../../img/spider/args_config.png" /></p>
+<p>（6）点击右下角的 【ok】，在主界面点【Debug】就可以进行调试了，妙啊~~</p>
+<p><img alt="" src="../../img/spider/debug.png" /></p>
+<h2 id="7">7、结束语</h2>
+<p>到这里 Scrapy 的基础入门就结束了，一般的小网站可以轻松快速的搞定，简直 yyds~~</p>
+<p>从完整示例我们不难看出，爬虫脚本简单的 30 来行代码加上简单的配置，就可以爬取大量的数据，而且速度非常快，对比你用 requests 去裸写看看，你会发现差距不是一般的大；</p>
+<p>对于其他的一些细节还可以完善，比如：代理、异步、中间件、与其他自动化工具扩展（Selenium），后续精力再补充~~</p>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Powder By Mikigo
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      
+        <script src="../../termynal.js"></script>
+      
+    
+  </body>
+</html>

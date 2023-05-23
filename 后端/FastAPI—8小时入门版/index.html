@@ -1,0 +1,2333 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../%E7%88%AC%E8%99%AB/Scrapy/">
+      
+      
+        <link rel="next" href="../../%E8%A7%86%E8%A7%89/OpenCV%28Python%29%E5%9F%BA%E7%A1%80%E2%80%949%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/">
+      
+      <link rel="icon" href="../../img/logo.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
+    
+    
+      
+        <title>FastAPI—8小时入门版 - YouQu Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.85bb2934.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a6bdf11c.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../termynal.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fastapi8" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="YouQu Blog" class="md-header__button md-logo" aria-label="YouQu Blog" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            YouQu Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              FastAPI—8小时入门版
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/mikigo/funny-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    mikigo/funny-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="YouQu Blog" class="md-nav__button md-logo" aria-label="YouQu Blog" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    YouQu Blog
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/mikigo/funny-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    mikigo/funny-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        首页
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          自动化
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          自动化
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%87%AA%E5%8A%A8%E5%8C%96/Pytest%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E8%B5%B7%E9%A3%9E/" class="md-nav__link">
+        Pytest 从入门到起飞
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%87%AA%E5%8A%A8%E5%8C%96/Playwright%E2%80%948%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        Playwright—8小时入门版
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          爬虫
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          爬虫
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%88%AC%E8%99%AB/Requests/" class="md-nav__link">
+        Requests
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%88%AC%E8%99%AB/Httpx/" class="md-nav__link">
+        Httpx
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%88%AC%E8%99%AB/Scrapy/" class="md-nav__link">
+        Scrapy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          后端
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          后端
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          FastAPI—8小时入门版
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        FastAPI—8小时入门版
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    一、简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    二、安装
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    三、简单的例子
+  </a>
+  
+    <nav class="md-nav" aria-label="三、简单的例子">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#openapi" class="md-nav__link">
+    OpenAPI 文档
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pydantic" class="md-nav__link">
+    四、Pydantic
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    五、参数
+  </a>
+  
+    <nav class="md-nav" aria-label="五、参数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1、路径参数
+  </a>
+  
+    <nav class="md-nav" aria-label="1、路径参数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1 普通路径参数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2 有类型的路径参数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2、查询参数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3、请求体
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4、内建参数类型
+  </a>
+  
+    <nav class="md-nav" aria-label="4、内建参数类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41query" class="md-nav__link">
+    4.1、Query
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42path" class="md-nav__link">
+    4.2、Path
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43body" class="md-nav__link">
+    4.3、Body
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44field" class="md-nav__link">
+    4.4、Field
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45cookie" class="md-nav__link">
+    4.5、Cookie
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46header" class="md-nav__link">
+    4.6、Header
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    六、响应
+  </a>
+  
+    <nav class="md-nav" aria-label="六、响应">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1、响应限制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    2、响应状态码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    3、返回错误信息
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    七、表单及文件
+  </a>
+  
+    <nav class="md-nav" aria-label="七、表单及文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1form" class="md-nav__link">
+    1、Form表单
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    2、上传文件
+  </a>
+  
+    <nav class="md-nav" aria-label="2、上传文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21file" class="md-nav__link">
+    2.1、File
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22uploadfile" class="md-nav__link">
+    2.2、UploadFile
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    八、依赖项
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    九、安全性
+  </a>
+  
+    <nav class="md-nav" aria-label="九、安全性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1oauth2" class="md-nav__link">
+    1、OAuth2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_3" class="md-nav__link">
+    2、获取当前用户
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    十、中间件
+  </a>
+  
+    <nav class="md-nav" aria-label="十、中间件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    1、创建中间件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2cors" class="md-nav__link">
+    2、跨域资源共享(CORS)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sql" class="md-nav__link">
+    十一、SQL数据库
+  </a>
+  
+    <nav class="md-nav" aria-label="十一、SQL数据库">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_3" class="md-nav__link">
+    1、创建数据库工程文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_4" class="md-nav__link">
+    2、安装
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3sqlalchemy" class="md-nav__link">
+    3、创建SQLAlchemy部件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    4、创建数据库模型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-pydantic" class="md-nav__link">
+    5、创建 Pydantic 模型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6crud" class="md-nav__link">
+    6、CRUD工具
+  </a>
+  
+    <nav class="md-nav" aria-label="6、CRUD工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    6.1、读取数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    6.2、创建数据
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    7、主程序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    8、执行项目
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          视觉
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          视觉
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%A7%86%E8%A7%89/OpenCV%28Python%29%E5%9F%BA%E7%A1%80%E2%80%949%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        OpenCV(Python)基础—9小时入门版
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/Python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E2%80%948%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        Python基础语法—8小时入门版
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/Python%E4%BB%8E%E8%BF%9B%E9%98%B6%E5%88%B0%E9%AB%98%E7%BA%A7%E2%80%94%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82%E7%89%88/" class="md-nav__link">
+        Python从进阶到高级—通俗易懂版
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    一、简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    二、安装
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    三、简单的例子
+  </a>
+  
+    <nav class="md-nav" aria-label="三、简单的例子">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#openapi" class="md-nav__link">
+    OpenAPI 文档
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pydantic" class="md-nav__link">
+    四、Pydantic
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    五、参数
+  </a>
+  
+    <nav class="md-nav" aria-label="五、参数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1、路径参数
+  </a>
+  
+    <nav class="md-nav" aria-label="1、路径参数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1 普通路径参数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2 有类型的路径参数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2、查询参数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3、请求体
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4、内建参数类型
+  </a>
+  
+    <nav class="md-nav" aria-label="4、内建参数类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41query" class="md-nav__link">
+    4.1、Query
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42path" class="md-nav__link">
+    4.2、Path
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43body" class="md-nav__link">
+    4.3、Body
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44field" class="md-nav__link">
+    4.4、Field
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45cookie" class="md-nav__link">
+    4.5、Cookie
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46header" class="md-nav__link">
+    4.6、Header
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    六、响应
+  </a>
+  
+    <nav class="md-nav" aria-label="六、响应">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1、响应限制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    2、响应状态码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    3、返回错误信息
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    七、表单及文件
+  </a>
+  
+    <nav class="md-nav" aria-label="七、表单及文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1form" class="md-nav__link">
+    1、Form表单
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    2、上传文件
+  </a>
+  
+    <nav class="md-nav" aria-label="2、上传文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21file" class="md-nav__link">
+    2.1、File
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22uploadfile" class="md-nav__link">
+    2.2、UploadFile
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    八、依赖项
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    九、安全性
+  </a>
+  
+    <nav class="md-nav" aria-label="九、安全性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1oauth2" class="md-nav__link">
+    1、OAuth2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_3" class="md-nav__link">
+    2、获取当前用户
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    十、中间件
+  </a>
+  
+    <nav class="md-nav" aria-label="十、中间件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    1、创建中间件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2cors" class="md-nav__link">
+    2、跨域资源共享(CORS)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sql" class="md-nav__link">
+    十一、SQL数据库
+  </a>
+  
+    <nav class="md-nav" aria-label="十一、SQL数据库">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_3" class="md-nav__link">
+    1、创建数据库工程文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_4" class="md-nav__link">
+    2、安装
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3sqlalchemy" class="md-nav__link">
+    3、创建SQLAlchemy部件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    4、创建数据库模型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-pydantic" class="md-nav__link">
+    5、创建 Pydantic 模型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6crud" class="md-nav__link">
+    6、CRUD工具
+  </a>
+  
+    <nav class="md-nav" aria-label="6、CRUD工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    6.1、读取数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    6.2、创建数据
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    7、主程序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    8、执行项目
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="fastapi8">FastAPI—8小时入门版</h1>
+<pre><code class="language-shell"># =============================
+# Author : mikigo
+# Time   : 2023/3/1
+# =============================
+</code></pre>
+<h2 id="_1">一、简介</h2>
+<p>FastAPI 是一个 Web 服务框架，其主要特点就是"快"。</p>
+<p>在 Python Web 服务领域比较知名的就是 Django、Flask，但其性能一直为大家所诟病，以至于很多大型项目会选择基于 Go 语言的 Web 服务框架，比如 beego。而 Django、Flask 较多应用于一些小型网站或者一些个人博客类网站。</p>
+<p>应该说，Python 在 Web 后端服务领域是失败的，而 FastAPI 的出现或许有可能为 Python 扳回一局。</p>
+<p>FastAPI 之所以能突破 Python 语言本身所带来的性能瓶颈，是因为其主要采用了异步的设计思路，无论是源码还是示例，都有大量协程的写法。</p>
+<p>协程，是 Python 唯一能突破线程 GIL（全局解释器锁）、突破进程 CPU 数量限制的高阶编码模式，它使得任务间的切换能够像调用函数一样轻松。协程也是 Python 里面最不好理解的内容之一。</p>
+<p>但是没关系，FastAPI 通过非常精良的设计让你不用真正弄懂协程就能轻松使用它。</p>
+<h2 id="_2">二、安装</h2>
+<p>系统环境: <code>deepin</code></p>
+<p>
+<div class="termy" data-termynal>
+<span data-ty="input">pip3 install fastapi</span>
+<span data-ty="progress"></span>
+<span data-ty></span>
+</div></p>
+<p>安装 ASGI 服务器，用于启动服务</p>
+<p>
+<div class="termy" data-termynal>
+<span data-ty="input">pip3 install &quot;uvicorn[standard]&quot;</span>
+<span data-ty="progress"></span>
+<span data-ty></span>
+</div></p>
+<h2 id="_3">三、简单的例子</h2>
+<p>定义一个接口，返回简单的 json 响应：</p>
+<pre><code class="language-python">from fastapi import FastAPI
+
+app = FastAPI()
+</code></pre>
+<p>这是固定写法，后面的内容就不重复写这两行了；</p>
+<pre><code class="language-python">@app.get(&quot;/&quot;)
+def hello():
+    return {&quot;msg&quot;: &quot;hello mikigo&quot;}
+</code></pre>
+<p>在终端通过命令启动服务：</p>
+<p>
+<div class="termy" data-termynal>
+<span data-ty>uvicorn main:app --reload</span>
+<span data-ty></span>
+</div></p>
+<p>在本机浏览器访问：http://127.0.0.1:8000/；</p>
+<p>我个人喜欢在 <code>py</code> 文件里面写启动：</p>
+<pre><code class="language-python">import os
+
+from fastapi import FastAPI
+import uvicorn
+
+app = FastAPI()
+
+@app.get(&quot;/&quot;)
+async def hello():
+    return {&quot;msg&quot;: &quot;hello mikigo&quot;}
+
+if __name__ == '__main__':
+    uvicorn.run(
+        app=&quot;main:app&quot;,
+        host=os.popen(&quot;hostname -I&quot;).read().split(&quot; &quot;)[0],  # 动态获取本机IP,如果不传默认为127.0.0.1
+        port=5000, # 指定一个测试用端口
+        reload=True
+    )
+</code></pre>
+<p>这样直接运行 <code>py</code> 脚本：</p>
+<p><img alt="demo" src="../../img/fastapi/demo.png" /></p>
+<h3 id="openapi">OpenAPI 文档</h3>
+<p>FastAPI 的一个特点就是自带接口文档，只需要在 url 后面加 <code>docs</code>：</p>
+<p><img alt="" src="../../img/fastapi/docs.png" /></p>
+<p>你如果不喜欢 Swagger 风格的文档，可以将 <code>docs</code> 改成 <code>redoc</code>，FastAPI 默认携带两种风格的接口文档。</p>
+<h2 id="pydantic">四、Pydantic</h2>
+<p>FastAPI 是借助 Pydantic 来进行类型声明的，主要有两个用途：</p>
+<ul>
+<li>对请求体和响应体的参数类型进行声明；</li>
+<li>在编辑器里面享受代码补全的乐趣；</li>
+</ul>
+<p>使用过 Python 的 typing 的同学应该知道【类型标注】，它可以校验参数及返回的类型，使得代码更加严禁，且更具有可读性。</p>
+<p>Pydantic 提供了更加强大的类型定义和更加友好的错误提示功能。即使不用 FastAPI，在其他编码中你也可以很有效的使用它。</p>
+<p>使用举例：</p>
+<pre><code class="language-python">from datetime import date
+from pydantic import BaseModel
+
+def main(user_id: str):
+    return user_id
+
+class User(BaseModel):
+    id: int
+    name: str
+    joined: date
+</code></pre>
+<p>传递参数进去：</p>
+<pre><code class="language-python">my_user: User = User(id=3, name=&quot;mikigo&quot;, joined=&quot;20230303&quot;)
+
+second_user_data = {
+    &quot;id&quot;: 4,
+    &quot;name&quot;: &quot;Mary&quot;,
+    &quot;joined&quot;: &quot;2018-11-30&quot;,
+}
+
+my_second_user: User = User(**second_user_data)
+</code></pre>
+<p><code>from pydantic import BaseModel</code> 里面的 <code>BaseModel</code> 记住，通常都是继承这个类来写我们的自定义类型；</p>
+<p>将 <code>Pydantic</code> 数据类型转换成 JSON：</p>
+<pre><code class="language-python">from fastapi.encoders import jsonable_encoder
+
+json_user = jsonable_encoder(my_user)
+</code></pre>
+<h2 id="_4">五、参数</h2>
+<p>FastAPI 是 RESTful 风格的框架，后面例子的接口请求我都使用 Postman 来做，这个只是个人习惯，你可以使用接口文档里面提供的【Try it out】接口调试功能，也可以使用 requests 这类的 HTTP 库进行接口请求，效果是一样的。</p>
+<h3 id="1">1、路径参数</h3>
+<h4 id="11">1.1 普通路径参数</h4>
+<p>声明路径参数：</p>
+<pre><code class="language-python">@app.get(&quot;/items/{item_id}&quot;)
+async def read_item(item_id):
+    return {&quot;item_id&quot;: item_id}
+</code></pre>
+<p>路径参数 <code>item_id</code> 可以传入到函数中，比如：http://10.8.13.224:5000/items/mikigo </p>
+<p>传递参数为：mikigo，响应如下：</p>
+<pre><code class="language-json">{&quot;item_id&quot;:&quot;mikigo&quot;}
+</code></pre>
+<h4 id="12">1.2 有类型的路径参数</h4>
+<p>声明路径参数：</p>
+<pre><code class="language-python">@app.get(&quot;/items/{item_id}&quot;)
+async def read_item(item_id: int):
+    return {&quot;item_id&quot;: item_id}
+</code></pre>
+<p>区别是给参数 <code>item_id</code> 指定了一个类型 <code>int</code>；</p>
+<p>如果还是传递参数为：mikigo，http://10.8.13.224:5000/items/mikigo 会报错：</p>
+<pre><code class="language-json">{
+    &quot;detail&quot;: [
+        {
+            &quot;loc&quot;: [
+                &quot;path&quot;,
+                &quot;item_id&quot;
+            ],
+            &quot;msg&quot;: &quot;value is not a valid integer&quot;,
+            &quot;type&quot;: &quot;type_error.integer&quot;
+        }
+    ]
+}
+</code></pre>
+<p>必须要给一个数字才行 http://10.8.13.224:5000/items/520 响应：</p>
+<pre><code class="language-json">{
+    &quot;item_id&quot;: 520
+}
+</code></pre>
+<p>这样就完成了路径参数的数据校验；</p>
+<h3 id="2">2、查询参数</h3>
+<p>不属于路径参数的其他函数参数，会被被自动解释为"查询字符串"参数。</p>
+<pre><code class="language-python">@app.get(&quot;/items/&quot;)
+async def read_item(name: str = &quot;&quot;):
+    return {&quot;name&quot; : name}
+</code></pre>
+<p>查询参数的键值在 URL 的 <code>？</code> 之后，并以 <code>&amp;</code> 符号分隔，就和我们理解的普通 GET 请求参数传递方式是一样的；</p>
+<pre><code class="language-url">http://10.8.13.224:5000/items/?name=mikigo
+</code></pre>
+<p>响应：</p>
+<pre><code class="language-json">{
+    &quot;name&quot;: &quot;mikigo&quot;
+}
+</code></pre>
+<p>注意我们在 <code>read_item(name: str = "")</code> 给了一个默认值，说明参数是可选的（不传参也可以），如果 直接用<code>read_item(name: str)</code> 说明参数是必传的，否则会报错。</p>
+<h3 id="3">3、请求体</h3>
+<p><strong>请求体</strong>是客户端发送给 API 的数据。<strong>响应体</strong>是 API 发送给客户端的数据。</p>
+<p>一般我们说GET方法没有请求体，POST、PUT等方法才有请求体。</p>
+<p>举例：</p>
+<pre><code class="language-python">from typing import Union
+from pydantic import BaseModel
+
+class Item(BaseModel):
+    name: str
+    description: Union[str, None] = None
+
+@app.post(&quot;/items/&quot;)
+async def post_test(item: Item):
+    return {&quot;data&quot;: item}
+</code></pre>
+<p>发一个 POST 请求，参数为：</p>
+<pre><code class="language-json">{
+    &quot;name&quot;: &quot;mikigo&quot;,
+    &quot;description&quot;: &quot;搞事情&quot;
+}
+</code></pre>
+<p>返回值：</p>
+<pre><code class="language-json">{
+    &quot;data&quot;: {
+        &quot;name&quot;: &quot;mikigo&quot;,
+        &quot;description&quot;: &quot;搞事情&quot;
+    }
+}
+</code></pre>
+<h3 id="4">4、内建参数类型</h3>
+<h4 id="41query">4.1、Query</h4>
+<p>Query 一般是用在查询参数里面：</p>
+<pre><code class="language-python">from fastapi import Query
+
+@app.get(&quot;/query/&quot;)
+async def query_test(
+        name: Union[str, None] = Query(default=None, max_length=10)
+):
+    return {&quot;name&quot;: name}
+</code></pre>
+<p><code>Query(default=None, max_length=10)</code> 里面:</p>
+<ul>
+<li><code>default=None</code> 表示参数可选，默认值为 None，和 <code>name: str = None</code> 写法是一个意思；</li>
+</ul>
+<p>如果想要参数必填：<code>default=...</code>（没错哈，就是三个点，三个点在 Python 里面是一个省略对象）；</p>
+<ul>
+<li><code>max_length=10</code> 定义了参数的最大长度；</li>
+</ul>
+<p><code>Query</code> 支持的参数还有点多，感兴趣可以一个个试：</p>
+<pre><code class="language-python">def Query(
+    default: Any = Undefined,
+    *,
+    alias: Optional[str] = None,
+    title: Optional[str] = None,
+    description: Optional[str] = None,
+    gt: Optional[float] = None,
+    ge: Optional[float] = None,
+    lt: Optional[float] = None,
+    le: Optional[float] = None,
+    min_length: Optional[int] = None,
+    max_length: Optional[int] = None,
+    regex: Optional[str] = None,
+    example: Any = Undefined,
+    examples: Optional[Dict[str, Any]] = None,
+    deprecated: Optional[bool] = None,
+    include_in_schema: bool = True,
+    **extra: Any,
+) -&gt; Any:
+    pass
+</code></pre>
+<p>请求：</p>
+<pre><code class="language-url">http://10.8.13.224:5000/query?name=mikigo
+</code></pre>
+<p>响应：</p>
+<pre><code class="language-json">{
+    &quot;name&quot;: &quot;mikigo&quot;
+}
+</code></pre>
+<h4 id="42path">4.2、Path</h4>
+<p>Path 一般是用在路径参数里面：</p>
+<pre><code class="language-python">from fastapi import Path
+
+@app.get(&quot;/path/{path_id}&quot;)
+async def path_test(
+        path_id: int = Path(default=...),
+        name: Union[str, None] = Query(default=..., max_length=10)
+):
+    results = {&quot;path_id&quot;: path_id}
+    if name:
+        results.update({&quot;name&quot;: name})
+    return results
+</code></pre>
+<p>可以看的出来 <code>Path(default=..., max_length=10)</code> 和 Query 用法几乎一样，不是几乎，就是一样的。</p>
+<p>请求：</p>
+<pre><code class="language-url">http://10.8.13.224:5000/path/10?name=mikigo
+</code></pre>
+<p>响应：</p>
+<pre><code class="language-json">{
+    &quot;path_id&quot;: 10,
+    &quot;name&quot;: &quot;mikigo&quot;
+}
+</code></pre>
+<h4 id="43body">4.3、Body</h4>
+<p>Body 一般是用于请求体：</p>
+<pre><code class="language-python">from fastapi import Body
+
+@app.post(&quot;/body/&quot;)
+async def body_test(
+        item: Item,
+        age: int = Body(default=None, gt=0)
+):
+    results = {&quot;data&quot;: item}
+    if age:
+        results.update({&quot;age&quot;: age})
+    return {&quot;results&quot;: results}
+</code></pre>
+<p>请求：</p>
+<pre><code class="language-url">http://10.8.13.224:5000/body
+</code></pre>
+<p>需要构造请求体：</p>
+<pre><code class="language-json">{
+  &quot;item&quot;: {
+    &quot;name&quot;: &quot;string&quot;,
+    &quot;description&quot;: &quot;string&quot;
+  },
+  &quot;age&quot;: 2
+}
+</code></pre>
+<p>响应：</p>
+<pre><code class="language-json">{
+    &quot;results&quot;: {
+        &quot;data&quot;: {
+            &quot;name&quot;: &quot;string&quot;,
+            &quot;description&quot;: &quot;string&quot;
+        },
+        &quot;age&quot;: 2
+    }
+}
+</code></pre>
+<h4 id="44field">4.4、Field</h4>
+<p>Field 一般用于请求体的字段，对请求体的参数做进一步的约束，它是从 pydantic 导入的：</p>
+<pre><code class="language-python">from pydantic import Field
+
+class FieldItem(BaseModel):
+    name: str
+    description: Union[str, None] = Field(
+        default=None, title=&quot;deepin&quot;, max_length=300
+    )
+
+@app.post(&quot;/field/&quot;)
+async def field_test(
+        item: FieldItem,
+        age: int = Body(default=None, gt=0)
+):
+    results = {&quot;data&quot;: item}
+    if age:
+        results.update({&quot;age&quot;: age})
+    return {&quot;field&quot;: results}
+</code></pre>
+<p>请求：</p>
+<pre><code class="language-url">http://10.8.13.224:5000/field
+</code></pre>
+<p>构造请求体如下：</p>
+<pre><code class="language-json">{
+  &quot;item&quot;: {
+    &quot;name&quot;: &quot;mikigo&quot;,
+    &quot;description&quot;: &quot;1234&quot;
+  },
+  &quot;age&quot;:30
+}
+</code></pre>
+<p>响应：</p>
+<pre><code class="language-json">{
+    &quot;field&quot;: {
+        &quot;data&quot;: {
+            &quot;name&quot;: &quot;mikigo&quot;,
+            &quot;description&quot;: &quot;1234&quot;
+        },
+        &quot;age&quot;: 30
+    }
+}
+</code></pre>
+<h4 id="45cookie">4.5、Cookie</h4>
+<p>先设置 cookie：</p>
+<pre><code class="language-python">@app.post(&quot;/cookieset&quot;)
+async def cookie_set(response: Response):
+    response.set_cookie(key=&quot;cookie1&quot;, value=&quot;mikigocookie11111&quot;)
+    return {&quot;cookie_id&quot;: &quot;ok&quot;}
+</code></pre>
+<p>请求一下，查看 cookie 设置是否成功:</p>
+<p><img alt="" src="../../img/fastapi/set_cookie.png" /></p>
+<p>然后再定义 Cookie 参数：</p>
+<pre><code class="language-python">from fastapi import Cookie
+
+@app.get(&quot;/cookieget&quot;)
+async def cookie_get(
+        ads_id: Union[str, None] = Cookie(default=None)
+):
+    return {&quot;ads_id&quot;: ads_id}
+</code></pre>
+<p><code>Cookie</code> 参数的结构与声明 <code>Query</code> 参数和 <code>Path</code> 参数时相同</p>
+<p>请求一把：</p>
+<p><img alt="" src="../../img/fastapi/get_cookie.png" /></p>
+<h4 id="46header">4.6、Header</h4>
+<p><code>Header</code> 使用和<code>Path</code>, <code>Query</code> and <code>Cookie</code> 一样;</p>
+<pre><code class="language-python">from fastapi import Header
+
+@app.get(&quot;/header&quot;)
+async def header_test(user_agent: Union[str, None] = Header(default=None)):
+    return {&quot;User-Agent&quot;: user_agent}
+</code></pre>
+<p>请求：</p>
+<pre><code class="language-url">http://10.8.13.224:5000/header
+</code></pre>
+<p>响应：</p>
+<pre><code class="language-json">{
+    &quot;User-Agent&quot;: &quot;PostmanRuntime/7.31.1&quot;
+}
+</code></pre>
+<p><code>Header</code> 有个特殊的参数 <code>convert_underscores: bool = True</code>；</p>
+<p>因为大多数标准的headers用 "连字符" 分隔，因此默认将参数名称的字符从下划线 (<code>_</code>) 转换为连字符 (<code>-</code>) ；</p>
+<h2 id="_5">六、响应</h2>
+<h3 id="1_1">1、响应限制</h3>
+<p><code>Pydantic</code> 不仅可以对请求参数进行校验和限制，对响应同样可以；</p>
+<pre><code class="language-python">class Item(BaseModel):
+    name: str
+    description: Union[str, None] = None
+
+@app.post(&quot;/rsp_model/&quot;, response_model=Item)
+async def response_model_test(item: Item) -&gt; Any:
+    return item
+</code></pre>
+<p>在装饰器 <code>@app.post</code> 里面有个参数 <code>response_model</code> 可以声明响应的模型；</p>
+<p><code>response_model=Item</code> 表示响应信息也是 <code>Item</code> 的类型，API 文档里面也会有响应信息的示例，否则就是空的；</p>
+<h3 id="2_1">2、响应状态码</h3>
+<pre><code class="language-python">@app.post(&quot;/status&quot;, status_code=201)
+async def status_code_test(name: str):
+    return {&quot;name&quot;: name}
+</code></pre>
+<p>请求成功，返回状态码为：201;</p>
+<p>API 文档里面也会有展示；</p>
+<p>fastapi 提供了一个 <code>status</code> 模块来表示状态码：</p>
+<pre><code class="language-python">from fastapi import status
+
+@app.post(&quot;/status&quot;, status_code=status.HTTP_201_CREATED)
+async def status_code_test(name: str):
+    return {&quot;name&quot;: name}
+</code></pre>
+<p><code>status.HTTP_201_CREATED</code> 这种方式更容易理解状态码的意思，因此我个人更推荐这种写法。</p>
+<h3 id="3_1">3、返回错误信息</h3>
+<pre><code class="language-python">from fastapi import HTTPException
+from fastapi import status
+
+names = {&quot;one&quot;: &quot;mikigo&quot;}
+
+@app.get(&quot;/resp_info/{name_id}&quot;)
+async def resp_info(name_id: str):
+    if name_id not in names:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=&quot;Item not found&quot;)
+    return {&quot;item&quot;: names[name_id]}
+</code></pre>
+<p>发送请求：</p>
+<p><img alt="" src="../../img/fastapi/resp_info.png" /></p>
+<h2 id="_6">七、表单及文件</h2>
+<h3 id="1form">1、Form表单</h3>
+<p>常见的，登录接口会提交 <code>Form</code> 表单：</p>
+<pre><code class="language-python">from fastapi import Form
+
+@app.post(&quot;/login/&quot;)
+async def login(username: str = Form(), password: str = Form()):
+    return {&quot;username&quot;: username}
+</code></pre>
+<p>重启服务，厚礼谢，你会发现报错，提示要安装依赖：<code>python-multipart</code>，啥也别问直接装：</p>
+<p>
+<div class="termy" data-termynal>
+<span data-ty>pip3 install python-multipart</span>
+<span data-ty="progress"></span>
+<span data-ty></span>
+</div></p>
+<p>再重启服务之后，通过表单字段发送，注意不能用 JSON 发送；</p>
+<p><img alt="" src="../../img/fastapi/form.png" /></p>
+<h3 id="2_2">2、上传文件</h3>
+<p>上传文件功能也依赖：<code>python-multipart</code>；</p>
+<h4 id="21file">2.1、File</h4>
+<pre><code class="language-python">from fastapi import File
+
+@app.post(&quot;/files/&quot;)
+async def create_file(file: bytes = File()):
+    return {&quot;file_size&quot;: len(file)}
+</code></pre>
+<p><code>File</code> 是直接继承自 <code>Form</code> 的类，把文件当做表单上传，源码：</p>
+<pre><code class="language-python">class File(Form):
+    def __init__():
+        ...
+</code></pre>
+<p>以 <code>bytes</code> 形式读取和接收文件内容，这种方式把文件的所有内容都存储在内存里，适用于小型文件。</p>
+<h4 id="22uploadfile">2.2、UploadFile</h4>
+<pre><code class="language-python">from fastapi import UploadFile
+
+@app.post(&quot;/uploadfile/&quot;)
+async def create_upload_file(file: UploadFile):
+    return {&quot;filename&quot;: file.filename}
+</code></pre>
+<p><code>UploadFile</code> 与 <code>bytes</code> 相比更好一点，即使是大文件也不会占用所有内存，因为它内部有个文件最大限制，超过就会先存入磁盘；</p>
+<pre><code class="language-python">class UploadFile:
+    &quot;&quot;&quot;
+    An uploaded file included as part of the request data.
+    &quot;&quot;&quot;
+
+    spool_max_size = 1024 * 1024
+    file: typing.BinaryIO
+    headers: &quot;Headers&quot;
+
+    def __init__(
+        self,
+        filename: str,
+        file: typing.Optional[typing.BinaryIO] = None,
+        content_type: str = &quot;&quot;,
+        *,
+        headers: &quot;typing.Optional[Headers]&quot; = None,
+    ) -&gt; None:
+        self.filename = filename
+        self.content_type = content_type
+        if file is None:
+            self.file = tempfile.SpooledTemporaryFile(max_size=self.spool_max_size)  # type: ignore[assignment]  # noqa: E501
+        else:
+            self.file = file
+        ... # 省略部分代码
+</code></pre>
+<p><code>spool_max_size</code> 就是限制文件的大小；</p>
+<p>通过上面源码的构造函数可以看出有 2 个必传参数：</p>
+<ul>
+<li><code>filename</code>：上传文件名字符串（<code>str</code>），例如， <code>mikigo.jpg</code>；</li>
+<li><code>content_type</code>：内容类型（MIME 类型 / 媒体类型）字符串（<code>str</code>），例如，<code>image/jpeg</code>；</li>
+</ul>
+<p>如果 file 参数不传，默认为 None，那么实际调用的是 <code>tempfile</code> 模块子的 <code>SpooledTemporaryFile</code> ，这个类会将数据缓存在内存中直到文件大小超过 <code>max_size</code>，这时文件内容会被写入磁盘；</p>
+<p><code>UploadFile</code> 源码里面有这几个方法：</p>
+<pre><code class="language-python">class UploadFile:
+
+    # 省略部分代码
+
+    async def write(self, data: bytes) -&gt; None:
+        if self._in_memory:
+            self.file.write(data)
+        else:
+            await run_in_threadpool(self.file.write, data)
+
+    async def read(self, size: int = -1) -&gt; bytes:
+        if self._in_memory:
+            return self.file.read(size)
+        return await run_in_threadpool(self.file.read, size)
+
+    async def seek(self, offset: int) -&gt; None:
+        if self._in_memory:
+            self.file.seek(offset)
+        else:
+            await run_in_threadpool(self.file.seek, offset)
+
+    async def close(self) -&gt; None:
+        if self._in_memory:
+            self.file.close()
+        else:
+            await run_in_threadpool(self.file.close)
+</code></pre>
+<p>这些方法都是异步(<code>async</code>)方法：</p>
+<ul>
+<li><code>write(data)</code>：把 <code>data</code> （<code>str</code> 或 <code>bytes</code>）写入文件；</li>
+<li><code>read(size)</code>：按指定数量的字节或字符（<code>size</code> (<code>int</code>)）读取文件内容；</li>
+<li><code>seek(offset)</code>：移动至文件 <code>offset（int）</code>字节处的位置；</li>
+<li>例如，<code>await myfile.seek(0)</code> 移动到文件开头；</li>
+<li>执行 <code>await myfile.read()</code> 后，需再次读取已读取内容时，这种方法特别好用；</li>
+<li><code>close()</code>：关闭文件。</li>
+</ul>
+<p>使用异步的时候用 <code>await</code> ：</p>
+<pre><code class="language-python">contents = await myfile.read()
+</code></pre>
+<h2 id="_7">八、依赖项</h2>
+<p>依赖项也叫“依赖注入”，使用 <code>Depends</code>：</p>
+<pre><code class="language-python">from fastapi import Depends
+
+async def common_parameters(
+    q: Union[str, None] = None, skip: int = 0, limit: int = 100
+):
+    return {&quot;q&quot;: q, &quot;skip&quot;: skip, &quot;limit&quot;: limit}
+
+
+@app.get(&quot;/dps&quot;)
+async def depends_test(commons: dict = Depends(common_parameters)):
+    return commons
+</code></pre>
+<p><code>Depends</code> 需要传入一个可调用对象，一般就给函数对象，也就是依赖函数，注意不是调用函数，没有括号；</p>
+<p>依赖函数的参数和查询参数的一样；</p>
+<h2 id="_8">九、安全性</h2>
+<h3 id="1oauth2">1、OAuth2</h3>
+<p>功能也依赖：<code>python-multipart</code>；</p>
+<p><code>OAuth2</code> 主要用于验证用户身份：</p>
+<pre><code class="language-python">from fastapi.security import OAuth2PasswordBearer
+from fastapi import Depends
+
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl=&quot;token&quot;)
+
+@app.get(&quot;/auth/&quot;)
+async def auth_test(token: str = Depends(oauth2_scheme)):
+    return {&quot;token&quot;: token}
+</code></pre>
+<p>查看 <code>OpenAPI</code> 文档你会发现，右上角有个 <strong>Authorize</strong> 按钮，点它：</p>
+<p><img alt="" src="../../img/fastapi/auth.png" /></p>
+<p>弹出授权表单，输入 <code>username</code> 与 <code>password</code> 及其它可选字段；</p>
+<p>这个是 FastAPI 的安全工具；</p>
+<h3 id="2_3">2、获取当前用户</h3>
+<pre><code class="language-python">from typing import Union
+
+from fastapi import Depends
+from fastapi.security import OAuth2PasswordBearer
+
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl=&quot;token&quot;)
+
+class User(BaseModel):
+    username: str
+    email: Union[str, None] = None
+    full_name: Union[str, None] = None
+    disabled: Union[bool, None] = None
+
+def fake_decode_token(token):
+    return User(
+        username=token + &quot;fakedecoded&quot;, email=&quot;john@example.com&quot;, full_name=&quot;John Doe&quot;
+    )
+
+async def get_current_user(token: str = Depends(oauth2_scheme)):
+    user = fake_decode_token(token)
+    return user
+
+@app.get(&quot;/users/me&quot;)
+async def read_users_me(current_user: User = Depends(get_current_user)):
+    return current_user
+</code></pre>
+<p>先创建一个请求体模型 <code>User</code>；</p>
+<p>再创建一个 <code>get_current_user</code> 依赖项，它的依赖项是 <code>oauth2_scheme</code>，这里接受一个 <code>token</code> 字符串，在给另外一个函数 <code>fake_decode_token</code> 进行解码后，返回 user 对象；</p>
+<p>最后，通过 <code>read_users_me</code> 依赖项，返回当前用户；</p>
+<p>这里实际是一个嵌套依赖的关系。</p>
+<h2 id="_9">十、中间件</h2>
+<p>中间件就相当于一个钩子函数，在每个请求被处理之前，以及没饿响应返回之前工作。工作原理类似于 Python 里面的属性拦截器就可以理解。</p>
+<h3 id="1_2">1、创建中间件</h3>
+<p>使用装饰器 <code>@app.middleware("http")</code> ，固定用法，记住就好了；</p>
+<pre><code class="language-python">import time
+
+from fastapi import Request
+
+@app.middleware(&quot;http&quot;)
+async def add_process_time_header(request: Request, call_next):
+    start_time = time.time()
+    response = await call_next(request)  # 路径操作
+    process_time = time.time() - start_time
+    response.headers[&quot;X-Process-Time&quot;] = str(process_time)
+    return response
+</code></pre>
+<p>参数：</p>
+<ul>
+<li>request，FastAPI 的请求对象；</li>
+<li>一个函数 <code>call_next</code> 它将接收 <code>request</code> 作为参数；</li>
+<li>这个函数将 <code>request</code> 传递给相应的 路径操作；</li>
+<li>然后它将返回由相应的<em>路径操作</em>生成的 <code>response</code>；</li>
+<li>然后你可以在返回 <code>response</code> 前进一步修改它；</li>
+</ul>
+<h3 id="2cors">2、跨域资源共享(CORS)</h3>
+<p>在同一个IP地址中，但使用不同的协议或者端口，就是不同的域；</p>
+<p>使用 <code>CORSMiddleware</code> ：</p>
+<pre><code class="language-python">from fastapi.middleware.cors import CORSMiddleware
+
+origins = [
+    &quot;http://localhost&quot;,
+    &quot;http://localhost:8080&quot;,
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,  #  一个允许跨域请求的源列表;
+    allow_credentials=True, # 指示跨域请求支持 cookies,默认是 False
+    allow_methods=[&quot;*&quot;],  # 一个允许跨域请求的 HTTP 方法列表;
+    allow_headers=[&quot;*&quot;],  # 一个允许跨域请求的 HTTP 请求头列表
+)
+</code></pre>
+<h2 id="sql">十一、SQL数据库</h2>
+<p>FastAPI 使用数据一般采用 Python 社区最流行的 ORM 库：SQLAlchemy；</p>
+<p>如果你会用 Django 的 model，那基本上就很简单了；</p>
+<h3 id="1_3">1、创建数据库工程文件</h3>
+<p>先创建一个数据库的目录，里面包含这些文件：</p>
+<p>
+<div class="termy" data-termynal>
+<span data-ty>.</span>
+<span data-ty>└── sql_app</span>
+<span data-ty>    ├── <strong>init</strong>.py</span>
+<span data-ty>    ├── crud.py</span>
+<span data-ty>    ├── database.py</span>
+<span data-ty>    ├── main.py</span>
+<span data-ty>    ├── models.py</span>
+<span data-ty>    └── schemas.py</span>
+<span data-ty></span>
+</div></p>
+<h3 id="2_4">2、安装</h3>
+<p>安装 SQLAlchemy 非常简单：</p>
+<p>
+<div class="termy" data-termynal>
+<span data-ty>pip3 install SQLAlchemy</span>
+<span data-ty="progress"></span>
+<span data-ty></span>
+</div></p>
+<h3 id="3sqlalchemy">3、创建SQLAlchemy部件</h3>
+<p>SQLAlchemy 支持多种常用的数据类型：</p>
+<p>以 sqlite 举例：</p>
+<pre><code class="language-python"># sql_app/database.py
+
+from sqlalchemy import create_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+
+# 定义数据库的URL
+SQLALCHEMY_DATABASE_URL = &quot;sqlite:///./sql_app.db&quot;  
+# 创建 SQLAlchemy 引擎
+engine = create_engine(  
+    SQLALCHEMY_DATABASE_URL, connect_args={&quot;check_same_thread&quot;: False} 
+)
+# 使用sessionmaker创建一个会话实例
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+# 创建一个Base类，用这个类继承，来创建每个数据库模型或类
+Base = declarative_base()
+</code></pre>
+<h3 id="4_1">4、创建数据库模型</h3>
+<pre><code class="language-python"># sql_app/models.py
+
+# 导入一些数据库类型,用于定义一些字段的类型
+from sqlalchemy import Boolean, Column, ForeignKey, Integer, String
+# 关系
+from sqlalchemy.orm import relationship
+# 导入部件Base类用于创建数据库模型
+from .database import Base
+
+
+class User(Base):
+    __tablename__ = &quot;users&quot;
+
+    # 每一个都代表其相应数据库表中的一列
+    id = Column(Integer, primary_key=True, index=True)
+    email = Column(String, unique=True, index=True)
+    hashed_password = Column(String)
+    is_active = Column(Boolean, default=True)
+    # 表示该表与其他相关的表中的值
+    items = relationship(&quot;Item&quot;, back_populates=&quot;owner&quot;)
+
+
+class Item(Base):
+    __tablename__ = &quot;items&quot;
+
+    id = Column(Integer, primary_key=True, index=True)
+    title = Column(String, index=True)
+    description = Column(String, index=True)
+    owner_id = Column(Integer, ForeignKey(&quot;users.id&quot;))
+    # 表示该表与其他相关的表中的值
+    owner = relationship(&quot;User&quot;, back_populates=&quot;items&quot;)3
+</code></pre>
+<p>当访问 <code>my_user.items</code> 时，SQLAlchemy 实际上会从 <code>items</code> 表中的获取一批记录并在此处填充进去。</p>
+<p>注意，数据库模型都是将类型作为参数传给 Column 来定义的，例如：</p>
+<pre><code class="language-python">email = Column(String)
+</code></pre>
+<h3 id="5-pydantic">5、创建 Pydantic 模型</h3>
+<p>Pydantic 模型和数据库模型的属性一致：</p>
+<pre><code class="language-python"># sql_app/schemas.py
+
+from typing import List, Union
+from pydantic import BaseModel
+# ========== item的Pydantic模型 ============
+# models里面的Item也有title和description属性
+class ItemBase(BaseModel):
+    title: str
+    description: Union[str, None] = None
+
+class ItemCreate(ItemBase):
+    pass
+# 创建用于读取/返回的Pydantic模型/模式
+class Item(ItemBase):
+    id: int
+    owner_id: int
+    # 为 Pydantic 提供配置 
+    class Config:
+        orm_mode = True
+
+# ========== user的Pydantic模型 ============
+# models里面的User也有email属性
+class UserBase(BaseModel):
+    email: str
+# 在创建时有一个password属性
+class UserCreate(UserBase):
+    password: str
+# 创建用于读取/返回的Pydantic模型/模式
+# 读取用户（从 API 返回）时将使用不包括password的User Pydantic模型
+class User(UserBase):
+    id: int
+    is_active: bool
+    items: List[Item] = []
+    # 为 Pydantic 提供配置
+    class Config:
+        # orm_mode将告诉 Pydantic模型读取数据，即它不是一个dict，而是一个 ORM 模型
+        orm_mode = True
+</code></pre>
+<h3 id="6crud">6、CRUD工具</h3>
+<p>用来与数据库中的数据进行交互，<strong>CRUD</strong>分别为：<strong>增加</strong>、<strong>查询</strong>、<strong>更改</strong>和<strong>删除</strong>，即增删改查；</p>
+<h4 id="61">6.1、读取数据</h4>
+<pre><code class="language-python"># sql_app/crud.py
+
+from sqlalchemy.orm import Session
+# 导入SQLAlchemy模型和Pydantic模型
+from . import models, schemas
+
+def get_user(db: Session, user_id: int):
+    &quot;&quot;&quot;通过ID查询用户&quot;&quot;&quot;
+    return db.query(models.User).filter(models.User.id == user_id).first()
+
+def get_user_by_email(db: Session, email: str):
+    &quot;&quot;&quot;通过email查询用户&quot;&quot;&quot;
+    return db.query(models.User).filter(models.User.email == email).first()
+
+def get_users(db: Session, skip: int = 0, limit: int = 100):
+    &quot;&quot;&quot;获取所有用户&quot;&quot;&quot;
+    return db.query(models.User).offset(skip).limit(limit).all()
+
+def get_items(db: Session, skip: int = 0, limit: int = 100):
+    &quot;&quot;&quot;获取所有项目&quot;&quot;&quot;
+    return db.query(models.Item).offset(skip).limit(limit).all()
+</code></pre>
+<h4 id="62">6.2、创建数据</h4>
+<pre><code class="language-python"># sql_app/crud.py
+
+def create_user(db: Session, user: schemas.UserCreate):
+    &quot;&quot;&quot;创建用户&quot;&quot;&quot;
+    fake_hashed_password = user.password + &quot;notreallyhashed&quot;
+    # 获取数据库模型实例
+    db_user = models.User(email=user.email, hashed_password=fake_hashed_password)
+    # add方法添加数据
+    db.add(db_user)
+    # 提交
+    db.commit()
+    # 刷新
+    db.refresh(db_user)
+    return db_user
+
+def create_user_item(db: Session, item: schemas.ItemCreate, user_id: int):
+    db_item = models.Item(**item.dict(), owner_id=user_id)
+    db.add(db_item)
+    db.commit()
+    db.refresh(db_item)
+    return db_item
+</code></pre>
+<h3 id="7">7、主程序</h3>
+<pre><code class="language-python"># sql_app/main.py
+
+from typing import List
+
+from fastapi import Depends, FastAPI, HTTPException
+from sqlalchemy.orm import Session
+
+from . import crud, models, schemas
+from .database import SessionLocal, engine
+
+models.Base.metadata.create_all(bind=engine)
+
+app = FastAPI()
+
+# 创建依赖项,每个请求有一个独立的数据库会话/连接（SessionLocal）
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+# SQLAlchemy模型通讯需要一些等待时间,不能直接使用async和await语句；
+@app.post(&quot;/users/&quot;, response_model=schemas.User)
+def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
+    db_user = crud.get_user_by_email(db, email=user.email)
+    if db_user:
+        raise HTTPException(status_code=400, detail=&quot;Email already registered&quot;)
+    return crud.create_user(db=db, user=user)
+
+@app.get(&quot;/users/&quot;, response_model=List[schemas.User])
+def read_users(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+    users = crud.get_users(db, skip=skip, limit=limit)
+    return users
+
+@app.get(&quot;/users/{user_id}&quot;, response_model=schemas.User)
+def read_user(user_id: int, db: Session = Depends(get_db)):
+    db_user = crud.get_user(db, user_id=user_id)
+    if db_user is None:
+        raise HTTPException(status_code=404, detail=&quot;User not found&quot;)
+    return db_user
+
+@app.post(&quot;/users/{user_id}/items/&quot;, response_model=schemas.Item)
+def create_item_for_user(
+    user_id: int, item: schemas.ItemCreate, db: Session = Depends(get_db)
+):
+    return crud.create_user_item(db=db, item=item, user_id=user_id)
+
+@app.get(&quot;/items/&quot;, response_model=List[schemas.Item])
+def read_items(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+    items = crud.get_items(db, skip=skip, limit=limit)
+    return items
+</code></pre>
+<h3 id="8">8、执行项目</h3>
+<p>
+<div class="termy" data-termynal>
+<span data-ty>uvicorn sql_app.main:app --reload</span>
+<span data-ty></span>
+</div></p>
+<p><img alt="" src="../../img/fastapi/sql.png" /></p>
+<p>以上内容是入门版知识，还有一些进阶的内容或者更加工程化的内容，我想放到 FastAPI 实战里面去写，好啦就先到这里吧，期待进阶内容。</p>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Powder By Mikigo
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      
+        <script src="../../termynal.js"></script>
+      
+    
+  </body>
+</html>

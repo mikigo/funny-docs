@@ -1,0 +1,1164 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Pytest%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E8%B5%B7%E9%A3%9E/">
+      
+      
+        <link rel="next" href="../../%E7%88%AC%E8%99%AB/Requests/">
+      
+      <link rel="icon" href="../../img/logo.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
+    
+    
+      
+        <title>Playwright—8小时入门版 - YouQu Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.85bb2934.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a6bdf11c.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../termynal.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#playwright8" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="YouQu Blog" class="md-header__button md-logo" aria-label="YouQu Blog" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            YouQu Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Playwright—8小时入门版
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/mikigo/funny-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    mikigo/funny-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="YouQu Blog" class="md-nav__button md-logo" aria-label="YouQu Blog" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    YouQu Blog
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/mikigo/funny-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    mikigo/funny-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        首页
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          自动化
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          自动化
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Pytest%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E8%B5%B7%E9%A3%9E/" class="md-nav__link">
+        Pytest 从入门到起飞
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Playwright—8小时入门版
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Playwright—8小时入门版
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    一、简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    二、安装
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    三、脚本生成器
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    四、元素定位方法
+  </a>
+  
+    <nav class="md-nav" aria-label="四、元素定位方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1xpath" class="md-nav__link">
+    1、XPath
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2css" class="md-nav__link">
+    2、CSS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3、特有的
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    五、其他
+  </a>
+  
+    <nav class="md-nav" aria-label="五、其他">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1、截图
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2、录屏
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3po" class="md-nav__link">
+    3、PO
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4、自动等待
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5、断言
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          爬虫
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          爬虫
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%88%AC%E8%99%AB/Requests/" class="md-nav__link">
+        Requests
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%88%AC%E8%99%AB/Httpx/" class="md-nav__link">
+        Httpx
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%88%AC%E8%99%AB/Scrapy/" class="md-nav__link">
+        Scrapy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          后端
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          后端
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%90%8E%E7%AB%AF/FastAPI%E2%80%948%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        FastAPI—8小时入门版
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          视觉
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          视觉
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%A7%86%E8%A7%89/OpenCV%28Python%29%E5%9F%BA%E7%A1%80%E2%80%949%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        OpenCV(Python)基础—9小时入门版
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/Python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E2%80%948%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        Python基础语法—8小时入门版
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/Python%E4%BB%8E%E8%BF%9B%E9%98%B6%E5%88%B0%E9%AB%98%E7%BA%A7%E2%80%94%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82%E7%89%88/" class="md-nav__link">
+        Python从进阶到高级—通俗易懂版
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    一、简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    二、安装
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    三、脚本生成器
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    四、元素定位方法
+  </a>
+  
+    <nav class="md-nav" aria-label="四、元素定位方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1xpath" class="md-nav__link">
+    1、XPath
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2css" class="md-nav__link">
+    2、CSS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3、特有的
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    五、其他
+  </a>
+  
+    <nav class="md-nav" aria-label="五、其他">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1、截图
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2、录屏
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3po" class="md-nav__link">
+    3、PO
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4、自动等待
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5、断言
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="playwright8">Playwright—8小时入门版</h1>
+<pre><code class="language-shell"># =============================
+# Author : mikigo
+# Time   : 2023/3/2
+# =============================
+</code></pre>
+<h2 id="_1">一、简介</h2>
+<p>Playwright 是一个 Web UI 自动化测试的框架，其各方面功能和使用体验全面碾压 Selenium。</p>
+<blockquote>
+<p>一入 Playwright 深似海，从此 Selenium 是路人。</p>
+</blockquote>
+<p>曾经，在 Web UI 自动化测试领域，Selenium  如日中天，几乎只要提到 UI 自动化就会想到 Selenium，Selenium 就是 Web UI自动化的代名词；</p>
+<p>后来，Playwright 出现了，慢慢的大家对 Selenium 开始冷落了；为啥呢？</p>
+<p>简单讲，因为在 Selenium 时代，其实大家遇到很多问题，但一直得不到解决；Selenium 2.0 版本是一个巨大的飞跃，因为引入了 WebDriver，后面 3.0、到现在 4.0 功能上没有什么亮点，而且以前的问题还在，大家对这个玩意儿就提不起兴趣去研究了。</p>
+<blockquote>
+<p>Selenium 之后不是没有其他 UI 框架，确实也出现过几个小有名气的框架，比如：cypress、puppeteer、testcafe，这些个玩意儿缺点就是不支持 Python，太拉胯，而且像 puppeteer 只支持谷歌浏览器，因为它就是谷歌家的它不需要支持其他浏览器，就这，广大的 Firefox 和尊贵的 Safari 用户能忍你吗，给老子滚。于是，Playwright 集各家之所长，补各家之缩短，“天空一声巨响，老子闪亮登场”。</p>
+<p>坊间传言，Playwright 有几个核心开发者就是从 puppeteer 过来的，不得不说，老外是真会整活。</p>
+</blockquote>
+<p>第一次尝试使用 Playwright，我仅仅只写了一个小脚本，但有两个点印象深刻：</p>
+<p>1、环境安装好简单；</p>
+<p>要知道 Selenium 的环境安装是很烦人的，要单独装 WebDriver 的驱动，而且驱动版本要和浏览器版本一致，不然会报一些莫名其妙的错，多少人在 Selenium 的环境上卡住而无法入门；</p>
+<p>2、执行速度好快；</p>
+<p>用过 Selenium 应该知道，跑起来挺慢的，Playwright 的执行速度真的“起飞”。</p>
+<p>在后面对 Playwright 使用和了解越来越多之后发现，它确实全面碾压 Selenium。微软出品，必属精品。</p>
+<h2 id="_2">二、安装</h2>
+<p>系统环境：<code>deepin-20.8</code></p>
+<p>
+<div class="termy" data-termynal>
+<span data-ty>pip3 install playwright</span>
+<span data-ty="progress"></span>
+<span class="termynal-comment" data-ty># 安装浏览器</span>
+<span data-ty>playwright install</span>
+<span data-ty="progress"></span>
+<span data-ty></span>
+</div></p>
+<p>完事儿了，这样环境就装好了，是不是很简单，不用去关心用什么浏览器，用什么 WebDriver 驱动，你的电脑上甚至不用装浏览器，<code>playwright install</code> 已经把测试用的浏览器都装好。</p>
+<h2 id="_3">三、脚本生成器</h2>
+<p>Selenium IDE 是用来录制脚本的，好多刚开始入门的同学应该都用过，就是在浏览器里面装个插件，然后监控浏览器的事件，生成脚本；我个人倒是极少用，因为会写代码用那玩意儿干啥。（成功装到）</p>
+<p>Playwright 当然也有录制的功能，在终端执行：</p>
+<p>
+<div class="termy" data-termynal>
+<span data-ty>playwright codegen</span>
+<span data-ty></span>
+</div></p>
+<p>会启动一个“浏览器”窗口和一个“脚本生成器”窗口</p>
+<p><img alt="" src="../../img/playwright/1.png" /></p>
+<p>脚本生成器初始状态会有模板代码，你通过浏览器操作的时候，每一步的操作，都会对应在脚本生成器自动生成一行代码，比如，我输入百度的网址：</p>
+<p><img alt="" src="../../img/playwright/2.png" /></p>
+<p>在百度首页，点击输入框，输入一个内容，点击“百度一下”，一顿操作下来，代码自动生成如下：</p>
+<pre><code class="language-python">from playwright.sync_api import Playwright, sync_playwright, expect
+
+
+def run(playwright: Playwright) -&gt; None:
+    browser = playwright.chromium.launch(headless=False)
+    context = browser.new_context()
+    page = context.new_page()
+    page.goto(&quot;https://www.baidu.com/&quot;)
+    page.locator(&quot;#kw&quot;).click()
+    page.locator(&quot;#kw&quot;).fill(&quot;youqu&quot;)
+    page.get_by_role(&quot;button&quot;, name=&quot;百度一下&quot;).click()
+
+    # ---------------------
+    context.close()
+    browser.close()
+
+
+with sync_playwright() as playwright:
+    run(playwright)
+</code></pre>
+<p>这样就自动生成了一段完整的代码，简直不要太轻松。</p>
+<p>有同学说，能不能直接生成测试用例的代码，当然是可以的，在脚本生成器右上角 Target 选择 <code>pytest</code>，一顿操作下来，生成代码如下：</p>
+<pre><code class="language-python">from playwright.sync_api import Page, expect
+
+def test_example(page: Page) -&gt; None:
+    page.goto(&quot;https://www.baidu.com/&quot;)
+    page.locator(&quot;#kw&quot;).click()
+    page.locator(&quot;#kw&quot;).fill(&quot;youqu&quot;)
+    page.get_by_role(&quot;button&quot;, name=&quot;百度一下&quot;).click()
+</code></pre>
+<p>这个脚本是可以直接用 <code>pytest</code> 来执行的，你需要安装 <code>pytest-playwright</code> 插件：</p>
+<p>
+<div class="termy" data-termynal>
+<span data-ty>pip3 install pytest-playwright</span>
+<span data-ty></span>
+</div></p>
+<p><code>pytest-playwright</code>  插件是由 Playwright 官方维护的。</p>
+<p>相信有上面 <code>pytest</code> 这个例子，对于测试同学来讲，写一些简单的用例是没什么问题了。</p>
+<h2 id="_4">四、元素定位方法</h2>
+<p>对于所有的 UI 自动化来讲，无非就是元素定位和元素操作，Playwright 最常用的元素的定位方法就是 XPath 和 CSS，其次就是它特有的定位方法；</p>
+<h3 id="1xpath">1、XPath</h3>
+<p>XPath 是一种通用、标准的元素定位方案，它的语法也是标准的，在很多框架里面都有使用到，基本能满足 90% 的元素定位需求；</p>
+<p>经常有同学说 XPath 定位不稳定，页面上一点点变化就找不到元素了，说这话的一般是喜欢使用浏览器自带的复制 XPath 的功能，因为复制出来的 XPath 路径是绝对路径，当然不稳定，我们通过观察，自己写相对路径的XPath 表达式；</p>
+<p>简单介绍下 XPath 语法：</p>
+<p>（1）节点选取</p>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nodename</td>
+<td>选取此节点的所有子节点</td>
+</tr>
+<tr>
+<td>/</td>
+<td>从根节点选取</td>
+</tr>
+<tr>
+<td>//</td>
+<td>从匹配选择的当前节点选择文档中的节点，而不考虑它们的位置</td>
+</tr>
+<tr>
+<td>.</td>
+<td>选取当前节点</td>
+</tr>
+<tr>
+<td>..</td>
+<td>选取当前节点的父节点</td>
+</tr>
+<tr>
+<td>@</td>
+<td>选取属性</td>
+</tr>
+</tbody>
+</table>
+<p>（2）属性选取</p>
+<table>
+<thead>
+<tr>
+<th>路径表达式</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/bookstore/book[1]</td>
+<td>选取属于 bookstore 子元素的第一个 book 元素。</td>
+</tr>
+<tr>
+<td>/bookstore/book[last()]</td>
+<td>选取属于 bookstore 子元素的最后一个 book 元素。</td>
+</tr>
+<tr>
+<td>/bookstore/book[last()-1]</td>
+<td>选取属于 bookstore 子元素的倒数第二个 book 元素。</td>
+</tr>
+<tr>
+<td>/bookstore/book[position()&lt;3]</td>
+<td>选取最前面的两个属于 bookstore 元素的子元素的 book 元素。</td>
+</tr>
+<tr>
+<td>//title[@lang]</td>
+<td>选取所有拥有名为 lang 的属性的 title 元素。</td>
+</tr>
+<tr>
+<td>//title[@lang='eng']</td>
+<td>选取所有 title 元素，且这些元素拥有值为 eng 的 lang 属性。</td>
+</tr>
+<tr>
+<td>/bookstore/book[price&gt;35.00]</td>
+<td>选取 bookstore 元素的所有 book 元素，且其中的 price 元素的值须大于 35.00。</td>
+</tr>
+<tr>
+<td>/bookstore/book[price&gt;35.00]/title</td>
+<td>选取 bookstore 元素中的 book 元素的所有 title 元素，且其中的 price 元素的值须大于 35.00。</td>
+</tr>
+</tbody>
+</table>
+<p>在浏览器中调试 XPath：</p>
+<p>按 F12 打开调试页面—&gt;选择 console，XPath 定位的语法是 ：$x() </p>
+<p>举例：</p>
+<p><img alt="" src="../../img/playwright/3.png" /></p>
+<pre><code class="language-javascript">$x(&quot;//input[@type='submit']&quot;)
+</code></pre>
+<p>说明通过这个 XPath 表达式可以定位到【百度一下】按钮；</p>
+<p>在 Playwright 里面是通过 page 对象提供的 locator 方法实现 CSS 或 XPath 定位的：</p>
+<pre><code class="language-python">page.locater(&quot;//input[@type='submit']&quot;).click()
+</code></pre>
+<p>Playwright 会自动检测输入的是 CSS 或 XPath。</p>
+<h3 id="2css">2、CSS</h3>
+<p>了解前端的应该都知道 CSS，这里不多介绍；</p>
+<p>在浏览器中调试 CSS 定位：</p>
+<p><img alt="" src="../../img/playwright/4.png" /></p>
+<pre><code class="language-javascript">$(&quot;#su&quot;)
+</code></pre>
+<p>说明通过此 CSS 表达式可以定位到【百度一下】按钮；</p>
+<p>在 Playwright 里面：</p>
+<pre><code class="language-python">page.locater(&quot;#su&quot;).click()
+</code></pre>
+<h3 id="3">3、特有的</h3>
+<p>Playwright 内置几个定位器：</p>
+<ul>
+<li>get_by_role 通过角色定位</li>
+</ul>
+<p>还是上面的例子【百度一下】：</p>
+<p>html 是这样的：</p>
+<p><code>html
+  &lt;input type="submit" id="su" value="百度一下" class="bg s_btn"&gt;</code></p>
+<p>定位可以这样写：</p>
+<p><code>python
+  page.get_by_role("button", name="百度一下")</code></p>
+<ul>
+<li>get_by_text 通过文本定位</li>
+</ul>
+<p>还是在百度首页找个文本 html ：</p>
+<p><code>html
+  &lt;span class="hot-refresh-text"&gt;换一换&lt;/span&gt;</code></p>
+<p>定位可以这样写：</p>
+<p><code>python
+  page.get_by_text("换一换")</code></p>
+<ul>
+<li>get_by_label 通过标签定位</li>
+</ul>
+<p>html 是这样的：</p>
+<p><code>html
+  &lt;label&gt;Password &lt;input type="password" /&gt;&lt;/label&gt;</code></p>
+<p>定位可以这样写：</p>
+<p><code>python
+  page.get_by_label("Password")</code></p>
+<p>还有其他的内置定位方法：</p>
+<pre><code class="language-py">get_by_placeholder 占位符定位
+get_by_alt_text 替换文本定位
+get_by_title 标题定位
+get_by_test_id 测试ID定位
+</code></pre>
+<h2 id="_5">五、其他</h2>
+<h3 id="1">1、截图</h3>
+<p>捕获屏幕截图并将其保存到文件中：</p>
+<pre><code class="language-python">page.screenshot(path=&quot;screenshot.png&quot;)
+</code></pre>
+<p>完整页面截图是一个完整的可滚动页面的截图：</p>
+<pre><code class="language-python">page.screenshot(path=&quot;screenshot.png&quot;, full_page=True)
+</code></pre>
+<p>单个元素进行屏幕截图：</p>
+<pre><code class="language-python">page.locator(&quot;.header&quot;).screenshot(path=&quot;screenshot.png&quot;)
+</code></pre>
+<h3 id="2">2、录屏</h3>
+<p>测试过程录屏，保存的视频文件将出现在指定的文件夹中，生成了唯一的名称，视频保存在浏览器上下文在测试结束时关闭：</p>
+<pre><code class="language-python">context = browser.new_context(record_video_dir=&quot;videos/&quot;)
+context.close()
+</code></pre>
+<p>还可以指定视频大小</p>
+<pre><code class="language-python">context = browser.new_context(
+    record_video_dir=&quot;videos/&quot;,
+    record_video_size={&quot;width&quot;: 800, &quot;height&quot;: 800}
+)
+</code></pre>
+<h3 id="3po">3、PO</h3>
+<p>PO（Page Object） 是一种分层设计的思想，最早是 Selenium 提出来的，但它本身和使用什么框架没有关系，我们在自动化测试实践过程中，应该始终使用 PO 的设计；</p>
+<h3 id="4">4、自动等待</h3>
+<p>Playwright 在元素定位的时候是自动等待的，不用再像使用 Selenium 一样设置各种类型的等待（隐式等待、显示等待、强制等待），这才是框架该有的样子。</p>
+<h3 id="5">5、断言</h3>
+<p>Playwright 有自己的断言语句：</p>
+<pre><code class="language-python">locator = page.locator(&quot;input[type=number]&quot;)
+expect(locator).to_have_value(re.compile(r&quot;[0-9]&quot;))
+</code></pre>
+<p>使用 expect 语句，后面跟断言的类型，断言的类型就有点多了，大概看了下有好几十个，列几个常用的：</p>
+<p>to_have_value</p>
+<p>to_contain_text</p>
+<p>to_be_empty</p>
+<p>反向断言，前面加 not，如：not_to_contain_text</p>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Powder By Mikigo
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      
+        <script src="../../termynal.js"></script>
+      
+    
+  </body>
+</html>
