@@ -1,4 +1,5 @@
 site_name: YouQu Blog
+copyright: Powder By Mikigo
 theme:
   name: material
   language: zh
@@ -59,3 +60,5 @@ extra:
   analytics:
     provider: google
 #    property: G-YNEVN69SC3
+  generator: false
+
