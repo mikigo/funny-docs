@@ -1,3 +1,4 @@
+comments: true
 # YouQu Blog
 
 主要想用于记录一些有趣的知识；
