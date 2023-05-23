@@ -25,11 +25,19 @@ FastAPI 之所以能突破 Python 语言本身所带来的性能瓶颈，是因�
 
 系统环境: `deepin`
 
-```shell
-pip3 install fastapi
-# 安装 ASGI 服务器，用于启动服务
-pip3 install "uvicorn[standard]"
+```console
+$ pip3 install fastapi
+---> 100%
 ```
+
+安装 ASGI 服务器，用于启动服务
+
+```console
+$ pip3 install "uvicorn[standard]"
+---> 100%
+```
+
+
 
 ## 三、简单的例子
 
@@ -51,7 +59,7 @@ def hello():
 
 在终端通过命令启动服务：
 
-```shell
+```console
 uvicorn main:app --reload
 ```
 
@@ -624,8 +632,9 @@ async def login(username: str = Form(), password: str = Form()):
 
 重启服务，厚礼谢，你会发现报错，提示要安装依赖：`python-multipart`，啥也别问直接装：
 
-```shell
+```console
 pip3 install python-multipart
+---> 100%
 ```
 
 再重启服务之后，通过表单字段发送，注意不能用 JSON 发送；
@@ -915,8 +924,9 @@ FastAPI 使用数据一般采用 Python 社区最流行的 ORM 库：SQLAlchemy�
 
 安装 SQLAlchemy 非常简单：
 
-```shell
+```console
 pip3 install SQLAlchemy
+---> 100%
 ```
 
 ### 3、创建SQLAlchemy部件

@@ -39,11 +39,12 @@ Playwright 是一个 Web UI 自动化测试的框架，其各方面功能和使�
 
 系统环境：`deepin-20.8`
 
-```shell
+```console
 pip3 install playwright
-
+---> 100%
 # 安装浏览器
 playwright install
+---> 100%
 ```
 
 完事儿了，这样环境就装好了，是不是很简单，不用去关心用什么浏览器，用什么 WebDriver 驱动，你的电脑上甚至不用装浏览器，`playwright install` 已经把测试用的浏览器都装好。

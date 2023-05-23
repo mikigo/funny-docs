@@ -39,8 +39,9 @@ Scrapy 主要用于数据爬取，所以说它是爬虫框架，你说用它来�
 
 系统环境：deepin
 
-```shell
+```console
 pip3 install Scrapy
+---> 100%
 ```
 
 ## 3、创建项目

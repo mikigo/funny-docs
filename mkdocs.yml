@@ -35,9 +35,10 @@ repo_name: mikigo/funny-docs
 repo_url: "https://github.com/mikigo/funny-docs"
 
 plugins:
-- search
-#- markdownextradata:
-#    data: data
+  - termynal
+  - search
+  - markdownextradata:
+      data: data
 
 nav:
   - 首页: index.md

@@ -1,3 +1,5 @@
 -i https://pypi.douban.com/simple/
 
 mkdocs-material
+termynal
+mkdocs-markdownextradata-plugin

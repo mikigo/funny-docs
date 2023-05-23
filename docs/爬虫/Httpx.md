@@ -19,14 +19,16 @@ httpx 号称下一代 HTTP 客户端，最开始是为了解决 Requests 不支�
 
 系统环境：deepin
 
-```shell
+```console
 pip3 install httpx
+---> 100%
 ```
 
 它还提供命令行工具：
 
-```shell
+```console
 pip3 install 'httpx[cli]'
+---> 100%
 ```
 
 我一般不咋习惯用命令行做接口请求，所以基本都不装这玩意儿。
