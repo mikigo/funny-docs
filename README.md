@@ -1,5 +1,7 @@
 # funny-docs
 
+在线地址：[https://mikigo.github.io/funny-docs/](https://mikigo.github.io/funny-docs/)
+
 使用mkdocs构建的文档系统，记录一些有趣的知识；
 
 不积跬步无以至千里，不积小流无以成江海。
