@@ -689,7 +689,7 @@ def add(x, y):
 add(5, 10)
 ```
 
-```shell
+```console
 我要开始搞 add 函数了
 5 + 10 = 15
 搞完了
@@ -726,7 +726,7 @@ def add(x, y):
 add(5, 10)
 ```
 
-```shell
+```console
 搞之前我先说两句：别整，不得劲儿~
 我要开始搞 add 函数了:
 5 + 10 = 15
@@ -807,7 +807,7 @@ def add(x, y):
 add(5, 10)
 ```
 
-```shell
+```console
 搞之前我先说两句：别整，真的不得劲儿~
 我要开始搞 add 函数了
 5 + 10 = 15
@@ -843,7 +843,7 @@ print(AT[1])
 print(AT[2])
 ```
 
-```shell
+```console
 lt
 jjb
 ```
@@ -857,7 +857,7 @@ for i in AT:
     print(i)
 ```
 
-```shell
+```console
 mikigo
 lt
 jjb
@@ -913,7 +913,7 @@ print(isinstance(my_gen, Generator))
 print(my_gen)
 ```
 
-```shell
+```console
 True
 <generator object <genexpr> at 0x7f5676c57390>
 ```
@@ -936,7 +936,7 @@ my_dict = {i: None for i in range(10)}
 print(my_dict)
 ```
 
-```shell
+```console
 {0: None, 1: None, 2: None, 3: None, 4: None, 5: None, 6: None, 7: None, 8: None, 9: None}
 ```
 
@@ -978,7 +978,7 @@ print(a is b)
 print(id(a), id(b))
 ```
 
-```shell
+```console
 True
 True
 140689217239312 140689217239312
@@ -988,7 +988,7 @@ True
 
 有这个符号的 `>>>` 表示是在命令行执行。
 
-```shell
+```console
 >>> a = 1000
 >>> b = 1000
 >>> print(a == b)
@@ -1001,14 +1001,14 @@ False
 
 上面是使用 `Pycharm` 执行的，实际上Python解释器已经对经常使用到的小整数做了特殊处理，解释器会提前将 256 以内的整数申请内存空间，不会回收，以提升执行效率，所以在这个范围内的整数 id 永远是一样的。
 
-```shell
+```console
 >>> a = 256
 >>> b = 256
 >>> print(id(a), id(b))
 9095360 9095360
 ```
 
-```shell
+```console
 >>> a = 257
 >>> b = 257
 >>> print(id(a), id(b))
@@ -1047,7 +1047,7 @@ del a
 print(b)
 ```
 
-```shell
+```console
 1
 ```
 
@@ -1091,7 +1091,7 @@ class Mikigo:
 print(Mikigo().age)
 ```
 
-```shell
+```console
 我晕，今年30了
 ```
 
@@ -1118,7 +1118,7 @@ mi.age = 25
 print(mi.age)
 ```
 
-```shell
+```console
 25
 ```
 
@@ -1162,7 +1162,7 @@ mi = Mikigo()
 print(mi.age)
 ```
 
-```shell
+```console
 get_instance: <__main__.Mikigo object at 0x7fb4eff50e10>
 get_owner: <class '__main__.Mikigo'>
 30
@@ -1179,7 +1179,7 @@ mi.age = 25
 print(mi.age)
 ```
 
-```shell
+```console
 set_instance: <__main__.Mikigo object at 0x7fc7be222470>
 set_value: 25
 get_instance: <__main__.Mikigo object at 0x7fc7be222470>
@@ -1219,7 +1219,7 @@ mi = Mikigo()
 print(mi.age)
 ```
 
-```shell
+```console
 找到age，我先搞点事情
 30
 ```
@@ -1232,7 +1232,7 @@ print(mi.age)
 mi.name
 ```
 
-```shell
+```console
 找到name，我先搞点事情
 没找到name，我想想能搞点啥事情
 ```
@@ -1323,7 +1323,7 @@ print(mi.age)
 print(Mikigo.age)
 ```
 
-```shell
+```console
 30
 30
 ```
@@ -1364,7 +1364,7 @@ print("是否可迭代：", isinstance(IterTest(), Iterable))
 print("是否为迭代器：", isinstance(IterTest(), Iterator))
 ```
 
-```shell
+```console
 是否可迭代：True
 是否为迭代器：False
 ```
@@ -1408,7 +1408,7 @@ for i in IterTest():
     print(i)
 ```
 
-```shell
+```console
 0
 1
 2
@@ -1434,7 +1434,7 @@ class IterTest:
 print("是否为迭代器：", isinstance(IterTest(), Iterator))
 ```
 
-```shell
+```console
 是否为迭代器： True
 ```
 
@@ -1469,7 +1469,7 @@ for i in Fib(10):
     print(i)
 ```
 
-```shell
+```console
 1
 2
 3
@@ -1509,7 +1509,7 @@ print(next(my_gen))
 print(next(my_gen))
 ```
 
-```shell
+```console
 0
 1
 2
@@ -1532,7 +1532,7 @@ next(g)
 next(g)
 ```
 
-```shell
+```console
 step 1
 step 2
 ```
@@ -1557,7 +1557,7 @@ for i in my_gen():
     print(i)
 ```
 
-```shell
+```console
 1
 2
 ```
@@ -1620,7 +1620,7 @@ my_list = list(my_map)
 print(my_list)
 ```
 
-```shell
+```console
 <map object at 0x7f201238cd68>
 [2, 3, 4]
 ```
@@ -1640,7 +1640,7 @@ my_rd = reduce(lambda x, y: x + y, [1, 2, 3])
 print(my_rd)
 ```
 
-```shell
+```console
 6
 ```
 
@@ -1677,7 +1677,7 @@ my_st = sorted([1, 5, 3], reverse=True)
 print(my_st)
 ```
 
-```shell
+```console
 [1, 3, 5]
 [5, 3, 1]
 ```
@@ -1695,7 +1695,7 @@ my_st = sorted(test_list)
 print(my_st)
 ```
 
-```shell
+```console
 ['test_go_008', 'test_ki_012', 'test_lt_003', 'test_mi_001']
 ```
 
@@ -1708,7 +1708,7 @@ my_st = sorted(test_list, key=lambda x: x.split("_")[-1])
 print(my_st)
 ```
 
-```shell
+```console
 ['test_mi_001', 'test_lt_003', 'test_go_008', 'test_ki_012']
 ```
 
@@ -1740,7 +1740,7 @@ my_list = list(c)
 print(my_list)
 ```
 
-```shell
+```console
 <zip object at 0x7f4ada0fa548>
 [(1, 4), (2, 5), (3, 6)]
 ```

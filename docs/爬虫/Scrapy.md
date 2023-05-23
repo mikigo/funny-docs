@@ -50,14 +50,14 @@ pip3 install Scrapy
 
 创建一个爬虫项目名为：deepin_bbs_spider
 
-```python
+```console
 cd ~
 scrapy startproject deepin_bbs_spider
 ```
 
 工程目录结构：
 
-```shell
+```console
 deepin_bbs_spider
 ├── deepin_bbs_spider
 │   ├── __init__.py
@@ -95,7 +95,7 @@ class BbsSpiderSpider(scrapy.Spider):
 
 啥也不说，先跑起来试试：
 
-```shell
+```console
 cd ~/deepin_bbs_spider
 scrapy crawl bbs_spider
 ```
@@ -114,7 +114,7 @@ scrapy crawl bbs_spider
 
 我确实不知道，`scrapy` 也知道咱们不知道，所以做了个工具自动生成：
 
-```shell
+```console
 scrapy genspider <spider name> <spider url>
 ```
 
@@ -122,7 +122,7 @@ scrapy genspider <spider name> <spider url>
 
 比如，咱们像这样：
 
-```shell
+```console
 scrapy genspider bbs_spider "https://bbs.deepin.org"
 ```
 
@@ -254,7 +254,7 @@ class BbsSpiderSpider(scrapy.Spider):
 
 将数据写入到 csv 文件里面：
 
-```shell
+```console
 scrapy crawl bbs_spider -o bbs.csv
 ```
 
@@ -403,7 +403,7 @@ class BbsSpiderSpider(scrapy.Spider):
 
 `post_info` 获取的结果为：
 
-```shell
+```console
 ['1、系统盘分配了40g,这才一个月就快满了，怎么调大点，后面还有100G空间。', '2、应用商店啥时候放出conky？']
 ```
 
@@ -470,7 +470,7 @@ class BbsSpiderSpider(scrapy.Spider):
 
 使用命令跑一下爬虫：
 
-```shell
+```console
 scrapy crawl bbs_spider -o bbs.csv
 ```
 
@@ -603,19 +603,19 @@ FEED_EXPORT_ENCODING = "utf-8"
 
 Scrapy 提供了一个快捷的调试方法，在终端输入：
 
-```shell
+```console
 scrapy shell <scrapy url>
 ```
 
 `<scrapy url>` 是你要爬取的地址，比如前面我们想获取帖子正文的内容，可以这样调试：
 
-```shell
+```console
 scrapy shell https://bbs.deepin.org/post/254892
 ```
 
 进入终端交互式，输入：
 
-```shell
+```console
 >>> response.css("div.post_conten > div.post_edit.ng-star-inserted > div > div > p::text").getall()
 ['1、系统盘分配了40g,这才一个月就快满了，怎么调大点，后面还有100G空间。', '2、应用商店啥时候放出conky？']
 ```
@@ -634,7 +634,7 @@ Scrapy 由于封装得比较好，启动爬虫是通过命令行启动，但是�
 
 （2）在系统中找到 scrapy 包中的 cmdline.py 文件，这个你得稍微知道点 Python 包管理的一些知识，比如我的在这里：
 
-```shell
+```console
 /home/mikigo/.local/lib/python3.7/site-packages/scrapy/cmdline.py
 ```
 

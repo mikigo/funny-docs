@@ -205,7 +205,7 @@
 
 **（1）函数**
 
-```shell
+```console
 1）len(list) 列表的长度，即列表中元素的个数；
 
 2）max(list) 相同的数据类型取最大值。
@@ -529,7 +529,7 @@ from model.A import add
 ### （一）try语句
 
 （1）try ... except...except 表示当程序运行错误后，被 except 捕捉到，返回一个可定义的信息，且不会影响后续语句的执行。每个 except 后面跟不同的返回信息。
-```shell
+```console
 try:
     print(a)
     10/0
@@ -583,7 +583,7 @@ except ....
 
 1.
 
-```shell
+```console
 >> f = open("test.txt","r+")
 >> f.write("xxx")
 >> f.flush()
@@ -596,7 +596,7 @@ except ....
 
 1.
 
-```shell
+```console
 >> f = open("test.txt","w+")
 >> data = f.read()
 >> print(date)
@@ -608,7 +608,7 @@ except ....
 
 1.
 
-```shell
+```console
 >> f = open("test.txt","a+")
 ```
 

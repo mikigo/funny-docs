@@ -5,7 +5,7 @@
 不积跬步无以至千里，不积小流无以成江海。
 
 ## 安装
-```shell
+```console
 pipenv install
 ```
 

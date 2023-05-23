@@ -49,7 +49,7 @@ print(r.text)
 
 执行后终端输出：
 
-```shell
+```console
 200
 <html>
 <head>
@@ -75,7 +75,7 @@ print(r.text)
 
 执行后终端输出：
 
-```shell
+```console
 200
 {
   "args": {}, 

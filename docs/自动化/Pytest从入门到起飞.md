@@ -141,7 +141,7 @@ class TestMikigo:
         print("我是后置", datetime.now())
 ```
 
-```shell
+```console
 我是前置 2022-01-24 16:17:59.267900
 我是用例 2022-01-24 16:18:00.269282
 我是后置 2022-01-24 16:18:01.270688
@@ -168,7 +168,7 @@ class TestMikigo:
         print("我是后置", datetime.now())
 ```
 
-```shell
+```console
 我是前置 2022-01-24 16:24:57.456212
 我是用例 2022-01-24 16:24:58.457273
 我是后置 2022-01-24 16:24:59.458097
@@ -205,7 +205,7 @@ class TestMikigo:
         print("我是类后置", datetime.now())
 ```
 
-```shell
+```console
 我是类前置 2022-01-24 16:31:59.411548
 我是用例前置 2022-01-24 16:32:00.411892
 我是用例 2022-01-24 16:32:01.413373
@@ -303,7 +303,7 @@ class TestMikigo:
 
 
 
-```shell
+```console
 我是用例前置 2022-01-24 18:36:52.039974
 我是用例001 2022-01-24 18:36:53.041396
 我是用例后置 2022-01-24 18:36:54.042808
@@ -386,7 +386,7 @@ conftest.py 相当于是 Pytest 的一个本地插件库，你可以在用例的
 
 咱们来新建一个 conftest.py 文件：
 
-```shell
+```console
 .
 ├── conftest.py
 └── test_case_001.py
@@ -416,7 +416,7 @@ class TestMikigo:
 
 在根目录使用 `pytest -s -v` 执行一下：
 
-```shell
+```console
 我是最外层用例前置 2022-02-08 16:20:39.605921
 test case 001
 我是最外层用例后置 2022-02-08 16:20:40.606656
@@ -436,7 +436,7 @@ test case 001
 
 我们以 function 级别的 fixture 举例，构造一个多层级的 fixture，建议你在本地按照下面的描述自己建一个demo，不然可能需要你有比较强的结构化思维：
 
-```shell
+```console
 .
 ├── cases_1
 │   ├── cases_1_1
@@ -523,7 +523,7 @@ class TestMikigo:
 
 这样我们就在不同层级写了一些 function 级别的 fixture，执行一下就可以清楚的看到。
 
-```shell
+```console
 我是最外层用例前置 2022-02-08 15:38:52.924602
 我是 cases_1 层用例前置 2022-02-08 15:38:53.925916
 我是 cases_1_1 层用例前置 2022-02-08 15:38:54.927332
@@ -547,7 +547,7 @@ class TestMikigo:
 
 咱们把 `do_something_out` 改成 `do_something_in` ，两个 fixture 函数名都是 `do_something_in`，我们看看会发生什么。
 
-```shell
+```console
 我是最外层用例前置 2022-02-08 15:56:03.138015
 我是 cases_1 层用例前置 2022-02-08 15:56:04.138356
 我是 cases_1_1 层用例前置 2022-02-08 15:56:05.139590
@@ -612,7 +612,7 @@ Pytest 要想玩得溜，命令行参数必须要熟悉，Pytest 支持的参数
 
 执行用例的时候非常有用，通过关键词来匹配用例，用例的关键词有很多，模块名、文件名、类名、函数名都是关键词，比如：
 
-```shell
+```console
 pytest -k "test_music"
 ```
 
@@ -620,11 +620,11 @@ pytest -k "test_music"
 
 -k 还有一点可能好多同学都不知道，它还支持逻辑表达式，比如：
 
-```shell
+```console
 pytest -k "test_music or test_movie"
 ```
 
-```shell
+```console
 pytest -k "not test_music and not test_movie""
 ```
 
@@ -650,7 +650,7 @@ class TestMikigo:
 
 打完标签之后，批量执行用例时就可以通过标签来加载用例，用法和 -k 是一样的。
 
-```shell
+```console
 pytest -m "smoke or core"
 ```
 
@@ -660,7 +660,7 @@ pytest -m "smoke or core"
 
 每周我需要给老板汇报目前所有用例多少条，咱总不可能在代码里面一条条去数吧，我通常会使用：
 
-```shell
+```console
 pytest --co
 ```
 
@@ -672,7 +672,7 @@ pytest --co
 
 配置最大失败次数，如果一次执行出现了大量的失败，多半这次测试是无效的，通过配置这个参数，我们不用等到所有用例执行完才结束，尽早结束节约时间。
 
-```shell
+```console
 pytest --maxfail=int_number
 ```
 
@@ -680,7 +680,7 @@ pytest --maxfail=int_number
 
 我的方案是先获取到本次要执行的总用例数 `collected_cases_num`，然后配置一个总数的比例，如 0.5，表示只要失败次数达到了总数的一半，就可以直接结束测试。
 
-```shell
+```console
 pytest --maxfail=int(collected_cases_num * 0.5)
 ```
 
@@ -690,7 +690,7 @@ pytest --maxfail=int(collected_cases_num * 0.5)
 
 失败重跑次数，在自动化测试过程中经常会有一些不确定性，网络问题、环境问题、量子力学、地球引力等等都有可能造成用例失败，特别是 UI 自动化测试，这些情况经常发生，为了尽量排除环境问题造成的用例失败，采用失败后自动重跑是一个比较好的方案。
 
-```shell
+```console
 pytest --reruns=2
 ```
 
@@ -698,7 +698,7 @@ pytest --reruns=2
 
 这个参数需要安装三方插件：
 
-```shell
+```console
 sudo pip3 install pytest-rerunfailures
 ```
 
@@ -706,7 +706,7 @@ sudo pip3 install pytest-rerunfailures
 
 用例超时在 CI 流程中非常重要，因为所有的每日构建都应该是有时长限制的，一跑就是两三天不停就不叫每日构建了，用例执行过程中可能存在一些异常情况，导致用例卡住不动，或者执行速度变慢，我们使用 `--timeout` 可以给每条用例设置一个最大的时长，如果超时没有执行完，就是强制停止用例。
 
-```shell
+```console
 pytest --timeout=200
 ```
 
@@ -714,7 +714,7 @@ pytest --timeout=200
 
 这个参数需要安装三方插件：
 
-```shell
+```console
 sudo pip3 install pytest-timeout
 ```
 
@@ -735,7 +735,7 @@ def pytest_addoption(parser):
 
 `parser.addoption()` 里面可以传入挺多参数的，但是不是所有的都需要：
 
-```shell
+```console
 1、name：自定义命令行参数的名字，可以是："foo"， "-foo" 或 "--foo"；
 2、action：在命令行中遇到此参数时要采取的基本操作类型；
 3、nargs：应该使用的命令行参数的数量；
@@ -763,7 +763,7 @@ def pytest_addoption(parser):
 
 用于控制日志输出的级别，CI 集成环境下我们不需要输出 DEBUG 级别的日志，我们可以这样用：
 
-```shell
+```console
 pytest --logLevel=INFO
 ```
 
@@ -1016,7 +1016,7 @@ def pytest_collection_modifyitems(session, config, items):
 
   item 里面有很多属性，常用的：
 
-  ```shell
+  ```console
   name：用例的名称
   nodeid：从用例根目录开始到用例文件的路径
   own_markers：用例的mark标签
@@ -1062,13 +1062,13 @@ def pytest_runtest_makereport(item):
 
 Pytest 最常用的测试报告是 allure，它是一个三方插件，安装它：
 
-```shell
+```console
 sudo pip3 install allure-pytest
 ```
 
 使用也很简单，只需要执行时加参数 `--alluredir=xxx` 即可：
 
-```shell
+```console
 pytest --alluredir=report
 ```
 
@@ -1078,7 +1078,7 @@ pytest --alluredir=report
 
 你还需要安装 allure 的查看工具，你可以直接从 github上去下载最新的版本，然后安装它即可，比如我现在下来安装是这样的：
 
-```shell
+```console
 sudo dpkg -i allure_2.19.0-1_all.deb
 ```
 
@@ -1086,13 +1086,13 @@ sudo dpkg -i allure_2.19.0-1_all.deb
 
 - 在线查看：
 
-```shell
+```console
 allure serve report
 ```
 
 - 生成本地 html
 
-```shell
+```console
 allure generate report -o allure-report
 ```
 
@@ -1104,7 +1104,7 @@ allure generate report -o allure-report
 
 使用命令打开：
 
-```shell
+```console
 allure open allure-report
 ```
 
@@ -1118,7 +1118,7 @@ allure open allure-report
 
 安装：
 
-```shell
+```console
 sudo pip3 install pytest-html
 ```
 
@@ -1132,7 +1132,7 @@ pytest --html=report.html
 
 这是个 Pytest 自带的报告，不需要安装插件：
 
-```shell
+```console
 pytest --junit-xml=report.xml
 ```
 
@@ -1197,7 +1197,7 @@ results = pm.hook.miki(arg1=1, arg2=2)
 print(results)
 ```
 
-```shell
+```console
 我是 Plugin_1.miki()
 [3]
 ```
@@ -1251,7 +1251,7 @@ results = pm.hook.miki(arg1=1, arg2=2)
 print(results)
 ```
 
-```shell
+```console
 我是 Plugin_2.miki()
 我是 Plugin_1.miki()
 [-1, 3]
@@ -1301,7 +1301,7 @@ results = pm.hook.miki(arg1=1, arg2=2)
 print(results)
 ```
 
-```shell
+```console
 我是 Plugin_1.miki()
 我是 Plugin_2.miki()
 [3, -1]

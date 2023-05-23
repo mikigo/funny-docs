@@ -909,7 +909,7 @@ FastAPI 使用数据一般采用 Python 社区最流行的 ORM 库：SQLAlchemy�
 
 先创建一个数据库的目录，里面包含这些文件：
 
-```shell
+```console
 .
 └── sql_app
     ├── __init__.py
@@ -1158,7 +1158,7 @@ def read_items(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
 
 ### 8、执行项目
 
-```shell
+```console
 uvicorn sql_app.main:app --reload
 ```
 

@@ -15,13 +15,13 @@
 
 1、`Debian` 系使用 `apt` 安装 `OpencCV`：
 
-```shell
+```console
 sudo apt install python-opencv
 ```
 
 在 `UOS` 系统上，也可以使用：
 
-```shell
+```console
 sudo apt install python3-opencv
 ```
 

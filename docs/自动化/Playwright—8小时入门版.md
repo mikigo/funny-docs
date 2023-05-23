@@ -55,7 +55,7 @@ Selenium IDE 是用来录制脚本的，好多刚开始入门的同学应该都�
 
 Playwright 当然也有录制的功能，在终端执行：
 
-```shell
+```console
 playwright codegen
 ```
 
@@ -107,7 +107,7 @@ def test_example(page: Page) -> None:
 
 这个脚本是可以直接用 `pytest` 来执行的，你需要安装 `pytest-playwright` 插件：
 
-```shell
+```console
 pip3 install pytest-playwright
 ```
 

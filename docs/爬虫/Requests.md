@@ -48,7 +48,7 @@ print(r.text)
 
 终端打印：
 
-```shell
+```console
 200
 <!DOCTYPE html>
 <!--STATUS OK--><html> <head><meta http-equ ...... # 省略
@@ -141,7 +141,7 @@ print(r.text)
 
 执行后终端输出：
 
-```shell
+```console
 {
   "args": {}, 
   "data": "", 
@@ -175,7 +175,7 @@ print(r.text)
 
 执行后终端输出：
 
-```shell
+```console
 {
   "args": {}, 
   "data": "\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\"}\"", 
@@ -277,7 +277,7 @@ print(r.text)
 
 执行后终端输出：
 
-```shell
+```console
 {
   "cookies": {
     "sessioncookie": "123456789"
@@ -337,7 +337,7 @@ print(resp.text)
 
 执行终端输出：
 
-```shell
+```console
 {
   "args": {}, 
   "headers": {
