@@ -28,7 +28,9 @@ theme:
     - content.tabs.link
 
   logo: "img/logo.png"
-  favicon: img/logo.png
+  favicon: img/favicon.ico
+  icon:
+    repo: fontawesome/brands/github
 
 # 右上角
 repo_name: mikigo/funny-docs
