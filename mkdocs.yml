@@ -27,7 +27,7 @@ theme:
     - search.highlight
     - content.tabs.link
 
-  logo: "img/logo.png"
+  logo: "img/logo.svg"
   favicon: img/favicon.ico
   icon:
     repo: fontawesome/brands/github
