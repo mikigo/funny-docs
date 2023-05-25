@@ -1,9 +1,10 @@
-site_name: YouQu Blog
+site_name: Funny Docs
 copyright: Powder By Mikigo
 theme:
   name: material
   language: zh
-  custom_dir: overrides
+#  # 评论系统
+#  custom_dir: overrides
   palette:
   # 自动亮/暗模式
   - media: '(prefers-color-scheme: light)'
@@ -27,7 +28,7 @@ theme:
     - search.highlight
     - content.tabs.link
 
-  logo: "img/logo.svg"
+  logo: "img/logo.png"
   favicon: img/favicon.ico
   icon:
     repo: fontawesome/brands/github

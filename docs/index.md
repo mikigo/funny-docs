@@ -1,6 +1,6 @@
 comments: true
 
-# YouQu Blog
+# Funny Docs
 
 主要想用于记录一些有趣的知识；
 
