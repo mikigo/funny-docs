@@ -34,8 +34,8 @@ theme:
     repo: fontawesome/brands/github
 
 # 右上角
-repo_name: mikigo/funny-docs
-repo_url: "https://github.com/mikigo/funny-docs"
+repo_name: funny-test/funny-docs
+repo_url: "https://github.com/funny-test/funny-docs"
 
 plugins:
   - termynal
