@@ -3,8 +3,8 @@ copyright: Powder By Mikigo
 theme:
   name: material
   language: zh
-#  # 评论系统
-#  custom_dir: overrides
+  # 评论系统
+  custom_dir: overrides
   palette:
   # 自动亮/暗模式
   - media: '(prefers-color-scheme: light)'
