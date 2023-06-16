@@ -1,0 +1,1695 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Python%E5%8C%85%E6%9E%84%E5%BB%BA%E5%92%8C%E5%8F%91%E5%B8%83/">
+      
+      
+        <link rel="next" href="../../%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E6%96%B9%E6%A1%88/">
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
+    
+    
+      
+        <title>Python环境与依赖管理 - Funny Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../termynal.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#python" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="Funny Docs" class="md-header__button md-logo" aria-label="Funny Docs" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Funny Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Python环境与依赖管理
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/funny-dream/funny-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    funny-dream/funny-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Funny Docs" class="md-nav__button md-logo" aria-label="Funny Docs" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Funny Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/funny-dream/funny-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    funny-dream/funny-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        首页
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          自动化
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          自动化
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%87%AA%E5%8A%A8%E5%8C%96/Pytest%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E8%B5%B7%E9%A3%9E/" class="md-nav__link">
+        Pytest 从入门到起飞
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%87%AA%E5%8A%A8%E5%8C%96/Playwright%E2%80%948%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        Playwright—8小时入门版
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          爬虫
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          爬虫
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%88%AC%E8%99%AB/Requests/" class="md-nav__link">
+        Requests
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%88%AC%E8%99%AB/Httpx/" class="md-nav__link">
+        Httpx
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%88%AC%E8%99%AB/Scrapy/" class="md-nav__link">
+        Scrapy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          后端
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          后端
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%90%8E%E7%AB%AF/FastAPI%E2%80%948%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        FastAPI—8小时入门版
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          视觉
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          视觉
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%A7%86%E8%A7%89/OpenCV%28Python%29%E5%9F%BA%E7%A1%80%E2%80%949%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        OpenCV(Python)基础—9小时入门版
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E2%80%948%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        Python基础语法—8小时入门版
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E4%BB%8E%E8%BF%9B%E9%98%B6%E5%88%B0%E9%AB%98%E7%BA%A7%E2%80%94%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82%E7%89%88/" class="md-nav__link">
+        Python从进阶到高级—通俗易懂版
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%8C%85%E6%9E%84%E5%BB%BA%E5%92%8C%E5%8F%91%E5%B8%83/" class="md-nav__link">
+        Python包构建和发布
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Python环境与依赖管理
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Python环境与依赖管理
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pip" class="md-nav__link">
+    pip
+  </a>
+  
+    <nav class="md-nav" aria-label="pip">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    安装
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    快速配置环境
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    明确环境依赖
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    环境依赖治理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    常见问题
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conda" class="md-nav__link">
+    conda
+  </a>
+  
+    <nav class="md-nav" aria-label="conda">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#miniconda" class="md-nav__link">
+    安装miniconda
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#base" class="md-nav__link">
+    取消激活base环境
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python_1" class="md-nav__link">
+    安装/卸载Python包
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    依赖管理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    环境操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    切换环境技巧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    常用命令
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pdm" class="md-nav__link">
+    pdm
+  </a>
+  
+    <nav class="md-nav" aria-label="pdm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    安装
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pdm_1" class="md-nav__link">
+    初始化pdm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    包操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    项目配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    运行命令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    命令别名
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python_2" class="md-nav__link">
+    切换Python版本
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    兼容环境
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#venv" class="md-nav__link">
+    venv
+  </a>
+  
+    <nav class="md-nav" aria-label="venv">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    创建虚拟环境
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    进入虚拟环境
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    退出虚拟环境
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virtualenv" class="md-nav__link">
+    virtualenv
+  </a>
+  
+    <nav class="md-nav" aria-label="virtualenv">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#virtualenvwrapper" class="md-nav__link">
+    virtualenvwrapper
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pyenv" class="md-nav__link">
+    pyenv
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipenv" class="md-nav__link">
+    pipenv
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#poetry" class="md-nav__link">
+    poetry
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E6%96%B9%E6%A1%88/" class="md-nav__link">
+        常见问题及方案
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pip" class="md-nav__link">
+    pip
+  </a>
+  
+    <nav class="md-nav" aria-label="pip">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    安装
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    快速配置环境
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    明确环境依赖
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    环境依赖治理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    常见问题
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conda" class="md-nav__link">
+    conda
+  </a>
+  
+    <nav class="md-nav" aria-label="conda">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#miniconda" class="md-nav__link">
+    安装miniconda
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#base" class="md-nav__link">
+    取消激活base环境
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python_1" class="md-nav__link">
+    安装/卸载Python包
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    依赖管理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    环境操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    切换环境技巧
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    常用命令
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pdm" class="md-nav__link">
+    pdm
+  </a>
+  
+    <nav class="md-nav" aria-label="pdm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    安装
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pdm_1" class="md-nav__link">
+    初始化pdm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    包操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    项目配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    运行命令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    命令别名
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python_2" class="md-nav__link">
+    切换Python版本
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    兼容环境
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#venv" class="md-nav__link">
+    venv
+  </a>
+  
+    <nav class="md-nav" aria-label="venv">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    创建虚拟环境
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    进入虚拟环境
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    退出虚拟环境
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virtualenv" class="md-nav__link">
+    virtualenv
+  </a>
+  
+    <nav class="md-nav" aria-label="virtualenv">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#virtualenvwrapper" class="md-nav__link">
+    virtualenvwrapper
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pyenv" class="md-nav__link">
+    pyenv
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipenv" class="md-nav__link">
+    pipenv
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#poetry" class="md-nav__link">
+    poetry
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="python">Python环境与依赖管理</h1>
+<p>Python有一大特点，即具有强大的标准库和第三方库。在开发过程中可能会用到第三方库，那么就需要对其进行安装和管理。基于一定的工具链，Python也能写出优雅标准的项目代码，将依赖管理玩的明明白白。</p>
+<h2 id="pip">pip</h2>
+<p>pip 是 Python 标准库的一个包，从 Python3.4 开始 pip 已经内置在 Python 中。Python 有成千上万的宝藏库，它们被放置在一个统一的仓库 <code>pypi</code>。pip 在这个仓库中充当着管理员的角色，可以将需要的库从 Pypi 取出来，安装并管理这些库。</p>
+<p>由于大多数的第三方库都发布在 pypi，所以通过pip就可以安装95%以上的第三方库，体量在包安装这方面是大哥级别。pip还有一大优势就是在安装库的同时会把库所需要的依赖也一并进行安装。综上所述，在单一的项目环境中推荐使用它，简单便捷。</p>
+<p>如果有两个及以上的项目环境就不建议去使用pip，会出现环境冲突且难以管理。如果一定要使用那么就需要搭配上环境管理工具。</p>
+<h3 id="_1">安装</h3>
+<p>如果 Python 环境没有 pip 工具可以通过以下两种方法进行安装。</p>
+<pre><code class="language-shell">sudo apt-get install python-pip
+</code></pre>
+<p>还有种方法：</p>
+<p>在 https://pypi.org/project/pip/#files 中下载pip安装文件，然后解压到 <code>python scripts</code> 目录中，执行 <code>python setup.py install</code> 命令安装即可；</p>
+<p>许多人抱怨 pip 命令安装 Python 库很慢或者是安装过程中失败，其实是 pip 源的问题，将其更换为我们国内源即可；</p>
+<p>1.临时设定：</p>
+<pre><code class="language-plain">pip install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package matplotlib
+</code></pre>
+<p>2.设置为默认：</p>
+<pre><code class="language-plain">pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+</code></pre>
+<p>设为默认后，以后安装库都是从清华源下载，而且无需再加镜像源网址。</p>
+<h3 id="_2">快速配置环境</h3>
+<p>通过 pip list 命令可以预览当前环境下的依赖包：</p>
+<pre><code class="language-plain">:~$ pip list
+Package       Version 
+------------- --------
+asn1crypto    0.24.0  
+colorama      0.3.7   
+configparser  3.5.0b2 
+cryptography  2.6.1   
+decorator     4.3.0
+</code></pre>
+<p>通过 pip install package_name 命令安装 Python 包：
+以 requests 包举例说明：</p>
+<pre><code class="language-plain">~$ pip install requests
+Collecting requests
+......
+Successfully installed certifi-2021.10.8 chardet-4.0.0 idna-2.10 requests-2.27.1 urllib3-1.26.16
+</code></pre>
+<p>还可以通过pip install requests==&lt;版本号&gt;来指定包的版本号进行安装：</p>
+<pre><code class="language-plain">pip install requests==2.27.1
+</code></pre>
+<p>如果我们想将安装好的这些包及依赖信息全部记录下来，就可以通过pip freeze命令将信息记  在requirements.txt中。</p>
+<pre><code class="language-plain">pip freeze &gt; requirements.txt
+</code></pre>
+<p>当我们需要在一个新的python环境中引入当前的依赖时使用以下命令即可。</p>
+<pre><code class="language-plain">pip  install -r requirements.txt
+</code></pre>
+<p>还可以通过 pipreqs 进行导包操作：</p>
+<pre><code class="language-plain">~$ pip install pipreqs
+~$ pipreqs ./  此命令也是生成一个requirements.txt文件在当前项目目录下
+</code></pre>
+<p>如果环境中存在 requirements.txt 文件，需要使用以下命令导出 requirements.txt 文件：</p>
+<pre><code class="language-plain">pipreqs ./ --encoding=utf-8 --force
+</code></pre>
+<p>注意可能在使用时会发现：</p>
+<pre><code class="language-plain">~$ pipreqs ./
+Traceback (most recent call last):
+  File &quot;/home/uos/.local/bin/pipreqs&quot;, line 6, in &lt;module&gt;
+    from pipreqs.pipreqs import main
+  File &quot;/home/uos/.local/lib/python2.7/site-packages/pipreqs/pipreqs.py&quot;, line 51, in &lt;module&gt;
+    from pipreqs import __version__
+ImportError: cannot import name __version__
+</code></pre>
+<p>报错了怎么办？</p>
+<p>不要慌张，其实这是因为此环境下版本不可用，换个版本就好啦！</p>
+<pre><code class="language-plain">~$ pip install pipreqs==100
+Collecting pipreqs==100
+Could not find a version that satisfies the requirement pipreqs==100 (from versions: 0.1.3, 0.1.4, 0.1.5, 0.1.6, 0.1.7, 0.1.8, 0.1.9, 0.2.0, 0.2.1, 0.2.2, 0.2.3, 0.2.4, 0.2.5, 0.2.7, 0.2.8, 0.2.9, 0.3.0, 0.3.1, 0.3.2, 0.3.3, 0.3.4, 0.3.5, 0.3.6, 
+0.3.7, 0.3.8, 0.3.9, 0.4.0, 0.4.1, 0.4.2, 0.4.3, 0.4.4, 0.4.5, 0.4.6, 0.4.7, 0.4.8, 0.4.9, 0.4.10, 0.4.11)                                                                                      
+No matching distribution found for pipreqs==100
+这里很多版本，可以选择其中一个未安装的，建议不要装太旧的
+~$ pip install pipreqs==0.4.1
+~$ pipreqs --help 查看有没有报错，没有报错就ok
+接下来正常操作就不会报错啦
+</code></pre>
+<h3 id="_3">明确环境依赖</h3>
+<p>pip list 和 pip freeze 打印出来的依赖都有一个问题，那就是无法明确依赖关系。</p>
+<p>当我们想清理某一个包时，不知道哪个是直接依赖哪个是间接依赖。导致环境清理不干净或者清理了不该清除的依赖。</p>
+<p>这时就可以使用 pipdeptree 来管理依赖树：</p>
+<pre><code class="language-plain">~$ pip install pipdeptree
+......
+~$ pipdeptree
+...
+pipreqs==0.4.1
+  - docopt [required: Any, installed: 0.6.2]
+  - yarg [required: Any, installed: 0.1.9]
+    - requests [required: Any, installed: 2.27.1]
+      - certifi [required: &gt;=2017.4.17, installed: 2021.10.8]
+      - chardet [required: &gt;=3.0.2,&lt;5, installed: 4.0.0]
+      - idna [required: &gt;=2.5,&lt;3, installed: 2.10]
+      - urllib3 [required: &gt;=1.21.1,&lt;1.27, installed: 1.26.16]
+...
+</code></pre>
+<p>这样我们就清楚的知道依赖直接的关系，在依赖清理时就可以避免出现问题。</p>
+<h3 id="_4">环境依赖治理</h3>
+<p>如果说我们想卸载 requests 包，直接使用 pip uninstall requests 命令你会发现怎么卸不干净？</p>
+<pre><code class="language-plain">:~$ pipdeptree
+setuptools==40.8.0
+six==1.12.0
+wheel==0.32.3
+yarg==0.1.9
+  - requests [required: Any, installed: 2.27.1]
+    - certifi [required: &gt;=2017.4.17, installed: 2021.10.8]
+    - chardet [required: &gt;=3.0.2,&lt;5, installed: 4.0.0]
+    - idna [required: &gt;=2.5,&lt;3, installed: 2.10]
+    - urllib3 [required: &gt;=1.21.1,&lt;1.27, installed: 1.26.16]
+:~$ pip uninstall requests
+:~$ pipdeptree
+setuptools==40.8.0
+six==1.12.0
+urllib3==1.26.16
+wheel==0.32.3
+yarg==0.1.9
+  - requests [required: Any, installed: 2.21.0]
+发现只是单纯的卸载了requests，它依赖的包并没有被卸载！
+</code></pre>
+<p>那么推荐一个工具 pip-autoremove 来做这件事情，下面用这个工具来试试：</p>
+<pre><code class="language-plain">~$ pip install pip-autoremove
+...
+~$ pip-autoremove requests -y
+...
+:~$ pipdeptree
+six==1.12.0
+wheel==0.32.3
+yarg==0.1.9
+  - requests [required: Any, installed: 2.21.0]
+</code></pre>
+<p>你会发现非常好用哈，它会检索到 requests包 和它的相关依赖，然后全部卸载，可以说是非常干净！</p>
+<h3 id="_5">常见问题</h3>
+<p>pip install 与 python install 区别</p>
+<p>以 requests 为例：</p>
+<ul>
+<li>
+<p>当我们用 pip install requests 安装 requests 模块，则会把 requests 依赖的其他库都安装上，不需要在去费力安装依赖的库了。</p>
+</li>
+<li>
+<p>当我们使用 pip setup.py install 安装 requests 模块，需要去手动安装第三方依赖，否则在 import requests 时会出现报错。</p>
+</li>
+</ul>
+<h2 id="conda">conda</h2>
+<p>conda是一个支持多语言的包、依赖和环境管理工具，它不仅能管理包，还可以隔离和管理不同Python版本的环境，类似于管理node.js环境的nvm工具。</p>
+<p>conda官方一共有两个发行版anaconda和miniconda，anaconda相比miniconda体积更大，预装了许多科学计算的库，很多东西未必会用的到，所以建议使用miniconda。</p>
+<p>对于跨语言的或者是本身就整合了各种依赖的环境(比如tenserflow)，再考虑使用conda。</p>
+<h3 id="miniconda">安装miniconda</h3>
+<p>1.首先下载miniconda的安装脚本</p>
+<pre><code>[https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh](https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh)
+</code></pre>
+<p>2.执行安装脚本</p>
+<p>3.一直回车等到出现如下提示并输入yes回车</p>
+<pre><code class="language-plain">Do you accept the license terms? [yes|no]
+[no] &gt;&gt;&gt; 
+Please answer 'yes' or 'no':'
+&gt;&gt;&gt; yes
+</code></pre>
+<p>4.指定安装路径</p>
+<pre><code class="language-plain">[/home/uos/miniconda3] &gt;&gt;&gt; 这里的路径可以根据自己情况设定，指定完成回车
+我这里就不指定了，使用默认路径
+</code></pre>
+<p>5.初始化conda</p>
+<pre><code class="language-plain">by running conda init? [yes|no]
+[no] &gt;&gt;&gt; yes 
+</code></pre>
+<p>通过简单的操作就可以安装成功了，当打开终端提示符前出现(base)说明进入了默认虚拟环境。</p>
+<h3 id="base">取消激活base环境</h3>
+<p>当miniconda安装完成之后，每次打开终端都会激活其默认的base环境，我们可以通过以下命令禁止激活默认base环境。</p>
+<pre><code class="language-plain">conda config --set auto_activate_base false 
+</code></pre>
+<h3 id="python_1">安装/卸载Python包</h3>
+<p>当我们想在conda中安装包，可以选择用conda install或者pip install，两者基本相同，但是pip是通过pypi仓库拉取的数据，而conda是通过anaconda.org上拉取的数据。所以说pip的包更全。</p>
+<p>以requests为例：</p>
+<pre><code class="language-plain">:~$ conda install requests  安装
+:~$ conda uninstall requests  卸载
+操作方法和pip几乎一样
+</code></pre>
+<h3 id="_6">依赖管理</h3>
+<p>conda 也有和pip freeze类似的依赖管理方式：</p>
+<p>为当前环境创建配置文件：</p>
+<pre><code class="language-plain">:~$ conda env export &gt; environment.yaml 
+</code></pre>
+<p>根据配置文件复现当前环境：</p>
+<pre><code class="language-plain">:~$ conda env create -f environment.yaml
+</code></pre>
+<h3 id="_7">环境操作</h3>
+<p>首先创建一个环境，并激活该环境：</p>
+<pre><code class="language-plain">:~$ conda create -n uos python=3.7 -y  环境名称可以自定义，我这里使用uos
+...
+:~$ conda activate uos
+</code></pre>
+<p>需要注意的是，创建环境之后，一定要 activate 该环境，否则后续的 install 操作还是在 base 环境。
+查看已有环境列表：</p>
+<pre><code class="language-plain">:~$ conda env list
+# conda environments:
+#
+base                     /home/uos/miniconda3
+uos                   *  /home/uos/miniconda3/envs/uos
+</code></pre>
+<p>查看当前环境下的依赖：</p>
+<pre><code class="language-plain">:~$ conda list
+# packages in environment at /home/uos/miniconda3/envs/uos:
+#
+# Name                    Version                   Build  Channel
+_libgcc_mutex             0.1                        main  
+_openmp_mutex             5.1                       1_gnu  
+ca-certificates           2023.01.10           h06a4308_0  
+certifi                   2022.12.7        py37h06a4308_0  
+ld_impl_linux-64          2.38                 h1181459_1
+...
+</code></pre>
+<p>退出环境：</p>
+<pre><code class="language-plain">:~$ conda deactivate
+:~$ exit  环境内直接退出
+</code></pre>
+<h3 id="_8">切换环境技巧</h3>
+<p>当我们切换环境时，会使用conda activate命令，如果我们想只输入uos可不可以激活环境呢？</p>
+<p>当然可以，操作如下：</p>
+<pre><code class="language-plain">:~$ vim ~/.bash_profile
+alias uos=&quot;conda activate uos&quot;
+:~$ source ~/.bash_profile
+:~$ uos
+此方法适用于环境与环境之间切换
+</code></pre>
+<h3 id="_9">常用命令</h3>
+<p>环境相关：</p>
+<pre><code class="language-plain">conda remove -n [env_name] --all  移除环境
+conda create --name new_env_name --clone base_env_name  克隆环境
+</code></pre>
+<p>日常相关：</p>
+<pre><code class="language-plain">conda search [package_name]  搜索安装包信息
+conda update [package_name]  更新包
+conda remove [package_name]  删除包
+conda clean -t  直接清除被缓存包
+conda clean -y -a  直接清除索引缓存、未使用缓存包
+</code></pre>
+<h2 id="_10"></h2>
+<h2 id="pdm">pdm</h2>
+<p>pdm是一个新的Python包管理器，于2021年发布1.0版本，目前最新版为2.7。值得一提的是这款工具的开发者是中国人。为什么选择pdm呢？首先它不是传统的包管理器(pipenv,poetry)需要基于虚拟环境，pdm得益于2018年的一个PEP提案（PEP582，Python local packages directory），完全摒弃了虚拟环境。</p>
+<p>PDM 包含如下特性：</p>
+<p>1.PEP 582 本地项目库目录，支持安装与运行命令，完全不需要虚拟环境。</p>
+<p>2.一个简单且相对快速的依赖解析器，特别是对于大的二进制包发布。</p>
+<p>3.兼容 PEP 517 的构建后端，用于构建发布包(源码格式与 wheel 格式)</p>
+<p>4.拥有灵活且强大的插件系统（有插件系统直接就拉开一个档次）</p>
+<p>5.PEP 621 元数据格式</p>
+<p>6.像 pnpm 一样的中心化安装缓存，节省磁盘空间</p>
+<h3 id="_11">安装</h3>
+<p>pdm的安装方式有很多种，比如pip、pipx、homebrew等。这里推荐一款安装命令行安装工具，pipx 是安装并运行 Python 终端用户应用（end-user applications）的工具。终端用户应用，其实可以理解为用 Python 编写的命令行工具，可以直接从命令行调用的那种。</p>
+<pre><code class="language-plain">python3 -m pip install --user pipx
+</code></pre>
+<p>pipx 需要 Python 3.6 及以上版本，同时必须已经安装好了 pip。</p>
+<pre><code class="language-plain">pipx install pdm
+</code></pre>
+<p>如果提示虚拟环境没有被创建需要安装venv，可以通过命令进行安装。</p>
+<pre><code class="language-plain">apt-get install python3-venv
+</code></pre>
+<p>安装完成之后再通过pipx命令进行安装pdm。</p>
+<pre><code class="language-plain">:~$ pipx install pdm
+  installed package pdm 2.7.0, installed using Python 3.7.3
+  These apps are now globally available
+    - pdm
+done! ✨ 🌟 ✨
+</code></pre>
+<h3 id="pdm_1">初始化pdm</h3>
+<p>执行 pdm init 就会开始初始化，初始化的时候，会让你选择项目的一些信息</p>
+<pre><code class="language-plain">:~$ pdm init
+Creating a pyproject.toml for PDM...
+Please enter the Python interpreter to use
+0. /usr/bin/python (2.7)
+1. /usr/bin/python3.7m (3.7)
+2. /usr/bin/python3.7 (3.7)
+3. /usr/bin/python2.7 (2.7)
+4. /home/uos/.local/pipx/venvs/pdm/bin/python (3.7)
+Please select (0): 2
+Using Python interpreter: /usr/bin/python3.7 (3.7)
+Using __pypackages__ because non-venv Python is used.
+Would you like to create a virtualenv with /usr/bin/python3.7? [y/n] (y): y
+Virtualenv is created successfully at /home/uos/.venv
+Is the project a library that is installable?
+If yes, we will need to ask a few more questions to include the project name and build backend [y/n] (n): y
+Project name (uos): 123like
+Project version (0.1.0): 
+Project description (): 
+Which build backend to use?
+0. pdm-backend
+1. setuptools
+2. flit-core
+3. hatchling
+4. pdm-pep517
+Please select (0): 4
+License(SPDX name) (MIT): 
+Author name (): 
+Author email (): 
+Python requires('*' to allow any) (&gt;=3.7): 
+Changes are written to pyproject.toml.
+Found following files from other formats that you may import:
+0. /home/uos/requirements.txt (requirements)
+1. don't do anything, I will import later.
+Please select: 1
+</code></pre>
+<p>完成之后，PDM 会将你的选择以 toml 格式写入 pyproject.toml 配置文件中。</p>
+<pre><code class="language-plain">:~$ cat pyproject.toml 
+[project]
+name = &quot;123like&quot;
+version = &quot;0.1.0&quot;
+description = &quot;&quot;
+authors = [
+    {name = &quot;&quot;, email = &quot;&quot;},
+]
+dependencies = []
+requires-python = &quot;&gt;=3.7&quot;
+readme = &quot;README.md&quot;
+license = {text = &quot;MIT&quot;}
+
+[build-system]
+requires = [&quot;pdm-pep517&gt;=1.0&quot;]
+build-backend = &quot;pdm.pep517.api&quot;
+</code></pre>
+<h3 id="_12">包操作</h3>
+<p>安装包和 Poetry 一样，安装使用的是 add 命令</p>
+<pre><code class="language-plain">pdm add requests
+</code></pre>
+<p>查看包</p>
+<pre><code class="language-plain">pdm list --graph
+</code></pre>
+<p>pdm list 还有两个选项：
+–freeze：以 requirements.txt 的格式列出已安装的包</p>
+<p>–json：以 json 的格式列出已安装的包，但必须与 --graph 同时使用</p>
+<p>要查看某个包的某体详情，直接用 pdm show some_package即可</p>
+<pre><code class="language-plain">pdm show requests
+</code></pre>
+<p>删除包</p>
+<pre><code class="language-plain">pmd remove requests
+</code></pre>
+<p>更新包</p>
+<pre><code class="language-plain"># 更新所有包
+pdm update 
+# 更新某个包
+pdm update &lt;somepackage&gt;
+</code></pre>
+<h3 id="_13">项目配置</h3>
+<pre><code class="language-plain">pdm config
+Site/default configuration (/etc/xdg/pdm/config.toml):
+build_isolation = True
+cache_dir = /home/uos/.cache/pdm
+check_update = True
+...
+Home configuration (/home/uos/.config/pdm/config.toml):
+Project configuration (/home/uos/pdm.toml):
+</code></pre>
+<p>pdm config 里面有非常多的配置，想要一一搞清楚的可以去官网查阅：<a href="https://pdm.fming.dev/latest/reference/configuration/">https://pdm.fming.dev/latest/reference/configuration/</a></p>
+<h3 id="_14">运行命令</h3>
+<p>想要在 pdm 的环境中执行命令或者项目，可以使用 run 命令，若是执行项目时，有诸多参数，可以在 pyproject.toml 配置命令别名。</p>
+<pre><code class="language-plain">:~$ pdm run python main.py 
+hello,uos
+</code></pre>
+<h3 id="_15">命令别名</h3>
+<p>在 pyproject.toml 添加 [tool.pdm.scripts]可以设置快捷命令别名，若项目的执行有非常多的参数，这种设定别名的方法将很有用 。</p>
+<pre><code class="language-plain">[tool.pdm.scripts]
+start = &quot;python main.py&quot;
+
+:~$ pdm run start
+hello,uos
+</code></pre>
+<p>[tool.pdm.scripts]有两种形式：</p>
+<pre><code class="language-plain"># 第一种
+[tool.pdm.scripts]
+start = &quot;python main.py&quot;
+# 第一种
+[tool.pdm.scripts]
+start = {cmd = &quot;python main.py&quot;}
+</code></pre>
+<h3 id="python_2">切换Python版本</h3>
+<p>当你在初始化 pdm 项目时，就已经选定了当前的 Python 版本和可用的 Python 版本范围，后面如果想更改，可以使用 use 命令，但版本要受之前设定的版本范围约束。假设允许范围是 python 3.9+，当前使用的是 python 3.10，可以直接切换过去。</p>
+<pre><code class="language-plain">pdm use python3.9  
+假设允许范围是 python 3.9+，当前使用的是 python 3.10，可以直接切换过去。
+</code></pre>
+<h3 id="_16">兼容环境</h3>
+<p>pdm 足够好用，也足够开放，如果你当前使用的是其他的包管理器，比如 pipenv ，poetry，或者还在用最原始的 requirements.txt ，你也可以很方便的迁移到 pdm 中来：</p>
+<p>1.使用 pdm import -f {file} 无需初始化，直接转换</p>
+<p>2.执行 pdm init 或者 pdm install 的时候，会自动识别你当前的依赖情况并转换</p>
+<p>同样的，你也可以当 pdm 管理的项目，导出为其他方案pyproject.toml 和 pdm.lock是 pdm 的两个核心文件。pdm 做为一个后起之秀，也没有忘本，它支持：</p>
+<p>将 pyproject.toml 转成 setup.py</p>
+<pre><code class="language-plain">pdm export -f setuppy -o setup.py
+</code></pre>
+<p>将 pdm.lock 转成 requirements.txt</p>
+<pre><code class="language-plain">pdm export -o requirements.txt
+</code></pre>
+<h2 id="venv">venv</h2>
+<p>venv是Python中自带的一个专门用于管理虚拟环境的模块。</p>
+<h3 id="_17">创建虚拟环境</h3>
+<pre><code class="language-plain">:~$ python3 -m venv uos   uos为虚拟环境名称，可以自定义
+</code></pre>
+<p>可以说是非常的快，两三秒就创建成功了！
+创建完成之后在环境目录下，可以看到一个pyvenv.cfg的文件，它记录着虚拟环境的基本信息，包括你使用的 Python 的家目录，还有当前虚拟环境的 Python 版本，是否开启使用系统的 site-packages 模块，如果开启了，那么当你就可以直接使用系统中已经装过的第三方模块，但是你在虚拟环境下装的模块就不能被其他地方的程序使用。</p>
+<pre><code class="language-plain">:~/uos$ cat pyvenv.cfg 
+home = /usr/bin
+include-system-site-packages = false
+version = 3.7.3
+</code></pre>
+<p>如果你的系统里有多个Python3环境，那么在创建时指明清楚版本号就可以了。</p>
+<pre><code class="language-plain">:~$ python3.9 -m venv [venv_dir]
+</code></pre>
+<h3 id="_18">进入虚拟环境</h3>
+<p>首先我们进入到创建好的虚拟环境目录，通过source进入虚拟环境：</p>
+<pre><code class="language-plain">:~/uos$ source bin/activate
+(uos) uos@uos-PC:~/uos$
+命令行前有创建的虚拟环境名称说明就已进入
+</code></pre>
+<h3 id="_19">退出虚拟环境</h3>
+<pre><code class="language-plain">:~$deactivate
+</code></pre>
+<h3 id="_20">总结</h3>
+<p>venv是 Python3 中自带的虚拟环境管理工具，不需要额外安装，功能简单，用法也简单。但是它不能像 poetry 和 pipenv 用于项目的管理，因此 venv 建议只做了解，在一些简单的场景中可以使用，如果是复杂的项目中，可以直接上 poetry 和 pipenv。 </p>
+<h2 id="virtualenv">virtualenv</h2>
+<p>...</p>
+<h3 id="virtualenvwrapper">virtualenvwrapper</h3>
+<p>...</p>
+<h2 id="pyenv">pyenv</h2>
+<p>...</p>
+<h2 id="pipenv">pipenv</h2>
+<p>...</p>
+<h2 id="poetry">poetry</h2>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2022-2023 funny-dream. All Rights Reserved.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      
+        <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+      
+        <script src="../../termynal.js"></script>
+      
+    
+  </body>
+</html>
