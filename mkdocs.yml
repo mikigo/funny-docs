@@ -60,6 +60,9 @@ nav:
   - Python:
     - Python/Python基础语法—8小时入门版.md
     - Python/Python从进阶到高级—通俗易懂版.md
+    - Python/Python包构建和发布.md
+    - Python/Python环境与依赖管理.md
+  - 常见问题及方案.md
 
 extra:
   analytics:
