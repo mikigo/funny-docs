@@ -1,5 +1,9 @@
 # Linux 上安装 Python 3.9.9
 
+在 deepin 上默认是 Python 版本是 3.7.3 ，在做一些 Django 项目的时候需要用到 3.9 版本；
+
+此脚本直接下载并安装 Python 3.9.9，复制以下脚本执行在本地执行即可；
+
 ```shell
 #!/bin/bash
 # 刷新源
