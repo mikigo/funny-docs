@@ -318,6 +318,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B6HttpRunner-2%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        接口自动化框架HttpRunner—2小时入门版
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1325,135 +1339,135 @@
   
 
 
-<h1 id="python">Python环境与依赖管理</h1>
+<h1 id="python">Python环境与依赖管理<a class="headerlink" href="#python" title="Permanent link">&para;</a></h1>
 <p>Python有一大特点，即具有强大的标准库和第三方库。在开发过程中可能会用到第三方库，那么就需要对其进行安装和管理。基于一定的工具链，Python也能写出优雅标准的项目代码，将依赖管理玩的明明白白。</p>
-<h2 id="pip">pip</h2>
+<h2 id="pip">pip<a class="headerlink" href="#pip" title="Permanent link">&para;</a></h2>
 <p>pip 是 Python 标准库的一个包，从 Python3.4 开始 pip 已经内置在 Python 中。Python 有成千上万的宝藏库，它们被放置在一个统一的仓库 <code>pypi</code>。pip 在这个仓库中充当着管理员的角色，可以将需要的库从 Pypi 取出来，安装并管理这些库。</p>
 <p>由于大多数的第三方库都发布在 pypi，所以通过pip就可以安装95%以上的第三方库，体量在包安装这方面是大哥级别。pip还有一大优势就是在安装库的同时会把库所需要的依赖也一并进行安装。综上所述，在单一的项目环境中推荐使用它，简单便捷。</p>
 <p>如果有两个及以上的项目环境就不建议去使用pip，会出现环境冲突且难以管理。如果一定要使用那么就需要搭配上环境管理工具。</p>
-<h3 id="_1">安装</h3>
+<h3 id="_1">安装<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>如果 Python 环境没有 pip 工具可以通过以下两种方法进行安装。</p>
-<pre><code class="language-shell">sudo apt-get install python-pip
-</code></pre>
-<p>还有种方法：</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>python-pip
+</code></pre></div>
+还有种方法：</p>
 <p>在 https://pypi.org/project/pip/#files 中下载pip安装文件，然后解压到 <code>python scripts</code> 目录中，执行 <code>python setup.py install</code> 命令安装即可；</p>
 <p>许多人抱怨 pip 命令安装 Python 库很慢或者是安装过程中失败，其实是 pip 源的问题，将其更换为我们国内源即可；</p>
 <p>1.临时设定：</p>
-<pre><code class="language-plain">pip install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package matplotlib
-</code></pre>
-<p>2.设置为默认：</p>
-<pre><code class="language-plain">pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-</code></pre>
-<p>设为默认后，以后安装库都是从清华源下载，而且无需再加镜像源网址。</p>
-<h3 id="_2">快速配置环境</h3>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pip install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package matplotlib
+</code></pre></div>
+2.设置为默认：</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+</code></pre></div>
+设为默认后，以后安装库都是从清华源下载，而且无需再加镜像源网址。</p>
+<h3 id="_2">快速配置环境<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>通过 pip list 命令可以预览当前环境下的依赖包：</p>
-<pre><code class="language-plain">:~$ pip list
-Package       Version 
-------------- --------
-asn1crypto    0.24.0  
-colorama      0.3.7   
-configparser  3.5.0b2 
-cryptography  2.6.1   
-decorator     4.3.0
-</code></pre>
-<p>通过 pip install package_name 命令安装 Python 包：
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>:~$ pip list
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Package       Version 
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>------------- --------
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>asn1crypto    0.24.0  
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>colorama      0.3.7   
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>configparser  3.5.0b2 
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>cryptography  2.6.1   
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>decorator     4.3.0
+</code></pre></div>
+通过 pip install package_name 命令安装 Python 包：
 以 requests 包举例说明：</p>
-<pre><code class="language-plain">~$ pip install requests
-Collecting requests
-......
-Successfully installed certifi-2021.10.8 chardet-4.0.0 idna-2.10 requests-2.27.1 urllib3-1.26.16
-</code></pre>
-<p>还可以通过pip install requests==&lt;版本号&gt;来指定包的版本号进行安装：</p>
-<pre><code class="language-plain">pip install requests==2.27.1
-</code></pre>
-<p>如果我们想将安装好的这些包及依赖信息全部记录下来，就可以通过pip freeze命令将信息记  在requirements.txt中。</p>
-<pre><code class="language-plain">pip freeze &gt; requirements.txt
-</code></pre>
-<p>当我们需要在一个新的python环境中引入当前的依赖时使用以下命令即可。</p>
-<pre><code class="language-plain">pip  install -r requirements.txt
-</code></pre>
-<p>还可以通过 pipreqs 进行导包操作：</p>
-<pre><code class="language-plain">~$ pip install pipreqs
-~$ pipreqs ./  此命令也是生成一个requirements.txt文件在当前项目目录下
-</code></pre>
-<p>如果环境中存在 requirements.txt 文件，需要使用以下命令导出 requirements.txt 文件：</p>
-<pre><code class="language-plain">pipreqs ./ --encoding=utf-8 --force
-</code></pre>
-<p>注意可能在使用时会发现：</p>
-<pre><code class="language-plain">~$ pipreqs ./
-Traceback (most recent call last):
-  File &quot;/home/uos/.local/bin/pipreqs&quot;, line 6, in &lt;module&gt;
-    from pipreqs.pipreqs import main
-  File &quot;/home/uos/.local/lib/python2.7/site-packages/pipreqs/pipreqs.py&quot;, line 51, in &lt;module&gt;
-    from pipreqs import __version__
-ImportError: cannot import name __version__
-</code></pre>
-<p>报错了怎么办？</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>~$ pip install requests
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Collecting requests
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>......
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Successfully installed certifi-2021.10.8 chardet-4.0.0 idna-2.10 requests-2.27.1 urllib3-1.26.16
+</code></pre></div>
+还可以通过pip install requests==&lt;版本号&gt;来指定包的版本号进行安装：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>pip install requests==2.27.1
+</code></pre></div>
+如果我们想将安装好的这些包及依赖信息全部记录下来，就可以通过pip freeze命令将信息记  在requirements.txt中。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>pip freeze &gt; requirements.txt
+</code></pre></div>
+当我们需要在一个新的python环境中引入当前的依赖时使用以下命令即可。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>pip  install -r requirements.txt
+</code></pre></div>
+还可以通过 pipreqs 进行导包操作：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>~$ pip install pipreqs
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>~$ pipreqs ./  此命令也是生成一个requirements.txt文件在当前项目目录下
+</code></pre></div>
+如果环境中存在 requirements.txt 文件，需要使用以下命令导出 requirements.txt 文件：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>pipreqs ./ --encoding=utf-8 --force
+</code></pre></div>
+注意可能在使用时会发现：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>~$ pipreqs ./
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>Traceback (most recent call last):
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>  File &quot;/home/uos/.local/bin/pipreqs&quot;, line 6, in &lt;module&gt;
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    from pipreqs.pipreqs import main
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>  File &quot;/home/uos/.local/lib/python2.7/site-packages/pipreqs/pipreqs.py&quot;, line 51, in &lt;module&gt;
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>    from pipreqs import __version__
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>ImportError: cannot import name __version__
+</code></pre></div>
+报错了怎么办？</p>
 <p>不要慌张，其实这是因为此环境下版本不可用，换个版本就好啦！</p>
-<pre><code class="language-plain">~$ pip install pipreqs==100
-Collecting pipreqs==100
-Could not find a version that satisfies the requirement pipreqs==100 (from versions: 0.1.3, 0.1.4, 0.1.5, 0.1.6, 0.1.7, 0.1.8, 0.1.9, 0.2.0, 0.2.1, 0.2.2, 0.2.3, 0.2.4, 0.2.5, 0.2.7, 0.2.8, 0.2.9, 0.3.0, 0.3.1, 0.3.2, 0.3.3, 0.3.4, 0.3.5, 0.3.6, 
-0.3.7, 0.3.8, 0.3.9, 0.4.0, 0.4.1, 0.4.2, 0.4.3, 0.4.4, 0.4.5, 0.4.6, 0.4.7, 0.4.8, 0.4.9, 0.4.10, 0.4.11)                                                                                      
-No matching distribution found for pipreqs==100
-这里很多版本，可以选择其中一个未安装的，建议不要装太旧的
-~$ pip install pipreqs==0.4.1
-~$ pipreqs --help 查看有没有报错，没有报错就ok
-接下来正常操作就不会报错啦
-</code></pre>
-<h3 id="_3">明确环境依赖</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>~$ pip install pipreqs==100
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>Collecting pipreqs==100
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>Could not find a version that satisfies the requirement pipreqs==100 (from versions: 0.1.3, 0.1.4, 0.1.5, 0.1.6, 0.1.7, 0.1.8, 0.1.9, 0.2.0, 0.2.1, 0.2.2, 0.2.3, 0.2.4, 0.2.5, 0.2.7, 0.2.8, 0.2.9, 0.3.0, 0.3.1, 0.3.2, 0.3.3, 0.3.4, 0.3.5, 0.3.6, 
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>0.3.7, 0.3.8, 0.3.9, 0.4.0, 0.4.1, 0.4.2, 0.4.3, 0.4.4, 0.4.5, 0.4.6, 0.4.7, 0.4.8, 0.4.9, 0.4.10, 0.4.11)                                                                                      
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>No matching distribution found for pipreqs==100
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>这里很多版本，可以选择其中一个未安装的，建议不要装太旧的
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>~$ pip install pipreqs==0.4.1
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>~$ pipreqs --help 查看有没有报错，没有报错就ok
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>接下来正常操作就不会报错啦
+</code></pre></div>
+<h3 id="_3">明确环境依赖<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>pip list 和 pip freeze 打印出来的依赖都有一个问题，那就是无法明确依赖关系。</p>
 <p>当我们想清理某一个包时，不知道哪个是直接依赖哪个是间接依赖。导致环境清理不干净或者清理了不该清除的依赖。</p>
 <p>这时就可以使用 pipdeptree 来管理依赖树：</p>
-<pre><code class="language-plain">~$ pip install pipdeptree
-......
-~$ pipdeptree
-...
-pipreqs==0.4.1
-  - docopt [required: Any, installed: 0.6.2]
-  - yarg [required: Any, installed: 0.1.9]
-    - requests [required: Any, installed: 2.27.1]
-      - certifi [required: &gt;=2017.4.17, installed: 2021.10.8]
-      - chardet [required: &gt;=3.0.2,&lt;5, installed: 4.0.0]
-      - idna [required: &gt;=2.5,&lt;3, installed: 2.10]
-      - urllib3 [required: &gt;=1.21.1,&lt;1.27, installed: 1.26.16]
-...
-</code></pre>
-<p>这样我们就清楚的知道依赖直接的关系，在依赖清理时就可以避免出现问题。</p>
-<h3 id="_4">环境依赖治理</h3>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>~$ pip install pipdeptree
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>......
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>~$ pipdeptree
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>...
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>pipreqs==0.4.1
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>  - docopt [required: Any, installed: 0.6.2]
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>  - yarg [required: Any, installed: 0.1.9]
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>    - requests [required: Any, installed: 2.27.1]
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>      - certifi [required: &gt;=2017.4.17, installed: 2021.10.8]
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>      - chardet [required: &gt;=3.0.2,&lt;5, installed: 4.0.0]
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>      - idna [required: &gt;=2.5,&lt;3, installed: 2.10]
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>      - urllib3 [required: &gt;=1.21.1,&lt;1.27, installed: 1.26.16]
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>...
+</code></pre></div>
+这样我们就清楚的知道依赖直接的关系，在依赖清理时就可以避免出现问题。</p>
+<h3 id="_4">环境依赖治理<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>如果说我们想卸载 requests 包，直接使用 pip uninstall requests 命令你会发现怎么卸不干净？</p>
-<pre><code class="language-plain">:~$ pipdeptree
-setuptools==40.8.0
-six==1.12.0
-wheel==0.32.3
-yarg==0.1.9
-  - requests [required: Any, installed: 2.27.1]
-    - certifi [required: &gt;=2017.4.17, installed: 2021.10.8]
-    - chardet [required: &gt;=3.0.2,&lt;5, installed: 4.0.0]
-    - idna [required: &gt;=2.5,&lt;3, installed: 2.10]
-    - urllib3 [required: &gt;=1.21.1,&lt;1.27, installed: 1.26.16]
-:~$ pip uninstall requests
-:~$ pipdeptree
-setuptools==40.8.0
-six==1.12.0
-urllib3==1.26.16
-wheel==0.32.3
-yarg==0.1.9
-  - requests [required: Any, installed: 2.21.0]
-发现只是单纯的卸载了requests，它依赖的包并没有被卸载！
-</code></pre>
-<p>那么推荐一个工具 pip-autoremove 来做这件事情，下面用这个工具来试试：</p>
-<pre><code class="language-plain">~$ pip install pip-autoremove
-...
-~$ pip-autoremove requests -y
-...
-:~$ pipdeptree
-six==1.12.0
-wheel==0.32.3
-yarg==0.1.9
-  - requests [required: Any, installed: 2.21.0]
-</code></pre>
-<p>你会发现非常好用哈，它会检索到 requests包 和它的相关依赖，然后全部卸载，可以说是非常干净！</p>
-<h3 id="_5">常见问题</h3>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>:~$ pipdeptree
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>setuptools==40.8.0
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>six==1.12.0
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>wheel==0.32.3
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>yarg==0.1.9
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>  - requests [required: Any, installed: 2.27.1]
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>    - certifi [required: &gt;=2017.4.17, installed: 2021.10.8]
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>    - chardet [required: &gt;=3.0.2,&lt;5, installed: 4.0.0]
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>    - idna [required: &gt;=2.5,&lt;3, installed: 2.10]
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>    - urllib3 [required: &gt;=1.21.1,&lt;1.27, installed: 1.26.16]
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>:~$ pip uninstall requests
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>:~$ pipdeptree
+<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>setuptools==40.8.0
+<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>six==1.12.0
+<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>urllib3==1.26.16
+<a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>wheel==0.32.3
+<a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a>yarg==0.1.9
+<a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a>  - requests [required: Any, installed: 2.21.0]
+<a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a>发现只是单纯的卸载了requests，它依赖的包并没有被卸载！
+</code></pre></div>
+那么推荐一个工具 pip-autoremove 来做这件事情，下面用这个工具来试试：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>~$ pip install pip-autoremove
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>...
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>~$ pip-autoremove requests -y
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>...
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>:~$ pipdeptree
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>six==1.12.0
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>wheel==0.32.3
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>yarg==0.1.9
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>  - requests [required: Any, installed: 2.21.0]
+</code></pre></div>
+你会发现非常好用哈，它会检索到 requests包 和它的相关依赖，然后全部卸载，可以说是非常干净！</p>
+<h3 id="_5">常见问题<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>pip install 与 python install 区别</p>
 <p>以 requests 为例：</p>
 <ul>
@@ -1464,102 +1478,102 @@ yarg==0.1.9
 <p>当我们使用 pip setup.py install 安装 requests 模块，需要去手动安装第三方依赖，否则在 import requests 时会出现报错。</p>
 </li>
 </ul>
-<h2 id="conda">conda</h2>
+<h2 id="conda">conda<a class="headerlink" href="#conda" title="Permanent link">&para;</a></h2>
 <p>conda是一个支持多语言的包、依赖和环境管理工具，它不仅能管理包，还可以隔离和管理不同Python版本的环境，类似于管理node.js环境的nvm工具。</p>
 <p>conda官方一共有两个发行版anaconda和miniconda，anaconda相比miniconda体积更大，预装了许多科学计算的库，很多东西未必会用的到，所以建议使用miniconda。</p>
 <p>对于跨语言的或者是本身就整合了各种依赖的环境(比如tenserflow)，再考虑使用conda。</p>
-<h3 id="miniconda">安装miniconda</h3>
+<h3 id="miniconda">安装miniconda<a class="headerlink" href="#miniconda" title="Permanent link">&para;</a></h3>
 <p>1.首先下载miniconda的安装脚本</p>
-<pre><code>[https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh](https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh)
-</code></pre>
+<div class="highlight"><pre><span></span><code>[https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh](https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh)
+</code></pre></div>
 <p>2.执行安装脚本</p>
 <p>3.一直回车等到出现如下提示并输入yes回车</p>
-<pre><code class="language-plain">Do you accept the license terms? [yes|no]
-[no] &gt;&gt;&gt; 
-Please answer 'yes' or 'no':'
-&gt;&gt;&gt; yes
-</code></pre>
-<p>4.指定安装路径</p>
-<pre><code class="language-plain">[/home/uos/miniconda3] &gt;&gt;&gt; 这里的路径可以根据自己情况设定，指定完成回车
-我这里就不指定了，使用默认路径
-</code></pre>
-<p>5.初始化conda</p>
-<pre><code class="language-plain">by running conda init? [yes|no]
-[no] &gt;&gt;&gt; yes 
-</code></pre>
-<p>通过简单的操作就可以安装成功了，当打开终端提示符前出现(base)说明进入了默认虚拟环境。</p>
-<h3 id="base">取消激活base环境</h3>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Do you accept the license terms? [yes|no]
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>[no] &gt;&gt;&gt; 
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>Please answer &#39;yes&#39; or &#39;no&#39;:&#39;
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>&gt;&gt;&gt; yes
+</code></pre></div>
+4.指定安装路径
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>[/home/uos/miniconda3] &gt;&gt;&gt; 这里的路径可以根据自己情况设定，指定完成回车
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>我这里就不指定了，使用默认路径
+</code></pre></div>
+5.初始化conda
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>by running conda init? [yes|no]
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>[no] &gt;&gt;&gt; yes 
+</code></pre></div>
+通过简单的操作就可以安装成功了，当打开终端提示符前出现(base)说明进入了默认虚拟环境。</p>
+<h3 id="base">取消激活base环境<a class="headerlink" href="#base" title="Permanent link">&para;</a></h3>
 <p>当miniconda安装完成之后，每次打开终端都会激活其默认的base环境，我们可以通过以下命令禁止激活默认base环境。</p>
-<pre><code class="language-plain">conda config --set auto_activate_base false 
-</code></pre>
-<h3 id="python_1">安装/卸载Python包</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>conda config --set auto_activate_base false 
+</code></pre></div>
+<h3 id="python_1">安装/卸载Python包<a class="headerlink" href="#python_1" title="Permanent link">&para;</a></h3>
 <p>当我们想在conda中安装包，可以选择用conda install或者pip install，两者基本相同，但是pip是通过pypi仓库拉取的数据，而conda是通过anaconda.org上拉取的数据。所以说pip的包更全。</p>
 <p>以requests为例：</p>
-<pre><code class="language-plain">:~$ conda install requests  安装
-:~$ conda uninstall requests  卸载
-操作方法和pip几乎一样
-</code></pre>
-<h3 id="_6">依赖管理</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>:~$ conda install requests  安装
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>:~$ conda uninstall requests  卸载
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>操作方法和pip几乎一样
+</code></pre></div>
+<h3 id="_6">依赖管理<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p>conda 也有和pip freeze类似的依赖管理方式：</p>
 <p>为当前环境创建配置文件：</p>
-<pre><code class="language-plain">:~$ conda env export &gt; environment.yaml 
-</code></pre>
-<p>根据配置文件复现当前环境：</p>
-<pre><code class="language-plain">:~$ conda env create -f environment.yaml
-</code></pre>
-<h3 id="_7">环境操作</h3>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>:~$ conda env export &gt; environment.yaml 
+</code></pre></div>
+根据配置文件复现当前环境：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>:~$ conda env create -f environment.yaml
+</code></pre></div></p>
+<h3 id="_7">环境操作<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <p>首先创建一个环境，并激活该环境：</p>
-<pre><code class="language-plain">:~$ conda create -n uos python=3.7 -y  环境名称可以自定义，我这里使用uos
-...
-:~$ conda activate uos
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>:~$ conda create -n uos python=3.7 -y  环境名称可以自定义，我这里使用uos
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>...
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>:~$ conda activate uos
+</code></pre></div>
 <p>需要注意的是，创建环境之后，一定要 activate 该环境，否则后续的 install 操作还是在 base 环境。
 查看已有环境列表：</p>
-<pre><code class="language-plain">:~$ conda env list
-# conda environments:
-#
-base                     /home/uos/miniconda3
-uos                   *  /home/uos/miniconda3/envs/uos
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>:~$ conda env list
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a># conda environments:
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>#
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>base                     /home/uos/miniconda3
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>uos                   *  /home/uos/miniconda3/envs/uos
+</code></pre></div>
 <p>查看当前环境下的依赖：</p>
-<pre><code class="language-plain">:~$ conda list
-# packages in environment at /home/uos/miniconda3/envs/uos:
-#
-# Name                    Version                   Build  Channel
-_libgcc_mutex             0.1                        main  
-_openmp_mutex             5.1                       1_gnu  
-ca-certificates           2023.01.10           h06a4308_0  
-certifi                   2022.12.7        py37h06a4308_0  
-ld_impl_linux-64          2.38                 h1181459_1
-...
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>:~$ conda list
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a># packages in environment at /home/uos/miniconda3/envs/uos:
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>#
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a># Name                    Version                   Build  Channel
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>_libgcc_mutex             0.1                        main  
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>_openmp_mutex             5.1                       1_gnu  
+<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>ca-certificates           2023.01.10           h06a4308_0  
+<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>certifi                   2022.12.7        py37h06a4308_0  
+<a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>ld_impl_linux-64          2.38                 h1181459_1
+<a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>...
+</code></pre></div>
 <p>退出环境：</p>
-<pre><code class="language-plain">:~$ conda deactivate
-:~$ exit  环境内直接退出
-</code></pre>
-<h3 id="_8">切换环境技巧</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>:~$ conda deactivate
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>:~$ exit  环境内直接退出
+</code></pre></div>
+<h3 id="_8">切换环境技巧<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <p>当我们切换环境时，会使用conda activate命令，如果我们想只输入uos可不可以激活环境呢？</p>
 <p>当然可以，操作如下：</p>
-<pre><code class="language-plain">:~$ vim ~/.bash_profile
-alias uos=&quot;conda activate uos&quot;
-:~$ source ~/.bash_profile
-:~$ uos
-此方法适用于环境与环境之间切换
-</code></pre>
-<h3 id="_9">常用命令</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>:~$ vim ~/.bash_profile
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>alias uos=&quot;conda activate uos&quot;
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>:~$ source ~/.bash_profile
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>:~$ uos
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>此方法适用于环境与环境之间切换
+</code></pre></div>
+<h3 id="_9">常用命令<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <p>环境相关：</p>
-<pre><code class="language-plain">conda remove -n [env_name] --all  移除环境
-conda create --name new_env_name --clone base_env_name  克隆环境
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>conda remove -n [env_name] --all  移除环境
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>conda create --name new_env_name --clone base_env_name  克隆环境
+</code></pre></div>
 <p>日常相关：</p>
-<pre><code class="language-plain">conda search [package_name]  搜索安装包信息
-conda update [package_name]  更新包
-conda remove [package_name]  删除包
-conda clean -t  直接清除被缓存包
-conda clean -y -a  直接清除索引缓存、未使用缓存包
-</code></pre>
-<h2 id="_10"></h2>
-<h2 id="pdm">pdm</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>conda search [package_name]  搜索安装包信息
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>conda update [package_name]  更新包
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>conda remove [package_name]  删除包
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>conda clean -t  直接清除被缓存包
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>conda clean -y -a  直接清除索引缓存、未使用缓存包
+</code></pre></div>
+<h2 id="_10"><a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<h2 id="pdm">pdm<a class="headerlink" href="#pdm" title="Permanent link">&para;</a></h2>
 <p>pdm是一个新的Python包管理器，于2021年发布1.0版本，目前最新版为2.7。值得一提的是这款工具的开发者是中国人。为什么选择pdm呢？首先它不是传统的包管理器(pipenv,poetry)需要基于虚拟环境，pdm得益于2018年的一个PEP提案（PEP582，Python local packages directory），完全摒弃了虚拟环境。</p>
 <p>PDM 包含如下特性：</p>
 <p>1.PEP 582 本地项目库目录，支持安装与运行命令，完全不需要虚拟环境。</p>
@@ -1568,183 +1582,183 @@ conda clean -y -a  直接清除索引缓存、未使用缓存包
 <p>4.拥有灵活且强大的插件系统（有插件系统直接就拉开一个档次）</p>
 <p>5.PEP 621 元数据格式</p>
 <p>6.像 pnpm 一样的中心化安装缓存，节省磁盘空间</p>
-<h3 id="_11">安装</h3>
+<h3 id="_11">安装<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <p>pdm的安装方式有很多种，比如pip、pipx、homebrew等。这里推荐一款安装命令行安装工具，pipx 是安装并运行 Python 终端用户应用（end-user applications）的工具。终端用户应用，其实可以理解为用 Python 编写的命令行工具，可以直接从命令行调用的那种。</p>
-<pre><code class="language-plain">python3 -m pip install --user pipx
-</code></pre>
-<p>pipx 需要 Python 3.6 及以上版本，同时必须已经安装好了 pip。</p>
-<pre><code class="language-plain">pipx install pdm
-</code></pre>
-<p>如果提示虚拟环境没有被创建需要安装venv，可以通过命令进行安装。</p>
-<pre><code class="language-plain">apt-get install python3-venv
-</code></pre>
-<p>安装完成之后再通过pipx命令进行安装pdm。</p>
-<pre><code class="language-plain">:~$ pipx install pdm
-  installed package pdm 2.7.0, installed using Python 3.7.3
-  These apps are now globally available
-    - pdm
-done! ✨ 🌟 ✨
-</code></pre>
-<h3 id="pdm_1">初始化pdm</h3>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>python3 -m pip install --user pipx
+</code></pre></div>
+pipx 需要 Python 3.6 及以上版本，同时必须已经安装好了 pip。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>pipx install pdm
+</code></pre></div>
+如果提示虚拟环境没有被创建需要安装venv，可以通过命令进行安装。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>apt-get install python3-venv
+</code></pre></div>
+安装完成之后再通过pipx命令进行安装pdm。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>:~$ pipx install pdm
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>  installed package pdm 2.7.0, installed using Python 3.7.3
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>  These apps are now globally available
+<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>    - pdm
+<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>done! ✨ 🌟 ✨
+</code></pre></div></p>
+<h3 id="pdm_1">初始化pdm<a class="headerlink" href="#pdm_1" title="Permanent link">&para;</a></h3>
 <p>执行 pdm init 就会开始初始化，初始化的时候，会让你选择项目的一些信息</p>
-<pre><code class="language-plain">:~$ pdm init
-Creating a pyproject.toml for PDM...
-Please enter the Python interpreter to use
-0. /usr/bin/python (2.7)
-1. /usr/bin/python3.7m (3.7)
-2. /usr/bin/python3.7 (3.7)
-3. /usr/bin/python2.7 (2.7)
-4. /home/uos/.local/pipx/venvs/pdm/bin/python (3.7)
-Please select (0): 2
-Using Python interpreter: /usr/bin/python3.7 (3.7)
-Using __pypackages__ because non-venv Python is used.
-Would you like to create a virtualenv with /usr/bin/python3.7? [y/n] (y): y
-Virtualenv is created successfully at /home/uos/.venv
-Is the project a library that is installable?
-If yes, we will need to ask a few more questions to include the project name and build backend [y/n] (n): y
-Project name (uos): 123like
-Project version (0.1.0): 
-Project description (): 
-Which build backend to use?
-0. pdm-backend
-1. setuptools
-2. flit-core
-3. hatchling
-4. pdm-pep517
-Please select (0): 4
-License(SPDX name) (MIT): 
-Author name (): 
-Author email (): 
-Python requires('*' to allow any) (&gt;=3.7): 
-Changes are written to pyproject.toml.
-Found following files from other formats that you may import:
-0. /home/uos/requirements.txt (requirements)
-1. don't do anything, I will import later.
-Please select: 1
-</code></pre>
-<p>完成之后，PDM 会将你的选择以 toml 格式写入 pyproject.toml 配置文件中。</p>
-<pre><code class="language-plain">:~$ cat pyproject.toml 
-[project]
-name = &quot;123like&quot;
-version = &quot;0.1.0&quot;
-description = &quot;&quot;
-authors = [
-    {name = &quot;&quot;, email = &quot;&quot;},
-]
-dependencies = []
-requires-python = &quot;&gt;=3.7&quot;
-readme = &quot;README.md&quot;
-license = {text = &quot;MIT&quot;}
-
-[build-system]
-requires = [&quot;pdm-pep517&gt;=1.0&quot;]
-build-backend = &quot;pdm.pep517.api&quot;
-</code></pre>
-<h3 id="_12">包操作</h3>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>:~$ pdm init
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>Creating a pyproject.toml for PDM...
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>Please enter the Python interpreter to use
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>0. /usr/bin/python (2.7)
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>1. /usr/bin/python3.7m (3.7)
+<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a>2. /usr/bin/python3.7 (3.7)
+<a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a>3. /usr/bin/python2.7 (2.7)
+<a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a>4. /home/uos/.local/pipx/venvs/pdm/bin/python (3.7)
+<a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a>Please select (0): 2
+<a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a>Using Python interpreter: /usr/bin/python3.7 (3.7)
+<a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a>Using __pypackages__ because non-venv Python is used.
+<a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a>Would you like to create a virtualenv with /usr/bin/python3.7? [y/n] (y): y
+<a id="__codelineno-33-13" name="__codelineno-33-13" href="#__codelineno-33-13"></a>Virtualenv is created successfully at /home/uos/.venv
+<a id="__codelineno-33-14" name="__codelineno-33-14" href="#__codelineno-33-14"></a>Is the project a library that is installable?
+<a id="__codelineno-33-15" name="__codelineno-33-15" href="#__codelineno-33-15"></a>If yes, we will need to ask a few more questions to include the project name and build backend [y/n] (n): y
+<a id="__codelineno-33-16" name="__codelineno-33-16" href="#__codelineno-33-16"></a>Project name (uos): 123like
+<a id="__codelineno-33-17" name="__codelineno-33-17" href="#__codelineno-33-17"></a>Project version (0.1.0): 
+<a id="__codelineno-33-18" name="__codelineno-33-18" href="#__codelineno-33-18"></a>Project description (): 
+<a id="__codelineno-33-19" name="__codelineno-33-19" href="#__codelineno-33-19"></a>Which build backend to use?
+<a id="__codelineno-33-20" name="__codelineno-33-20" href="#__codelineno-33-20"></a>0. pdm-backend
+<a id="__codelineno-33-21" name="__codelineno-33-21" href="#__codelineno-33-21"></a>1. setuptools
+<a id="__codelineno-33-22" name="__codelineno-33-22" href="#__codelineno-33-22"></a>2. flit-core
+<a id="__codelineno-33-23" name="__codelineno-33-23" href="#__codelineno-33-23"></a>3. hatchling
+<a id="__codelineno-33-24" name="__codelineno-33-24" href="#__codelineno-33-24"></a>4. pdm-pep517
+<a id="__codelineno-33-25" name="__codelineno-33-25" href="#__codelineno-33-25"></a>Please select (0): 4
+<a id="__codelineno-33-26" name="__codelineno-33-26" href="#__codelineno-33-26"></a>License(SPDX name) (MIT): 
+<a id="__codelineno-33-27" name="__codelineno-33-27" href="#__codelineno-33-27"></a>Author name (): 
+<a id="__codelineno-33-28" name="__codelineno-33-28" href="#__codelineno-33-28"></a>Author email (): 
+<a id="__codelineno-33-29" name="__codelineno-33-29" href="#__codelineno-33-29"></a>Python requires(&#39;*&#39; to allow any) (&gt;=3.7): 
+<a id="__codelineno-33-30" name="__codelineno-33-30" href="#__codelineno-33-30"></a>Changes are written to pyproject.toml.
+<a id="__codelineno-33-31" name="__codelineno-33-31" href="#__codelineno-33-31"></a>Found following files from other formats that you may import:
+<a id="__codelineno-33-32" name="__codelineno-33-32" href="#__codelineno-33-32"></a>0. /home/uos/requirements.txt (requirements)
+<a id="__codelineno-33-33" name="__codelineno-33-33" href="#__codelineno-33-33"></a>1. don&#39;t do anything, I will import later.
+<a id="__codelineno-33-34" name="__codelineno-33-34" href="#__codelineno-33-34"></a>Please select: 1
+</code></pre></div>
+完成之后，PDM 会将你的选择以 toml 格式写入 pyproject.toml 配置文件中。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>:~$ cat pyproject.toml 
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>[project]
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>name = &quot;123like&quot;
+<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>version = &quot;0.1.0&quot;
+<a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>description = &quot;&quot;
+<a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a>authors = [
+<a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a>    {name = &quot;&quot;, email = &quot;&quot;},
+<a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a>]
+<a id="__codelineno-34-9" name="__codelineno-34-9" href="#__codelineno-34-9"></a>dependencies = []
+<a id="__codelineno-34-10" name="__codelineno-34-10" href="#__codelineno-34-10"></a>requires-python = &quot;&gt;=3.7&quot;
+<a id="__codelineno-34-11" name="__codelineno-34-11" href="#__codelineno-34-11"></a>readme = &quot;README.md&quot;
+<a id="__codelineno-34-12" name="__codelineno-34-12" href="#__codelineno-34-12"></a>license = {text = &quot;MIT&quot;}
+<a id="__codelineno-34-13" name="__codelineno-34-13" href="#__codelineno-34-13"></a>
+<a id="__codelineno-34-14" name="__codelineno-34-14" href="#__codelineno-34-14"></a>[build-system]
+<a id="__codelineno-34-15" name="__codelineno-34-15" href="#__codelineno-34-15"></a>requires = [&quot;pdm-pep517&gt;=1.0&quot;]
+<a id="__codelineno-34-16" name="__codelineno-34-16" href="#__codelineno-34-16"></a>build-backend = &quot;pdm.pep517.api&quot;
+</code></pre></div></p>
+<h3 id="_12">包操作<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
 <p>安装包和 Poetry 一样，安装使用的是 add 命令</p>
-<pre><code class="language-plain">pdm add requests
-</code></pre>
-<p>查看包</p>
-<pre><code class="language-plain">pdm list --graph
-</code></pre>
-<p>pdm list 还有两个选项：
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>pdm add requests
+</code></pre></div>
+查看包
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>pdm list --graph
+</code></pre></div>
+pdm list 还有两个选项：
 –freeze：以 requirements.txt 的格式列出已安装的包</p>
 <p>–json：以 json 的格式列出已安装的包，但必须与 --graph 同时使用</p>
 <p>要查看某个包的某体详情，直接用 pdm show some_package即可</p>
-<pre><code class="language-plain">pdm show requests
-</code></pre>
-<p>删除包</p>
-<pre><code class="language-plain">pmd remove requests
-</code></pre>
-<p>更新包</p>
-<pre><code class="language-plain"># 更新所有包
-pdm update 
-# 更新某个包
-pdm update &lt;somepackage&gt;
-</code></pre>
-<h3 id="_13">项目配置</h3>
-<pre><code class="language-plain">pdm config
-Site/default configuration (/etc/xdg/pdm/config.toml):
-build_isolation = True
-cache_dir = /home/uos/.cache/pdm
-check_update = True
-...
-Home configuration (/home/uos/.config/pdm/config.toml):
-Project configuration (/home/uos/pdm.toml):
-</code></pre>
-<p>pdm config 里面有非常多的配置，想要一一搞清楚的可以去官网查阅：<a href="https://pdm.fming.dev/latest/reference/configuration/">https://pdm.fming.dev/latest/reference/configuration/</a></p>
-<h3 id="_14">运行命令</h3>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>pdm show requests
+</code></pre></div>
+删除包
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>pmd remove requests
+</code></pre></div>
+更新包
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a># 更新所有包
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>pdm update 
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a># 更新某个包
+<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a>pdm update &lt;somepackage&gt;
+</code></pre></div></p>
+<h3 id="_13">项目配置<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>pdm config
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>Site/default configuration (/etc/xdg/pdm/config.toml):
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>build_isolation = True
+<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>cache_dir = /home/uos/.cache/pdm
+<a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a>check_update = True
+<a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a>...
+<a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a>Home configuration (/home/uos/.config/pdm/config.toml):
+<a id="__codelineno-40-8" name="__codelineno-40-8" href="#__codelineno-40-8"></a>Project configuration (/home/uos/pdm.toml):
+</code></pre></div>
+pdm config 里面有非常多的配置，想要一一搞清楚的可以去官网查阅：<a href="https://pdm.fming.dev/latest/reference/configuration/">https://pdm.fming.dev/latest/reference/configuration/</a></p>
+<h3 id="_14">运行命令<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
 <p>想要在 pdm 的环境中执行命令或者项目，可以使用 run 命令，若是执行项目时，有诸多参数，可以在 pyproject.toml 配置命令别名。</p>
-<pre><code class="language-plain">:~$ pdm run python main.py 
-hello,uos
-</code></pre>
-<h3 id="_15">命令别名</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>:~$ pdm run python main.py 
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>hello,uos
+</code></pre></div>
+<h3 id="_15">命令别名<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
 <p>在 pyproject.toml 添加 [tool.pdm.scripts]可以设置快捷命令别名，若项目的执行有非常多的参数，这种设定别名的方法将很有用 。</p>
-<pre><code class="language-plain">[tool.pdm.scripts]
-start = &quot;python main.py&quot;
-
-:~$ pdm run start
-hello,uos
-</code></pre>
-<p>[tool.pdm.scripts]有两种形式：</p>
-<pre><code class="language-plain"># 第一种
-[tool.pdm.scripts]
-start = &quot;python main.py&quot;
-# 第一种
-[tool.pdm.scripts]
-start = {cmd = &quot;python main.py&quot;}
-</code></pre>
-<h3 id="python_2">切换Python版本</h3>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>[tool.pdm.scripts]
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>start = &quot;python main.py&quot;
+<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>
+<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a>:~$ pdm run start
+<a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a>hello,uos
+</code></pre></div>
+[tool.pdm.scripts]有两种形式：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a># 第一种
+<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>[tool.pdm.scripts]
+<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a>start = &quot;python main.py&quot;
+<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a># 第一种
+<a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a>[tool.pdm.scripts]
+<a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a>start = {cmd = &quot;python main.py&quot;}
+</code></pre></div></p>
+<h3 id="python_2">切换Python版本<a class="headerlink" href="#python_2" title="Permanent link">&para;</a></h3>
 <p>当你在初始化 pdm 项目时，就已经选定了当前的 Python 版本和可用的 Python 版本范围，后面如果想更改，可以使用 use 命令，但版本要受之前设定的版本范围约束。假设允许范围是 python 3.9+，当前使用的是 python 3.10，可以直接切换过去。</p>
-<pre><code class="language-plain">pdm use python3.9  
-假设允许范围是 python 3.9+，当前使用的是 python 3.10，可以直接切换过去。
-</code></pre>
-<h3 id="_16">兼容环境</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>pdm use python3.9  
+<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a>假设允许范围是 python 3.9+，当前使用的是 python 3.10，可以直接切换过去。
+</code></pre></div>
+<h3 id="_16">兼容环境<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
 <p>pdm 足够好用，也足够开放，如果你当前使用的是其他的包管理器，比如 pipenv ，poetry，或者还在用最原始的 requirements.txt ，你也可以很方便的迁移到 pdm 中来：</p>
 <p>1.使用 pdm import -f {file} 无需初始化，直接转换</p>
 <p>2.执行 pdm init 或者 pdm install 的时候，会自动识别你当前的依赖情况并转换</p>
 <p>同样的，你也可以当 pdm 管理的项目，导出为其他方案pyproject.toml 和 pdm.lock是 pdm 的两个核心文件。pdm 做为一个后起之秀，也没有忘本，它支持：</p>
 <p>将 pyproject.toml 转成 setup.py</p>
-<pre><code class="language-plain">pdm export -f setuppy -o setup.py
-</code></pre>
-<p>将 pdm.lock 转成 requirements.txt</p>
-<pre><code class="language-plain">pdm export -o requirements.txt
-</code></pre>
-<h2 id="venv">venv</h2>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>pdm export -f setuppy -o setup.py
+</code></pre></div>
+将 pdm.lock 转成 requirements.txt
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>pdm export -o requirements.txt
+</code></pre></div></p>
+<h2 id="venv">venv<a class="headerlink" href="#venv" title="Permanent link">&para;</a></h2>
 <p>venv是Python中自带的一个专门用于管理虚拟环境的模块。</p>
-<h3 id="_17">创建虚拟环境</h3>
-<pre><code class="language-plain">:~$ python3 -m venv uos   uos为虚拟环境名称，可以自定义
-</code></pre>
-<p>可以说是非常的快，两三秒就创建成功了！
+<h3 id="_17">创建虚拟环境<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>:~$ python3 -m venv uos   uos为虚拟环境名称，可以自定义
+</code></pre></div>
+可以说是非常的快，两三秒就创建成功了！
 创建完成之后在环境目录下，可以看到一个pyvenv.cfg的文件，它记录着虚拟环境的基本信息，包括你使用的 Python 的家目录，还有当前虚拟环境的 Python 版本，是否开启使用系统的 site-packages 模块，如果开启了，那么当你就可以直接使用系统中已经装过的第三方模块，但是你在虚拟环境下装的模块就不能被其他地方的程序使用。</p>
-<pre><code class="language-plain">:~/uos$ cat pyvenv.cfg 
-home = /usr/bin
-include-system-site-packages = false
-version = 3.7.3
-</code></pre>
-<p>如果你的系统里有多个Python3环境，那么在创建时指明清楚版本号就可以了。</p>
-<pre><code class="language-plain">:~$ python3.9 -m venv [venv_dir]
-</code></pre>
-<h3 id="_18">进入虚拟环境</h3>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>:~/uos$ cat pyvenv.cfg 
+<a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a>home = /usr/bin
+<a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a>include-system-site-packages = false
+<a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a>version = 3.7.3
+</code></pre></div>
+如果你的系统里有多个Python3环境，那么在创建时指明清楚版本号就可以了。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>:~$ python3.9 -m venv [venv_dir]
+</code></pre></div></p>
+<h3 id="_18">进入虚拟环境<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
 <p>首先我们进入到创建好的虚拟环境目录，通过source进入虚拟环境：</p>
-<pre><code class="language-plain">:~/uos$ source bin/activate
-(uos) uos@uos-PC:~/uos$
-命令行前有创建的虚拟环境名称说明就已进入
-</code></pre>
-<h3 id="_19">退出虚拟环境</h3>
-<pre><code class="language-plain">:~$deactivate
-</code></pre>
-<h3 id="_20">总结</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>:~/uos$ source bin/activate
+<a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a>(uos) uos@uos-PC:~/uos$
+<a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a>命令行前有创建的虚拟环境名称说明就已进入
+</code></pre></div>
+<h3 id="_19">退出虚拟环境<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>:~$deactivate
+</code></pre></div>
+<h3 id="_20">总结<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
 <p>venv是 Python3 中自带的虚拟环境管理工具，不需要额外安装，功能简单，用法也简单。但是它不能像 poetry 和 pipenv 用于项目的管理，因此 venv 建议只做了解，在一些简单的场景中可以使用，如果是复杂的项目中，可以直接上 poetry 和 pipenv。 </p>
-<h2 id="virtualenv">virtualenv</h2>
+<h2 id="virtualenv">virtualenv<a class="headerlink" href="#virtualenv" title="Permanent link">&para;</a></h2>
 <p>...</p>
-<h3 id="virtualenvwrapper">virtualenvwrapper</h3>
+<h3 id="virtualenvwrapper">virtualenvwrapper<a class="headerlink" href="#virtualenvwrapper" title="Permanent link">&para;</a></h3>
 <p>...</p>
-<h2 id="pyenv">pyenv</h2>
+<h2 id="pyenv">pyenv<a class="headerlink" href="#pyenv" title="Permanent link">&para;</a></h2>
 <p>...</p>
-<h2 id="pipenv">pipenv</h2>
+<h2 id="pipenv">pipenv<a class="headerlink" href="#pipenv" title="Permanent link">&para;</a></h2>
 <p>...</p>
-<h2 id="poetry">poetry</h2>
+<h2 id="poetry">poetry<a class="headerlink" href="#poetry" title="Permanent link">&para;</a></h2>
 
 
   

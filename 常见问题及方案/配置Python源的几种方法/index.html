@@ -318,6 +318,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B6HttpRunner-2%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        接口自动化框架HttpRunner—2小时入门版
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -859,72 +873,72 @@
   
 
 
-<h1 id="python">配置 Python 源的几种方法</h1>
-<h2 id="1">（1）临时添加三方源</h2>
-<pre><code class="language-shell">pip3 install funnylog -i https://pypi.tuna.tsinghua.edu.cn/simple
-</code></pre>
+<h1 id="python">配置 Python 源的几种方法<a class="headerlink" href="#python" title="Permanent link">&para;</a></h1>
+<h2 id="1">（1）临时添加三方源<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip3<span class="w"> </span>install<span class="w"> </span>funnylog<span class="w"> </span>-i<span class="w"> </span>https://pypi.tuna.tsinghua.edu.cn/simple
+</code></pre></div>
 <p>如果想临时添加多个，后面可以加多个 -i</p>
-<pre><code class="language-shell">pip3 install xxx -i yyyy -i zzzz
-</code></pre>
-<h2 id="2requirementstxt">（2）requirements.txt 添加三方源</h2>
-<pre><code class="language-shell"># requirements.txt
--i https://pypi.tuna.tsinghua.edu.cn/simple
--i https://pypi.douban.com/simple/
-
-funnylog
-...
-</code></pre>
-<h2 id="3">（3）命令行永久配置</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pip3<span class="w"> </span>install<span class="w"> </span>xxx<span class="w"> </span>-i<span class="w"> </span>yyyy<span class="w"> </span>-i<span class="w"> </span>zzzz
+</code></pre></div>
+<h2 id="2requirementstxt">（2）requirements.txt 添加三方源<a class="headerlink" href="#2requirementstxt" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># requirements.txt</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>-i<span class="w"> </span>https://pypi.tuna.tsinghua.edu.cn/simple
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>-i<span class="w"> </span>https://pypi.douban.com/simple/
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>funnylog
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>...
+</code></pre></div>
+<h2 id="3">（3）命令行永久配置<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
 <ul>
 <li>适用于 <code>pip3 install</code> 的安装方式：</li>
 </ul>
-<pre><code class="language-shell">pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pip3<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>global.index-url<span class="w"> </span>https://pypi.tuna.tsinghua.edu.cn/simple
+</code></pre></div>
 <ul>
 <li>适用于 <code>sudo pip3 install</code> 的安装方式：</li>
 </ul>
-<pre><code class="language-shell">sudo pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo<span class="w"> </span>pip3<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>global.index-url<span class="w"> </span>https://pypi.tuna.tsinghua.edu.cn/simple
+</code></pre></div>
 <p>可以多次执行添加多个:</p>
-<pre><code class="language-shell">pip3 config set global.extra-index-url https://pypi.douban.com/simple/
-pip3 config set global.extra-index-url https://mirrors.aliyun.com/pypi/simple/
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>pip3<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>global.extra-index-url<span class="w"> </span>https://pypi.douban.com/simple/
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>pip3<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>global.extra-index-url<span class="w"> </span>https://mirrors.aliyun.com/pypi/simple/
+</code></pre></div>
 <p>注意 <code>global.extra-index-url</code> 里面和上面不同；</p>
-<h2 id="4">（4）修改配置文件永久配置</h2>
+<h2 id="4">（4）修改配置文件永久配置<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
 <ul>
 <li>适用于 <code>pip3 install</code> 的安装方式：</li>
 </ul>
-<pre><code class="language-shell">vi ~/.config/pip/pip.conf
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>vi<span class="w"> </span>~/.config/pip/pip.conf
+</code></pre></div>
 <p>配置如下：</p>
-<pre><code class="language-config">[global]
-index-url = https://pypi.douban.com/simple/
-extra-index-url = https://pypi.tuna.tsinghua.edu.cn/simple
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>[global]
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>index-url = https://pypi.douban.com/simple/
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>extra-index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+</code></pre></div>
 <ul>
 <li>适用于 <code>sudo pip3 install</code> 的安装方式：</li>
 </ul>
-<pre><code class="language-shell">sudo vi /root/.config/pip/pip.conf
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo<span class="w"> </span>vi<span class="w"> </span>/root/.config/pip/pip.conf
+</code></pre></div>
 <p>配置如下：</p>
-<pre><code class="language-shell">[global]
-index-url = https://pypi.douban.com/simple/
-extra-index-url = https://pypi.tuna.tsinghua.edu.cn/simple
-</code></pre>
-<h2 id="5">（5）常用的几个三方源</h2>
-<pre><code class="language-shell"># 清华
-https://pypi.tuna.tsinghua.edu.cn/simple/
-# 阿里云
-https://mirrors.aliyun.com/pypi/simple/
-# 中国科技大学
-https://pypi.mirrors.ustc.edu.cn/simple/
-# 华中科技大学
-https://pypi.hustunique.com/simple/
-# 上海交通大学
-https://mirror.sjtu.edu.cn/pypi/web/simple/
-# 豆瓣
-https://pypi.douban.com/simple/
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="o">[</span>global<span class="o">]</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>index-url<span class="w"> </span><span class="o">=</span><span class="w"> </span>https://pypi.douban.com/simple/
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>extra-index-url<span class="w"> </span><span class="o">=</span><span class="w"> </span>https://pypi.tuna.tsinghua.edu.cn/simple
+</code></pre></div>
+<h2 id="5">（5）常用的几个三方源<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># 清华</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>https://pypi.tuna.tsinghua.edu.cn/simple/
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c1"># 阿里云</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>https://mirrors.aliyun.com/pypi/simple/
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="c1"># 中国科技大学</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>https://pypi.mirrors.ustc.edu.cn/simple/
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="c1"># 华中科技大学</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>https://pypi.hustunique.com/simple/
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="c1"># 上海交通大学</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>https://mirror.sjtu.edu.cn/pypi/web/simple/
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="c1"># 豆瓣</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>https://pypi.douban.com/simple/
+</code></pre></div>
 <hr />
 
 

@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../../%E8%87%AA%E5%8A%A8%E5%8C%96/Playwright%E2%80%948%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/">
+        <link rel="prev" href="../../%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B6HttpRunner-2%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/">
       
       
         <link rel="next" href="../Httpx/">
@@ -312,6 +312,20 @@
     <li class="md-nav__item">
       <a href="../../%E8%87%AA%E5%8A%A8%E5%8C%96/Playwright%E2%80%948%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
         Playwright—8小时入门版
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B6HttpRunner-2%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        接口自动化框架HttpRunner—2小时入门版
       </a>
     </li>
   
@@ -1049,262 +1063,244 @@
   
 
 
-<h1 id="requests">Requests</h1>
-<pre><code class="language-shell"># =============================
-# Author : mikigo
-# Time   : 2023/3/17
-# =============================
-</code></pre>
-<h2 id="1">1、简介</h2>
+<h1 id="requests">Requests<a class="headerlink" href="#requests" title="Permanent link">&para;</a></h1>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># =============================</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Author : mikigo</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Time   : 2023/3/17</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># =============================</span>
+</code></pre></div>
+<h2 id="1">1、简介<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>Requests 是 Python 最久负盛名的 HTTP 库，没有之一；K 神（Kenneth Reitz）的 for humans 系列中最有名的一个；</p>
 <p><img alt="" src="../../img/spider/k.png" /></p>
 <p>做爬虫、数据分析、接口自动化会经常用到它，非常多有名的 Python 库依赖于 Requests 提供基础能力，比如：httpx（支持异步的 HTTP 库）、locust（性能[负载]测试框架）、HttpRunner（接口自动化框架）等等，都是基于 Requests 构建起来的。</p>
 <p>有人甚至建议将 Requests 库合入 Python 标准库发布。只要你想做 HTTP 请求，你肯定会想到 Requests。</p>
 <p>Requests 特点：简单、简洁、优雅。</p>
-<h2 id="2">2、安装</h2>
+<h2 id="2">2、安装<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
 <p>系统环境：deepin</p>
-<p>
-<div class="termy" data-termynal>
-<span data-ty>pip3 install requests</span>
-<span data-ty="progress"></span>
-<span data-ty></span>
-</div></p>
-<h2 id="3">3、请求</h2>
-<h3 id="31">3.1、导入</h3>
-<pre><code class="language-python">import requests
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="go">pip3 install requests</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="go">---&gt; 100%</span>
+</code></pre></div>
+<h2 id="3">3、请求<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1、导入<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span> <span class="nn">requests</span>
+</code></pre></div>
 <p>所有的功能都在 requests 这个名称空间下。</p>
-<h3 id="32get">3.2、GET 请求</h3>
-<pre><code class="language-python">r = requests.get(&quot;https://www.baidu.com&quot;)
-print(r.status_code)
-print(r.text)
-</code></pre>
+<h3 id="32get">3.2、GET 请求<a class="headerlink" href="#32get" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://www.baidu.com&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div>
 <p>终端打印：</p>
-<p>
-<div class="termy" data-termynal>
-<span data-ty>200</span>
-<span data-ty>&lt;!DOCTYPE html&gt;</span>
-<span data-ty>&lt;!--STATUS OK--&gt;&lt;html&gt; &lt;head&gt;&lt;meta http-equ ...... # 省略</span>
-<span data-ty></span>
-</div></p>
-<h3 id="33post">3.3、POST 请求</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="go">200</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="go">&lt;!DOCTYPE html&gt;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="go">&lt;!--STATUS OK--&gt;&lt;html&gt; &lt;head&gt;&lt;meta http-equ ...... # 省略</span>
+</code></pre></div>
+<h3 id="33post">3.3、POST 请求<a class="headerlink" href="#33post" title="Permanent link">&para;</a></h3>
 <p><code>https://httpbin.org</code> 是 K 神的一个简单的 HTTP 服务，主要用于试用 requests 里面的一些功能，方便理解； </p>
-<pre><code class="language-python">r = requests.post('https://httpbin.org/post', data={'key': 'value'})
-print(r.status_code)
-print(r.text)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;https://httpbin.org/post&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">})</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div>
 <p>终端打印：</p>
-<pre><code class="language-python">200
-{
-  &quot;args&quot;: {}, 
-  &quot;data&quot;: &quot;&quot;, 
-  &quot;files&quot;: {}, 
-  &quot;form&quot;: {
-    &quot;key&quot;: &quot;value&quot;
-  }, 
-  &quot;headers&quot;: {
-    &quot;Accept&quot;: &quot;*/*&quot;, 
-    &quot;Accept-Encoding&quot;: &quot;gzip, deflate&quot;, 
-    &quot;Content-Length&quot;: &quot;9&quot;, 
-    &quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;, 
-    &quot;Host&quot;: &quot;httpbin.org&quot;, 
-    &quot;User-Agent&quot;: &quot;python-requests/2.28.1&quot;, 
-    &quot;X-Amzn-Trace-Id&quot;: &quot;Root=1-642aa9b9-259b189c1acb1e114a5d6bc7&quot;
-  }, 
-  &quot;json&quot;: null, 
-  &quot;origin&quot;: &quot;110.191.179.216&quot;, 
-  &quot;url&quot;: &quot;https://httpbin.org/post&quot;
-}
-</code></pre>
-<h3 id="34">3.4、其他请求</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="mi">200</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="p">{</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>  <span class="s2">&quot;args&quot;</span><span class="p">:</span> <span class="p">{},</span> 
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> 
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>  <span class="s2">&quot;files&quot;</span><span class="p">:</span> <span class="p">{},</span> 
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>  <span class="s2">&quot;form&quot;</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    <span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>  <span class="p">},</span> 
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>  <span class="s2">&quot;headers&quot;</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>    <span class="s2">&quot;Accept&quot;</span><span class="p">:</span> <span class="s2">&quot;*/*&quot;</span><span class="p">,</span> 
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    <span class="s2">&quot;Accept-Encoding&quot;</span><span class="p">:</span> <span class="s2">&quot;gzip, deflate&quot;</span><span class="p">,</span> 
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>    <span class="s2">&quot;Content-Length&quot;</span><span class="p">:</span> <span class="s2">&quot;9&quot;</span><span class="p">,</span> 
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>    <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/x-www-form-urlencoded&quot;</span><span class="p">,</span> 
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>    <span class="s2">&quot;Host&quot;</span><span class="p">:</span> <span class="s2">&quot;httpbin.org&quot;</span><span class="p">,</span> 
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>    <span class="s2">&quot;User-Agent&quot;</span><span class="p">:</span> <span class="s2">&quot;python-requests/2.28.1&quot;</span><span class="p">,</span> 
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>    <span class="s2">&quot;X-Amzn-Trace-Id&quot;</span><span class="p">:</span> <span class="s2">&quot;Root=1-642aa9b9-259b189c1acb1e114a5d6bc7&quot;</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>  <span class="p">},</span> 
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>  <span class="s2">&quot;json&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span> 
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>  <span class="s2">&quot;origin&quot;</span><span class="p">:</span> <span class="s2">&quot;110.191.179.216&quot;</span><span class="p">,</span> 
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>  <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://httpbin.org/post&quot;</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="34">3.4、其他请求<a class="headerlink" href="#34" title="Permanent link">&para;</a></h3>
 <p>其他请求方式不常用，如下：</p>
-<pre><code class="language-python">r = requests.put('https://httpbin.org/put', data={'key': 'value'})
-r = requests.delete('https://httpbin.org/delete')
-r = requests.head('https://httpbin.org/get')
-r = requests.options('https://httpbin.org/get')
-</code></pre>
-<h3 id="35headers">3.5、请求头（headers）</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s1">&#39;https://httpbin.org/put&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">})</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;https://httpbin.org/delete&#39;</span><span class="p">)</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="s1">&#39;https://httpbin.org/get&#39;</span><span class="p">)</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">options</span><span class="p">(</span><span class="s1">&#39;https://httpbin.org/get&#39;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="35headers">3.5、请求头（headers）<a class="headerlink" href="#35headers" title="Permanent link">&para;</a></h3>
 <p>请求头通常会加 UA（user agent），这个主要是模仿浏览器的行为，比如模仿使用 Firefox 浏览器：</p>
-<pre><code class="language-python">headers = {
-    &quot;User-Agent&quot;: &quot;Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/109.0&quot;
-}
-
-requests.get(url, headers=headers)
-requests.post(url, headers=headers)
-</code></pre>
-<h3 id="36">3.6、参数</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    <span class="s2">&quot;User-Agent&quot;</span><span class="p">:</span> <span class="s2">&quot;Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/109.0&quot;</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="p">}</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="36">3.6、参数<a class="headerlink" href="#36" title="Permanent link">&para;</a></h3>
 <p>(1) get 请求参数</p>
 <p>get 请求的参数可以直接在url后面加参数，<code>url?key1=value1&amp;key2=value2</code>，即 url 后面加问号，然后紧接着多个参数的键和值，多个键值之间用 &amp; 符号链接；</p>
 <p>这种方式简单是简单，但是参数多了之后，url 会变得很长，看起来胀眼睛，为了更好的可读性，requests 支持这样传递 get 请求的参数：</p>
-<pre><code class="language-python">params = {'key1': 'value1', 'key2': 'value2'}
-r = requests.get('https://httpbin.org/get', params=params)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="s1">&#39;value1&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="s1">&#39;value2&#39;</span><span class="p">}</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://httpbin.org/get&#39;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+</code></pre></div>
 <p>通过打印 r.url 你会发现，实际上也是给你转换成了前面那种 &amp; 连接的方式；</p>
 <p>（2）post 请求参数</p>
 <p>post 请求参数一般是通过data参数传递，通常 data 是一个字典形式：</p>
-<pre><code class="language-python">data = {'key1': 'value1', 'key2': 'value2'}
-r = requests.post('https://httpbin.org/post', data=data)
-print(r.text)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="s1">&#39;value1&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="s1">&#39;value2&#39;</span><span class="p">}</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;https://httpbin.org/post&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div>
 <p>执行后终端输出：</p>
-<p>
-<div class="termy" data-termynal>
-<span data-ty>{</span>
-<span data-ty>  &quot;args&quot;: {}, </span>
-<span data-ty>  &quot;data&quot;: &quot;&quot;, </span>
-<span data-ty>  &quot;files&quot;: {}, </span>
-<span data-ty>  &quot;form&quot;: {</span>
-<span data-ty>    &quot;key1&quot;: &quot;value1&quot;, </span>
-<span data-ty>    &quot;key2&quot;: &quot;value2&quot;</span>
-<span data-ty>  }, </span>
-<span data-ty>  &quot;headers&quot;: {</span>
-<span data-ty>    &quot;Accept&quot;: &quot;<em>/</em>&quot;, </span>
-<span data-ty>    &quot;Accept-Encoding&quot;: &quot;gzip, deflate&quot;, </span>
-<span data-ty>    &quot;Content-Length&quot;: &quot;23&quot;, </span>
-<span data-ty>    &quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;, </span>
-<span data-ty>    &quot;Host&quot;: &quot;httpbin.org&quot;, </span>
-<span data-ty>    &quot;User-Agent&quot;: &quot;python-requests/2.28.1&quot;, </span>
-<span data-ty>    &quot;X-Amzn-Trace-Id&quot;: &quot;Root=1-642e7884-7f20428d523e7fda1da61f1a&quot;</span>
-<span data-ty>  }, </span>
-<span data-ty>  &quot;json&quot;: null, </span>
-<span data-ty>  &quot;origin&quot;: &quot;110.191.179.216&quot;, </span>
-<span data-ty>  &quot;url&quot;: &quot;https://httpbin.org/post&quot;</span>
-<span data-ty>}</span>
-<span data-ty></span>
-</div></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="go">{</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="go">  &quot;args&quot;: {}, </span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="go">  &quot;data&quot;: &quot;&quot;, </span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="go">  &quot;files&quot;: {}, </span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="go">  &quot;form&quot;: {</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="go">    &quot;key1&quot;: &quot;value1&quot;, </span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="go">    &quot;key2&quot;: &quot;value2&quot;</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="go">  }, </span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="go">  &quot;headers&quot;: {</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="go">    &quot;Accept&quot;: &quot;*/*&quot;, </span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="go">    &quot;Accept-Encoding&quot;: &quot;gzip, deflate&quot;, </span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="go">    &quot;Content-Length&quot;: &quot;23&quot;, </span>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="go">    &quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;, </span>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="go">    &quot;Host&quot;: &quot;httpbin.org&quot;, </span>
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="go">    &quot;User-Agent&quot;: &quot;python-requests/2.28.1&quot;, </span>
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="go">    &quot;X-Amzn-Trace-Id&quot;: &quot;Root=1-642e7884-7f20428d523e7fda1da61f1a&quot;</span>
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="go">  }, </span>
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="go">  &quot;json&quot;: null, </span>
+<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="go">  &quot;origin&quot;: &quot;110.191.179.216&quot;, </span>
+<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="go">  &quot;url&quot;: &quot;https://httpbin.org/post&quot;</span>
+<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="go">}</span>
+</code></pre></div>
 <p>如果你拿到的参数，是一个 json 格式，可以直接传递给 json 参数：</p>
-<pre><code class="language-python">jsons = '{&quot;key1&quot;: &quot;value1&quot;, &quot;key2&quot;: &quot;value2&quot;}'
-r = requests.post('https://httpbin.org/post', json=jsons)
-print(r.text)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">jsons</span> <span class="o">=</span> <span class="s1">&#39;{&quot;key1&quot;: &quot;value1&quot;, &quot;key2&quot;: &quot;value2&quot;}&#39;</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;https://httpbin.org/post&#39;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">jsons</span><span class="p">)</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div>
 <p>执行后终端输出：</p>
-<p>
-<div class="termy" data-termynal>
-<span data-ty>{</span>
-<span data-ty>  &quot;args&quot;: {}, </span>
-<span data-ty>  &quot;data&quot;: &quot;\&quot;{\\&quot;key1\\&quot;: \\&quot;value1\\&quot;, \\&quot;key2\\&quot;: \\&quot;value2\\&quot;}\&quot;&quot;, </span>
-<span data-ty>  &quot;files&quot;: {}, </span>
-<span data-ty>  &quot;form&quot;: {}, </span>
-<span data-ty>  &quot;headers&quot;: {</span>
-<span data-ty>    &quot;Accept&quot;: &quot;<em>/</em>&quot;, </span>
-<span data-ty>    &quot;Accept-Encoding&quot;: &quot;gzip, deflate&quot;, </span>
-<span data-ty>    &quot;Content-Length&quot;: &quot;46&quot;, </span>
-<span data-ty>    &quot;Content-Type&quot;: &quot;application/json&quot;, </span>
-<span data-ty>    &quot;Host&quot;: &quot;httpbin.org&quot;, </span>
-<span data-ty>    &quot;User-Agent&quot;: &quot;python-requests/2.28.1&quot;, </span>
-<span data-ty>    &quot;X-Amzn-Trace-Id&quot;: &quot;Root=1-642e79d4-1f0aeb1370ea94cf2c858f9d&quot;</span>
-<span data-ty>  }, </span>
-<span data-ty>  &quot;json&quot;: &quot;{\&quot;key1\&quot;: \&quot;value1\&quot;, \&quot;key2\&quot;: \&quot;value2\&quot;}&quot;, </span>
-<span data-ty>  &quot;origin&quot;: &quot;110.191.179.216&quot;, </span>
-<span data-ty>  &quot;url&quot;: &quot;https://httpbin.org/post&quot;</span>
-<span data-ty>}</span>
-<span data-ty></span>
-</div></p>
-<h2 id="4">4、响应</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="go">{</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="go">  &quot;args&quot;: {}, </span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="go">  &quot;data&quot;: &quot;\&quot;{\\\&quot;key1\\\&quot;: \\\&quot;value1\\\&quot;, \\\&quot;key2\\\&quot;: \\\&quot;value2\\\&quot;}\&quot;&quot;, </span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="go">  &quot;files&quot;: {}, </span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="go">  &quot;form&quot;: {}, </span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="go">  &quot;headers&quot;: {</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="go">    &quot;Accept&quot;: &quot;*/*&quot;, </span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="go">    &quot;Accept-Encoding&quot;: &quot;gzip, deflate&quot;, </span>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="go">    &quot;Content-Length&quot;: &quot;46&quot;, </span>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="go">    &quot;Content-Type&quot;: &quot;application/json&quot;, </span>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="go">    &quot;Host&quot;: &quot;httpbin.org&quot;, </span>
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="go">    &quot;User-Agent&quot;: &quot;python-requests/2.28.1&quot;, </span>
+<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="go">    &quot;X-Amzn-Trace-Id&quot;: &quot;Root=1-642e79d4-1f0aeb1370ea94cf2c858f9d&quot;</span>
+<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="go">  }, </span>
+<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="go">  &quot;json&quot;: &quot;{\&quot;key1\&quot;: \&quot;value1\&quot;, \&quot;key2\&quot;: \&quot;value2\&quot;}&quot;, </span>
+<a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="go">  &quot;origin&quot;: &quot;110.191.179.216&quot;, </span>
+<a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="go">  &quot;url&quot;: &quot;https://httpbin.org/post&quot;</span>
+<a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a><span class="go">}</span>
+</code></pre></div>
+<h2 id="4">4、响应<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
 <p>其实前面的例子已经有体现一点响应了；</p>
-<pre><code class="language-python">r = requests.post('https://httpbin.org/post', data={'key': 'value'})
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;https://httpbin.org/post&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">})</span>
+</code></pre></div>
 <p>r 为返回值的对象（Response），通常在项目中我一般用 <code>rsp</code> 来表示（后面的 <code>rsp</code> 和 r 是一个意思，都是表示返回值的对象）；</p>
 <p>rsp 既然是对象，那来看下对象的方法和属性，咱们 Debug 跑一下就很清楚：</p>
 <p><img alt="" src="../../img/spider/rsp.png" /></p>
 <p>接下来讲几个比较常用的属性和方法；</p>
-<h3 id="41">4.1、响应内容</h3>
-<pre><code class="language-python">r.text
-</code></pre>
+<h3 id="41">4.1、响应内容<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">r</span><span class="o">.</span><span class="n">text</span>
+</code></pre></div>
 <p>前面例子已经打印过，这里就不打印了；</p>
 <p><code>text</code> 的解码是自动的，大多数情况下都能正常解码；</p>
 <p>可以通过 <code>encoding</code> 来查看或修改编码方式：</p>
-<pre><code class="language-python">print(r.encoding)
-r.encoding = 'ISO-8859-1'
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">encoding</span><span class="p">)</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="n">r</span><span class="o">.</span><span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;ISO-8859-1&#39;</span>
+</code></pre></div>
 <p>修改编码方式之后，再使用 <code>r.text</code> 就会以新的编码方式解码。</p>
 <p>如果你发现返回的内容编码不对，你可以尝试修改不同的编码，这是个经验积累的过程。</p>
-<h3 id="42">4.2、二进制响应内容</h3>
+<h3 id="42">4.2、二进制响应内容<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
 <p>非文本类请求，一般返回的是二进制内容，此时我们应该使用 <code>content</code> 方法：</p>
-<pre><code class="language-python">r.content
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">r</span><span class="o">.</span><span class="n">content</span>
+</code></pre></div>
 <p>将二进制文件保存下来，比如请求返回一个 mp3 文件：</p>
-<pre><code class="language-python">with open(&quot;my.mp3&quot;, &quot;wb&quot;) as f：
-    f.write(r.content)
-</code></pre>
-<h3 id="43json">4.3、JSON响应内容</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;my.mp3&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="err">：</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="43json">4.3、JSON响应内容<a class="headerlink" href="#43json" title="Permanent link">&para;</a></h3>
 <p>一些 RESTful API 返回通常是 json 内容，我们可以直接使用：</p>
-<pre><code class="language-python">r.json()
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div>
 <p>获取的类型为 Python 的字典类型；</p>
 <p>如果响应包含无效JSON，会抛 <code>requests.exceptions.JSONDecodeError</code> 异常。</p>
-<h2 id="5">5、高阶用法</h2>
-<h3 id="51session">5.1、Session</h3>
+<h2 id="5">5、高阶用法<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<h3 id="51session">5.1、Session<a class="headerlink" href="#51session" title="Permanent link">&para;</a></h3>
 <p>Session 对象可以在一次会话中可以有效的处理 cookie 持久化的问题；</p>
-<pre><code class="language-python">s = requests.Session()
-# 设置一个cookie为123456789
-s.get('https://httpbin.org/cookies/set/sessioncookie/123456789')
-# 请求一下
-r = s.get('https://httpbin.org/cookies')
-print(r.text)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">s</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="c1"># 设置一个cookie为123456789</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://httpbin.org/cookies/set/sessioncookie/123456789&#39;</span><span class="p">)</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="c1"># 请求一下</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="n">r</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://httpbin.org/cookies&#39;</span><span class="p">)</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div>
 <p>执行后终端输出：</p>
-<p>
-<div class="termy" data-termynal>
-<span data-ty>{</span>
-<span data-ty>  &quot;cookies&quot;: {</span>
-<span data-ty>    &quot;sessioncookie&quot;: &quot;123456789&quot;</span>
-<span data-ty>  }</span>
-<span data-ty>}</span>
-<span data-ty></span>
-</div></p>
-<h3 id="52request">5.2、Request</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="go">{</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="go">  &quot;cookies&quot;: {</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="go">    &quot;sessioncookie&quot;: &quot;123456789&quot;</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="go">  }</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="go">}</span>
+</code></pre></div>
+<h3 id="52request">5.2、Request<a class="headerlink" href="#52request" title="Permanent link">&para;</a></h3>
 <p>无论是前面讲到的 GET 、 POST 等请求方法：</p>
-<pre><code class="language-python">requests.get()
-requests.post()
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">()</span>
+</code></pre></div>
 <p>其底层都是通过调用 Request 这个类来实现的：</p>
-<pre><code class="language-python">class Request():
-    def __init__(
-        self,
-        method=None,
-        url=None,
-        headers=None,
-        files=None,
-        data=None,
-        params=None,
-        auth=None,
-        cookies=None,
-        hooks=None,
-        json=None,
-    ):
-        pass
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="k">class</span> <span class="nc">Request</span><span class="p">():</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>        <span class="bp">self</span><span class="p">,</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>        <span class="n">method</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>        <span class="n">url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>        <span class="n">headers</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>        <span class="n">files</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>        <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>        <span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a>        <span class="n">auth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a>        <span class="n">cookies</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a>        <span class="n">hooks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a>        <span class="n">json</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a>    <span class="p">):</span>
+<a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a>        <span class="k">pass</span>
+</code></pre></div>
 <p>因此我们当然可以直接跨过这一步，不让中间商赚差价，直接用 Request：</p>
-<pre><code class="language-python">frome requests import Request
-r = Request(&quot;GET&quot;, url, headers=headers)
-r = Request(&quot;POST&quot;, url, headers=headers)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="n">frome</span> <span class="n">requests</span> <span class="kn">import</span> <span class="nn">Request</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="n">r</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="n">r</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+</code></pre></div>
 <p>还没完，记得调用一下 <code>prepare()</code> 方法，然后使用 Session 里面的 send 方法：</p>
 <p>举例：</p>
-<pre><code class="language-python">from  requests import Session, Request
-s = Session()
-r = Request(&quot;GET&quot;, 'https://httpbin.org/get')
-prepped = r.prepare()
-resp = s.send(prepped)
-print(resp.text)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="kn">from</span>  <span class="nn">requests</span> <span class="kn">import</span> <span class="n">Session</span><span class="p">,</span> <span class="n">Request</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="n">s</span> <span class="o">=</span> <span class="n">Session</span><span class="p">()</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="n">r</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s1">&#39;https://httpbin.org/get&#39;</span><span class="p">)</span>
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="n">prepped</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">prepare</span><span class="p">()</span>
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="n">resp</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">prepped</span><span class="p">)</span>
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div>
 <p>执行终端输出：</p>
-<p>
-<div class="termy" data-termynal>
-<span data-ty>{</span>
-<span data-ty>  &quot;args&quot;: {}, </span>
-<span data-ty>  &quot;headers&quot;: {</span>
-<span data-ty>    &quot;Accept-Encoding&quot;: &quot;identity&quot;, </span>
-<span data-ty>    &quot;Host&quot;: &quot;httpbin.org&quot;, </span>
-<span data-ty>    &quot;User-Agent&quot;: &quot;python-urllib3/1.26.13&quot;, </span>
-<span data-ty>    &quot;X-Amzn-Trace-Id&quot;: &quot;Root=1-642e84e2-1328a0210e2252741f20c648&quot;</span>
-<span data-ty>  }, </span>
-<span data-ty>  &quot;origin&quot;: &quot;110.191.179.216&quot;, </span>
-<span data-ty>  &quot;url&quot;: &quot;https://httpbin.org/get&quot;</span>
-<span data-ty>}</span>
-<span data-ty></span>
-</div></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="go">{</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="go">  &quot;args&quot;: {}, </span>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="go">  &quot;headers&quot;: {</span>
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="go">    &quot;Accept-Encoding&quot;: &quot;identity&quot;, </span>
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="go">    &quot;Host&quot;: &quot;httpbin.org&quot;, </span>
+<a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a><span class="go">    &quot;User-Agent&quot;: &quot;python-urllib3/1.26.13&quot;, </span>
+<a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a><span class="go">    &quot;X-Amzn-Trace-Id&quot;: &quot;Root=1-642e84e2-1328a0210e2252741f20c648&quot;</span>
+<a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a><span class="go">  }, </span>
+<a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a><span class="go">  &quot;origin&quot;: &quot;110.191.179.216&quot;, </span>
+<a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a><span class="go">  &quot;url&quot;: &quot;https://httpbin.org/get&quot;</span>
+<a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a><span class="go">}</span>
+</code></pre></div>
 
 
   

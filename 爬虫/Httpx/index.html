@@ -318,6 +318,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B6HttpRunner-2%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        接口自动化框架HttpRunner—2小时入门版
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -899,132 +913,120 @@
   
 
 
-<h1 id="httpx">Httpx</h1>
-<pre><code class="language-shell"># =============================
-# Author : mikigo
-# Time   : 2023/3/17
-# =============================
-</code></pre>
-<h2 id="1">1、简介</h2>
+<h1 id="httpx">Httpx<a class="headerlink" href="#httpx" title="Permanent link">&para;</a></h1>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># =============================</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Author : mikigo</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Time   : 2023/3/17</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># =============================</span>
+</code></pre></div>
+<h2 id="1">1、简介<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>虽然 Requests 基本已经可以解决大部分问题，但仍然有少部分问题无法解决，比如：HTTP/2（Requests 只支持HTTP/1.1）、异步请求等，这就需要用到 httpx；</p>
 <p>httpx 号称下一代 HTTP 客户端，最开始是为了解决 Requests 不支持异步请求的问题，工程名称就叫：requests-async，后面整体迁移到 httpx 仓库中。</p>
 <p>由于 httpx 从一开始就是基于 Requests 来搞的，所以它提供的接口几乎和 Requests 保持一致，这对于我们使用来说就简单多了。</p>
-<h2 id="2">2、安装</h2>
+<h2 id="2">2、安装<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
 <p>系统环境：deepin</p>
-<p>
-<div class="termy" data-termynal>
-<span data-ty>pip3 install httpx</span>
-<span data-ty="progress"></span>
-<span data-ty></span>
-</div></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="go">pip3 install httpx</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="go">---&gt; 100%</span>
+</code></pre></div>
 <p>它还提供命令行工具：</p>
-<p>
-<div class="termy" data-termynal>
-<span data-ty>pip3 install 'httpx[cli]'</span>
-<span data-ty="progress"></span>
-<span data-ty></span>
-</div></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="go">pip3 install &#39;httpx[cli]&#39;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="go">---&gt; 100%</span>
+</code></pre></div>
 <p>我一般不咋习惯用命令行做接口请求，所以基本都不装这玩意儿。</p>
-<h2 id="3">3、简单的例子</h2>
+<h2 id="3">3、简单的例子<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
 <p>前面说了 httpx 和 Requests 提供的接口几乎一致，咱们就用 Requests 教程里面的例子；</p>
-<h3 id="31get">3.1、GET请求</h3>
-<pre><code class="language-python">import httpx
-
-r = httpx.get(&quot;https://www.baidu.com&quot;)
-print(r.status_code)
-print(r.text)
-</code></pre>
+<h3 id="31get">3.1、GET请求<a class="headerlink" href="#31get" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span> <span class="nn">httpx</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">r</span> <span class="o">=</span> <span class="n">httpx</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://www.baidu.com&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div>
 <p>执行后终端输出：</p>
-<p>
-<div class="termy" data-termynal>
-<span data-ty>200</span>
-<span data-ty>&lt;html&gt;</span>
-<span data-ty>&lt;head&gt;</span>
-<span data-ty>        &lt;script&gt;</span>
-<span data-ty>                location.replace(location.href.replace(&quot;https://&quot;,&quot;http://&quot;));</span>
-<span data-ty>        &lt;/script&gt;</span>
-<span data-ty>&lt;/head&gt;</span>
-<span data-ty>&lt;body&gt;</span>
-<span data-ty>        &lt;noscript&gt;&lt;meta http-equiv=&quot;refresh&quot; content=&quot;0;url=http://www.baidu.com/&quot;&gt;&lt;/noscript&gt;</span>
-<span data-ty>&lt;/body&gt;</span>
-<span data-ty>&lt;/html&gt;</span>
-<span data-ty></span>
-</div></p>
-<h3 id="32post">3.2、POST请求</h3>
-<pre><code class="language-python">import httpx
-
-r = httpx.post('https://httpbin.org/post', data={'key': 'value'})
-print(r.status_code)
-print(r.text)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="go">200</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="go">&lt;html&gt;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="go">&lt;head&gt;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="go">        &lt;script&gt;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="go">                location.replace(location.href.replace(&quot;https://&quot;,&quot;http://&quot;));</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="go">        &lt;/script&gt;</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="go">&lt;/head&gt;</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="go">&lt;body&gt;</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="go">        &lt;noscript&gt;&lt;meta http-equiv=&quot;refresh&quot; content=&quot;0;url=http://www.baidu.com/&quot;&gt;&lt;/noscript&gt;</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="go">&lt;/body&gt;</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="go">&lt;/html&gt;</span>
+</code></pre></div>
+<h3 id="32post">3.2、POST请求<a class="headerlink" href="#32post" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span> <span class="nn">httpx</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">r</span> <span class="o">=</span> <span class="n">httpx</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;https://httpbin.org/post&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">})</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div>
 <p>执行后终端输出：</p>
-<p>
-<div class="termy" data-termynal>
-<span data-ty>200</span>
-<span data-ty>{</span>
-<span data-ty>  &quot;args&quot;: {}, </span>
-<span data-ty>  &quot;data&quot;: &quot;&quot;, </span>
-<span data-ty>  &quot;files&quot;: {}, </span>
-<span data-ty>  &quot;form&quot;: {</span>
-<span data-ty>    &quot;key&quot;: &quot;value&quot;</span>
-<span data-ty>  }, </span>
-<span data-ty>  &quot;headers&quot;: {</span>
-<span data-ty>    &quot;Accept&quot;: &quot;<em>/</em>&quot;, </span>
-<span data-ty>    &quot;Accept-Encoding&quot;: &quot;gzip, deflate&quot;, </span>
-<span data-ty>    &quot;Content-Length&quot;: &quot;9&quot;, </span>
-<span data-ty>    &quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;, </span>
-<span data-ty>    &quot;Host&quot;: &quot;httpbin.org&quot;, </span>
-<span data-ty>    &quot;User-Agent&quot;: &quot;python-httpx/0.23.3&quot;, </span>
-<span data-ty>    &quot;X-Amzn-Trace-Id&quot;: &quot;Root=1-642f820c-019ccf8938faee564386038e&quot;</span>
-<span data-ty>  }, </span>
-<span data-ty>  &quot;json&quot;: null, </span>
-<span data-ty>  &quot;origin&quot;: &quot;110.191.179.216&quot;, </span>
-<span data-ty>  &quot;url&quot;: &quot;https://httpbin.org/post&quot;</span>
-<span data-ty>}</span>
-<span data-ty></span>
-</div></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="go">200</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="go">{</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="go">  &quot;args&quot;: {}, </span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="go">  &quot;data&quot;: &quot;&quot;, </span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="go">  &quot;files&quot;: {}, </span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="go">  &quot;form&quot;: {</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="go">    &quot;key&quot;: &quot;value&quot;</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="go">  }, </span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="go">  &quot;headers&quot;: {</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="go">    &quot;Accept&quot;: &quot;*/*&quot;, </span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="go">    &quot;Accept-Encoding&quot;: &quot;gzip, deflate&quot;, </span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="go">    &quot;Content-Length&quot;: &quot;9&quot;, </span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="go">    &quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;, </span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="go">    &quot;Host&quot;: &quot;httpbin.org&quot;, </span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="go">    &quot;User-Agent&quot;: &quot;python-httpx/0.23.3&quot;, </span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="go">    &quot;X-Amzn-Trace-Id&quot;: &quot;Root=1-642f820c-019ccf8938faee564386038e&quot;</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="go">  }, </span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="go">  &quot;json&quot;: null, </span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="go">  &quot;origin&quot;: &quot;110.191.179.216&quot;, </span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="go">  &quot;url&quot;: &quot;https://httpbin.org/post&quot;</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="go">}</span>
+</code></pre></div>
 <p>你看，简直是一毛一样。</p>
 <p>行啦，都一样咱们就不聊了，后面重点讲讲不一样的。</p>
-<h2 id="4">4、异步请求</h2>
+<h2 id="4">4、异步请求<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
 <p>异步是一种并发方式，也就是通常说的“协程”，比多线程效率高很多；</p>
 <p>httpx 的异步请求主要依赖于标准库 asyncio，使用 async 和 await 关键词；</p>
-<pre><code class="language-python">import asyncio
-import httpx
-
-async def my_get():
-    async with httpx.AsyncClient() as client:
-        r = await client.get(&quot;https://www.baidu.com&quot;)
-        print(r.text)
-
-if __name__ == '__main__':
-    asyncio.run(my_get())
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">import</span> <span class="nn">asyncio</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kn">import</span> <span class="nn">httpx</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">my_get</span><span class="p">():</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    <span class="k">async</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">()</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>        <span class="n">r</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://www.baidu.com&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>    <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">my_get</span><span class="p">())</span>
+</code></pre></div>
 <p>client 对象你可以理解为 Requests 里面的 Session 对象。</p>
-<h2 id="5http2">5、HTTP/2</h2>
+<h2 id="5http2">5、HTTP/2<a class="headerlink" href="#5http2" title="Permanent link">&para;</a></h2>
 <p>老实讲 HTTP/2 的网站我还没机会爬过，所以我这里还不太好找例子；</p>
 <p>如果你在不小心遇到了也别慌，只需要加一个参数就好了；</p>
-<pre><code class="language-python">import asyncio
-import httpx
-
-async def my_get():
-    async with httpx.AsyncClient(http2=True) as client:
-        r = await client.get(&quot;https://www.xxxxxx.com&quot;)
-        print(r.text)
-
-if __name__ == '__main__':
-    asyncio.run(my_get())
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">import</span> <span class="nn">asyncio</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kn">import</span> <span class="nn">httpx</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">my_get</span><span class="p">():</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="k">async</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">(</span><span class="n">http2</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>        <span class="n">r</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://www.xxxxxx.com&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>    <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">my_get</span><span class="p">())</span>
+</code></pre></div>
 <p>在 <code>httpx.AsyncClient()</code> 里面，默认参数: </p>
-<pre><code class="language-python">class AsyncClient:
-    def __init__(
-        self,
-        ...
-        http1: bool = True,
-        http2: bool = False,
-        ...
-    ):
-        pass  # 省略其他源码
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">class</span> <span class="nc">AsyncClient</span><span class="p">:</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>        <span class="bp">self</span><span class="p">,</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>        <span class="o">...</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>        <span class="n">http1</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>        <span class="n">http2</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>        <span class="o">...</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>    <span class="p">):</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>        <span class="k">pass</span>  <span class="c1"># 省略其他源码</span>
+</code></pre></div>
 <p>也就是说默认是开启的 http1，所以只需要在实例化 client 对象的时候，传入参数 <code>http2=True</code> 即可；</p>
 
 

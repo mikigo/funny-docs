@@ -318,6 +318,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B6HttpRunner-2%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        接口自动化框架HttpRunner—2小时入门版
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1091,13 +1105,13 @@
   
 
 
-<h1 id="scrapy">Scrapy</h1>
-<pre><code class="language-shell"># =============================
-# Author : mikigo
-# Time   : 2023/3/17
-# =============================
-</code></pre>
-<h2 id="1">1、简介</h2>
+<h1 id="scrapy">Scrapy<a class="headerlink" href="#scrapy" title="Permanent link">&para;</a></h1>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># =============================</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Author : mikigo</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Time   : 2023/3/17</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># =============================</span>
+</code></pre></div>
+<h2 id="1">1、简介<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>Scrapy 是现阶段 Python 社区最流行的爬虫框架，它能够极大的简化爬虫的编写难度，简化代码。</p>
 <p>当然它不是 Python 社区唯一的爬虫框架，但我认为是现阶段最好用的爬虫框架。</p>
 <p>经常用同学问，为啥要用 Scrapy，我用 requests 不可以吗？</p>
@@ -1118,94 +1132,76 @@
 <li>新手做大任务，用框架，不要想，省时省力；</li>
 <li>老司机做大任务，用工具可以做，就是有点麻烦；用框架也能搞，但是不能秀出你的实力；</li>
 </ul>
-<h2 id="2">2、安装</h2>
+<h2 id="2">2、安装<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
 <p>系统环境：deepin</p>
-<p>
-<div class="termy" data-termynal>
-<span data-ty>pip3 install Scrapy</span>
-<span data-ty="progress"></span>
-<span data-ty></span>
-</div></p>
-<h2 id="3">3、创建项目</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="go">pip3 install Scrapy</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="go">---&gt; 100%</span>
+</code></pre></div>
+<h2 id="3">3、创建项目<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
 <p>咱们就爬取 deepin 论坛的贴子，找找感觉；</p>
 <p>创建一个爬虫项目名为：deepin_bbs_spider</p>
-<p>
-<div class="termy" data-termynal>
-<span data-ty>cd ~</span>
-<span data-ty>scrapy startproject deepin_bbs_spider</span>
-<span data-ty></span>
-</div></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="go">cd ~</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="go">scrapy startproject deepin_bbs_spider</span>
+</code></pre></div>
 <p>工程目录结构：</p>
-<p>
-<div class="termy" data-termynal>
-<span data-ty>deepin_bbs_spider</span>
-<span data-ty>├── deepin_bbs_spider</span>
-<span data-ty>│   ├── <strong>init</strong>.py</span>
-<span data-ty>│   ├── items.py  # 数据类型定义</span>
-<span data-ty>│   ├── middlewares.py  # 中间件</span>
-<span data-ty>│   ├── pipelines.py  # 数据管道</span>
-<span data-ty>│   ├── settings.py  # 配置项</span>
-<span data-ty>│   └── spiders  # 放爬虫脚本的目录</span>
-<span data-ty>│       └── <strong>init</strong>.py</span>
-<span data-ty>└── scrapy.cfg  # 部署配置文件</span>
-<span data-ty></span>
-</div></p>
-<h2 id="4">4、开始写爬虫</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="go">deepin_bbs_spider</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="go">├── deepin_bbs_spider</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="go">│   ├── __init__.py</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="go">│   ├── items.py  # 数据类型定义</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="go">│   ├── middlewares.py  # 中间件</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="go">│   ├── pipelines.py  # 数据管道</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="go">│   ├── settings.py  # 配置项</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="go">│   └── spiders  # 放爬虫脚本的目录</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="go">│       └── __init__.py</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="go">└── scrapy.cfg  # 部署配置文件</span>
+</code></pre></div>
+<h2 id="4">4、开始写爬虫<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
 <p>在 <code>~/deepin_bbs_spider/deepin_bbs_spider/spiders</code> 目录下写我们的爬虫脚本文件，创建一个爬虫，目标是爬取论坛里面帖子内容：</p>
-<pre><code class="language-python"># bbs_spider.py
-
-import scrapy
-
-class BbsSpiderSpider(scrapy.Spider):
-    name = &quot;bbs_spider&quot;
-    allowed_domains = [&quot;bbs.deepin.org&quot;]
-    start_urls = [&quot;https://bbs.deepin.org/?offset=0&amp;limit=20&amp;order=updated_at&amp;where=&amp;languages=zh_CN#comment_title&quot;]
-
-    def parse(self, response):
-        post_items = response.css(&quot;app-main-pc &gt; div &gt; div:nth-child(3) &gt; app-post-pc&quot;)
-        for post_item in post_items:
-            url = post_item.css(&quot;a.post_lin_pc::attr(href)&quot;).get()
-            title = post_item.css(&quot;span.ng-star-inserted::text&quot;).getall()
-            print(&quot;url:&quot;, url)
-            print(&quot;title&quot;, title)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># bbs_spider.py</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kn">import</span> <span class="nn">scrapy</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="k">class</span> <span class="nc">BbsSpiderSpider</span><span class="p">(</span><span class="n">scrapy</span><span class="o">.</span><span class="n">Spider</span><span class="p">):</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;bbs_spider&quot;</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="n">allowed_domains</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;bbs.deepin.org&quot;</span><span class="p">]</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="n">start_urls</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;https://bbs.deepin.org/?offset=0&amp;limit=20&amp;order=updated_at&amp;where=&amp;languages=zh_CN#comment_title&quot;</span><span class="p">]</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>        <span class="n">post_items</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;app-main-pc &gt; div &gt; div:nth-child(3) &gt; app-post-pc&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>        <span class="k">for</span> <span class="n">post_item</span> <span class="ow">in</span> <span class="n">post_items</span><span class="p">:</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>            <span class="n">url</span> <span class="o">=</span> <span class="n">post_item</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;a.post_lin_pc::attr(href)&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>            <span class="n">title</span> <span class="o">=</span> <span class="n">post_item</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;span.ng-star-inserted::text&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getall</span><span class="p">()</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;url:&quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;title&quot;</span><span class="p">,</span> <span class="n">title</span><span class="p">)</span>
+</code></pre></div>
 <p>啥也不说，先跑起来试试：</p>
-<p>
-<div class="termy" data-termynal>
-<span data-ty>cd ~/deepin_bbs_spider</span>
-<span data-ty>scrapy crawl bbs_spider</span>
-<span data-ty></span>
-</div></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="go">cd ~/deepin_bbs_spider</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="go">scrapy crawl bbs_spider</span>
+</code></pre></div>
 <p>跑完之后，终端就会有输出爬取到的帖子信息：</p>
 <p><img alt="" src="../../img/spider/bbs_show.png" /></p>
 <p>你先别管其他的，至少咱们能爬到数据了，接下来咱们慢慢介绍上面这些代码是怎么来的~；</p>
-<h2 id="5">5、逻辑讲解</h2>
-<h3 id="51">5.1、生成爬虫模板</h3>
+<h2 id="5">5、逻辑讲解<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<h3 id="51">5.1、生成爬虫模板<a class="headerlink" href="#51" title="Permanent link">&para;</a></h3>
 <p>看了上面的示例，有同学肯定要问，你咋知道要写个类呢，你咋知道要写个 <code>parse</code> 函数呢？</p>
 <p>我确实不知道，<code>scrapy</code> 也知道咱们不知道，所以做了个工具自动生成：</p>
-<p>
-<div class="termy" data-termynal>
-<span data-ty>scrapy genspider &lt;spider name&gt; &lt;spider url&gt;</span>
-<span data-ty></span>
-</div></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="go">scrapy genspider &lt;spider name&gt; &lt;spider url&gt;</span>
+</code></pre></div>
 <p>用子命令 <code>genspider</code>，后面加爬虫的名称（spider name），再加要爬取地址（url），就可以在 <code>spiders</code> 目录下自动生成一个 <code>py</code> 文件；</p>
 <p>比如，咱们像这样：</p>
-<p>
-<div class="termy" data-termynal>
-<span data-ty>scrapy genspider bbs_spider &quot;https://bbs.deepin.org&quot;</span>
-<span data-ty></span>
-</div></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="go">scrapy genspider bbs_spider &quot;https://bbs.deepin.org&quot;</span>
+</code></pre></div>
 <p>执行之后就会自动生成 <code>py</code> 文件：</p>
-<pre><code class="language-python">import scrapy
-
-class BbsSpiderSpider(scrapy.Spider):
-    name = &quot;bbs_spider&quot;
-    allowed_domains = [&quot;bbs.deepin.org&quot;]
-    start_urls = [&quot;https://bbs.deepin.org&quot;]
-
-    def parse(self, response):
-        pass
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">import</span> <span class="nn">scrapy</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">class</span> <span class="nc">BbsSpiderSpider</span><span class="p">(</span><span class="n">scrapy</span><span class="o">.</span><span class="n">Spider</span><span class="p">):</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;bbs_spider&quot;</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="n">allowed_domains</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;bbs.deepin.org&quot;</span><span class="p">]</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    <span class="n">start_urls</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;https://bbs.deepin.org&quot;</span><span class="p">]</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>        <span class="k">pass</span>
+</code></pre></div>
 <p>简单讲解一下：</p>
 <ul>
 <li>爬虫类是要继承 <code>scrapy.Spider</code> 的，这个不要去动，知道继承就对了；</li>
@@ -1216,160 +1212,157 @@ class BbsSpiderSpider(scrapy.Spider):
 </ul>
 <p>这里面核心逻辑就是在 <code>parse</code> 函数里面去写，你可以理解成 <code>response</code> 就是返回的页面信息，你只需要在这里面去提取想要的数据就好了；</p>
 <p><code>response</code> 提供一些方法，能够很方便的进行页面信息提取；</p>
-<h3 id="52">5.2、爬虫编写方法</h3>
+<h3 id="52">5.2、爬虫编写方法<a class="headerlink" href="#52" title="Permanent link">&para;</a></h3>
 <p>前面说到爬虫脚本里面 <code>response</code>，它是我们编写代码的核心，所有的数据提取都从这里来；</p>
 <p>下面我们讲讲数据的提取方法，这里多嘴一句，我默认大家都是有一点前端基础的，不然下面部分内容可能需要去学习下 html、css相关知识；</p>
 <p>首先来讲 css 提取方法，css 的解析是非常灵活的，先用 F12 看下 html 源码：</p>
 <p><img alt="" src="../../img/spider/html.png" /></p>
 <p>可以看到所有的帖子都在 <code>app-post-pc</code> 标签下面，咱们可以这样写：</p>
-<pre><code class="language-python">def parse(self, response):
-    post_items = response.css(&quot;app-post-pc&quot;)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="n">post_items</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;app-post-pc&quot;</span><span class="p">)</span>
+</code></pre></div>
 <p>如果你是使用右键复制的选择器，可能是一个很长的表达式，不太优雅也不利于维护，我个人不太建议使用直接复制表达式，而应该通过观察自己写；</p>
 <p>这样的话，<code>post_items</code> 就获取到了所有帖子的 <code>app-post-pc</code> 标签，再看下 <code>app-post-pc</code> 标签下都有啥：</p>
 <p><img alt="" src="../../img/spider/a_tag.png" /></p>
 <p>可以看到在 <code>app-post-pc</code> 标签下还有 a 标签，保存了帖子的详情地址(<code>post_url</code>)，然后在 a 标签下的 span 标签保存了帖子的类型和标题(<code>title</code>)，因此咱们想办法把这两个拿到：</p>
-<pre><code class="language-python">def parse(self, response):
-    post_items = response.css(&quot;app-post-pc&quot;)
-    for post_item in post_items:
-        url = post_item.css(&quot;a.post_lin_pc::attr(href)&quot;).get()
-        title = post_item.css(&quot;span.ng-star-inserted::text&quot;).getall()
-        print(&quot;url:&quot;, url)
-        print(&quot;title&quot;, title)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    <span class="n">post_items</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;app-post-pc&quot;</span><span class="p">)</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="k">for</span> <span class="n">post_item</span> <span class="ow">in</span> <span class="n">post_items</span><span class="p">:</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>        <span class="n">url</span> <span class="o">=</span> <span class="n">post_item</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;a.post_lin_pc::attr(href)&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>        <span class="n">title</span> <span class="o">=</span> <span class="n">post_item</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;span.ng-star-inserted::text&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getall</span><span class="p">()</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;url:&quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;title&quot;</span><span class="p">,</span> <span class="n">title</span><span class="p">)</span>
+</code></pre></div>
 <p>先用 for 循环把 <code>post_items</code> 里面每个 <code>Selector</code> 对象里面的 <code>url</code> 和 <code>title</code> 拿到；</p>
 <p><code>post_item</code> 就是单个的 <code>Selector</code> 对象，我们在它的基础上再通过 css 方法获取到我们想要的数据；（也可以使用 Xpath 技术获取）</p>
 <ul>
 <li><code>url</code> 是在 a 标签里面的 href 属性里面，因此：</li>
 </ul>
-<pre><code class="language-python">post_item.css(&quot;a.post_lin_pc::attr(href)&quot;).get()
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">post_item</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;a.post_lin_pc::attr(href)&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+</code></pre></div>
 <p>表达式里面的 <code>::attr(href)</code> 这部分是 Scrapy 特有的，<code>::</code> 表示取值，<code>attr(href)</code> 表示通过 <code>href</code> 属性取值；</p>
 <p><code>get()</code> 方法表示取第一个值，<code>getall()</code> 方法表示取所有的值；（也兼容老版本的 <code>extract_first()</code> 和 <code>extract()</code> 方法，意思是对应一样的，不过明显<code>get()</code> 这种可读性更好更易于理解。）</p>
 <ul>
 <li><code>title</code> 在 span 标签里面：</li>
 </ul>
-<pre><code class="language-python">post_item.css(&quot;span.ng-star-inserted::text&quot;).getall()
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">post_item</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;span.ng-star-inserted::text&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getall</span><span class="p">()</span>
+</code></pre></div>
 <p><code>text</code> 也是 Scrapy 特有的，表示把标签的文本取出来；</p>
 <p>非常好理解对吧，只要你稍微有点前端知识，就能够轻松把表达式写出来；</p>
-<h3 id="53">5.3、获取数据</h3>
+<h3 id="53">5.3、获取数据<a class="headerlink" href="#53" title="Permanent link">&para;</a></h3>
 <p>前面例子是将获取到的数据打印出来，实际业务里面我们肯定是需要将数据保存下来的；</p>
 <p>首先我们在 <code>items.py</code> 里面定义数据类型：</p>
-<pre><code class="language-python"># items.py
-
-import scrapy
-
-class DeepinBbsSpiderItem(scrapy.Item):
-    # define the fields for your item here like:
-    url = scrapy.Field()
-    title = scrapy.Field()
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># items.py</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="kn">import</span> <span class="nn">scrapy</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="k">class</span> <span class="nc">DeepinBbsSpiderItem</span><span class="p">(</span><span class="n">scrapy</span><span class="o">.</span><span class="n">Item</span><span class="p">):</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>    <span class="c1"># define the fields for your item here like:</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>    <span class="n">url</span> <span class="o">=</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Field</span><span class="p">()</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>    <span class="n">title</span> <span class="o">=</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Field</span><span class="p">()</span>
+</code></pre></div>
 <p>写法非常简单，统一使用 <code>scrapy.Field()</code> 来定义就行了；</p>
 <p>然后，回到爬虫脚本里面：</p>
-<pre><code class="language-python">import scrapy
-from deepin_bbs_spider.items import DeepinBbsSpiderItem
-
-class BbsSpiderSpider(scrapy.Spider):
-    ... # 省略部分代码
-
-    def parse(self, response):
-        item = DeepinBbsSpiderItem()
-        post_items = response.css(&quot;app-post-pc&quot;)
-        for post_item in post_items:
-            item[&quot;url&quot;] = post_item.css(&quot;a.post_lin_pc::attr(href)&quot;).get()
-            item[&quot;title&quot;] = post_item.css(&quot;span.ng-star-inserted::text&quot;).getall()
-            yield item
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kn">import</span> <span class="nn">scrapy</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kn">from</span> <span class="nn">deepin_bbs_spider.items</span> <span class="kn">import</span> <span class="n">DeepinBbsSpiderItem</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="k">class</span> <span class="nc">BbsSpiderSpider</span><span class="p">(</span><span class="n">scrapy</span><span class="o">.</span><span class="n">Spider</span><span class="p">):</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>    <span class="o">...</span> <span class="c1"># 省略部分代码</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>        <span class="n">item</span> <span class="o">=</span> <span class="n">DeepinBbsSpiderItem</span><span class="p">()</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>        <span class="n">post_items</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;app-post-pc&quot;</span><span class="p">)</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>        <span class="k">for</span> <span class="n">post_item</span> <span class="ow">in</span> <span class="n">post_items</span><span class="p">:</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>            <span class="n">item</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">post_item</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;a.post_lin_pc::attr(href)&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>            <span class="n">item</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">post_item</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;span.ng-star-inserted::text&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getall</span><span class="p">()</span>
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>            <span class="k">yield</span> <span class="n">item</span>
+</code></pre></div>
 <p>将 <code>items.py</code> 里面的 <code>DeepinBbsSpiderItem</code> 导进来，实例化一个对象，然后将获取到的数据复制给这个对象，使用 <code>item["url"]</code> 这种给字典添加的方式，注意要和 <code>items.py</code> 里面定义的字段名称保持一致；</p>
 <p>最后，使用 <code>yield</code> 将数据返回出来就行了；</p>
 <p>将数据写入到 csv 文件里面：</p>
-<p>
-<div class="termy" data-termynal>
-<span data-ty>scrapy crawl bbs_spider -o bbs.csv</span>
-<span data-ty></span>
-</div></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="go">scrapy crawl bbs_spider -o bbs.csv</span>
+</code></pre></div>
 <p><code>-o</code> 表示导出数据，执行后，查看 bbs.csv 文件：</p>
 <p><img alt="" src="../../img/spider/csv.png" /></p>
 <p>这样就将爬取到的数据保存到了一个 csv 文件；</p>
-<h3 id="54">5.4、处理数据</h3>
+<h3 id="54">5.4、处理数据<a class="headerlink" href="#54" title="Permanent link">&para;</a></h3>
 <p>在爬虫脚本里面获取到原始数据之后，我们还有可能会拿数据做进一步处理，比如还想写入数据库、写入 Excel等等；</p>
 <p>这些进一步的操作，我们通常是在数据管道 <code>pipelines.py</code> 里面来处理：</p>
-<pre><code class="language-python">class DeepinBbsSpiderPipeline:
-    def process_item(self, item, spider):
-        return item
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">class</span> <span class="nc">DeepinBbsSpiderPipeline</span><span class="p">:</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>    <span class="k">def</span> <span class="nf">process_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">spider</span><span class="p">):</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>        <span class="k">return</span> <span class="n">item</span>
+</code></pre></div>
 <p>这里的 <code>item</code> 就是每一条数据；</p>
 <p>比如，你想写入 <code>MySQL</code>数据库（首先要确保数据库表、字段等正常）：</p>
-<pre><code class="language-python">import pymysql
-
-class DeepinBbsSpiderPipeline:
-
-    def __init__(self):
-        # 在构造函数里面创建数据库连接和游标
-
-    def open_spider(self, spider):
-        # open_spider 是这个管道开始时要执行的；这里可以不要
-
-    def close_spider(self, spider):
-        # close_spider 写入关闭数据库的代码
-
-    def process_item(self, item, spider):
-        # 在这里做写入数据库的动作
-        return item 
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kn">import</span> <span class="nn">pymysql</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="k">class</span> <span class="nc">DeepinBbsSpiderPipeline</span><span class="p">:</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>        <span class="c1"># 在构造函数里面创建数据库连接和游标</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>    <span class="k">def</span> <span class="nf">open_spider</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spider</span><span class="p">):</span>
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>        <span class="c1"># open_spider 是这个管道开始时要执行的；这里可以不要</span>
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>
+<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>    <span class="k">def</span> <span class="nf">close_spider</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spider</span><span class="p">):</span>
+<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>        <span class="c1"># close_spider 写入关闭数据库的代码</span>
+<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>
+<a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>    <span class="k">def</span> <span class="nf">process_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">spider</span><span class="p">):</span>
+<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>        <span class="c1"># 在这里做写入数据库的动作</span>
+<a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a>        <span class="k">return</span> <span class="n">item</span> 
+</code></pre></div>
 <p>在上面注释里面写了写入数据库的编写逻辑，由于我们主要想讲解数据管道的操作逻辑，数据库的代码数据基本操作，就不做详细代码示例了，往上搜 <code>pymysql</code> 的使用很多，按照注释的逻辑，对号入座就行了；</p>
 <p>如果想写入 Excel 表格逻辑是一样的，也可以表格和数据库同时写入，在 <code>pipelines.py</code> 里面再定义一个管道类就行了；</p>
 <p>注意，数据管道逻辑写完之后，要在 <code>settings.py</code> 里面修改配置：</p>
-<pre><code class="language-python">ITEM_PIPELINES = {
-    &quot;deepin_bbs_spider.pipelines.DeepinBbsSpiderPipeline&quot;: 300,
-    # &quot;deepin_bbs_spider.pipelines.XxxxPipeline&quot;: 2,
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">ITEM_PIPELINES</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>    <span class="s2">&quot;deepin_bbs_spider.pipelines.DeepinBbsSpiderPipeline&quot;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>    <span class="c1"># &quot;deepin_bbs_spider.pipelines.XxxxPipeline&quot;: 2,</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="p">}</span>
+</code></pre></div>
 <p><code>ITEM_PIPELINES</code> 是一个字典，key 是数据管道，value 是一个数字；</p>
 <p>value 主要用于多个管道排序的，因为在 <code>pipelines.py</code> 里面可以定义多个数据管道类，它们执行的先后顺序由 value 来控制，数字越小越先执行；</p>
 <p>如果你就一个数据管道类，这个 value 给多少都无所谓；</p>
 <p>另外提醒，在 <code>process_item()</code> 最后一定要 <code>return item</code>，不然存在多个数据管道的时候，后执行的数据管道就拿不到数据了；</p>
 <p>好，配置完之后，就可以再次执行了；</p>
-<h3 id="55">5.5、从下层页面解析数据</h3>
+<h3 id="55">5.5、从下层页面解析数据<a class="headerlink" href="#55" title="Permanent link">&para;</a></h3>
 <p>这部分内容相对来讲是难点，搞懂了这部分，就几乎能处理对大部分数据爬取了；</p>
 <p>来，开始燥起来~~</p>
 <p>前面我们获取到了帖子的 <code>url</code> 和 <code>title</code>，有同学可能要问了，这个帖子的正文内容哪里；</p>
 <p>正文内容在帖子的 <code>url</code> 里面，如果我们要同时获取帖子的正文内容，就需要做以下处理；</p>
 <p><img alt="" src="../../img/spider/detail.png" /></p>
-<h4 id="551">5.5.1、回调逻辑</h4>
+<h4 id="551">5.5.1、回调逻辑<a class="headerlink" href="#551" title="Permanent link">&para;</a></h4>
 <p>首先，前面获取的 <code>url</code> 不是一个完整的链接，咱们需要稍微处理以下：</p>
-<pre><code class="language-python">class BbsSpiderSpider(scrapy.Spider):
-
-    base_url = &quot;https://bbs.deepin.org&quot;
-
-    def parse(self, response):
-        item = DeepinBbsSpiderItem()
-        post_items = response.css(&quot;app-post-pc&quot;)
-        for post_item in post_items:
-            item[&quot;url&quot;] = post_item.css(&quot;a.post_lin_pc::attr(href)&quot;).get().replace(&quot;/en&quot;, self.base_url)
-    # 省略部分代码
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="k">class</span> <span class="nc">BbsSpiderSpider</span><span class="p">(</span><span class="n">scrapy</span><span class="o">.</span><span class="n">Spider</span><span class="p">):</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>    <span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://bbs.deepin.org&quot;</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>        <span class="n">item</span> <span class="o">=</span> <span class="n">DeepinBbsSpiderItem</span><span class="p">()</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>        <span class="n">post_items</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;app-post-pc&quot;</span><span class="p">)</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>        <span class="k">for</span> <span class="n">post_item</span> <span class="ow">in</span> <span class="n">post_items</span><span class="p">:</span>
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>            <span class="n">item</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">post_item</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;a.post_lin_pc::attr(href)&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;/en&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="p">)</span>
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>    <span class="c1"># 省略部分代码</span>
+</code></pre></div>
 <p>我们前面获取的 <code>url</code> 是这样的: <code>/en/post/254787</code> ，因此做一个替换处理；</p>
 <p>然后，咱们拿着这个 <code>url</code> 继续做请求：</p>
-<pre><code class="language-python">class BbsSpiderSpider(scrapy.Spider):
-
-    base_url = &quot;https://bbs.deepin.org&quot;
-
-    def parse(self, response):
-        item = DeepinBbsSpiderItem()
-        post_items = response.css(&quot;app-post-pc&quot;)
-        for post_item in post_items:
-            item[&quot;url&quot;] = post_item.css(&quot;a.post_lin_pc::attr(href)&quot;).get().replace(&quot;/en&quot;, self.base_url)
-            yield scrapy.Request(
-                url=item[&quot;url&quot;], 
-                callback=self.post_parse, 
-                cb_kwargs={&quot;item&quot;: item}
-            )
-
-    def post_parse(self, response, **kwargs):
-        item = kwargs.get(&quot;item&quot;)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="k">class</span> <span class="nc">BbsSpiderSpider</span><span class="p">(</span><span class="n">scrapy</span><span class="o">.</span><span class="n">Spider</span><span class="p">):</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>    <span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://bbs.deepin.org&quot;</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>        <span class="n">item</span> <span class="o">=</span> <span class="n">DeepinBbsSpiderItem</span><span class="p">()</span>
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>        <span class="n">post_items</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;app-post-pc&quot;</span><span class="p">)</span>
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>        <span class="k">for</span> <span class="n">post_item</span> <span class="ow">in</span> <span class="n">post_items</span><span class="p">:</span>
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>            <span class="n">item</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">post_item</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;a.post_lin_pc::attr(href)&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;/en&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="p">)</span>
+<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>            <span class="k">yield</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span>
+<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>                <span class="n">url</span><span class="o">=</span><span class="n">item</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">],</span> 
+<a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>                <span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">post_parse</span><span class="p">,</span> 
+<a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>                <span class="n">cb_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;item&quot;</span><span class="p">:</span> <span class="n">item</span><span class="p">}</span>
+<a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a>            <span class="p">)</span>
+<a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a>
+<a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a>    <span class="k">def</span> <span class="nf">post_parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a>        <span class="n">item</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;item&quot;</span><span class="p">)</span>
+</code></pre></div>
 <p>这里需要用 <code>yield</code> 返回并构造 scrapy.Request 对象，传入三个参数：</p>
 <ul>
 <li>
@@ -1384,73 +1377,67 @@ class DeepinBbsSpiderPipeline:
 <ul>
 <li>cb_kwargs 是为了给 <code>post_parse()</code> 函数传递 item 参数，是一个字典类型，这样在 <code>post_parse(self, response, **kwargs)</code> 里面的 <code>kwargs</code> 就能拿到 item 的值，咱们后续拿到正文之后，继续组装到 item 里面就行了；</li>
 </ul>
-<h4 id="552">5.5.2、下层页面解析</h4>
+<h4 id="552">5.5.2、下层页面解析<a class="headerlink" href="#552" title="Permanent link">&para;</a></h4>
 <p>下层页面的解析，逻辑和前面一样，先看下 html 源码：</p>
 <p><img alt="" src="../../img/spider/post_info.png" /></p>
 <p>获取正文：</p>
-<pre><code class="language-python">    def post_parse(self, response, **kwargs):
-        item = kwargs.get(&quot;item&quot;)
-        post_info = response.css(&quot;div.post_conten &gt; div.post_edit.ng-star-inserted &gt; div &gt; div &gt; p::text&quot;).getall()
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>    <span class="k">def</span> <span class="nf">post_parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>        <span class="n">item</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;item&quot;</span><span class="p">)</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>        <span class="n">post_info</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;div.post_conten &gt; div.post_edit.ng-star-inserted &gt; div &gt; div &gt; p::text&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getall</span><span class="p">()</span>
+</code></pre></div>
 <p><code>post_info</code> 获取的结果为：</p>
-<p>
-<div class="termy" data-termynal>
-<span data-ty>['1、系统盘分配了40g,这才一个月就快满了，怎么调大点，后面还有100G空间。', '2、应用商店啥时候放出conky？']</span>
-<span data-ty></span>
-</div></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="go">[&#39;1、系统盘分配了40g,这才一个月就快满了，怎么调大点，后面还有100G空间。&#39;, &#39;2、应用商店啥时候放出conky？&#39;]</span>
+</code></pre></div>
 <p>做一个字符串组装：</p>
-<pre><code class="language-python">post_info = &quot;&quot;.join(response.css(&quot;div.post_conten &gt; div.post_edit.ng-star-inserted &gt; div &gt; div &gt; p::text&quot;).getall())
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="n">post_info</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;div.post_conten &gt; div.post_edit.ng-star-inserted &gt; div &gt; div &gt; p::text&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getall</span><span class="p">())</span>
+</code></pre></div>
 <p>这样的话，我们就获取到了正文的数据，添加到 item 对象中：</p>
-<pre><code class="language-python">def post_parse(self, response, **kwargs):
-    item = kwargs.get(&quot;item&quot;)
-    post_info = &quot;&quot;.join(response.css(&quot;div.post_conten &gt; div.post_edit.ng-star-inserted &gt; div &gt; div &gt; p::text&quot;).getall())
-    item[&quot;post_info&quot;] = post_info
-    yield item
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="k">def</span> <span class="nf">post_parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>    <span class="n">item</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;item&quot;</span><span class="p">)</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>    <span class="n">post_info</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;div.post_conten &gt; div.post_edit.ng-star-inserted &gt; div &gt; div &gt; p::text&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getall</span><span class="p">())</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>    <span class="n">item</span><span class="p">[</span><span class="s2">&quot;post_info&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">post_info</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>    <span class="k">yield</span> <span class="n">item</span>
+</code></pre></div>
 <p>注意，在 <code>items.py</code> 中把新的字段也添加上：</p>
-<pre><code class="language-python"># items.py
-
-class DeepinBbsSpiderItem(scrapy.Item):
-    ...
-    post_info = scrapy.Field()
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="c1"># items.py</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="k">class</span> <span class="nc">DeepinBbsSpiderItem</span><span class="p">(</span><span class="n">scrapy</span><span class="o">.</span><span class="n">Item</span><span class="p">):</span>
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>    <span class="o">...</span>
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>    <span class="n">post_info</span> <span class="o">=</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Field</span><span class="p">()</span>
+</code></pre></div>
 <p>最后，跑一下爬虫；</p>
-<h4 id="553">5.5.3、多层数据传递问题</h4>
+<h4 id="553">5.5.3、多层数据传递问题<a class="headerlink" href="#553" title="Permanent link">&para;</a></h4>
 <p>到目前位置，完整的爬虫脚本：</p>
-<pre><code class="language-python">import scrapy
-from deepin_bbs_spider.items import DeepinBbsSpiderItem
-
-class BbsSpiderSpider(scrapy.Spider):
-    name = &quot;bbs_spider&quot;
-    allowed_domains = [&quot;bbs.deepin.org&quot;]
-    start_urls = [&quot;https://bbs.deepin.org/?offset=0&amp;limit=20&amp;order=updated_at&amp;where=&amp;languages=zh_CN#comment_title&quot;]
-    base_url = &quot;https://bbs.deepin.org&quot;
-
-    def parse(self, response):
-        item = DeepinBbsSpiderItem()
-        post_items = response.css(&quot;app-main-pc &gt; div &gt; div:nth-child(3) &gt; app-post-pc&quot;)
-        for post_item in post_items:
-            item[&quot;url&quot;] = post_item.css(&quot;a.post_lin_pc::attr(href)&quot;).get().replace(&quot;/en&quot;, self.base_url)
-            item[&quot;title&quot;] = &quot;&quot;.join(post_item.css(&quot;span.ng-star-inserted::text&quot;).getall()[:2])
-            yield scrapy.Request(
-                url=item[&quot;url&quot;],
-                callback=self.post_parse,
-                cb_kwargs={&quot;item&quot;: item}
-            )
-
-    def post_parse(self, response, **kwargs):
-        item = kwargs.get(&quot;item&quot;)
-        post_info = &quot;&quot;.join(response.css(&quot;div.post_conten &gt; div.post_edit.ng-star-inserted &gt; div &gt; div &gt; p::text&quot;).getall())
-        item[&quot;post_info&quot;] = post_info
-        yield item
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="kn">import</span> <span class="nn">scrapy</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="kn">from</span> <span class="nn">deepin_bbs_spider.items</span> <span class="kn">import</span> <span class="n">DeepinBbsSpiderItem</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="k">class</span> <span class="nc">BbsSpiderSpider</span><span class="p">(</span><span class="n">scrapy</span><span class="o">.</span><span class="n">Spider</span><span class="p">):</span>
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;bbs_spider&quot;</span>
+<a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>    <span class="n">allowed_domains</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;bbs.deepin.org&quot;</span><span class="p">]</span>
+<a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>    <span class="n">start_urls</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;https://bbs.deepin.org/?offset=0&amp;limit=20&amp;order=updated_at&amp;where=&amp;languages=zh_CN#comment_title&quot;</span><span class="p">]</span>
+<a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>    <span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://bbs.deepin.org&quot;</span>
+<a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a>
+<a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a>    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+<a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a>        <span class="n">item</span> <span class="o">=</span> <span class="n">DeepinBbsSpiderItem</span><span class="p">()</span>
+<a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a>        <span class="n">post_items</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;app-main-pc &gt; div &gt; div:nth-child(3) &gt; app-post-pc&quot;</span><span class="p">)</span>
+<a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a>        <span class="k">for</span> <span class="n">post_item</span> <span class="ow">in</span> <span class="n">post_items</span><span class="p">:</span>
+<a id="__codelineno-26-14" name="__codelineno-26-14" href="#__codelineno-26-14"></a>            <span class="n">item</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">post_item</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;a.post_lin_pc::attr(href)&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;/en&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="p">)</span>
+<a id="__codelineno-26-15" name="__codelineno-26-15" href="#__codelineno-26-15"></a>            <span class="n">item</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">post_item</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;span.ng-star-inserted::text&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getall</span><span class="p">()[:</span><span class="mi">2</span><span class="p">])</span>
+<a id="__codelineno-26-16" name="__codelineno-26-16" href="#__codelineno-26-16"></a>            <span class="k">yield</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span>
+<a id="__codelineno-26-17" name="__codelineno-26-17" href="#__codelineno-26-17"></a>                <span class="n">url</span><span class="o">=</span><span class="n">item</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">],</span>
+<a id="__codelineno-26-18" name="__codelineno-26-18" href="#__codelineno-26-18"></a>                <span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">post_parse</span><span class="p">,</span>
+<a id="__codelineno-26-19" name="__codelineno-26-19" href="#__codelineno-26-19"></a>                <span class="n">cb_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;item&quot;</span><span class="p">:</span> <span class="n">item</span><span class="p">}</span>
+<a id="__codelineno-26-20" name="__codelineno-26-20" href="#__codelineno-26-20"></a>            <span class="p">)</span>
+<a id="__codelineno-26-21" name="__codelineno-26-21" href="#__codelineno-26-21"></a>
+<a id="__codelineno-26-22" name="__codelineno-26-22" href="#__codelineno-26-22"></a>    <span class="k">def</span> <span class="nf">post_parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a id="__codelineno-26-23" name="__codelineno-26-23" href="#__codelineno-26-23"></a>        <span class="n">item</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;item&quot;</span><span class="p">)</span>
+<a id="__codelineno-26-24" name="__codelineno-26-24" href="#__codelineno-26-24"></a>        <span class="n">post_info</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;div.post_conten &gt; div.post_edit.ng-star-inserted &gt; div &gt; div &gt; p::text&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getall</span><span class="p">())</span>
+<a id="__codelineno-26-25" name="__codelineno-26-25" href="#__codelineno-26-25"></a>        <span class="n">item</span><span class="p">[</span><span class="s2">&quot;post_info&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">post_info</span>
+<a id="__codelineno-26-26" name="__codelineno-26-26" href="#__codelineno-26-26"></a>        <span class="k">yield</span> <span class="n">item</span>
+</code></pre></div>
 <p>使用命令跑一下爬虫：</p>
-<p>
-<div class="termy" data-termynal>
-<span data-ty>scrapy crawl bbs_spider -o bbs.csv</span>
-<span data-ty></span>
-</div></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="go">scrapy crawl bbs_spider -o bbs.csv</span>
+</code></pre></div>
 <p>你会惊奇的发现，怎么所有的 title 和 url 数据相同，开始怀疑自己逻辑是不是写错了；</p>
 <p>其实，我们代码逻辑是没问题的，只不过在多层数据传递的过程中，需要特殊处理下，处理方法很简单：</p>
 <ul>
@@ -1458,137 +1445,125 @@ class BbsSpiderSpider(scrapy.Spider):
 <li>最后一行代码<code>yield item</code> 修改成 <code>yield deepcopy(item)</code>就完全 <code>ok</code> 了；</li>
 </ul>
 <p>改完之后再跑一下，简直完美。</p>
-<h4 id="554">5.5.4、多页面爬取</h4>
+<h4 id="554">5.5.4、多页面爬取<a class="headerlink" href="#554" title="Permanent link">&para;</a></h4>
 <p>到现在我们怕去了第一页的数据，那还想爬取后面的页怎么办？</p>
 <p>有同学说，好办，<code>start_urls</code> 不是一个列表吗，把多个 url 放进去不就完了；</p>
 <p>不得不说，这样是可以的，就是不够优雅。</p>
 <p>通过仔细观察，我们可以发现一些规律：</p>
 <p><img alt="" src="../../img/spider/urls.png" /></p>
 <p>在地址中只有 <code>offset</code> 参数在变化，第一页是 0，第二页是 1，非常有规律，因此咱们可以动态生成：</p>
-<pre><code class="language-python">class BbsSpiderSpider(scrapy.Spider):
-    # start_urls = [&quot;https://bbs.deepin.org/?offset=0&amp;limit=20&amp;order=updated_at&amp;where=&amp;languages=zh_CN#comment_title&quot;]
-
-    def start_requests(self):
-        for i in range(5):
-            yield scrapy.Request(url=f&quot;https://bbs.deepin.org/?offset={i}&amp;limit=20&amp;order=updated_at&amp;where=&amp;languages=zh_CN#comment_title&quot;)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="k">class</span> <span class="nc">BbsSpiderSpider</span><span class="p">(</span><span class="n">scrapy</span><span class="o">.</span><span class="n">Spider</span><span class="p">):</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>    <span class="c1"># start_urls = [&quot;https://bbs.deepin.org/?offset=0&amp;limit=20&amp;order=updated_at&amp;where=&amp;languages=zh_CN#comment_title&quot;]</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>    <span class="k">def</span> <span class="nf">start_requests</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>            <span class="k">yield</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;https://bbs.deepin.org/?offset=</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&amp;limit=20&amp;order=updated_at&amp;where=&amp;languages=zh_CN#comment_title&quot;</span><span class="p">)</span>
+</code></pre></div>
 <p>使用 <code>start_requests()</code> 函数替代 <code>start_urls</code>；</p>
 <p>在里面写个 for 循环，要爬取多少页填入 <code>range</code> 函数就行了，动态生成多个 <code>scrapy.Request</code> 对象，注意要用 yield 哦~~</p>
-<h4 id="555">5.5.5、完整的示例</h4>
+<h4 id="555">5.5.5、完整的示例<a class="headerlink" href="#555" title="Permanent link">&para;</a></h4>
 <p>爬虫脚本 <code>bbs_spider.py</code>：</p>
-<pre><code class="language-python">from copy import deepcopy
-
-import scrapy
-
-from deepin_bbs_spider.items import DeepinBbsSpiderItem
-
-
-class BbsSpiderSpider(scrapy.Spider):
-    name = &quot;bbs_spider&quot;
-    allowed_domains = [&quot;bbs.deepin.org&quot;]
-    base_url = &quot;https://bbs.deepin.org&quot;
-
-    def start_requests(self):
-        for i in range(5):
-            yield scrapy.Request(url=f&quot;https://bbs.deepin.org/?offset={i}&amp;limit=20&amp;order=updated_at&amp;where=&amp;languages=zh_CN#comment_title&quot;)
-
-    def parse(self, response):
-        item = DeepinBbsSpiderItem()
-        post_items = response.css(&quot;app-main-pc &gt; div &gt; div:nth-child(3) &gt; app-post-pc&quot;)
-        for post_item in post_items:
-            item[&quot;url&quot;] = post_item.css(&quot;a.post_lin_pc::attr(href)&quot;).get().replace(&quot;/en&quot;, self.base_url)
-            item[&quot;title&quot;] = &quot;&quot;.join(post_item.css(&quot;span.ng-star-inserted::text&quot;).getall()[:2])
-            yield scrapy.Request(
-                url=item[&quot;url&quot;],
-                callback=self.post_parse,
-                cb_kwargs={&quot;item&quot;: deepcopy(item)}
-            )
-
-    def post_parse(self, response, **kwargs):
-        item = kwargs[&quot;item&quot;]
-        post_info = &quot;&quot;.join(
-            response.css(&quot;div.post_conten &gt; div.post_edit.ng-star-inserted &gt; div &gt; div &gt; p::text&quot;).getall()
-        )
-        item[&quot;post_info&quot;] = post_info
-        yield deepcopy(item)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="kn">import</span> <span class="nn">scrapy</span>
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>
+<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="kn">from</span> <span class="nn">deepin_bbs_spider.items</span> <span class="kn">import</span> <span class="n">DeepinBbsSpiderItem</span>
+<a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>
+<a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a>
+<a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a><span class="k">class</span> <span class="nc">BbsSpiderSpider</span><span class="p">(</span><span class="n">scrapy</span><span class="o">.</span><span class="n">Spider</span><span class="p">):</span>
+<a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a>    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;bbs_spider&quot;</span>
+<a id="__codelineno-29-10" name="__codelineno-29-10" href="#__codelineno-29-10"></a>    <span class="n">allowed_domains</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;bbs.deepin.org&quot;</span><span class="p">]</span>
+<a id="__codelineno-29-11" name="__codelineno-29-11" href="#__codelineno-29-11"></a>    <span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://bbs.deepin.org&quot;</span>
+<a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a>
+<a id="__codelineno-29-13" name="__codelineno-29-13" href="#__codelineno-29-13"></a>    <span class="k">def</span> <span class="nf">start_requests</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-29-14" name="__codelineno-29-14" href="#__codelineno-29-14"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<a id="__codelineno-29-15" name="__codelineno-29-15" href="#__codelineno-29-15"></a>            <span class="k">yield</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;https://bbs.deepin.org/?offset=</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&amp;limit=20&amp;order=updated_at&amp;where=&amp;languages=zh_CN#comment_title&quot;</span><span class="p">)</span>
+<a id="__codelineno-29-16" name="__codelineno-29-16" href="#__codelineno-29-16"></a>
+<a id="__codelineno-29-17" name="__codelineno-29-17" href="#__codelineno-29-17"></a>    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+<a id="__codelineno-29-18" name="__codelineno-29-18" href="#__codelineno-29-18"></a>        <span class="n">item</span> <span class="o">=</span> <span class="n">DeepinBbsSpiderItem</span><span class="p">()</span>
+<a id="__codelineno-29-19" name="__codelineno-29-19" href="#__codelineno-29-19"></a>        <span class="n">post_items</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;app-main-pc &gt; div &gt; div:nth-child(3) &gt; app-post-pc&quot;</span><span class="p">)</span>
+<a id="__codelineno-29-20" name="__codelineno-29-20" href="#__codelineno-29-20"></a>        <span class="k">for</span> <span class="n">post_item</span> <span class="ow">in</span> <span class="n">post_items</span><span class="p">:</span>
+<a id="__codelineno-29-21" name="__codelineno-29-21" href="#__codelineno-29-21"></a>            <span class="n">item</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">post_item</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;a.post_lin_pc::attr(href)&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;/en&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span><span class="p">)</span>
+<a id="__codelineno-29-22" name="__codelineno-29-22" href="#__codelineno-29-22"></a>            <span class="n">item</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">post_item</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;span.ng-star-inserted::text&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getall</span><span class="p">()[:</span><span class="mi">2</span><span class="p">])</span>
+<a id="__codelineno-29-23" name="__codelineno-29-23" href="#__codelineno-29-23"></a>            <span class="k">yield</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span>
+<a id="__codelineno-29-24" name="__codelineno-29-24" href="#__codelineno-29-24"></a>                <span class="n">url</span><span class="o">=</span><span class="n">item</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">],</span>
+<a id="__codelineno-29-25" name="__codelineno-29-25" href="#__codelineno-29-25"></a>                <span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">post_parse</span><span class="p">,</span>
+<a id="__codelineno-29-26" name="__codelineno-29-26" href="#__codelineno-29-26"></a>                <span class="n">cb_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;item&quot;</span><span class="p">:</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">item</span><span class="p">)}</span>
+<a id="__codelineno-29-27" name="__codelineno-29-27" href="#__codelineno-29-27"></a>            <span class="p">)</span>
+<a id="__codelineno-29-28" name="__codelineno-29-28" href="#__codelineno-29-28"></a>
+<a id="__codelineno-29-29" name="__codelineno-29-29" href="#__codelineno-29-29"></a>    <span class="k">def</span> <span class="nf">post_parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a id="__codelineno-29-30" name="__codelineno-29-30" href="#__codelineno-29-30"></a>        <span class="n">item</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;item&quot;</span><span class="p">]</span>
+<a id="__codelineno-29-31" name="__codelineno-29-31" href="#__codelineno-29-31"></a>        <span class="n">post_info</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+<a id="__codelineno-29-32" name="__codelineno-29-32" href="#__codelineno-29-32"></a>            <span class="n">response</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s2">&quot;div.post_conten &gt; div.post_edit.ng-star-inserted &gt; div &gt; div &gt; p::text&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getall</span><span class="p">()</span>
+<a id="__codelineno-29-33" name="__codelineno-29-33" href="#__codelineno-29-33"></a>        <span class="p">)</span>
+<a id="__codelineno-29-34" name="__codelineno-29-34" href="#__codelineno-29-34"></a>        <span class="n">item</span><span class="p">[</span><span class="s2">&quot;post_info&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">post_info</span>
+<a id="__codelineno-29-35" name="__codelineno-29-35" href="#__codelineno-29-35"></a>        <span class="k">yield</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</code></pre></div>
 <p>数据类型 <code>items.py</code>：</p>
-<pre><code class="language-python">import scrapy
-
-class DeepinBbsSpiderItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    url = scrapy.Field()
-    title = scrapy.Field()
-    post_info = scrapy.Field()
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="kn">import</span> <span class="nn">scrapy</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="k">class</span> <span class="nc">DeepinBbsSpiderItem</span><span class="p">(</span><span class="n">scrapy</span><span class="o">.</span><span class="n">Item</span><span class="p">):</span>
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>    <span class="c1"># define the fields for your item here like:</span>
+<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>    <span class="c1"># name = scrapy.Field()</span>
+<a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a>    <span class="n">url</span> <span class="o">=</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Field</span><span class="p">()</span>
+<a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a>    <span class="n">title</span> <span class="o">=</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Field</span><span class="p">()</span>
+<a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a>    <span class="n">post_info</span> <span class="o">=</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Field</span><span class="p">()</span>
+</code></pre></div>
 <p>配置 <code>settings.py</code>：（省略了没有启用的配置项）</p>
-<pre><code class="language-python">BOT_NAME = &quot;deepin_bbs_spider&quot;
-
-SPIDER_MODULES = [&quot;deepin_bbs_spider.spiders&quot;]
-NEWSPIDER_MODULE = &quot;deepin_bbs_spider.spiders&quot;
-
-
-# Crawl responsibly by identifying yourself (and your website) on the user-agent
-USER_AGENT = &quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36&quot;
-
-# Obey robots.txt rules
-ROBOTSTXT_OBEY = True
-
-
-# Override the default request headers:
-DEFAULT_REQUEST_HEADERS = {
-   &quot;Accept&quot;: &quot;text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&quot;,
-   &quot;Accept-Language&quot;: &quot;en&quot;,
-}
-
-# Set settings whose default value is deprecated to a future-proof value
-REQUEST_FINGERPRINTER_IMPLEMENTATION = &quot;2.7&quot;
-TWISTED_REACTOR = &quot;twisted.internet.asyncioreactor.AsyncioSelectorReactor&quot;
-FEED_EXPORT_ENCODING = &quot;utf-8&quot;
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="n">BOT_NAME</span> <span class="o">=</span> <span class="s2">&quot;deepin_bbs_spider&quot;</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="n">SPIDER_MODULES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;deepin_bbs_spider.spiders&quot;</span><span class="p">]</span>
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="n">NEWSPIDER_MODULE</span> <span class="o">=</span> <span class="s2">&quot;deepin_bbs_spider.spiders&quot;</span>
+<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>
+<a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a>
+<a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a><span class="c1"># Crawl responsibly by identifying yourself (and your website) on the user-agent</span>
+<a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a><span class="n">USER_AGENT</span> <span class="o">=</span> <span class="s2">&quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36&quot;</span>
+<a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a>
+<a id="__codelineno-31-10" name="__codelineno-31-10" href="#__codelineno-31-10"></a><span class="c1"># Obey robots.txt rules</span>
+<a id="__codelineno-31-11" name="__codelineno-31-11" href="#__codelineno-31-11"></a><span class="n">ROBOTSTXT_OBEY</span> <span class="o">=</span> <span class="kc">True</span>
+<a id="__codelineno-31-12" name="__codelineno-31-12" href="#__codelineno-31-12"></a>
+<a id="__codelineno-31-13" name="__codelineno-31-13" href="#__codelineno-31-13"></a>
+<a id="__codelineno-31-14" name="__codelineno-31-14" href="#__codelineno-31-14"></a><span class="c1"># Override the default request headers:</span>
+<a id="__codelineno-31-15" name="__codelineno-31-15" href="#__codelineno-31-15"></a><span class="n">DEFAULT_REQUEST_HEADERS</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-31-16" name="__codelineno-31-16" href="#__codelineno-31-16"></a>   <span class="s2">&quot;Accept&quot;</span><span class="p">:</span> <span class="s2">&quot;text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&quot;</span><span class="p">,</span>
+<a id="__codelineno-31-17" name="__codelineno-31-17" href="#__codelineno-31-17"></a>   <span class="s2">&quot;Accept-Language&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+<a id="__codelineno-31-18" name="__codelineno-31-18" href="#__codelineno-31-18"></a><span class="p">}</span>
+<a id="__codelineno-31-19" name="__codelineno-31-19" href="#__codelineno-31-19"></a>
+<a id="__codelineno-31-20" name="__codelineno-31-20" href="#__codelineno-31-20"></a><span class="c1"># Set settings whose default value is deprecated to a future-proof value</span>
+<a id="__codelineno-31-21" name="__codelineno-31-21" href="#__codelineno-31-21"></a><span class="n">REQUEST_FINGERPRINTER_IMPLEMENTATION</span> <span class="o">=</span> <span class="s2">&quot;2.7&quot;</span>
+<a id="__codelineno-31-22" name="__codelineno-31-22" href="#__codelineno-31-22"></a><span class="n">TWISTED_REACTOR</span> <span class="o">=</span> <span class="s2">&quot;twisted.internet.asyncioreactor.AsyncioSelectorReactor&quot;</span>
+<a id="__codelineno-31-23" name="__codelineno-31-23" href="#__codelineno-31-23"></a><span class="n">FEED_EXPORT_ENCODING</span> <span class="o">=</span> <span class="s2">&quot;utf-8&quot;</span>
+</code></pre></div>
 <p>如果你自己玩起来有点小问题，可以尝试参考我的代码：https://github.com/mikigo/deepin_bbs_spider</p>
-<h2 id="6">6、调试</h2>
-<h3 id="61">6.1、数据获取调试</h3>
+<h2 id="6">6、调试<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<h3 id="61">6.1、数据获取调试<a class="headerlink" href="#61" title="Permanent link">&para;</a></h3>
 <p>在使用 <code>response.css()</code> 表达式时，通常我们需要进行调试，看表达式写得对不对，当然你可以通过执行爬虫然后打印数据，但是这种方式有点麻烦；</p>
 <p>Scrapy 提供了一个快捷的调试方法，在终端输入：</p>
-<p>
-<div class="termy" data-termynal>
-<span data-ty>scrapy shell &lt;scrapy url&gt;</span>
-<span data-ty></span>
-</div></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="go">scrapy shell &lt;scrapy url&gt;</span>
+</code></pre></div>
 <p><code>&lt;scrapy url&gt;</code> 是你要爬取的地址，比如前面我们想获取帖子正文的内容，可以这样调试：</p>
-<p>
-<div class="termy" data-termynal>
-<span data-ty>scrapy shell https://bbs.deepin.org/post/254892</span>
-<span data-ty></span>
-</div></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="go">scrapy shell https://bbs.deepin.org/post/254892</span>
+</code></pre></div>
 <p>进入终端交互式，输入：</p>
-<p>
-<div class="termy" data-termynal>
-<span data-ty>&gt;&gt;&gt; response.css(&quot;div.post_conten &gt; div.post_edit.ng-star-inserted &gt; div &gt; div &gt; p::text&quot;).getall()</span>
-<span data-ty>['1、系统盘分配了40g,这才一个月就快满了，怎么调大点，后面还有100G空间。', '2、应用商店啥时候放出conky？']</span>
-<span data-ty></span>
-</div></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="go">&gt;&gt;&gt; response.css(&quot;div.post_conten &gt; div.post_edit.ng-star-inserted &gt; div &gt; div &gt; p::text&quot;).getall()</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="go">[&#39;1、系统盘分配了40g,这才一个月就快满了，怎么调大点，后面还有100G空间。&#39;, &#39;2、应用商店啥时候放出conky？&#39;]</span>
+</code></pre></div>
 <p>可以看到返回的结果，如果返回为空，就说明表达式可能有点问题；</p>
-<h3 id="62pycharm-debug">6.2、Pycharm Debug</h3>
+<h3 id="62pycharm-debug">6.2、Pycharm Debug<a class="headerlink" href="#62pycharm-debug" title="Permanent link">&para;</a></h3>
 <p>Scrapy 由于封装得比较好，启动爬虫是通过命令行启动，但是这有个问题，就是不支持在编辑器里面 Debug 运行，导致你调试代码过程中可能会不停的在终端启动爬虫，有点费劲；</p>
 <p>经过一番折腾，终于道破了天机~</p>
 <p>（1）先在工程下随便找一个 <code>py</code> 文件，里面啥也不写，执行一下，然后点这里：</p>
 <p><img alt="" src="../../img/spider/go_config.png" /></p>
 <p>（2）在系统中找到 scrapy 包中的 cmdline.py 文件，这个你得稍微知道点 Python 包管理的一些知识，比如我的在这里：</p>
-<p>
-<div class="termy" data-termynal>
-<span data-ty>/home/mikigo/.local/lib/python3.7/site-packages/scrapy/cmdline.py</span>
-<span data-ty></span>
-</div></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="go">/home/mikigo/.local/lib/python3.7/site-packages/scrapy/cmdline.py</span>
+</code></pre></div>
 <p>（4）在 <code>Name</code> 里面写个你喜欢的名字，比如我写：Scrapy</p>
 <p>（4）在 <code>Script path</code> 里面把 <code>cmdline.py</code> 的路径填进去；</p>
 <p>（5）在 <code>Parameters</code> 里面填入 Scrapy 的参数：<code>crawl bbs_spider -o bbs.csv</code>；</p>
 <p><img alt="" src="../../img/spider/args_config.png" /></p>
 <p>（6）点击右下角的 【ok】，在主界面点【Debug】就可以进行调试了，妙啊~~</p>
 <p><img alt="" src="../../img/spider/debug.png" /></p>
-<h2 id="7">7、结束语</h2>
+<h2 id="7">7、结束语<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
 <p>到这里 Scrapy 的基础入门就结束了，一般的小网站可以轻松快速的搞定，简直 yyds~~</p>
 <p>从完整示例我们不难看出，爬虫脚本简单的 30 来行代码加上简单的配置，就可以爬取大量的数据，而且速度非常快，对比你用 requests 去裸写看看，你会发现差距不是一般的大；</p>
 <p>对于其他的一些细节还可以完善，比如：代理、异步、中间件、与其他自动化工具扩展（Selenium），后续精力再补充~~</p>

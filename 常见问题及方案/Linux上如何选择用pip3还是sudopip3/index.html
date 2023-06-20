@@ -318,6 +318,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B6HttpRunner-2%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        接口自动化框架HttpRunner—2小时入门版
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -723,6 +737,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#2pip3" class="md-nav__link">
+    （2）pip3
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -785,6 +806,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#2pip3" class="md-nav__link">
+    （2）pip3
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -803,45 +831,42 @@
   
 
 
-<h1 id="linux-pip3-sudo-pip3">Linux 上如何选择用 pip3 还是 sudo pip3</h1>
-<h2 id="1sudo-pip3">（1）sudo pip3</h2>
+<h1 id="linux-pip3-sudo-pip3">Linux 上如何选择用 pip3 还是 sudo pip3<a class="headerlink" href="#linux-pip3-sudo-pip3" title="Permanent link">&para;</a></h1>
+<h2 id="1sudo-pip3">（1）sudo pip3<a class="headerlink" href="#1sudo-pip3" title="Permanent link">&para;</a></h2>
 <p>如果这个包是带有<strong>命令行工具</strong>的，推荐使用<code>sudo pip3 install xxx</code> 进行安装;</p>
 <p>这样命令行工具才能写入到系统目录下，一般是在 <code>/usr/local/bin/</code> 下面；</p>
+<hr />
 <blockquote>
 <p>如果你没有加 <code>sudo</code> 安装，命令行工具无法写入到系统目录下，而是写入到 <code>$HOME/.local/bin</code>，这个路径很明显不是系统的环境变量，因此无法<strong>直接</strong>使用此命令，要想使用它你有<strong>两种</strong>方法：</p>
 <p>第一种：</p>
-<p>```shell</p>
-<h1 id="_1">进入到命令目录</h1>
-<p>cd $HOME/.local/bin/</p>
-<h1 id="_2">给命令执行赋权限</h1>
-<p>sudo chmod +x mycmd</p>
-<h1 id="_3">执行它</h1>
-<p>./mycmd
-```</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 进入到命令目录 </span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/.local/bin/
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># 给命令执行赋权限</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>sudo<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>mycmd
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># 执行它</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>./mycmd
+</code></pre></div>
 <p>第二种：</p>
 <p>将 <code>$HOME/.local/bin</code> 添加到 <code>PATH</code> 里面:</p>
 <p>临时修改：</p>
-<p>```shell
-export PATH=/home/uos/.local/bin:$PATH</p>
-<h1 id="path">或者把PATH放在前面</h1>
-<p>export PATH=$PATH:/home/uos/.local/bin
-```</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/home/uos/.local/bin:<span class="nv">$PATH</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1">#或者把PATH放在前面</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/home/uos/.local/bin
+</code></pre></div>
 <p>用户级别永久修改：</p>
-<p>```shell
-vim ~/.bashrc</p>
-<h1 id="_4">在最后一行加上</h1>
-<p>export PATH=$PATH:/home/uos/.local/bin
-```</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>vim<span class="w"> </span>~/.bashrc
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1"># 在最后一行加上</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/home/uos/.local/bin
+</code></pre></div>
 <p>系统级别永久修改：</p>
-<p>```shell
-vim ~/.bash_profile</p>
-<h1 id="_5">在最后一行加上</h1>
-<p>export PATH=$PATH:/home/uusama/mysql/bin
-```</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>vim<span class="w"> </span>~/.bash_profile
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1"># 在最后一行加上</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/home/uusama/mysql/bin
+</code></pre></div>
 </blockquote>
 <p>你看如果带命令行工具的库，安装的时候没有加 <code>sudo</code> 你要多做多少事情；</p>
 <p>所以请记住，带有<strong>命令行工具</strong>的三方库，安装的时候使用 <code>sudo pip3 install</code>。</p>
-<h2 id="2pip3">（2）pip3</h2>
+<h2 id="2pip3">（2）pip3<a class="headerlink" href="#2pip3" title="Permanent link">&para;</a></h2>
 <p>如果这个库没有命令行工具，或者说它安装过程中不需要写入系统目录，你使用 pip3 或 sudo pip3 安装都可以；</p>
 <p>但是，我个人推荐<strong>不要加 <code>sudo</code></strong>；</p>
 <p>原因就需要介绍一点点<strong>背景知识</strong>：</p>

@@ -318,6 +318,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B6HttpRunner-2%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        接口自动化框架HttpRunner—2小时入门版
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1551,79 +1565,70 @@
   
 
 
-<h1 id="fastapi8">FastAPI—8小时入门版</h1>
-<pre><code class="language-shell"># =============================
-# Author : mikigo
-# Time   : 2023/3/1
-# =============================
-</code></pre>
-<h2 id="_1">一、简介</h2>
+<h1 id="fastapi8">FastAPI—8小时入门版<a class="headerlink" href="#fastapi8" title="Permanent link">&para;</a></h1>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># =============================</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Author : mikigo</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Time   : 2023/3/1</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># =============================</span>
+</code></pre></div>
+<h2 id="_1">一、简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>FastAPI 是一个 Web 服务框架，其主要特点就是"快"。</p>
 <p>在 Python Web 服务领域比较知名的就是 Django、Flask，但其性能一直为大家所诟病，以至于很多大型项目会选择基于 Go 语言的 Web 服务框架，比如 beego。而 Django、Flask 较多应用于一些小型网站或者一些个人博客类网站。</p>
 <p>应该说，Python 在 Web 后端服务领域是失败的，而 FastAPI 的出现或许有可能为 Python 扳回一局。</p>
 <p>FastAPI 之所以能突破 Python 语言本身所带来的性能瓶颈，是因为其主要采用了异步的设计思路，无论是源码还是示例，都有大量协程的写法。</p>
 <p>协程，是 Python 唯一能突破线程 GIL（全局解释器锁）、突破进程 CPU 数量限制的高阶编码模式，它使得任务间的切换能够像调用函数一样轻松。协程也是 Python 里面最不好理解的内容之一。</p>
 <p>但是没关系，FastAPI 通过非常精良的设计让你不用真正弄懂协程就能轻松使用它。</p>
-<h2 id="_2">二、安装</h2>
+<h2 id="_2">二、安装<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>系统环境: <code>deepin</code></p>
-<p>
-<div class="termy" data-termynal>
-<span data-ty="input">pip3 install fastapi</span>
-<span data-ty="progress"></span>
-<span data-ty></span>
-</div></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gp">$ </span>pip3<span class="w"> </span>install<span class="w"> </span>fastapi
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="go">---&gt; 100%</span>
+</code></pre></div>
 <p>安装 ASGI 服务器，用于启动服务</p>
-<p>
-<div class="termy" data-termynal>
-<span data-ty="input">pip3 install &quot;uvicorn[standard]&quot;</span>
-<span data-ty="progress"></span>
-<span data-ty></span>
-</div></p>
-<h2 id="_3">三、简单的例子</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="gp">$ </span>pip3<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;uvicorn[standard]&quot;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="go">---&gt; 100%</span>
+</code></pre></div>
+<h2 id="_3">三、简单的例子<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>定义一个接口，返回简单的 json 响应：</p>
-<pre><code class="language-python">from fastapi import FastAPI
-
-app = FastAPI()
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+</code></pre></div>
 <p>这是固定写法，后面的内容就不重复写这两行了；</p>
-<pre><code class="language-python">@app.get(&quot;/&quot;)
-def hello():
-    return {&quot;msg&quot;: &quot;hello mikigo&quot;}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;hello mikigo&quot;</span><span class="p">}</span>
+</code></pre></div>
 <p>在终端通过命令启动服务：</p>
-<p>
-<div class="termy" data-termynal>
-<span data-ty>uvicorn main:app --reload</span>
-<span data-ty></span>
-</div></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="go">uvicorn main:app --reload</span>
+</code></pre></div>
 <p>在本机浏览器访问：http://127.0.0.1:8000/；</p>
 <p>我个人喜欢在 <code>py</code> 文件里面写启动：</p>
-<pre><code class="language-python">import os
-
-from fastapi import FastAPI
-import uvicorn
-
-app = FastAPI()
-
-@app.get(&quot;/&quot;)
-async def hello():
-    return {&quot;msg&quot;: &quot;hello mikigo&quot;}
-
-if __name__ == '__main__':
-    uvicorn.run(
-        app=&quot;main:app&quot;,
-        host=os.popen(&quot;hostname -I&quot;).read().split(&quot; &quot;)[0],  # 动态获取本机IP,如果不传默认为127.0.0.1
-        port=5000, # 指定一个测试用端口
-        reload=True
-    )
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">import</span> <span class="nn">os</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="kn">import</span> <span class="nn">uvicorn</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;hello mikigo&quot;</span><span class="p">}</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>    <span class="n">uvicorn</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>        <span class="n">app</span><span class="o">=</span><span class="s2">&quot;main:app&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>        <span class="n">host</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">popen</span><span class="p">(</span><span class="s2">&quot;hostname -I&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span>  <span class="c1"># 动态获取本机IP,如果不传默认为127.0.0.1</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>        <span class="n">port</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="c1"># 指定一个测试用端口</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>        <span class="n">reload</span><span class="o">=</span><span class="kc">True</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>    <span class="p">)</span>
+</code></pre></div>
 <p>这样直接运行 <code>py</code> 脚本：</p>
 <p><img alt="demo" src="../../img/fastapi/demo.png" /></p>
-<h3 id="openapi">OpenAPI 文档</h3>
+<h3 id="openapi">OpenAPI 文档<a class="headerlink" href="#openapi" title="Permanent link">&para;</a></h3>
 <p>FastAPI 的一个特点就是自带接口文档，只需要在 url 后面加 <code>docs</code>：</p>
 <p><img alt="" src="../../img/fastapi/docs.png" /></p>
 <p>你如果不喜欢 Swagger 风格的文档，可以将 <code>docs</code> 改成 <code>redoc</code>，FastAPI 默认携带两种风格的接口文档。</p>
-<h2 id="pydantic">四、Pydantic</h2>
+<h2 id="pydantic">四、Pydantic<a class="headerlink" href="#pydantic" title="Permanent link">&para;</a></h2>
 <p>FastAPI 是借助 Pydantic 来进行类型声明的，主要有两个用途：</p>
 <ul>
 <li>对请求体和响应体的参数类型进行声明；</li>
@@ -1632,129 +1637,129 @@ if __name__ == '__main__':
 <p>使用过 Python 的 typing 的同学应该知道【类型标注】，它可以校验参数及返回的类型，使得代码更加严禁，且更具有可读性。</p>
 <p>Pydantic 提供了更加强大的类型定义和更加友好的错误提示功能。即使不用 FastAPI，在其他编码中你也可以很有效的使用它。</p>
 <p>使用举例：</p>
-<pre><code class="language-python">from datetime import date
-from pydantic import BaseModel
-
-def main(user_id: str):
-    return user_id
-
-class User(BaseModel):
-    id: int
-    name: str
-    joined: date
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">user_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    <span class="k">return</span> <span class="n">user_id</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>    <span class="n">joined</span><span class="p">:</span> <span class="n">date</span>
+</code></pre></div>
 <p>传递参数进去：</p>
-<pre><code class="language-python">my_user: User = User(id=3, name=&quot;mikigo&quot;, joined=&quot;20230303&quot;)
-
-second_user_data = {
-    &quot;id&quot;: 4,
-    &quot;name&quot;: &quot;Mary&quot;,
-    &quot;joined&quot;: &quot;2018-11-30&quot;,
-}
-
-my_second_user: User = User(**second_user_data)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">my_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;mikigo&quot;</span><span class="p">,</span> <span class="n">joined</span><span class="o">=</span><span class="s2">&quot;20230303&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">second_user_data</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Mary&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    <span class="s2">&quot;joined&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-11-30&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="p">}</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="n">my_second_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="o">**</span><span class="n">second_user_data</span><span class="p">)</span>
+</code></pre></div>
 <p><code>from pydantic import BaseModel</code> 里面的 <code>BaseModel</code> 记住，通常都是继承这个类来写我们的自定义类型；</p>
 <p>将 <code>Pydantic</code> 数据类型转换成 JSON：</p>
-<pre><code class="language-python">from fastapi.encoders import jsonable_encoder
-
-json_user = jsonable_encoder(my_user)
-</code></pre>
-<h2 id="_4">五、参数</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">from</span> <span class="nn">fastapi.encoders</span> <span class="kn">import</span> <span class="n">jsonable_encoder</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">json_user</span> <span class="o">=</span> <span class="n">jsonable_encoder</span><span class="p">(</span><span class="n">my_user</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="_4">五、参数<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>FastAPI 是 RESTful 风格的框架，后面例子的接口请求我都使用 Postman 来做，这个只是个人习惯，你可以使用接口文档里面提供的【Try it out】接口调试功能，也可以使用 requests 这类的 HTTP 库进行接口请求，效果是一样的。</p>
-<h3 id="1">1、路径参数</h3>
-<h4 id="11">1.1 普通路径参数</h4>
+<h3 id="1">1、路径参数<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<h4 id="11">1.1 普通路径参数<a class="headerlink" href="#11" title="Permanent link">&para;</a></h4>
 <p>声明路径参数：</p>
-<pre><code class="language-python">@app.get(&quot;/items/{item_id}&quot;)
-async def read_item(item_id):
-    return {&quot;item_id&quot;: item_id}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">read_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">):</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">}</span>
+</code></pre></div>
 <p>路径参数 <code>item_id</code> 可以传入到函数中，比如：http://10.8.13.224:5000/items/mikigo </p>
 <p>传递参数为：mikigo，响应如下：</p>
-<pre><code class="language-json">{&quot;item_id&quot;:&quot;mikigo&quot;}
-</code></pre>
-<h4 id="12">1.2 有类型的路径参数</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p">{</span><span class="nt">&quot;item_id&quot;</span><span class="p">:</span><span class="s2">&quot;mikigo&quot;</span><span class="p">}</span>
+</code></pre></div>
+<h4 id="12">1.2 有类型的路径参数<a class="headerlink" href="#12" title="Permanent link">&para;</a></h4>
 <p>声明路径参数：</p>
-<pre><code class="language-python">@app.get(&quot;/items/{item_id}&quot;)
-async def read_item(item_id: int):
-    return {&quot;item_id&quot;: item_id}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">read_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">}</span>
+</code></pre></div>
 <p>区别是给参数 <code>item_id</code> 指定了一个类型 <code>int</code>；</p>
 <p>如果还是传递参数为：mikigo，http://10.8.13.224:5000/items/mikigo 会报错：</p>
-<pre><code class="language-json">{
-    &quot;detail&quot;: [
-        {
-            &quot;loc&quot;: [
-                &quot;path&quot;,
-                &quot;item_id&quot;
-            ],
-            &quot;msg&quot;: &quot;value is not a valid integer&quot;,
-            &quot;type&quot;: &quot;type_error.integer&quot;
-        }
-    ]
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="p">{</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">            </span><span class="nt">&quot;loc&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">                </span><span class="s2">&quot;path&quot;</span><span class="p">,</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">                </span><span class="s2">&quot;item_id&quot;</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">            </span><span class="p">],</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">            </span><span class="nt">&quot;msg&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;value is not a valid integer&quot;</span><span class="p">,</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;type_error.integer&quot;</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="p">}</span>
+</code></pre></div>
 <p>必须要给一个数字才行 http://10.8.13.224:5000/items/520 响应：</p>
-<pre><code class="language-json">{
-    &quot;item_id&quot;: 520
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="p">{</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">    </span><span class="nt">&quot;item_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">520</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="p">}</span>
+</code></pre></div>
 <p>这样就完成了路径参数的数据校验；</p>
-<h3 id="2">2、查询参数</h3>
+<h3 id="2">2、查询参数<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p>不属于路径参数的其他函数参数，会被被自动解释为"查询字符串"参数。</p>
-<pre><code class="language-python">@app.get(&quot;/items/&quot;)
-async def read_item(name: str = &quot;&quot;):
-    return {&quot;name&quot; : name}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">)</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">read_item</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">):</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="n">name</span><span class="p">}</span>
+</code></pre></div>
 <p>查询参数的键值在 URL 的 <code>？</code> 之后，并以 <code>&amp;</code> 符号分隔，就和我们理解的普通 GET 请求参数传递方式是一样的；</p>
-<pre><code class="language-url">http://10.8.13.224:5000/items/?name=mikigo
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>http://10.8.13.224:5000/items/?name=mikigo
+</code></pre></div>
 <p>响应：</p>
-<pre><code class="language-json">{
-    &quot;name&quot;: &quot;mikigo&quot;
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="p">{</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mikigo&quot;</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="p">}</span>
+</code></pre></div>
 <p>注意我们在 <code>read_item(name: str = "")</code> 给了一个默认值，说明参数是可选的（不传参也可以），如果 直接用<code>read_item(name: str)</code> 说明参数是必传的，否则会报错。</p>
-<h3 id="3">3、请求体</h3>
+<h3 id="3">3、请求体<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <p><strong>请求体</strong>是客户端发送给 API 的数据。<strong>响应体</strong>是 API 发送给客户端的数据。</p>
 <p>一般我们说GET方法没有请求体，POST、PUT等方法才有请求体。</p>
 <p>举例：</p>
-<pre><code class="language-python">from typing import Union
-from pydantic import BaseModel
-
-class Item(BaseModel):
-    name: str
-    description: Union[str, None] = None
-
-@app.post(&quot;/items/&quot;)
-async def post_test(item: Item):
-    return {&quot;data&quot;: item}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>    <span class="n">description</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">)</span>
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">post_test</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">item</span><span class="p">}</span>
+</code></pre></div>
 <p>发一个 POST 请求，参数为：</p>
-<pre><code class="language-json">{
-    &quot;name&quot;: &quot;mikigo&quot;,
-    &quot;description&quot;: &quot;搞事情&quot;
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="p">{</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mikigo&quot;</span><span class="p">,</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;搞事情&quot;</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="p">}</span>
+</code></pre></div>
 <p>返回值：</p>
-<pre><code class="language-json">{
-    &quot;data&quot;: {
-        &quot;name&quot;: &quot;mikigo&quot;,
-        &quot;description&quot;: &quot;搞事情&quot;
-    }
-}
-</code></pre>
-<h3 id="4">4、内建参数类型</h3>
-<h4 id="41query">4.1、Query</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="p">{</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">    </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mikigo&quot;</span><span class="p">,</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">        </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;搞事情&quot;</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="4">4、内建参数类型<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<h4 id="41query">4.1、Query<a class="headerlink" href="#41query" title="Permanent link">&para;</a></h4>
 <p>Query 一般是用在查询参数里面：</p>
-<pre><code class="language-python">from fastapi import Query
-
-@app.get(&quot;/query/&quot;)
-async def query_test(
-        name: Union[str, None] = Query(default=None, max_length=10)
-):
-    return {&quot;name&quot;: name}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Query</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/query/&quot;</span><span class="p">)</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">query_test</span><span class="p">(</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>        <span class="n">name</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="p">):</span>
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">}</span>
+</code></pre></div>
 <p><code>Query(default=None, max_length=10)</code> 里面:</p>
 <ul>
 <li><code>default=None</code> 表示参数可选，默认值为 None，和 <code>name: str = None</code> 写法是一个意思；</li>
@@ -1764,286 +1769,283 @@ async def query_test(
 <li><code>max_length=10</code> 定义了参数的最大长度；</li>
 </ul>
 <p><code>Query</code> 支持的参数还有点多，感兴趣可以一个个试：</p>
-<pre><code class="language-python">def Query(
-    default: Any = Undefined,
-    *,
-    alias: Optional[str] = None,
-    title: Optional[str] = None,
-    description: Optional[str] = None,
-    gt: Optional[float] = None,
-    ge: Optional[float] = None,
-    lt: Optional[float] = None,
-    le: Optional[float] = None,
-    min_length: Optional[int] = None,
-    max_length: Optional[int] = None,
-    regex: Optional[str] = None,
-    example: Any = Undefined,
-    examples: Optional[Dict[str, Any]] = None,
-    deprecated: Optional[bool] = None,
-    include_in_schema: bool = True,
-    **extra: Any,
-) -&gt; Any:
-    pass
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="k">def</span> <span class="nf">Query</span><span class="p">(</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>    <span class="n">default</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="n">Undefined</span><span class="p">,</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>    <span class="o">*</span><span class="p">,</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>    <span class="n">alias</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>    <span class="n">title</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>    <span class="n">description</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>    <span class="n">gt</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>    <span class="n">ge</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>    <span class="n">lt</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>    <span class="n">le</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>    <span class="n">min_length</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>    <span class="n">max_length</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a>    <span class="n">regex</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a>    <span class="n">example</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="n">Undefined</span><span class="p">,</span>
+<a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a>    <span class="n">examples</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a>    <span class="n">deprecated</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a>    <span class="n">include_in_schema</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a>    <span class="o">**</span><span class="n">extra</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+<a id="__codelineno-22-19" name="__codelineno-22-19" href="#__codelineno-22-19"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<a id="__codelineno-22-20" name="__codelineno-22-20" href="#__codelineno-22-20"></a>    <span class="k">pass</span>
+</code></pre></div>
 <p>请求：</p>
-<pre><code class="language-url">http://10.8.13.224:5000/query?name=mikigo
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>http://10.8.13.224:5000/query?name=mikigo
+</code></pre></div>
 <p>响应：</p>
-<pre><code class="language-json">{
-    &quot;name&quot;: &quot;mikigo&quot;
-}
-</code></pre>
-<h4 id="42path">4.2、Path</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="p">{</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mikigo&quot;</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="p">}</span>
+</code></pre></div>
+<h4 id="42path">4.2、Path<a class="headerlink" href="#42path" title="Permanent link">&para;</a></h4>
 <p>Path 一般是用在路径参数里面：</p>
-<pre><code class="language-python">from fastapi import Path
-
-@app.get(&quot;/path/{path_id}&quot;)
-async def path_test(
-        path_id: int = Path(default=...),
-        name: Union[str, None] = Query(default=..., max_length=10)
-):
-    results = {&quot;path_id&quot;: path_id}
-    if name:
-        results.update({&quot;name&quot;: name})
-    return results
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Path</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/path/</span><span class="si">{path_id}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">path_test</span><span class="p">(</span>
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>        <span class="n">path_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">default</span><span class="o">=...</span><span class="p">),</span>
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>        <span class="n">name</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="n">default</span><span class="o">=...</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="p">):</span>
+<a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>    <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;path_id&quot;</span><span class="p">:</span> <span class="n">path_id</span><span class="p">}</span>
+<a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a>    <span class="k">if</span> <span class="n">name</span><span class="p">:</span>
+<a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a>        <span class="n">results</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">})</span>
+<a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a>    <span class="k">return</span> <span class="n">results</span>
+</code></pre></div>
 <p>可以看的出来 <code>Path(default=..., max_length=10)</code> 和 Query 用法几乎一样，不是几乎，就是一样的。</p>
 <p>请求：</p>
-<pre><code class="language-url">http://10.8.13.224:5000/path/10?name=mikigo
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>http://10.8.13.224:5000/path/10?name=mikigo
+</code></pre></div>
 <p>响应：</p>
-<pre><code class="language-json">{
-    &quot;path_id&quot;: 10,
-    &quot;name&quot;: &quot;mikigo&quot;
-}
-</code></pre>
-<h4 id="43body">4.3、Body</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="p">{</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="w">    </span><span class="nt">&quot;path_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mikigo&quot;</span>
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="p">}</span>
+</code></pre></div>
+<h4 id="43body">4.3、Body<a class="headerlink" href="#43body" title="Permanent link">&para;</a></h4>
 <p>Body 一般是用于请求体：</p>
-<pre><code class="language-python">from fastapi import Body
-
-@app.post(&quot;/body/&quot;)
-async def body_test(
-        item: Item,
-        age: int = Body(default=None, gt=0)
-):
-    results = {&quot;data&quot;: item}
-    if age:
-        results.update({&quot;age&quot;: age})
-    return {&quot;results&quot;: results}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Body</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/body/&quot;</span><span class="p">)</span>
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">body_test</span><span class="p">(</span>
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>        <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">,</span>
+<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>        <span class="n">age</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Body</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gt</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a><span class="p">):</span>
+<a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a>    <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">item</span><span class="p">}</span>
+<a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a>    <span class="k">if</span> <span class="n">age</span><span class="p">:</span>
+<a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a>        <span class="n">results</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="n">age</span><span class="p">})</span>
+<a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;results&quot;</span><span class="p">:</span> <span class="n">results</span><span class="p">}</span>
+</code></pre></div>
 <p>请求：</p>
-<pre><code class="language-url">http://10.8.13.224:5000/body
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>http://10.8.13.224:5000/body
+</code></pre></div>
 <p>需要构造请求体：</p>
-<pre><code class="language-json">{
-  &quot;item&quot;: {
-    &quot;name&quot;: &quot;string&quot;,
-    &quot;description&quot;: &quot;string&quot;
-  },
-  &quot;age&quot;: 2
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="p">{</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="w">  </span><span class="nt">&quot;item&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
+<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a><span class="w">  </span><span class="nt">&quot;age&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span>
+<a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a><span class="p">}</span>
+</code></pre></div>
 <p>响应：</p>
-<pre><code class="language-json">{
-    &quot;results&quot;: {
-        &quot;data&quot;: {
-            &quot;name&quot;: &quot;string&quot;,
-            &quot;description&quot;: &quot;string&quot;
-        },
-        &quot;age&quot;: 2
-    }
-}
-</code></pre>
-<h4 id="44field">4.4、Field</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="p">{</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="w">    </span><span class="nt">&quot;results&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="w">        </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="w">            </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
+<a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a><span class="w">        </span><span class="nt">&quot;age&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span>
+<a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a><span class="p">}</span>
+</code></pre></div>
+<h4 id="44field">4.4、Field<a class="headerlink" href="#44field" title="Permanent link">&para;</a></h4>
 <p>Field 一般用于请求体的字段，对请求体的参数做进一步的约束，它是从 pydantic 导入的：</p>
-<pre><code class="language-python">from pydantic import Field
-
-class FieldItem(BaseModel):
-    name: str
-    description: Union[str, None] = Field(
-        default=None, title=&quot;deepin&quot;, max_length=300
-    )
-
-@app.post(&quot;/field/&quot;)
-async def field_test(
-        item: FieldItem,
-        age: int = Body(default=None, gt=0)
-):
-    results = {&quot;data&quot;: item}
-    if age:
-        results.update({&quot;age&quot;: age})
-    return {&quot;field&quot;: results}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">Field</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="k">class</span> <span class="nc">FieldItem</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>    <span class="n">description</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+<a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a>        <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;deepin&quot;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">300</span>
+<a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a>    <span class="p">)</span>
+<a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a>
+<a id="__codelineno-32-9" name="__codelineno-32-9" href="#__codelineno-32-9"></a><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/field/&quot;</span><span class="p">)</span>
+<a id="__codelineno-32-10" name="__codelineno-32-10" href="#__codelineno-32-10"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">field_test</span><span class="p">(</span>
+<a id="__codelineno-32-11" name="__codelineno-32-11" href="#__codelineno-32-11"></a>        <span class="n">item</span><span class="p">:</span> <span class="n">FieldItem</span><span class="p">,</span>
+<a id="__codelineno-32-12" name="__codelineno-32-12" href="#__codelineno-32-12"></a>        <span class="n">age</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Body</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gt</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-32-13" name="__codelineno-32-13" href="#__codelineno-32-13"></a><span class="p">):</span>
+<a id="__codelineno-32-14" name="__codelineno-32-14" href="#__codelineno-32-14"></a>    <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">item</span><span class="p">}</span>
+<a id="__codelineno-32-15" name="__codelineno-32-15" href="#__codelineno-32-15"></a>    <span class="k">if</span> <span class="n">age</span><span class="p">:</span>
+<a id="__codelineno-32-16" name="__codelineno-32-16" href="#__codelineno-32-16"></a>        <span class="n">results</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="n">age</span><span class="p">})</span>
+<a id="__codelineno-32-17" name="__codelineno-32-17" href="#__codelineno-32-17"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;field&quot;</span><span class="p">:</span> <span class="n">results</span><span class="p">}</span>
+</code></pre></div>
 <p>请求：</p>
-<pre><code class="language-url">http://10.8.13.224:5000/field
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>http://10.8.13.224:5000/field
+</code></pre></div>
 <p>构造请求体如下：</p>
-<pre><code class="language-json">{
-  &quot;item&quot;: {
-    &quot;name&quot;: &quot;mikigo&quot;,
-    &quot;description&quot;: &quot;1234&quot;
-  },
-  &quot;age&quot;:30
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="p">{</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="w">  </span><span class="nt">&quot;item&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mikigo&quot;</span><span class="p">,</span>
+<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1234&quot;</span>
+<a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a><span class="w">  </span><span class="nt">&quot;age&quot;</span><span class="p">:</span><span class="mi">30</span>
+<a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a><span class="p">}</span>
+</code></pre></div>
 <p>响应：</p>
-<pre><code class="language-json">{
-    &quot;field&quot;: {
-        &quot;data&quot;: {
-            &quot;name&quot;: &quot;mikigo&quot;,
-            &quot;description&quot;: &quot;1234&quot;
-        },
-        &quot;age&quot;: 30
-    }
-}
-</code></pre>
-<h4 id="45cookie">4.5、Cookie</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="p">{</span>
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="w">    </span><span class="nt">&quot;field&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="w">        </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mikigo&quot;</span><span class="p">,</span>
+<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="w">            </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1234&quot;</span>
+<a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a><span class="w">        </span><span class="nt">&quot;age&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span>
+<a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a><span class="p">}</span>
+</code></pre></div>
+<h4 id="45cookie">4.5、Cookie<a class="headerlink" href="#45cookie" title="Permanent link">&para;</a></h4>
 <p>先设置 cookie：</p>
-<pre><code class="language-python">@app.post(&quot;/cookieset&quot;)
-async def cookie_set(response: Response):
-    response.set_cookie(key=&quot;cookie1&quot;, value=&quot;mikigocookie11111&quot;)
-    return {&quot;cookie_id&quot;: &quot;ok&quot;}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/cookieset&quot;</span><span class="p">)</span>
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">cookie_set</span><span class="p">(</span><span class="n">response</span><span class="p">:</span> <span class="n">Response</span><span class="p">):</span>
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>    <span class="n">response</span><span class="o">.</span><span class="n">set_cookie</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s2">&quot;cookie1&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;mikigocookie11111&quot;</span><span class="p">)</span>
+<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;cookie_id&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">}</span>
+</code></pre></div>
 <p>请求一下，查看 cookie 设置是否成功:</p>
 <p><img alt="" src="../../img/fastapi/set_cookie.png" /></p>
 <p>然后再定义 Cookie 参数：</p>
-<pre><code class="language-python">from fastapi import Cookie
-
-@app.get(&quot;/cookieget&quot;)
-async def cookie_get(
-        ads_id: Union[str, None] = Cookie(default=None)
-):
-    return {&quot;ads_id&quot;: ads_id}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Cookie</span>
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/cookieget&quot;</span><span class="p">)</span>
+<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">cookie_get</span><span class="p">(</span>
+<a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>        <span class="n">ads_id</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="n">Cookie</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a><span class="p">):</span>
+<a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;ads_id&quot;</span><span class="p">:</span> <span class="n">ads_id</span><span class="p">}</span>
+</code></pre></div>
 <p><code>Cookie</code> 参数的结构与声明 <code>Query</code> 参数和 <code>Path</code> 参数时相同</p>
 <p>请求一把：</p>
 <p><img alt="" src="../../img/fastapi/get_cookie.png" /></p>
-<h4 id="46header">4.6、Header</h4>
+<h4 id="46header">4.6、Header<a class="headerlink" href="#46header" title="Permanent link">&para;</a></h4>
 <p><code>Header</code> 使用和<code>Path</code>, <code>Query</code> and <code>Cookie</code> 一样;</p>
-<pre><code class="language-python">from fastapi import Header
-
-@app.get(&quot;/header&quot;)
-async def header_test(user_agent: Union[str, None] = Header(default=None)):
-    return {&quot;User-Agent&quot;: user_agent}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Header</span>
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/header&quot;</span><span class="p">)</span>
+<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">header_test</span><span class="p">(</span><span class="n">user_agent</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="n">Header</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)):</span>
+<a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;User-Agent&quot;</span><span class="p">:</span> <span class="n">user_agent</span><span class="p">}</span>
+</code></pre></div>
 <p>请求：</p>
-<pre><code class="language-url">http://10.8.13.224:5000/header
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>http://10.8.13.224:5000/header
+</code></pre></div>
 <p>响应：</p>
-<pre><code class="language-json">{
-    &quot;User-Agent&quot;: &quot;PostmanRuntime/7.31.1&quot;
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="p">{</span>
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="w">    </span><span class="nt">&quot;User-Agent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PostmanRuntime/7.31.1&quot;</span>
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a><span class="p">}</span>
+</code></pre></div>
 <p><code>Header</code> 有个特殊的参数 <code>convert_underscores: bool = True</code>；</p>
 <p>因为大多数标准的headers用 "连字符" 分隔，因此默认将参数名称的字符从下划线 (<code>_</code>) 转换为连字符 (<code>-</code>) ；</p>
-<h2 id="_5">六、响应</h2>
-<h3 id="1_1">1、响应限制</h3>
+<h2 id="_5">六、响应<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="1_1">1、响应限制<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
 <p><code>Pydantic</code> 不仅可以对请求参数进行校验和限制，对响应同样可以；</p>
-<pre><code class="language-python">class Item(BaseModel):
-    name: str
-    description: Union[str, None] = None
-
-@app.post(&quot;/rsp_model/&quot;, response_model=Item)
-async def response_model_test(item: Item) -&gt; Any:
-    return item
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>    <span class="n">description</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a>
+<a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/rsp_model/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Item</span><span class="p">)</span>
+<a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">response_model_test</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<a id="__codelineno-41-7" name="__codelineno-41-7" href="#__codelineno-41-7"></a>    <span class="k">return</span> <span class="n">item</span>
+</code></pre></div>
 <p>在装饰器 <code>@app.post</code> 里面有个参数 <code>response_model</code> 可以声明响应的模型；</p>
 <p><code>response_model=Item</code> 表示响应信息也是 <code>Item</code> 的类型，API 文档里面也会有响应信息的示例，否则就是空的；</p>
-<h3 id="2_1">2、响应状态码</h3>
-<pre><code class="language-python">@app.post(&quot;/status&quot;, status_code=201)
-async def status_code_test(name: str):
-    return {&quot;name&quot;: name}
-</code></pre>
+<h3 id="2_1">2、响应状态码<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/status&quot;</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">201</span><span class="p">)</span>
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">status_code_test</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">}</span>
+</code></pre></div>
 <p>请求成功，返回状态码为：201;</p>
 <p>API 文档里面也会有展示；</p>
 <p>fastapi 提供了一个 <code>status</code> 模块来表示状态码：</p>
-<pre><code class="language-python">from fastapi import status
-
-@app.post(&quot;/status&quot;, status_code=status.HTTP_201_CREATED)
-async def status_code_test(name: str):
-    return {&quot;name&quot;: name}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">status</span>
+<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>
+<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/status&quot;</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_201_CREATED</span><span class="p">)</span>
+<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">status_code_test</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">}</span>
+</code></pre></div>
 <p><code>status.HTTP_201_CREATED</code> 这种方式更容易理解状态码的意思，因此我个人更推荐这种写法。</p>
-<h3 id="3_1">3、返回错误信息</h3>
-<pre><code class="language-python">from fastapi import HTTPException
-from fastapi import status
-
-names = {&quot;one&quot;: &quot;mikigo&quot;}
-
-@app.get(&quot;/resp_info/{name_id}&quot;)
-async def resp_info(name_id: str):
-    if name_id not in names:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=&quot;Item not found&quot;)
-    return {&quot;item&quot;: names[name_id]}
-</code></pre>
+<h3 id="3_1">3、返回错误信息<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">HTTPException</span>
+<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">status</span>
+<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a>
+<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a><span class="n">names</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;one&quot;</span><span class="p">:</span> <span class="s2">&quot;mikigo&quot;</span><span class="p">}</span>
+<a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a>
+<a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/resp_info/</span><span class="si">{name_id}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-44-7" name="__codelineno-44-7" href="#__codelineno-44-7"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">resp_info</span><span class="p">(</span><span class="n">name_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<a id="__codelineno-44-8" name="__codelineno-44-8" href="#__codelineno-44-8"></a>    <span class="k">if</span> <span class="n">name_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+<a id="__codelineno-44-9" name="__codelineno-44-9" href="#__codelineno-44-9"></a>        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_404_NOT_FOUND</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Item not found&quot;</span><span class="p">)</span>
+<a id="__codelineno-44-10" name="__codelineno-44-10" href="#__codelineno-44-10"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;item&quot;</span><span class="p">:</span> <span class="n">names</span><span class="p">[</span><span class="n">name_id</span><span class="p">]}</span>
+</code></pre></div>
 <p>发送请求：</p>
 <p><img alt="" src="../../img/fastapi/resp_info.png" /></p>
-<h2 id="_6">七、表单及文件</h2>
-<h3 id="1form">1、Form表单</h3>
+<h2 id="_6">七、表单及文件<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h3 id="1form">1、Form表单<a class="headerlink" href="#1form" title="Permanent link">&para;</a></h3>
 <p>常见的，登录接口会提交 <code>Form</code> 表单：</p>
-<pre><code class="language-python">from fastapi import Form
-
-@app.post(&quot;/login/&quot;)
-async def login(username: str = Form(), password: str = Form()):
-    return {&quot;username&quot;: username}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Form</span>
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>
+<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/login/&quot;</span><span class="p">)</span>
+<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="n">username</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Form</span><span class="p">(),</span> <span class="n">password</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Form</span><span class="p">()):</span>
+<a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="n">username</span><span class="p">}</span>
+</code></pre></div>
 <p>重启服务，厚礼谢，你会发现报错，提示要安装依赖：<code>python-multipart</code>，啥也别问直接装：</p>
-<p>
-<div class="termy" data-termynal>
-<span data-ty>pip3 install python-multipart</span>
-<span data-ty="progress"></span>
-<span data-ty></span>
-</div></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="go">pip3 install python-multipart</span>
+<a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a><span class="go">---&gt; 100%</span>
+</code></pre></div>
 <p>再重启服务之后，通过表单字段发送，注意不能用 JSON 发送；</p>
 <p><img alt="" src="../../img/fastapi/form.png" /></p>
-<h3 id="2_2">2、上传文件</h3>
+<h3 id="2_2">2、上传文件<a class="headerlink" href="#2_2" title="Permanent link">&para;</a></h3>
 <p>上传文件功能也依赖：<code>python-multipart</code>；</p>
-<h4 id="21file">2.1、File</h4>
-<pre><code class="language-python">from fastapi import File
-
-@app.post(&quot;/files/&quot;)
-async def create_file(file: bytes = File()):
-    return {&quot;file_size&quot;: len(file)}
-</code></pre>
+<h4 id="21file">2.1、File<a class="headerlink" href="#21file" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">File</span>
+<a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a>
+<a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/files/&quot;</span><span class="p">)</span>
+<a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">create_file</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="nb">bytes</span> <span class="o">=</span> <span class="n">File</span><span class="p">()):</span>
+<a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;file_size&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">file</span><span class="p">)}</span>
+</code></pre></div>
 <p><code>File</code> 是直接继承自 <code>Form</code> 的类，把文件当做表单上传，源码：</p>
-<pre><code class="language-python">class File(Form):
-    def __init__():
-        ...
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="k">class</span> <span class="nc">File</span><span class="p">(</span><span class="n">Form</span><span class="p">):</span>
+<a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">():</span>
+<a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a>        <span class="o">...</span>
+</code></pre></div>
 <p>以 <code>bytes</code> 形式读取和接收文件内容，这种方式把文件的所有内容都存储在内存里，适用于小型文件。</p>
-<h4 id="22uploadfile">2.2、UploadFile</h4>
-<pre><code class="language-python">from fastapi import UploadFile
-
-@app.post(&quot;/uploadfile/&quot;)
-async def create_upload_file(file: UploadFile):
-    return {&quot;filename&quot;: file.filename}
-</code></pre>
+<h4 id="22uploadfile">2.2、UploadFile<a class="headerlink" href="#22uploadfile" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">UploadFile</span>
+<a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a>
+<a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/uploadfile/&quot;</span><span class="p">)</span>
+<a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">create_upload_file</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="n">UploadFile</span><span class="p">):</span>
+<a id="__codelineno-49-5" name="__codelineno-49-5" href="#__codelineno-49-5"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;filename&quot;</span><span class="p">:</span> <span class="n">file</span><span class="o">.</span><span class="n">filename</span><span class="p">}</span>
+</code></pre></div>
 <p><code>UploadFile</code> 与 <code>bytes</code> 相比更好一点，即使是大文件也不会占用所有内存，因为它内部有个文件最大限制，超过就会先存入磁盘；</p>
-<pre><code class="language-python">class UploadFile:
-    &quot;&quot;&quot;
-    An uploaded file included as part of the request data.
-    &quot;&quot;&quot;
-
-    spool_max_size = 1024 * 1024
-    file: typing.BinaryIO
-    headers: &quot;Headers&quot;
-
-    def __init__(
-        self,
-        filename: str,
-        file: typing.Optional[typing.BinaryIO] = None,
-        content_type: str = &quot;&quot;,
-        *,
-        headers: &quot;typing.Optional[Headers]&quot; = None,
-    ) -&gt; None:
-        self.filename = filename
-        self.content_type = content_type
-        if file is None:
-            self.file = tempfile.SpooledTemporaryFile(max_size=self.spool_max_size)  # type: ignore[assignment]  # noqa: E501
-        else:
-            self.file = file
-        ... # 省略部分代码
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="k">class</span> <span class="nc">UploadFile</span><span class="p">:</span>
+<a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a><span class="sd">    An uploaded file included as part of the request data.</span>
+<a id="__codelineno-50-4" name="__codelineno-50-4" href="#__codelineno-50-4"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-50-5" name="__codelineno-50-5" href="#__codelineno-50-5"></a>
+<a id="__codelineno-50-6" name="__codelineno-50-6" href="#__codelineno-50-6"></a>    <span class="n">spool_max_size</span> <span class="o">=</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span>
+<a id="__codelineno-50-7" name="__codelineno-50-7" href="#__codelineno-50-7"></a>    <span class="n">file</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">BinaryIO</span>
+<a id="__codelineno-50-8" name="__codelineno-50-8" href="#__codelineno-50-8"></a>    <span class="n">headers</span><span class="p">:</span> <span class="s2">&quot;Headers&quot;</span>
+<a id="__codelineno-50-9" name="__codelineno-50-9" href="#__codelineno-50-9"></a>
+<a id="__codelineno-50-10" name="__codelineno-50-10" href="#__codelineno-50-10"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<a id="__codelineno-50-11" name="__codelineno-50-11" href="#__codelineno-50-11"></a>        <span class="bp">self</span><span class="p">,</span>
+<a id="__codelineno-50-12" name="__codelineno-50-12" href="#__codelineno-50-12"></a>        <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<a id="__codelineno-50-13" name="__codelineno-50-13" href="#__codelineno-50-13"></a>        <span class="n">file</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="n">typing</span><span class="o">.</span><span class="n">BinaryIO</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-50-14" name="__codelineno-50-14" href="#__codelineno-50-14"></a>        <span class="n">content_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<a id="__codelineno-50-15" name="__codelineno-50-15" href="#__codelineno-50-15"></a>        <span class="o">*</span><span class="p">,</span>
+<a id="__codelineno-50-16" name="__codelineno-50-16" href="#__codelineno-50-16"></a>        <span class="n">headers</span><span class="p">:</span> <span class="s2">&quot;typing.Optional[Headers]&quot;</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-50-17" name="__codelineno-50-17" href="#__codelineno-50-17"></a>    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-50-18" name="__codelineno-50-18" href="#__codelineno-50-18"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="n">filename</span>
+<a id="__codelineno-50-19" name="__codelineno-50-19" href="#__codelineno-50-19"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">content_type</span> <span class="o">=</span> <span class="n">content_type</span>
+<a id="__codelineno-50-20" name="__codelineno-50-20" href="#__codelineno-50-20"></a>        <span class="k">if</span> <span class="n">file</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-50-21" name="__codelineno-50-21" href="#__codelineno-50-21"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">file</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">SpooledTemporaryFile</span><span class="p">(</span><span class="n">max_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">spool_max_size</span><span class="p">)</span>  <span class="c1"># type: ignore[assignment]  # noqa: E501</span>
+<a id="__codelineno-50-22" name="__codelineno-50-22" href="#__codelineno-50-22"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-50-23" name="__codelineno-50-23" href="#__codelineno-50-23"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">file</span> <span class="o">=</span> <span class="n">file</span>
+<a id="__codelineno-50-24" name="__codelineno-50-24" href="#__codelineno-50-24"></a>        <span class="o">...</span> <span class="c1"># 省略部分代码</span>
+</code></pre></div>
 <p><code>spool_max_size</code> 就是限制文件的大小；</p>
 <p>通过上面源码的构造函数可以看出有 2 个必传参数：</p>
 <ul>
@@ -2052,33 +2054,33 @@ async def create_upload_file(file: UploadFile):
 </ul>
 <p>如果 file 参数不传，默认为 None，那么实际调用的是 <code>tempfile</code> 模块子的 <code>SpooledTemporaryFile</code> ，这个类会将数据缓存在内存中直到文件大小超过 <code>max_size</code>，这时文件内容会被写入磁盘；</p>
 <p><code>UploadFile</code> 源码里面有这几个方法：</p>
-<pre><code class="language-python">class UploadFile:
-
-    # 省略部分代码
-
-    async def write(self, data: bytes) -&gt; None:
-        if self._in_memory:
-            self.file.write(data)
-        else:
-            await run_in_threadpool(self.file.write, data)
-
-    async def read(self, size: int = -1) -&gt; bytes:
-        if self._in_memory:
-            return self.file.read(size)
-        return await run_in_threadpool(self.file.read, size)
-
-    async def seek(self, offset: int) -&gt; None:
-        if self._in_memory:
-            self.file.seek(offset)
-        else:
-            await run_in_threadpool(self.file.seek, offset)
-
-    async def close(self) -&gt; None:
-        if self._in_memory:
-            self.file.close()
-        else:
-            await run_in_threadpool(self.file.close)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="k">class</span> <span class="nc">UploadFile</span><span class="p">:</span>
+<a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a>
+<a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a>    <span class="c1"># 省略部分代码</span>
+<a id="__codelineno-51-4" name="__codelineno-51-4" href="#__codelineno-51-4"></a>
+<a id="__codelineno-51-5" name="__codelineno-51-5" href="#__codelineno-51-5"></a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-51-6" name="__codelineno-51-6" href="#__codelineno-51-6"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_in_memory</span><span class="p">:</span>
+<a id="__codelineno-51-7" name="__codelineno-51-7" href="#__codelineno-51-7"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<a id="__codelineno-51-8" name="__codelineno-51-8" href="#__codelineno-51-8"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-51-9" name="__codelineno-51-9" href="#__codelineno-51-9"></a>            <span class="k">await</span> <span class="n">run_in_threadpool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<a id="__codelineno-51-10" name="__codelineno-51-10" href="#__codelineno-51-10"></a>
+<a id="__codelineno-51-11" name="__codelineno-51-11" href="#__codelineno-51-11"></a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+<a id="__codelineno-51-12" name="__codelineno-51-12" href="#__codelineno-51-12"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_in_memory</span><span class="p">:</span>
+<a id="__codelineno-51-13" name="__codelineno-51-13" href="#__codelineno-51-13"></a>            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+<a id="__codelineno-51-14" name="__codelineno-51-14" href="#__codelineno-51-14"></a>        <span class="k">return</span> <span class="k">await</span> <span class="n">run_in_threadpool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+<a id="__codelineno-51-15" name="__codelineno-51-15" href="#__codelineno-51-15"></a>
+<a id="__codelineno-51-16" name="__codelineno-51-16" href="#__codelineno-51-16"></a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">seek</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">offset</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-51-17" name="__codelineno-51-17" href="#__codelineno-51-17"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_in_memory</span><span class="p">:</span>
+<a id="__codelineno-51-18" name="__codelineno-51-18" href="#__codelineno-51-18"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="n">offset</span><span class="p">)</span>
+<a id="__codelineno-51-19" name="__codelineno-51-19" href="#__codelineno-51-19"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-51-20" name="__codelineno-51-20" href="#__codelineno-51-20"></a>            <span class="k">await</span> <span class="n">run_in_threadpool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">seek</span><span class="p">,</span> <span class="n">offset</span><span class="p">)</span>
+<a id="__codelineno-51-21" name="__codelineno-51-21" href="#__codelineno-51-21"></a>
+<a id="__codelineno-51-22" name="__codelineno-51-22" href="#__codelineno-51-22"></a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-51-23" name="__codelineno-51-23" href="#__codelineno-51-23"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_in_memory</span><span class="p">:</span>
+<a id="__codelineno-51-24" name="__codelineno-51-24" href="#__codelineno-51-24"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<a id="__codelineno-51-25" name="__codelineno-51-25" href="#__codelineno-51-25"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-51-26" name="__codelineno-51-26" href="#__codelineno-51-26"></a>            <span class="k">await</span> <span class="n">run_in_threadpool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">)</span>
+</code></pre></div>
 <p>这些方法都是异步(<code>async</code>)方法：</p>
 <ul>
 <li><code>write(data)</code>：把 <code>data</code> （<code>str</code> 或 <code>bytes</code>）写入文件；</li>
@@ -2089,88 +2091,88 @@ async def create_upload_file(file: UploadFile):
 <li><code>close()</code>：关闭文件。</li>
 </ul>
 <p>使用异步的时候用 <code>await</code> ：</p>
-<pre><code class="language-python">contents = await myfile.read()
-</code></pre>
-<h2 id="_7">八、依赖项</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="n">contents</span> <span class="o">=</span> <span class="k">await</span> <span class="n">myfile</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="_7">八、依赖项<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p>依赖项也叫“依赖注入”，使用 <code>Depends</code>：</p>
-<pre><code class="language-python">from fastapi import Depends
-
-async def common_parameters(
-    q: Union[str, None] = None, skip: int = 0, limit: int = 100
-):
-    return {&quot;q&quot;: q, &quot;skip&quot;: skip, &quot;limit&quot;: limit}
-
-
-@app.get(&quot;/dps&quot;)
-async def depends_test(commons: dict = Depends(common_parameters)):
-    return commons
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span>
+<a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a>
+<a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">common_parameters</span><span class="p">(</span>
+<a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a>    <span class="n">q</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">skip</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span>
+<a id="__codelineno-53-5" name="__codelineno-53-5" href="#__codelineno-53-5"></a><span class="p">):</span>
+<a id="__codelineno-53-6" name="__codelineno-53-6" href="#__codelineno-53-6"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">q</span><span class="p">,</span> <span class="s2">&quot;skip&quot;</span><span class="p">:</span> <span class="n">skip</span><span class="p">,</span> <span class="s2">&quot;limit&quot;</span><span class="p">:</span> <span class="n">limit</span><span class="p">}</span>
+<a id="__codelineno-53-7" name="__codelineno-53-7" href="#__codelineno-53-7"></a>
+<a id="__codelineno-53-8" name="__codelineno-53-8" href="#__codelineno-53-8"></a>
+<a id="__codelineno-53-9" name="__codelineno-53-9" href="#__codelineno-53-9"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/dps&quot;</span><span class="p">)</span>
+<a id="__codelineno-53-10" name="__codelineno-53-10" href="#__codelineno-53-10"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">depends_test</span><span class="p">(</span><span class="n">commons</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">common_parameters</span><span class="p">)):</span>
+<a id="__codelineno-53-11" name="__codelineno-53-11" href="#__codelineno-53-11"></a>    <span class="k">return</span> <span class="n">commons</span>
+</code></pre></div>
 <p><code>Depends</code> 需要传入一个可调用对象，一般就给函数对象，也就是依赖函数，注意不是调用函数，没有括号；</p>
 <p>依赖函数的参数和查询参数的一样；</p>
-<h2 id="_8">九、安全性</h2>
-<h3 id="1oauth2">1、OAuth2</h3>
+<h2 id="_8">九、安全性<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h3 id="1oauth2">1、OAuth2<a class="headerlink" href="#1oauth2" title="Permanent link">&para;</a></h3>
 <p>功能也依赖：<code>python-multipart</code>；</p>
 <p><code>OAuth2</code> 主要用于验证用户身份：</p>
-<pre><code class="language-python">from fastapi.security import OAuth2PasswordBearer
-from fastapi import Depends
-
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl=&quot;token&quot;)
-
-@app.get(&quot;/auth/&quot;)
-async def auth_test(token: str = Depends(oauth2_scheme)):
-    return {&quot;token&quot;: token}
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="kn">from</span> <span class="nn">fastapi.security</span> <span class="kn">import</span> <span class="n">OAuth2PasswordBearer</span>
+<a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span>
+<a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a>
+<a id="__codelineno-54-4" name="__codelineno-54-4" href="#__codelineno-54-4"></a><span class="n">oauth2_scheme</span> <span class="o">=</span> <span class="n">OAuth2PasswordBearer</span><span class="p">(</span><span class="n">tokenUrl</span><span class="o">=</span><span class="s2">&quot;token&quot;</span><span class="p">)</span>
+<a id="__codelineno-54-5" name="__codelineno-54-5" href="#__codelineno-54-5"></a>
+<a id="__codelineno-54-6" name="__codelineno-54-6" href="#__codelineno-54-6"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/auth/&quot;</span><span class="p">)</span>
+<a id="__codelineno-54-7" name="__codelineno-54-7" href="#__codelineno-54-7"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">auth_test</span><span class="p">(</span><span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">oauth2_scheme</span><span class="p">)):</span>
+<a id="__codelineno-54-8" name="__codelineno-54-8" href="#__codelineno-54-8"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;token&quot;</span><span class="p">:</span> <span class="n">token</span><span class="p">}</span>
+</code></pre></div>
 <p>查看 <code>OpenAPI</code> 文档你会发现，右上角有个 <strong>Authorize</strong> 按钮，点它：</p>
 <p><img alt="" src="../../img/fastapi/auth.png" /></p>
 <p>弹出授权表单，输入 <code>username</code> 与 <code>password</code> 及其它可选字段；</p>
 <p>这个是 FastAPI 的安全工具；</p>
-<h3 id="2_3">2、获取当前用户</h3>
-<pre><code class="language-python">from typing import Union
-
-from fastapi import Depends
-from fastapi.security import OAuth2PasswordBearer
-
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl=&quot;token&quot;)
-
-class User(BaseModel):
-    username: str
-    email: Union[str, None] = None
-    full_name: Union[str, None] = None
-    disabled: Union[bool, None] = None
-
-def fake_decode_token(token):
-    return User(
-        username=token + &quot;fakedecoded&quot;, email=&quot;john@example.com&quot;, full_name=&quot;John Doe&quot;
-    )
-
-async def get_current_user(token: str = Depends(oauth2_scheme)):
-    user = fake_decode_token(token)
-    return user
-
-@app.get(&quot;/users/me&quot;)
-async def read_users_me(current_user: User = Depends(get_current_user)):
-    return current_user
-</code></pre>
+<h3 id="2_3">2、获取当前用户<a class="headerlink" href="#2_3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+<a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a>
+<a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span>
+<a id="__codelineno-55-4" name="__codelineno-55-4" href="#__codelineno-55-4"></a><span class="kn">from</span> <span class="nn">fastapi.security</span> <span class="kn">import</span> <span class="n">OAuth2PasswordBearer</span>
+<a id="__codelineno-55-5" name="__codelineno-55-5" href="#__codelineno-55-5"></a>
+<a id="__codelineno-55-6" name="__codelineno-55-6" href="#__codelineno-55-6"></a><span class="n">oauth2_scheme</span> <span class="o">=</span> <span class="n">OAuth2PasswordBearer</span><span class="p">(</span><span class="n">tokenUrl</span><span class="o">=</span><span class="s2">&quot;token&quot;</span><span class="p">)</span>
+<a id="__codelineno-55-7" name="__codelineno-55-7" href="#__codelineno-55-7"></a>
+<a id="__codelineno-55-8" name="__codelineno-55-8" href="#__codelineno-55-8"></a><span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<a id="__codelineno-55-9" name="__codelineno-55-9" href="#__codelineno-55-9"></a>    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
+<a id="__codelineno-55-10" name="__codelineno-55-10" href="#__codelineno-55-10"></a>    <span class="n">email</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-55-11" name="__codelineno-55-11" href="#__codelineno-55-11"></a>    <span class="n">full_name</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-55-12" name="__codelineno-55-12" href="#__codelineno-55-12"></a>    <span class="n">disabled</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-55-13" name="__codelineno-55-13" href="#__codelineno-55-13"></a>
+<a id="__codelineno-55-14" name="__codelineno-55-14" href="#__codelineno-55-14"></a><span class="k">def</span> <span class="nf">fake_decode_token</span><span class="p">(</span><span class="n">token</span><span class="p">):</span>
+<a id="__codelineno-55-15" name="__codelineno-55-15" href="#__codelineno-55-15"></a>    <span class="k">return</span> <span class="n">User</span><span class="p">(</span>
+<a id="__codelineno-55-16" name="__codelineno-55-16" href="#__codelineno-55-16"></a>        <span class="n">username</span><span class="o">=</span><span class="n">token</span> <span class="o">+</span> <span class="s2">&quot;fakedecoded&quot;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;john@example.com&quot;</span><span class="p">,</span> <span class="n">full_name</span><span class="o">=</span><span class="s2">&quot;John Doe&quot;</span>
+<a id="__codelineno-55-17" name="__codelineno-55-17" href="#__codelineno-55-17"></a>    <span class="p">)</span>
+<a id="__codelineno-55-18" name="__codelineno-55-18" href="#__codelineno-55-18"></a>
+<a id="__codelineno-55-19" name="__codelineno-55-19" href="#__codelineno-55-19"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">get_current_user</span><span class="p">(</span><span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">oauth2_scheme</span><span class="p">)):</span>
+<a id="__codelineno-55-20" name="__codelineno-55-20" href="#__codelineno-55-20"></a>    <span class="n">user</span> <span class="o">=</span> <span class="n">fake_decode_token</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+<a id="__codelineno-55-21" name="__codelineno-55-21" href="#__codelineno-55-21"></a>    <span class="k">return</span> <span class="n">user</span>
+<a id="__codelineno-55-22" name="__codelineno-55-22" href="#__codelineno-55-22"></a>
+<a id="__codelineno-55-23" name="__codelineno-55-23" href="#__codelineno-55-23"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/users/me&quot;</span><span class="p">)</span>
+<a id="__codelineno-55-24" name="__codelineno-55-24" href="#__codelineno-55-24"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">read_users_me</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_user</span><span class="p">)):</span>
+<a id="__codelineno-55-25" name="__codelineno-55-25" href="#__codelineno-55-25"></a>    <span class="k">return</span> <span class="n">current_user</span>
+</code></pre></div>
 <p>先创建一个请求体模型 <code>User</code>；</p>
 <p>再创建一个 <code>get_current_user</code> 依赖项，它的依赖项是 <code>oauth2_scheme</code>，这里接受一个 <code>token</code> 字符串，在给另外一个函数 <code>fake_decode_token</code> 进行解码后，返回 user 对象；</p>
 <p>最后，通过 <code>read_users_me</code> 依赖项，返回当前用户；</p>
 <p>这里实际是一个嵌套依赖的关系。</p>
-<h2 id="_9">十、中间件</h2>
+<h2 id="_9">十、中间件<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
 <p>中间件就相当于一个钩子函数，在每个请求被处理之前，以及没饿响应返回之前工作。工作原理类似于 Python 里面的属性拦截器就可以理解。</p>
-<h3 id="1_2">1、创建中间件</h3>
+<h3 id="1_2">1、创建中间件<a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h3>
 <p>使用装饰器 <code>@app.middleware("http")</code> ，固定用法，记住就好了；</p>
-<pre><code class="language-python">import time
-
-from fastapi import Request
-
-@app.middleware(&quot;http&quot;)
-async def add_process_time_header(request: Request, call_next):
-    start_time = time.time()
-    response = await call_next(request)  # 路径操作
-    process_time = time.time() - start_time
-    response.headers[&quot;X-Process-Time&quot;] = str(process_time)
-    return response
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a><span class="kn">import</span> <span class="nn">time</span>
+<a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a>
+<a id="__codelineno-56-3" name="__codelineno-56-3" href="#__codelineno-56-3"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Request</span>
+<a id="__codelineno-56-4" name="__codelineno-56-4" href="#__codelineno-56-4"></a>
+<a id="__codelineno-56-5" name="__codelineno-56-5" href="#__codelineno-56-5"></a><span class="nd">@app</span><span class="o">.</span><span class="n">middleware</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">)</span>
+<a id="__codelineno-56-6" name="__codelineno-56-6" href="#__codelineno-56-6"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">add_process_time_header</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span> <span class="n">call_next</span><span class="p">):</span>
+<a id="__codelineno-56-7" name="__codelineno-56-7" href="#__codelineno-56-7"></a>    <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<a id="__codelineno-56-8" name="__codelineno-56-8" href="#__codelineno-56-8"></a>    <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">call_next</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>  <span class="c1"># 路径操作</span>
+<a id="__codelineno-56-9" name="__codelineno-56-9" href="#__codelineno-56-9"></a>    <span class="n">process_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span>
+<a id="__codelineno-56-10" name="__codelineno-56-10" href="#__codelineno-56-10"></a>    <span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">&quot;X-Process-Time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">process_time</span><span class="p">)</span>
+<a id="__codelineno-56-11" name="__codelineno-56-11" href="#__codelineno-56-11"></a>    <span class="k">return</span> <span class="n">response</span>
+</code></pre></div>
 <p>参数：</p>
 <ul>
 <li>request，FastAPI 的请求对象；</li>
@@ -2179,253 +2181,244 @@ async def add_process_time_header(request: Request, call_next):
 <li>然后它将返回由相应的<em>路径操作</em>生成的 <code>response</code>；</li>
 <li>然后你可以在返回 <code>response</code> 前进一步修改它；</li>
 </ul>
-<h3 id="2cors">2、跨域资源共享(CORS)</h3>
+<h3 id="2cors">2、跨域资源共享(CORS)<a class="headerlink" href="#2cors" title="Permanent link">&para;</a></h3>
 <p>在同一个IP地址中，但使用不同的协议或者端口，就是不同的域；</p>
 <p>使用 <code>CORSMiddleware</code> ：</p>
-<pre><code class="language-python">from fastapi.middleware.cors import CORSMiddleware
-
-origins = [
-    &quot;http://localhost&quot;,
-    &quot;http://localhost:8080&quot;,
-]
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,  #  一个允许跨域请求的源列表;
-    allow_credentials=True, # 指示跨域请求支持 cookies,默认是 False
-    allow_methods=[&quot;*&quot;],  # 一个允许跨域请求的 HTTP 方法列表;
-    allow_headers=[&quot;*&quot;],  # 一个允许跨域请求的 HTTP 请求头列表
-)
-</code></pre>
-<h2 id="sql">十一、SQL数据库</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="kn">from</span> <span class="nn">fastapi.middleware.cors</span> <span class="kn">import</span> <span class="n">CORSMiddleware</span>
+<a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a>
+<a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a><span class="n">origins</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-57-4" name="__codelineno-57-4" href="#__codelineno-57-4"></a>    <span class="s2">&quot;http://localhost&quot;</span><span class="p">,</span>
+<a id="__codelineno-57-5" name="__codelineno-57-5" href="#__codelineno-57-5"></a>    <span class="s2">&quot;http://localhost:8080&quot;</span><span class="p">,</span>
+<a id="__codelineno-57-6" name="__codelineno-57-6" href="#__codelineno-57-6"></a><span class="p">]</span>
+<a id="__codelineno-57-7" name="__codelineno-57-7" href="#__codelineno-57-7"></a>
+<a id="__codelineno-57-8" name="__codelineno-57-8" href="#__codelineno-57-8"></a><span class="n">app</span><span class="o">.</span><span class="n">add_middleware</span><span class="p">(</span>
+<a id="__codelineno-57-9" name="__codelineno-57-9" href="#__codelineno-57-9"></a>    <span class="n">CORSMiddleware</span><span class="p">,</span>
+<a id="__codelineno-57-10" name="__codelineno-57-10" href="#__codelineno-57-10"></a>    <span class="n">allow_origins</span><span class="o">=</span><span class="n">origins</span><span class="p">,</span>  <span class="c1">#  一个允许跨域请求的源列表;</span>
+<a id="__codelineno-57-11" name="__codelineno-57-11" href="#__codelineno-57-11"></a>    <span class="n">allow_credentials</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="c1"># 指示跨域请求支持 cookies,默认是 False</span>
+<a id="__codelineno-57-12" name="__codelineno-57-12" href="#__codelineno-57-12"></a>    <span class="n">allow_methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;*&quot;</span><span class="p">],</span>  <span class="c1"># 一个允许跨域请求的 HTTP 方法列表;</span>
+<a id="__codelineno-57-13" name="__codelineno-57-13" href="#__codelineno-57-13"></a>    <span class="n">allow_headers</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;*&quot;</span><span class="p">],</span>  <span class="c1"># 一个允许跨域请求的 HTTP 请求头列表</span>
+<a id="__codelineno-57-14" name="__codelineno-57-14" href="#__codelineno-57-14"></a><span class="p">)</span>
+</code></pre></div>
+<h2 id="sql">十一、SQL数据库<a class="headerlink" href="#sql" title="Permanent link">&para;</a></h2>
 <p>FastAPI 使用数据一般采用 Python 社区最流行的 ORM 库：SQLAlchemy；</p>
 <p>如果你会用 Django 的 model，那基本上就很简单了；</p>
-<h3 id="1_3">1、创建数据库工程文件</h3>
+<h3 id="1_3">1、创建数据库工程文件<a class="headerlink" href="#1_3" title="Permanent link">&para;</a></h3>
 <p>先创建一个数据库的目录，里面包含这些文件：</p>
-<p>
-<div class="termy" data-termynal>
-<span data-ty>.</span>
-<span data-ty>└── sql_app</span>
-<span data-ty>    ├── <strong>init</strong>.py</span>
-<span data-ty>    ├── crud.py</span>
-<span data-ty>    ├── database.py</span>
-<span data-ty>    ├── main.py</span>
-<span data-ty>    ├── models.py</span>
-<span data-ty>    └── schemas.py</span>
-<span data-ty></span>
-</div></p>
-<h3 id="2_4">2、安装</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a><span class="go">.</span>
+<a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a><span class="go">└── sql_app</span>
+<a id="__codelineno-58-3" name="__codelineno-58-3" href="#__codelineno-58-3"></a><span class="go">    ├── __init__.py</span>
+<a id="__codelineno-58-4" name="__codelineno-58-4" href="#__codelineno-58-4"></a><span class="go">    ├── crud.py</span>
+<a id="__codelineno-58-5" name="__codelineno-58-5" href="#__codelineno-58-5"></a><span class="go">    ├── database.py</span>
+<a id="__codelineno-58-6" name="__codelineno-58-6" href="#__codelineno-58-6"></a><span class="go">    ├── main.py</span>
+<a id="__codelineno-58-7" name="__codelineno-58-7" href="#__codelineno-58-7"></a><span class="go">    ├── models.py</span>
+<a id="__codelineno-58-8" name="__codelineno-58-8" href="#__codelineno-58-8"></a><span class="go">    └── schemas.py</span>
+</code></pre></div>
+<h3 id="2_4">2、安装<a class="headerlink" href="#2_4" title="Permanent link">&para;</a></h3>
 <p>安装 SQLAlchemy 非常简单：</p>
-<p>
-<div class="termy" data-termynal>
-<span data-ty>pip3 install SQLAlchemy</span>
-<span data-ty="progress"></span>
-<span data-ty></span>
-</div></p>
-<h3 id="3sqlalchemy">3、创建SQLAlchemy部件</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a><span class="go">pip3 install SQLAlchemy</span>
+<a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a><span class="go">---&gt; 100%</span>
+</code></pre></div>
+<h3 id="3sqlalchemy">3、创建SQLAlchemy部件<a class="headerlink" href="#3sqlalchemy" title="Permanent link">&para;</a></h3>
 <p>SQLAlchemy 支持多种常用的数据类型：</p>
 <p>以 sqlite 举例：</p>
-<pre><code class="language-python"># sql_app/database.py
-
-from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
-
-# 定义数据库的URL
-SQLALCHEMY_DATABASE_URL = &quot;sqlite:///./sql_app.db&quot;  
-# 创建 SQLAlchemy 引擎
-engine = create_engine(  
-    SQLALCHEMY_DATABASE_URL, connect_args={&quot;check_same_thread&quot;: False} 
-)
-# 使用sessionmaker创建一个会话实例
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-# 创建一个Base类，用这个类继承，来创建每个数据库模型或类
-Base = declarative_base()
-</code></pre>
-<h3 id="4_1">4、创建数据库模型</h3>
-<pre><code class="language-python"># sql_app/models.py
-
-# 导入一些数据库类型,用于定义一些字段的类型
-from sqlalchemy import Boolean, Column, ForeignKey, Integer, String
-# 关系
-from sqlalchemy.orm import relationship
-# 导入部件Base类用于创建数据库模型
-from .database import Base
-
-
-class User(Base):
-    __tablename__ = &quot;users&quot;
-
-    # 每一个都代表其相应数据库表中的一列
-    id = Column(Integer, primary_key=True, index=True)
-    email = Column(String, unique=True, index=True)
-    hashed_password = Column(String)
-    is_active = Column(Boolean, default=True)
-    # 表示该表与其他相关的表中的值
-    items = relationship(&quot;Item&quot;, back_populates=&quot;owner&quot;)
-
-
-class Item(Base):
-    __tablename__ = &quot;items&quot;
-
-    id = Column(Integer, primary_key=True, index=True)
-    title = Column(String, index=True)
-    description = Column(String, index=True)
-    owner_id = Column(Integer, ForeignKey(&quot;users.id&quot;))
-    # 表示该表与其他相关的表中的值
-    owner = relationship(&quot;User&quot;, back_populates=&quot;items&quot;)3
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a><span class="c1"># sql_app/database.py</span>
+<a id="__codelineno-60-2" name="__codelineno-60-2" href="#__codelineno-60-2"></a>
+<a id="__codelineno-60-3" name="__codelineno-60-3" href="#__codelineno-60-3"></a><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
+<a id="__codelineno-60-4" name="__codelineno-60-4" href="#__codelineno-60-4"></a><span class="kn">from</span> <span class="nn">sqlalchemy.ext.declarative</span> <span class="kn">import</span> <span class="n">declarative_base</span>
+<a id="__codelineno-60-5" name="__codelineno-60-5" href="#__codelineno-60-5"></a><span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">sessionmaker</span>
+<a id="__codelineno-60-6" name="__codelineno-60-6" href="#__codelineno-60-6"></a>
+<a id="__codelineno-60-7" name="__codelineno-60-7" href="#__codelineno-60-7"></a><span class="c1"># 定义数据库的URL</span>
+<a id="__codelineno-60-8" name="__codelineno-60-8" href="#__codelineno-60-8"></a><span class="n">SQLALCHEMY_DATABASE_URL</span> <span class="o">=</span> <span class="s2">&quot;sqlite:///./sql_app.db&quot;</span>  
+<a id="__codelineno-60-9" name="__codelineno-60-9" href="#__codelineno-60-9"></a><span class="c1"># 创建 SQLAlchemy 引擎</span>
+<a id="__codelineno-60-10" name="__codelineno-60-10" href="#__codelineno-60-10"></a><span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span>  
+<a id="__codelineno-60-11" name="__codelineno-60-11" href="#__codelineno-60-11"></a>    <span class="n">SQLALCHEMY_DATABASE_URL</span><span class="p">,</span> <span class="n">connect_args</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;check_same_thread&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span> 
+<a id="__codelineno-60-12" name="__codelineno-60-12" href="#__codelineno-60-12"></a><span class="p">)</span>
+<a id="__codelineno-60-13" name="__codelineno-60-13" href="#__codelineno-60-13"></a><span class="c1"># 使用sessionmaker创建一个会话实例</span>
+<a id="__codelineno-60-14" name="__codelineno-60-14" href="#__codelineno-60-14"></a><span class="n">SessionLocal</span> <span class="o">=</span> <span class="n">sessionmaker</span><span class="p">(</span><span class="n">autocommit</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">autoflush</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bind</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
+<a id="__codelineno-60-15" name="__codelineno-60-15" href="#__codelineno-60-15"></a><span class="c1"># 创建一个Base类，用这个类继承，来创建每个数据库模型或类</span>
+<a id="__codelineno-60-16" name="__codelineno-60-16" href="#__codelineno-60-16"></a><span class="n">Base</span> <span class="o">=</span> <span class="n">declarative_base</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="4_1">4、创建数据库模型<a class="headerlink" href="#4_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a><span class="c1"># sql_app/models.py</span>
+<a id="__codelineno-61-2" name="__codelineno-61-2" href="#__codelineno-61-2"></a>
+<a id="__codelineno-61-3" name="__codelineno-61-3" href="#__codelineno-61-3"></a><span class="c1"># 导入一些数据库类型,用于定义一些字段的类型</span>
+<a id="__codelineno-61-4" name="__codelineno-61-4" href="#__codelineno-61-4"></a><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">Boolean</span><span class="p">,</span> <span class="n">Column</span><span class="p">,</span> <span class="n">ForeignKey</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">String</span>
+<a id="__codelineno-61-5" name="__codelineno-61-5" href="#__codelineno-61-5"></a><span class="c1"># 关系</span>
+<a id="__codelineno-61-6" name="__codelineno-61-6" href="#__codelineno-61-6"></a><span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">relationship</span>
+<a id="__codelineno-61-7" name="__codelineno-61-7" href="#__codelineno-61-7"></a><span class="c1"># 导入部件Base类用于创建数据库模型</span>
+<a id="__codelineno-61-8" name="__codelineno-61-8" href="#__codelineno-61-8"></a><span class="kn">from</span> <span class="nn">.database</span> <span class="kn">import</span> <span class="n">Base</span>
+<a id="__codelineno-61-9" name="__codelineno-61-9" href="#__codelineno-61-9"></a>
+<a id="__codelineno-61-10" name="__codelineno-61-10" href="#__codelineno-61-10"></a>
+<a id="__codelineno-61-11" name="__codelineno-61-11" href="#__codelineno-61-11"></a><span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+<a id="__codelineno-61-12" name="__codelineno-61-12" href="#__codelineno-61-12"></a>    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s2">&quot;users&quot;</span>
+<a id="__codelineno-61-13" name="__codelineno-61-13" href="#__codelineno-61-13"></a>
+<a id="__codelineno-61-14" name="__codelineno-61-14" href="#__codelineno-61-14"></a>    <span class="c1"># 每一个都代表其相应数据库表中的一列</span>
+<a id="__codelineno-61-15" name="__codelineno-61-15" href="#__codelineno-61-15"></a>    <span class="nb">id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-61-16" name="__codelineno-61-16" href="#__codelineno-61-16"></a>    <span class="n">email</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">String</span><span class="p">,</span> <span class="n">unique</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-61-17" name="__codelineno-61-17" href="#__codelineno-61-17"></a>    <span class="n">hashed_password</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">String</span><span class="p">)</span>
+<a id="__codelineno-61-18" name="__codelineno-61-18" href="#__codelineno-61-18"></a>    <span class="n">is_active</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Boolean</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-61-19" name="__codelineno-61-19" href="#__codelineno-61-19"></a>    <span class="c1"># 表示该表与其他相关的表中的值</span>
+<a id="__codelineno-61-20" name="__codelineno-61-20" href="#__codelineno-61-20"></a>    <span class="n">items</span> <span class="o">=</span> <span class="n">relationship</span><span class="p">(</span><span class="s2">&quot;Item&quot;</span><span class="p">,</span> <span class="n">back_populates</span><span class="o">=</span><span class="s2">&quot;owner&quot;</span><span class="p">)</span>
+<a id="__codelineno-61-21" name="__codelineno-61-21" href="#__codelineno-61-21"></a>
+<a id="__codelineno-61-22" name="__codelineno-61-22" href="#__codelineno-61-22"></a>
+<a id="__codelineno-61-23" name="__codelineno-61-23" href="#__codelineno-61-23"></a><span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+<a id="__codelineno-61-24" name="__codelineno-61-24" href="#__codelineno-61-24"></a>    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s2">&quot;items&quot;</span>
+<a id="__codelineno-61-25" name="__codelineno-61-25" href="#__codelineno-61-25"></a>
+<a id="__codelineno-61-26" name="__codelineno-61-26" href="#__codelineno-61-26"></a>    <span class="nb">id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-61-27" name="__codelineno-61-27" href="#__codelineno-61-27"></a>    <span class="n">title</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">String</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-61-28" name="__codelineno-61-28" href="#__codelineno-61-28"></a>    <span class="n">description</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">String</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-61-29" name="__codelineno-61-29" href="#__codelineno-61-29"></a>    <span class="n">owner_id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="s2">&quot;users.id&quot;</span><span class="p">))</span>
+<a id="__codelineno-61-30" name="__codelineno-61-30" href="#__codelineno-61-30"></a>    <span class="c1"># 表示该表与其他相关的表中的值</span>
+<a id="__codelineno-61-31" name="__codelineno-61-31" href="#__codelineno-61-31"></a>    <span class="n">owner</span> <span class="o">=</span> <span class="n">relationship</span><span class="p">(</span><span class="s2">&quot;User&quot;</span><span class="p">,</span> <span class="n">back_populates</span><span class="o">=</span><span class="s2">&quot;items&quot;</span><span class="p">)</span><span class="mi">3</span>
+</code></pre></div>
 <p>当访问 <code>my_user.items</code> 时，SQLAlchemy 实际上会从 <code>items</code> 表中的获取一批记录并在此处填充进去。</p>
 <p>注意，数据库模型都是将类型作为参数传给 Column 来定义的，例如：</p>
-<pre><code class="language-python">email = Column(String)
-</code></pre>
-<h3 id="5-pydantic">5、创建 Pydantic 模型</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a><span class="n">email</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">String</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="5-pydantic">5、创建 Pydantic 模型<a class="headerlink" href="#5-pydantic" title="Permanent link">&para;</a></h3>
 <p>Pydantic 模型和数据库模型的属性一致：</p>
-<pre><code class="language-python"># sql_app/schemas.py
-
-from typing import List, Union
-from pydantic import BaseModel
-# ========== item的Pydantic模型 ============
-# models里面的Item也有title和description属性
-class ItemBase(BaseModel):
-    title: str
-    description: Union[str, None] = None
-
-class ItemCreate(ItemBase):
-    pass
-# 创建用于读取/返回的Pydantic模型/模式
-class Item(ItemBase):
-    id: int
-    owner_id: int
-    # 为 Pydantic 提供配置 
-    class Config:
-        orm_mode = True
-
-# ========== user的Pydantic模型 ============
-# models里面的User也有email属性
-class UserBase(BaseModel):
-    email: str
-# 在创建时有一个password属性
-class UserCreate(UserBase):
-    password: str
-# 创建用于读取/返回的Pydantic模型/模式
-# 读取用户（从 API 返回）时将使用不包括password的User Pydantic模型
-class User(UserBase):
-    id: int
-    is_active: bool
-    items: List[Item] = []
-    # 为 Pydantic 提供配置
-    class Config:
-        # orm_mode将告诉 Pydantic模型读取数据，即它不是一个dict，而是一个 ORM 模型
-        orm_mode = True
-</code></pre>
-<h3 id="6crud">6、CRUD工具</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a><span class="c1"># sql_app/schemas.py</span>
+<a id="__codelineno-63-2" name="__codelineno-63-2" href="#__codelineno-63-2"></a>
+<a id="__codelineno-63-3" name="__codelineno-63-3" href="#__codelineno-63-3"></a><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
+<a id="__codelineno-63-4" name="__codelineno-63-4" href="#__codelineno-63-4"></a><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+<a id="__codelineno-63-5" name="__codelineno-63-5" href="#__codelineno-63-5"></a><span class="c1"># ========== item的Pydantic模型 ============</span>
+<a id="__codelineno-63-6" name="__codelineno-63-6" href="#__codelineno-63-6"></a><span class="c1"># models里面的Item也有title和description属性</span>
+<a id="__codelineno-63-7" name="__codelineno-63-7" href="#__codelineno-63-7"></a><span class="k">class</span> <span class="nc">ItemBase</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<a id="__codelineno-63-8" name="__codelineno-63-8" href="#__codelineno-63-8"></a>    <span class="n">title</span><span class="p">:</span> <span class="nb">str</span>
+<a id="__codelineno-63-9" name="__codelineno-63-9" href="#__codelineno-63-9"></a>    <span class="n">description</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-63-10" name="__codelineno-63-10" href="#__codelineno-63-10"></a>
+<a id="__codelineno-63-11" name="__codelineno-63-11" href="#__codelineno-63-11"></a><span class="k">class</span> <span class="nc">ItemCreate</span><span class="p">(</span><span class="n">ItemBase</span><span class="p">):</span>
+<a id="__codelineno-63-12" name="__codelineno-63-12" href="#__codelineno-63-12"></a>    <span class="k">pass</span>
+<a id="__codelineno-63-13" name="__codelineno-63-13" href="#__codelineno-63-13"></a><span class="c1"># 创建用于读取/返回的Pydantic模型/模式</span>
+<a id="__codelineno-63-14" name="__codelineno-63-14" href="#__codelineno-63-14"></a><span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">ItemBase</span><span class="p">):</span>
+<a id="__codelineno-63-15" name="__codelineno-63-15" href="#__codelineno-63-15"></a>    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
+<a id="__codelineno-63-16" name="__codelineno-63-16" href="#__codelineno-63-16"></a>    <span class="n">owner_id</span><span class="p">:</span> <span class="nb">int</span>
+<a id="__codelineno-63-17" name="__codelineno-63-17" href="#__codelineno-63-17"></a>    <span class="c1"># 为 Pydantic 提供配置 </span>
+<a id="__codelineno-63-18" name="__codelineno-63-18" href="#__codelineno-63-18"></a>    <span class="k">class</span> <span class="nc">Config</span><span class="p">:</span>
+<a id="__codelineno-63-19" name="__codelineno-63-19" href="#__codelineno-63-19"></a>        <span class="n">orm_mode</span> <span class="o">=</span> <span class="kc">True</span>
+<a id="__codelineno-63-20" name="__codelineno-63-20" href="#__codelineno-63-20"></a>
+<a id="__codelineno-63-21" name="__codelineno-63-21" href="#__codelineno-63-21"></a><span class="c1"># ========== user的Pydantic模型 ============</span>
+<a id="__codelineno-63-22" name="__codelineno-63-22" href="#__codelineno-63-22"></a><span class="c1"># models里面的User也有email属性</span>
+<a id="__codelineno-63-23" name="__codelineno-63-23" href="#__codelineno-63-23"></a><span class="k">class</span> <span class="nc">UserBase</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<a id="__codelineno-63-24" name="__codelineno-63-24" href="#__codelineno-63-24"></a>    <span class="n">email</span><span class="p">:</span> <span class="nb">str</span>
+<a id="__codelineno-63-25" name="__codelineno-63-25" href="#__codelineno-63-25"></a><span class="c1"># 在创建时有一个password属性</span>
+<a id="__codelineno-63-26" name="__codelineno-63-26" href="#__codelineno-63-26"></a><span class="k">class</span> <span class="nc">UserCreate</span><span class="p">(</span><span class="n">UserBase</span><span class="p">):</span>
+<a id="__codelineno-63-27" name="__codelineno-63-27" href="#__codelineno-63-27"></a>    <span class="n">password</span><span class="p">:</span> <span class="nb">str</span>
+<a id="__codelineno-63-28" name="__codelineno-63-28" href="#__codelineno-63-28"></a><span class="c1"># 创建用于读取/返回的Pydantic模型/模式</span>
+<a id="__codelineno-63-29" name="__codelineno-63-29" href="#__codelineno-63-29"></a><span class="c1"># 读取用户（从 API 返回）时将使用不包括password的User Pydantic模型</span>
+<a id="__codelineno-63-30" name="__codelineno-63-30" href="#__codelineno-63-30"></a><span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">UserBase</span><span class="p">):</span>
+<a id="__codelineno-63-31" name="__codelineno-63-31" href="#__codelineno-63-31"></a>    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
+<a id="__codelineno-63-32" name="__codelineno-63-32" href="#__codelineno-63-32"></a>    <span class="n">is_active</span><span class="p">:</span> <span class="nb">bool</span>
+<a id="__codelineno-63-33" name="__codelineno-63-33" href="#__codelineno-63-33"></a>    <span class="n">items</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Item</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-63-34" name="__codelineno-63-34" href="#__codelineno-63-34"></a>    <span class="c1"># 为 Pydantic 提供配置</span>
+<a id="__codelineno-63-35" name="__codelineno-63-35" href="#__codelineno-63-35"></a>    <span class="k">class</span> <span class="nc">Config</span><span class="p">:</span>
+<a id="__codelineno-63-36" name="__codelineno-63-36" href="#__codelineno-63-36"></a>        <span class="c1"># orm_mode将告诉 Pydantic模型读取数据，即它不是一个dict，而是一个 ORM 模型</span>
+<a id="__codelineno-63-37" name="__codelineno-63-37" href="#__codelineno-63-37"></a>        <span class="n">orm_mode</span> <span class="o">=</span> <span class="kc">True</span>
+</code></pre></div>
+<h3 id="6crud">6、CRUD工具<a class="headerlink" href="#6crud" title="Permanent link">&para;</a></h3>
 <p>用来与数据库中的数据进行交互，<strong>CRUD</strong>分别为：<strong>增加</strong>、<strong>查询</strong>、<strong>更改</strong>和<strong>删除</strong>，即增删改查；</p>
-<h4 id="61">6.1、读取数据</h4>
-<pre><code class="language-python"># sql_app/crud.py
-
-from sqlalchemy.orm import Session
-# 导入SQLAlchemy模型和Pydantic模型
-from . import models, schemas
-
-def get_user(db: Session, user_id: int):
-    &quot;&quot;&quot;通过ID查询用户&quot;&quot;&quot;
-    return db.query(models.User).filter(models.User.id == user_id).first()
-
-def get_user_by_email(db: Session, email: str):
-    &quot;&quot;&quot;通过email查询用户&quot;&quot;&quot;
-    return db.query(models.User).filter(models.User.email == email).first()
-
-def get_users(db: Session, skip: int = 0, limit: int = 100):
-    &quot;&quot;&quot;获取所有用户&quot;&quot;&quot;
-    return db.query(models.User).offset(skip).limit(limit).all()
-
-def get_items(db: Session, skip: int = 0, limit: int = 100):
-    &quot;&quot;&quot;获取所有项目&quot;&quot;&quot;
-    return db.query(models.Item).offset(skip).limit(limit).all()
-</code></pre>
-<h4 id="62">6.2、创建数据</h4>
-<pre><code class="language-python"># sql_app/crud.py
-
-def create_user(db: Session, user: schemas.UserCreate):
-    &quot;&quot;&quot;创建用户&quot;&quot;&quot;
-    fake_hashed_password = user.password + &quot;notreallyhashed&quot;
-    # 获取数据库模型实例
-    db_user = models.User(email=user.email, hashed_password=fake_hashed_password)
-    # add方法添加数据
-    db.add(db_user)
-    # 提交
-    db.commit()
-    # 刷新
-    db.refresh(db_user)
-    return db_user
-
-def create_user_item(db: Session, item: schemas.ItemCreate, user_id: int):
-    db_item = models.Item(**item.dict(), owner_id=user_id)
-    db.add(db_item)
-    db.commit()
-    db.refresh(db_item)
-    return db_item
-</code></pre>
-<h3 id="7">7、主程序</h3>
-<pre><code class="language-python"># sql_app/main.py
-
-from typing import List
-
-from fastapi import Depends, FastAPI, HTTPException
-from sqlalchemy.orm import Session
-
-from . import crud, models, schemas
-from .database import SessionLocal, engine
-
-models.Base.metadata.create_all(bind=engine)
-
-app = FastAPI()
-
-# 创建依赖项,每个请求有一个独立的数据库会话/连接（SessionLocal）
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
-# SQLAlchemy模型通讯需要一些等待时间,不能直接使用async和await语句；
-@app.post(&quot;/users/&quot;, response_model=schemas.User)
-def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
-    db_user = crud.get_user_by_email(db, email=user.email)
-    if db_user:
-        raise HTTPException(status_code=400, detail=&quot;Email already registered&quot;)
-    return crud.create_user(db=db, user=user)
-
-@app.get(&quot;/users/&quot;, response_model=List[schemas.User])
-def read_users(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
-    users = crud.get_users(db, skip=skip, limit=limit)
-    return users
-
-@app.get(&quot;/users/{user_id}&quot;, response_model=schemas.User)
-def read_user(user_id: int, db: Session = Depends(get_db)):
-    db_user = crud.get_user(db, user_id=user_id)
-    if db_user is None:
-        raise HTTPException(status_code=404, detail=&quot;User not found&quot;)
-    return db_user
-
-@app.post(&quot;/users/{user_id}/items/&quot;, response_model=schemas.Item)
-def create_item_for_user(
-    user_id: int, item: schemas.ItemCreate, db: Session = Depends(get_db)
-):
-    return crud.create_user_item(db=db, item=item, user_id=user_id)
-
-@app.get(&quot;/items/&quot;, response_model=List[schemas.Item])
-def read_items(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
-    items = crud.get_items(db, skip=skip, limit=limit)
-    return items
-</code></pre>
-<h3 id="8">8、执行项目</h3>
-<p>
-<div class="termy" data-termynal>
-<span data-ty>uvicorn sql_app.main:app --reload</span>
-<span data-ty></span>
-</div></p>
+<h4 id="61">6.1、读取数据<a class="headerlink" href="#61" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a><span class="c1"># sql_app/crud.py</span>
+<a id="__codelineno-64-2" name="__codelineno-64-2" href="#__codelineno-64-2"></a>
+<a id="__codelineno-64-3" name="__codelineno-64-3" href="#__codelineno-64-3"></a><span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">Session</span>
+<a id="__codelineno-64-4" name="__codelineno-64-4" href="#__codelineno-64-4"></a><span class="c1"># 导入SQLAlchemy模型和Pydantic模型</span>
+<a id="__codelineno-64-5" name="__codelineno-64-5" href="#__codelineno-64-5"></a><span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">schemas</span>
+<a id="__codelineno-64-6" name="__codelineno-64-6" href="#__codelineno-64-6"></a>
+<a id="__codelineno-64-7" name="__codelineno-64-7" href="#__codelineno-64-7"></a><span class="k">def</span> <span class="nf">get_user</span><span class="p">(</span><span class="n">db</span><span class="p">:</span> <span class="n">Session</span><span class="p">,</span> <span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<a id="__codelineno-64-8" name="__codelineno-64-8" href="#__codelineno-64-8"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;通过ID查询用户&quot;&quot;&quot;</span>
+<a id="__codelineno-64-9" name="__codelineno-64-9" href="#__codelineno-64-9"></a>    <span class="k">return</span> <span class="n">db</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">User</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">user_id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+<a id="__codelineno-64-10" name="__codelineno-64-10" href="#__codelineno-64-10"></a>
+<a id="__codelineno-64-11" name="__codelineno-64-11" href="#__codelineno-64-11"></a><span class="k">def</span> <span class="nf">get_user_by_email</span><span class="p">(</span><span class="n">db</span><span class="p">:</span> <span class="n">Session</span><span class="p">,</span> <span class="n">email</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<a id="__codelineno-64-12" name="__codelineno-64-12" href="#__codelineno-64-12"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;通过email查询用户&quot;&quot;&quot;</span>
+<a id="__codelineno-64-13" name="__codelineno-64-13" href="#__codelineno-64-13"></a>    <span class="k">return</span> <span class="n">db</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">User</span><span class="o">.</span><span class="n">email</span> <span class="o">==</span> <span class="n">email</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+<a id="__codelineno-64-14" name="__codelineno-64-14" href="#__codelineno-64-14"></a>
+<a id="__codelineno-64-15" name="__codelineno-64-15" href="#__codelineno-64-15"></a><span class="k">def</span> <span class="nf">get_users</span><span class="p">(</span><span class="n">db</span><span class="p">:</span> <span class="n">Session</span><span class="p">,</span> <span class="n">skip</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">):</span>
+<a id="__codelineno-64-16" name="__codelineno-64-16" href="#__codelineno-64-16"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;获取所有用户&quot;&quot;&quot;</span>
+<a id="__codelineno-64-17" name="__codelineno-64-17" href="#__codelineno-64-17"></a>    <span class="k">return</span> <span class="n">db</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">offset</span><span class="p">(</span><span class="n">skip</span><span class="p">)</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="n">limit</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<a id="__codelineno-64-18" name="__codelineno-64-18" href="#__codelineno-64-18"></a>
+<a id="__codelineno-64-19" name="__codelineno-64-19" href="#__codelineno-64-19"></a><span class="k">def</span> <span class="nf">get_items</span><span class="p">(</span><span class="n">db</span><span class="p">:</span> <span class="n">Session</span><span class="p">,</span> <span class="n">skip</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">):</span>
+<a id="__codelineno-64-20" name="__codelineno-64-20" href="#__codelineno-64-20"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;获取所有项目&quot;&quot;&quot;</span>
+<a id="__codelineno-64-21" name="__codelineno-64-21" href="#__codelineno-64-21"></a>    <span class="k">return</span> <span class="n">db</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Item</span><span class="p">)</span><span class="o">.</span><span class="n">offset</span><span class="p">(</span><span class="n">skip</span><span class="p">)</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="n">limit</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</code></pre></div>
+<h4 id="62">6.2、创建数据<a class="headerlink" href="#62" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a><span class="c1"># sql_app/crud.py</span>
+<a id="__codelineno-65-2" name="__codelineno-65-2" href="#__codelineno-65-2"></a>
+<a id="__codelineno-65-3" name="__codelineno-65-3" href="#__codelineno-65-3"></a><span class="k">def</span> <span class="nf">create_user</span><span class="p">(</span><span class="n">db</span><span class="p">:</span> <span class="n">Session</span><span class="p">,</span> <span class="n">user</span><span class="p">:</span> <span class="n">schemas</span><span class="o">.</span><span class="n">UserCreate</span><span class="p">):</span>
+<a id="__codelineno-65-4" name="__codelineno-65-4" href="#__codelineno-65-4"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;创建用户&quot;&quot;&quot;</span>
+<a id="__codelineno-65-5" name="__codelineno-65-5" href="#__codelineno-65-5"></a>    <span class="n">fake_hashed_password</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">password</span> <span class="o">+</span> <span class="s2">&quot;notreallyhashed&quot;</span>
+<a id="__codelineno-65-6" name="__codelineno-65-6" href="#__codelineno-65-6"></a>    <span class="c1"># 获取数据库模型实例</span>
+<a id="__codelineno-65-7" name="__codelineno-65-7" href="#__codelineno-65-7"></a>    <span class="n">db_user</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">User</span><span class="p">(</span><span class="n">email</span><span class="o">=</span><span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">,</span> <span class="n">hashed_password</span><span class="o">=</span><span class="n">fake_hashed_password</span><span class="p">)</span>
+<a id="__codelineno-65-8" name="__codelineno-65-8" href="#__codelineno-65-8"></a>    <span class="c1"># add方法添加数据</span>
+<a id="__codelineno-65-9" name="__codelineno-65-9" href="#__codelineno-65-9"></a>    <span class="n">db</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">db_user</span><span class="p">)</span>
+<a id="__codelineno-65-10" name="__codelineno-65-10" href="#__codelineno-65-10"></a>    <span class="c1"># 提交</span>
+<a id="__codelineno-65-11" name="__codelineno-65-11" href="#__codelineno-65-11"></a>    <span class="n">db</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<a id="__codelineno-65-12" name="__codelineno-65-12" href="#__codelineno-65-12"></a>    <span class="c1"># 刷新</span>
+<a id="__codelineno-65-13" name="__codelineno-65-13" href="#__codelineno-65-13"></a>    <span class="n">db</span><span class="o">.</span><span class="n">refresh</span><span class="p">(</span><span class="n">db_user</span><span class="p">)</span>
+<a id="__codelineno-65-14" name="__codelineno-65-14" href="#__codelineno-65-14"></a>    <span class="k">return</span> <span class="n">db_user</span>
+<a id="__codelineno-65-15" name="__codelineno-65-15" href="#__codelineno-65-15"></a>
+<a id="__codelineno-65-16" name="__codelineno-65-16" href="#__codelineno-65-16"></a><span class="k">def</span> <span class="nf">create_user_item</span><span class="p">(</span><span class="n">db</span><span class="p">:</span> <span class="n">Session</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">schemas</span><span class="o">.</span><span class="n">ItemCreate</span><span class="p">,</span> <span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<a id="__codelineno-65-17" name="__codelineno-65-17" href="#__codelineno-65-17"></a>    <span class="n">db_item</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Item</span><span class="p">(</span><span class="o">**</span><span class="n">item</span><span class="o">.</span><span class="n">dict</span><span class="p">(),</span> <span class="n">owner_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span>
+<a id="__codelineno-65-18" name="__codelineno-65-18" href="#__codelineno-65-18"></a>    <span class="n">db</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">db_item</span><span class="p">)</span>
+<a id="__codelineno-65-19" name="__codelineno-65-19" href="#__codelineno-65-19"></a>    <span class="n">db</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<a id="__codelineno-65-20" name="__codelineno-65-20" href="#__codelineno-65-20"></a>    <span class="n">db</span><span class="o">.</span><span class="n">refresh</span><span class="p">(</span><span class="n">db_item</span><span class="p">)</span>
+<a id="__codelineno-65-21" name="__codelineno-65-21" href="#__codelineno-65-21"></a>    <span class="k">return</span> <span class="n">db_item</span>
+</code></pre></div>
+<h3 id="7">7、主程序<a class="headerlink" href="#7" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a><span class="c1"># sql_app/main.py</span>
+<a id="__codelineno-66-2" name="__codelineno-66-2" href="#__codelineno-66-2"></a>
+<a id="__codelineno-66-3" name="__codelineno-66-3" href="#__codelineno-66-3"></a><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<a id="__codelineno-66-4" name="__codelineno-66-4" href="#__codelineno-66-4"></a>
+<a id="__codelineno-66-5" name="__codelineno-66-5" href="#__codelineno-66-5"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">HTTPException</span>
+<a id="__codelineno-66-6" name="__codelineno-66-6" href="#__codelineno-66-6"></a><span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">Session</span>
+<a id="__codelineno-66-7" name="__codelineno-66-7" href="#__codelineno-66-7"></a>
+<a id="__codelineno-66-8" name="__codelineno-66-8" href="#__codelineno-66-8"></a><span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">crud</span><span class="p">,</span> <span class="n">models</span><span class="p">,</span> <span class="n">schemas</span>
+<a id="__codelineno-66-9" name="__codelineno-66-9" href="#__codelineno-66-9"></a><span class="kn">from</span> <span class="nn">.database</span> <span class="kn">import</span> <span class="n">SessionLocal</span><span class="p">,</span> <span class="n">engine</span>
+<a id="__codelineno-66-10" name="__codelineno-66-10" href="#__codelineno-66-10"></a>
+<a id="__codelineno-66-11" name="__codelineno-66-11" href="#__codelineno-66-11"></a><span class="n">models</span><span class="o">.</span><span class="n">Base</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">create_all</span><span class="p">(</span><span class="n">bind</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
+<a id="__codelineno-66-12" name="__codelineno-66-12" href="#__codelineno-66-12"></a>
+<a id="__codelineno-66-13" name="__codelineno-66-13" href="#__codelineno-66-13"></a><span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+<a id="__codelineno-66-14" name="__codelineno-66-14" href="#__codelineno-66-14"></a>
+<a id="__codelineno-66-15" name="__codelineno-66-15" href="#__codelineno-66-15"></a><span class="c1"># 创建依赖项,每个请求有一个独立的数据库会话/连接（SessionLocal）</span>
+<a id="__codelineno-66-16" name="__codelineno-66-16" href="#__codelineno-66-16"></a><span class="k">def</span> <span class="nf">get_db</span><span class="p">():</span>
+<a id="__codelineno-66-17" name="__codelineno-66-17" href="#__codelineno-66-17"></a>    <span class="n">db</span> <span class="o">=</span> <span class="n">SessionLocal</span><span class="p">()</span>
+<a id="__codelineno-66-18" name="__codelineno-66-18" href="#__codelineno-66-18"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-66-19" name="__codelineno-66-19" href="#__codelineno-66-19"></a>        <span class="k">yield</span> <span class="n">db</span>
+<a id="__codelineno-66-20" name="__codelineno-66-20" href="#__codelineno-66-20"></a>    <span class="k">finally</span><span class="p">:</span>
+<a id="__codelineno-66-21" name="__codelineno-66-21" href="#__codelineno-66-21"></a>        <span class="n">db</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<a id="__codelineno-66-22" name="__codelineno-66-22" href="#__codelineno-66-22"></a><span class="c1"># SQLAlchemy模型通讯需要一些等待时间,不能直接使用async和await语句；</span>
+<a id="__codelineno-66-23" name="__codelineno-66-23" href="#__codelineno-66-23"></a><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/users/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">schemas</span><span class="o">.</span><span class="n">User</span><span class="p">)</span>
+<a id="__codelineno-66-24" name="__codelineno-66-24" href="#__codelineno-66-24"></a><span class="k">def</span> <span class="nf">create_user</span><span class="p">(</span><span class="n">user</span><span class="p">:</span> <span class="n">schemas</span><span class="o">.</span><span class="n">UserCreate</span><span class="p">,</span> <span class="n">db</span><span class="p">:</span> <span class="n">Session</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_db</span><span class="p">)):</span>
+<a id="__codelineno-66-25" name="__codelineno-66-25" href="#__codelineno-66-25"></a>    <span class="n">db_user</span> <span class="o">=</span> <span class="n">crud</span><span class="o">.</span><span class="n">get_user_by_email</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">)</span>
+<a id="__codelineno-66-26" name="__codelineno-66-26" href="#__codelineno-66-26"></a>    <span class="k">if</span> <span class="n">db_user</span><span class="p">:</span>
+<a id="__codelineno-66-27" name="__codelineno-66-27" href="#__codelineno-66-27"></a>        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Email already registered&quot;</span><span class="p">)</span>
+<a id="__codelineno-66-28" name="__codelineno-66-28" href="#__codelineno-66-28"></a>    <span class="k">return</span> <span class="n">crud</span><span class="o">.</span><span class="n">create_user</span><span class="p">(</span><span class="n">db</span><span class="o">=</span><span class="n">db</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">)</span>
+<a id="__codelineno-66-29" name="__codelineno-66-29" href="#__codelineno-66-29"></a>
+<a id="__codelineno-66-30" name="__codelineno-66-30" href="#__codelineno-66-30"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/users/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">List</span><span class="p">[</span><span class="n">schemas</span><span class="o">.</span><span class="n">User</span><span class="p">])</span>
+<a id="__codelineno-66-31" name="__codelineno-66-31" href="#__codelineno-66-31"></a><span class="k">def</span> <span class="nf">read_users</span><span class="p">(</span><span class="n">skip</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">db</span><span class="p">:</span> <span class="n">Session</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_db</span><span class="p">)):</span>
+<a id="__codelineno-66-32" name="__codelineno-66-32" href="#__codelineno-66-32"></a>    <span class="n">users</span> <span class="o">=</span> <span class="n">crud</span><span class="o">.</span><span class="n">get_users</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">skip</span><span class="o">=</span><span class="n">skip</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">)</span>
+<a id="__codelineno-66-33" name="__codelineno-66-33" href="#__codelineno-66-33"></a>    <span class="k">return</span> <span class="n">users</span>
+<a id="__codelineno-66-34" name="__codelineno-66-34" href="#__codelineno-66-34"></a>
+<a id="__codelineno-66-35" name="__codelineno-66-35" href="#__codelineno-66-35"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/users/</span><span class="si">{user_id}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">schemas</span><span class="o">.</span><span class="n">User</span><span class="p">)</span>
+<a id="__codelineno-66-36" name="__codelineno-66-36" href="#__codelineno-66-36"></a><span class="k">def</span> <span class="nf">read_user</span><span class="p">(</span><span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">db</span><span class="p">:</span> <span class="n">Session</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_db</span><span class="p">)):</span>
+<a id="__codelineno-66-37" name="__codelineno-66-37" href="#__codelineno-66-37"></a>    <span class="n">db_user</span> <span class="o">=</span> <span class="n">crud</span><span class="o">.</span><span class="n">get_user</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span>
+<a id="__codelineno-66-38" name="__codelineno-66-38" href="#__codelineno-66-38"></a>    <span class="k">if</span> <span class="n">db_user</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-66-39" name="__codelineno-66-39" href="#__codelineno-66-39"></a>        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">404</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;User not found&quot;</span><span class="p">)</span>
+<a id="__codelineno-66-40" name="__codelineno-66-40" href="#__codelineno-66-40"></a>    <span class="k">return</span> <span class="n">db_user</span>
+<a id="__codelineno-66-41" name="__codelineno-66-41" href="#__codelineno-66-41"></a>
+<a id="__codelineno-66-42" name="__codelineno-66-42" href="#__codelineno-66-42"></a><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/users/</span><span class="si">{user_id}</span><span class="s2">/items/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">schemas</span><span class="o">.</span><span class="n">Item</span><span class="p">)</span>
+<a id="__codelineno-66-43" name="__codelineno-66-43" href="#__codelineno-66-43"></a><span class="k">def</span> <span class="nf">create_item_for_user</span><span class="p">(</span>
+<a id="__codelineno-66-44" name="__codelineno-66-44" href="#__codelineno-66-44"></a>    <span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">schemas</span><span class="o">.</span><span class="n">ItemCreate</span><span class="p">,</span> <span class="n">db</span><span class="p">:</span> <span class="n">Session</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_db</span><span class="p">)</span>
+<a id="__codelineno-66-45" name="__codelineno-66-45" href="#__codelineno-66-45"></a><span class="p">):</span>
+<a id="__codelineno-66-46" name="__codelineno-66-46" href="#__codelineno-66-46"></a>    <span class="k">return</span> <span class="n">crud</span><span class="o">.</span><span class="n">create_user_item</span><span class="p">(</span><span class="n">db</span><span class="o">=</span><span class="n">db</span><span class="p">,</span> <span class="n">item</span><span class="o">=</span><span class="n">item</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span>
+<a id="__codelineno-66-47" name="__codelineno-66-47" href="#__codelineno-66-47"></a>
+<a id="__codelineno-66-48" name="__codelineno-66-48" href="#__codelineno-66-48"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">List</span><span class="p">[</span><span class="n">schemas</span><span class="o">.</span><span class="n">Item</span><span class="p">])</span>
+<a id="__codelineno-66-49" name="__codelineno-66-49" href="#__codelineno-66-49"></a><span class="k">def</span> <span class="nf">read_items</span><span class="p">(</span><span class="n">skip</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">db</span><span class="p">:</span> <span class="n">Session</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_db</span><span class="p">)):</span>
+<a id="__codelineno-66-50" name="__codelineno-66-50" href="#__codelineno-66-50"></a>    <span class="n">items</span> <span class="o">=</span> <span class="n">crud</span><span class="o">.</span><span class="n">get_items</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">skip</span><span class="o">=</span><span class="n">skip</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">)</span>
+<a id="__codelineno-66-51" name="__codelineno-66-51" href="#__codelineno-66-51"></a>    <span class="k">return</span> <span class="n">items</span>
+</code></pre></div>
+<h3 id="8">8、执行项目<a class="headerlink" href="#8" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a><span class="go">uvicorn sql_app.main:app --reload</span>
+</code></pre></div>
 <p><img alt="" src="../../img/fastapi/sql.png" /></p>
 <p>以上内容是入门版知识，还有一些进阶的内容或者更加工程化的内容，我想放到 FastAPI 实战里面去写，好啦就先到这里吧，期待进阶内容。</p>
 

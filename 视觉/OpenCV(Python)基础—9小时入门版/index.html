@@ -318,6 +318,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B6HttpRunner-2%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        接口自动化框架HttpRunner—2小时入门版
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1451,42 +1465,36 @@
   
 
 
-<h1 id="opencvpython9">OpenCV(Python)基础—9小时入门版</h1>
-<pre><code class="language-shell"># =============================================
-# Author : Mikigo
-# Time   : 2021/12/1
-# =============================================
-</code></pre>
-<h2 id="_1">一、一句话简介</h2>
+<h1 id="opencvpython9">OpenCV(Python)基础—9小时入门版<a class="headerlink" href="#opencvpython9" title="Permanent link">&para;</a></h1>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># =============================================</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Author : Mikigo</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Time   : 2021/12/1</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># =============================================</span>
+</code></pre></div>
+<h2 id="_1">一、一句话简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p><code>OpenCV (Open Source Computer Vision Library)</code> 是用 <code>C++</code> 语言编写，提供 <code>Python</code>、<code>Java</code> 等语言 <code>API</code>的一个开源计算机视觉库。</p>
-<h2 id="_2">二、安装</h2>
+<h2 id="_2">二、安装<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>1、<code>Debian</code> 系使用 <code>apt</code> 安装 <code>OpencCV</code>：</p>
-<p>
-<div class="termy" data-termynal>
-<span data-ty>sudo apt install python-opencv</span>
-<span data-ty></span>
-</div></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="go">sudo apt install python-opencv</span>
+</code></pre></div>
 <p>在 <code>UOS</code> 系统上，也可以使用：</p>
-<p>
-<div class="termy" data-termynal>
-<span data-ty>sudo apt install python3-opencv</span>
-<span data-ty></span>
-</div></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="go">sudo apt install python3-opencv</span>
+</code></pre></div>
 <p>支持 <code>AMD</code>、<code>ARM</code>、<code>MIPS</code> 架构安装。</p>
 <p>2、安装 <code>NumPy</code>：</p>
 <p><code>NumPy</code> 是 Python中的一个运算速度非常快的数学库，数组玩到起飞，如果你玩数据科学、机器学习，这是必学库。所有 <code>OpenCV</code> 数组结构都转换为 <code>NumPy</code> 数组，要想 <code>OpenCV</code> 学得好，必须熟悉它，学习 <code>OpenCV</code> 基础多少需要了解一点。</p>
-<pre><code class="language-python">sudo apt -y install python3-numpy
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">sudo</span> <span class="n">apt</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">numpy</span>
+</code></pre></div>
 <p>好多同学安装 <code>Python</code> 库都习惯使用 <code>pip</code> 安装，实际上 <code>OpenCV</code> 也可以，但是目前只支持在 <code>AMD</code>，所以考虑到兼容性还是建议使用 <code>apt</code> 进行安装，并且官方文档也是建议使用 <code>apt</code> 安装。</p>
-<h2 id="_3">三、入门基础</h2>
+<h2 id="_3">三、入门基础<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>所有 <code>OpenCV</code> 类和函数都放在 <code>cv</code> 名称空间中，在 <code>py</code> 文件中导入：</p>
-<pre><code class="language-ptyhon">import cv2 as cv
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>import cv2 as cv
+</code></pre></div>
 <p>后续内容默认都使用了导入。</p>
-<h3 id="1">1、图像</h3>
-<h4 id="11">1.1、读图像</h4>
-<pre><code class="language-python">img = cv.imread()
-</code></pre>
+<h3 id="1">1、图像<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<h4 id="11">1.1、读图像<a class="headerlink" href="#11" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">img</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">imread</span><span class="p">()</span>
+</code></pre></div>
 <ul>
 <li>参数1：文件路径。(str)</li>
 <li>参数2：读取图像的方式。</li>
@@ -1495,52 +1503,52 @@
 <li>cv.IMREAD_UNCHANGED 加载图像，包括 alpha 通道。</li>
 <li>还可以简单地分别传递整数1、0或 -1。</li>
 </ul>
-<h4 id="12">1.2、显示图像</h4>
-<pre><code class="language-python">cv.show()
-</code></pre>
+<h4 id="12">1.2、显示图像<a class="headerlink" href="#12" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">cv</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
 <ul>
 <li>参数1：窗口名称。（str）</li>
 <li>参数2：图像。（obj）</li>
 </ul>
 <p>在窗口中显示图像，窗口自动适合图像大小。</p>
 <p>销毁窗口</p>
-<pre><code class="language-python">cv.destroyAllWindows() # 销毁所有窗口
-cv.destroyWindow(&quot;window_name&quot;) # 销毁某个窗口，参数传入窗口名称
-</code></pre>
-<h4 id="13">1.3、写图像</h4>
-<pre><code class="language-python">cv.imwrite()
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">cv</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span> <span class="c1"># 销毁所有窗口</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">cv</span><span class="o">.</span><span class="n">destroyWindow</span><span class="p">(</span><span class="s2">&quot;window_name&quot;</span><span class="p">)</span> <span class="c1"># 销毁某个窗口，参数传入窗口名称</span>
+</code></pre></div>
+<h4 id="13">1.3、写图像<a class="headerlink" href="#13" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">cv</span><span class="o">.</span><span class="n">imwrite</span><span class="p">()</span>
+</code></pre></div>
 <ul>
 <li>参数1：文件名。</li>
 <li>参数2：图像。（obj）</li>
 </ul>
-<h3 id="2">2、视频</h3>
-<h4 id="21">2.1、从摄像头捕获视频</h4>
-<pre><code class="language-python">cap = cv.VideoCapture(0)
-</code></pre>
+<h3 id="2">2、视频<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<h4 id="21">2.1、从摄像头捕获视频<a class="headerlink" href="#21" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
 <p>它的参数可以是设备索引或视频文件的名称。设备索引就是指定哪个摄像头的数字。一般我们连接一个摄像头，所以传0(或-1)。当然可以通过传递1来选择第二个相机，以此类推。</p>
-<pre><code class="language-python">import cv2 as cv
-cap = cv.VideoCapture(0)
- # 判断是否打开
-if not cap.isOpened(): 
-    exit()
-while True:  
-    # 逐帧捕获
-    ret, frame = cap.read()  
-    # 判断是否读取到
-    if not ret:  
-        break
-    # 转灰度
-    gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
-    # 显示图像
-    cv.imshow('frame', gray)
-    # 监控键盘信号
-    if cv.waitKey(1) == ord('q'):
-        break
-# 释放
-cap.release()
-cv.destroyAllWindows()
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">import</span> <span class="nn">cv2</span> <span class="k">as</span> <span class="nn">cv</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a> <span class="c1"># 判断是否打开</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="k">if</span> <span class="ow">not</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span> 
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>    <span class="n">exit</span><span class="p">()</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>  
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>    <span class="c1"># 逐帧捕获</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>    <span class="n">ret</span><span class="p">,</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>  
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>    <span class="c1"># 判断是否读取到</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">ret</span><span class="p">:</span>  
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>        <span class="k">break</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>    <span class="c1"># 转灰度</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>    <span class="n">gray</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">cv</span><span class="o">.</span><span class="n">COLOR_BGR2GRAY</span><span class="p">)</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>    <span class="c1"># 显示图像</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>    <span class="n">cv</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s1">&#39;frame&#39;</span><span class="p">,</span> <span class="n">gray</span><span class="p">)</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>    <span class="c1"># 监控键盘信号</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>    <span class="k">if</span> <span class="n">cv</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;q&#39;</span><span class="p">):</span>
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>        <span class="k">break</span>
+<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="c1"># 释放</span>
+<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="n">cv</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+</code></pre></div>
 <p>一切都看起来很和谐哈。</p>
 <p>需要注意其他的两个判断：</p>
 <ul>
@@ -1548,18 +1556,18 @@ cv.destroyAllWindows()
 <li>可能没有接收到帧，停止循环。</li>
 </ul>
 <p>获取视频的一些属性：</p>
-<pre><code class="language-python">cap.get(id)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+</code></pre></div>
 <p><code>id</code> 是一个从0到18的数字，每个数字表示视频的一个属性。每个属性代表什么→（https://docs.opencv.org/4.1.2/d4/d15/group__videoio__flags__base.html#gaeb8dd9c89c10a5c63c139bf7c4f5704d）</p>
 <p><code>cap.set()</code> 属于进阶用法，这里按下不表。</p>
-<h4 id="22">2.2、从文件中播放视频</h4>
+<h4 id="22">2.2、从文件中播放视频<a class="headerlink" href="#22" title="Permanent link">&para;</a></h4>
 <p>原理和从摄像头中捕获是一样的，区别在于：</p>
-<pre><code class="language-python">cap = cv.VideoCapture('vtest.avi')
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s1">&#39;vtest.avi&#39;</span><span class="p">)</span>
+</code></pre></div>
 <p>参数是文件名称。</p>
-<h4 id="23">2.3、保存视频</h4>
-<pre><code class="language-python">out = VideoWriter()
-</code></pre>
+<h4 id="23">2.3、保存视频<a class="headerlink" href="#23" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">out</span> <span class="o">=</span> <span class="n">VideoWriter</span><span class="p">()</span>
+</code></pre></div>
 <ul>
 <li>参数1：文件名</li>
 <li>参数2：fourcc = cv.VideoWriter_fourcc(*'XVID')</li>
@@ -1569,178 +1577,178 @@ cv.destroyAllWindows()
 <li>参数3：帧率</li>
 <li>参数3：分辨率</li>
 </ul>
-<pre><code class="language-python">import cv2 as cv
-cap = cv.VideoCapture(0)
-fourcc = cv.VideoWriter_fourcc(*'XVID')
-out = cv.VideoWriter('output.avi', fourcc, 20.0, (640,  480))
-while cap.isOpened():
-    ret, frame = cap.read()
-    if not ret:
-        break
-    # 旋转后写入
-    frame = cv.flip(frame, 0)
-    out.write(frame)
-    cv.imshow('frame', frame)
-    if cv.waitKey(1) == ord('q'):
-        break
-# 释放
-cap.release()
-out.release()
-cv.destroyAllWindows()
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kn">import</span> <span class="nn">cv2</span> <span class="k">as</span> <span class="nn">cv</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="n">fourcc</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s1">&#39;XVID&#39;</span><span class="p">)</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="n">out</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span><span class="s1">&#39;output.avi&#39;</span><span class="p">,</span> <span class="n">fourcc</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="p">(</span><span class="mi">640</span><span class="p">,</span>  <span class="mi">480</span><span class="p">))</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>    <span class="n">ret</span><span class="p">,</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">ret</span><span class="p">:</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>        <span class="k">break</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>    <span class="c1"># 旋转后写入</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>    <span class="n">frame</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>    <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>    <span class="n">cv</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s1">&#39;frame&#39;</span><span class="p">,</span> <span class="n">frame</span><span class="p">)</span>
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>    <span class="k">if</span> <span class="n">cv</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;q&#39;</span><span class="p">):</span>
+<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>        <span class="k">break</span>
+<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="c1"># 释放</span>
+<a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="n">out</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="n">cv</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+</code></pre></div>
 <p>结合前面摄像头捕获视频的代码，看起来很简单～</p>
-<h3 id="3">3、绘图</h3>
-<h4 id="31">3.1、画线</h4>
-<pre><code class="language-python">cv.line()
-</code></pre>
+<h3 id="3">3、绘图<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<h4 id="31">3.1、画线<a class="headerlink" href="#31" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">cv</span><span class="o">.</span><span class="n">line</span><span class="p">()</span>
+</code></pre></div>
 <p>举例：创建一个黑色图像，并从左上角到右下角在上面画一条蓝线</p>
-<pre><code class="language-python">import numpy as np
-import cv2 as cv
-# 写一个黑色的图像
-img = np.zeros((512,512,3), np.uint8)
-# 画一根5像素款的蓝线
-cv.line(img,(0,0),(511,511),(255,0,0),5)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="kn">import</span> <span class="nn">cv2</span> <span class="k">as</span> <span class="nn">cv</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="c1"># 写一个黑色的图像</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">512</span><span class="p">,</span><span class="mi">512</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="c1"># 画一根5像素款的蓝线</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="n">cv</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">img</span><span class="p">,(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),(</span><span class="mi">511</span><span class="p">,</span><span class="mi">511</span><span class="p">),(</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div>
 <p>(255,0,0) 代表蓝色，最后一个参数是线的宽度。</p>
-<h4 id="32">3.2、画圆</h4>
-<pre><code class="language-python">cv.circle(img,(447,63), 63, (0,0,255), -1)
-</code></pre>
+<h4 id="32">3.2、画圆<a class="headerlink" href="#32" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">cv</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">img</span><span class="p">,(</span><span class="mi">447</span><span class="p">,</span><span class="mi">63</span><span class="p">),</span> <span class="mi">63</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
 <p>参数：中心坐标和半径</p>
-<h4 id="33">3.3、画矩形</h4>
-<pre><code class="language-python">cv.rectangle(img,(384,0),(510,128),(0,255,0),3)
-</code></pre>
+<h4 id="33">3.3、画矩形<a class="headerlink" href="#33" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">cv</span><span class="o">.</span><span class="n">rectangle</span><span class="p">(</span><span class="n">img</span><span class="p">,(</span><span class="mi">384</span><span class="p">,</span><span class="mi">0</span><span class="p">),(</span><span class="mi">510</span><span class="p">,</span><span class="mi">128</span><span class="p">),(</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div>
 <p>参数：矩形的左上角和右下角</p>
 <p>支持其他图形。。。</p>
-<h2 id="_4">四、核心功能</h2>
-<h3 id="1_1">1、图像的基本操作</h3>
-<h4 id="11_1">1.1、访问和修改像素值</h4>
-<pre><code class="language-python">import numpy as np  # 官方建议固定写法
-import cv2 as cv
-img = cv.imread('messi5.jpg')
-px = img[100,100]  
-# (100, 100)的像素值[157 166 200]（B、G和R值）
-blue = img[100,100,0] 
-</code></pre>
+<h2 id="_4">四、核心功能<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="1_1">1、图像的基本操作<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
+<h4 id="11_1">1.1、访问和修改像素值<a class="headerlink" href="#11_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>  <span class="c1"># 官方建议固定写法</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="kn">import</span> <span class="nn">cv2</span> <span class="k">as</span> <span class="nn">cv</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="n">img</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;messi5.jpg&#39;</span><span class="p">)</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="n">px</span> <span class="o">=</span> <span class="n">img</span><span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">]</span>  
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="c1"># (100, 100)的像素值[157 166 200]（B、G和R值）</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="n">blue</span> <span class="o">=</span> <span class="n">img</span><span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> 
+</code></pre></div>
 <p>修改</p>
-<pre><code class="language-python">img[100,100] = [255,255,255]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">img</span><span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">]</span>
+</code></pre></div>
 <p>直接赋值即可修改，但是直接访问非常缓慢，更好的像素访问和编辑方法:</p>
-<pre><code class="language-python">img.item(10,10,2)  # 访问R值
-img.itemset((10,10,2),100)  # 修改R值
-</code></pre>
-<h4 id="12_1">1.2、访问图像属性</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">img</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># 访问R值</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="n">img</span><span class="o">.</span><span class="n">itemset</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="mi">100</span><span class="p">)</span>  <span class="c1"># 修改R值</span>
+</code></pre></div>
+<h4 id="12_1">1.2、访问图像属性<a class="headerlink" href="#12_1" title="Permanent link">&para;</a></h4>
 <p>图像属性包括行数、列数和通道数、图像数据类型、像素数等。</p>
-<pre><code class="language-python">img.shape
-# (342,548,3)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">img</span><span class="o">.</span><span class="n">shape</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="c1"># (342,548,3)</span>
+</code></pre></div>
 <p>返回一个行、列和通道数的元组。</p>
-<pre><code class="language-python">img.size  # 访问像素总数
-</code></pre>
-<h4 id="13_1">1.3、特定区域</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="n">img</span><span class="o">.</span><span class="n">size</span>  <span class="c1"># 访问像素总数</span>
+</code></pre></div>
+<h4 id="13_1">1.3、特定区域<a class="headerlink" href="#13_1" title="Permanent link">&para;</a></h4>
 <p>机器学习中经常需要抠图，比如人脸识别时，一般会先选择人脸区域，搜索其中的眼睛，而不是搜索整个图像，以提供精确度。</p>
-<pre><code class="language-python">ball = img[280:340, 330:390] # 抠一个区域
-img[273:333, 100:160] = ball # 复制到另一个区域
-</code></pre>
-<h4 id="14">1.4、图像信道的分裂与合并</h4>
-<pre><code class="language-python">b,g,r = cv.split(img)  # 分裂
-img = cv.merge((b,g,r))  # 合并
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="n">ball</span> <span class="o">=</span> <span class="n">img</span><span class="p">[</span><span class="mi">280</span><span class="p">:</span><span class="mi">340</span><span class="p">,</span> <span class="mi">330</span><span class="p">:</span><span class="mi">390</span><span class="p">]</span> <span class="c1"># 抠一个区域</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="n">img</span><span class="p">[</span><span class="mi">273</span><span class="p">:</span><span class="mi">333</span><span class="p">,</span> <span class="mi">100</span><span class="p">:</span><span class="mi">160</span><span class="p">]</span> <span class="o">=</span> <span class="n">ball</span> <span class="c1"># 复制到另一个区域</span>
+</code></pre></div>
+<h4 id="14">1.4、图像信道的分裂与合并<a class="headerlink" href="#14" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="n">b</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">r</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>  <span class="c1"># 分裂</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="n">img</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">merge</span><span class="p">((</span><span class="n">b</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">r</span><span class="p">))</span>  <span class="c1"># 合并</span>
+</code></pre></div>
 <p>或者</p>
-<pre><code class="language-python">b = img[:,:,0]
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="n">b</span> <span class="o">=</span> <span class="n">img</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
 <p>比如将所有红色像素设置为零</p>
-<pre><code class="language-python">img[:,:,2] = 0
-</code></pre>
-<h3 id="2_1">2、图像的算术运算</h3>
-<h4 id="21_1">2.1、图片添加</h4>
-<pre><code class="language-python">cv.add()
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="n">img</span><span class="p">[:,:,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</code></pre></div>
+<h3 id="2_1">2、图像的算术运算<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<h4 id="21_1">2.1、图片添加<a class="headerlink" href="#21_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="n">cv</span><span class="o">.</span><span class="n">add</span><span class="p">()</span>
+</code></pre></div>
 <p>可以添加两个图像</p>
-<pre><code class="language-python">x = np.uint8([250])
-y = np.uint8([10])
-cv.add(x + y)  # 250+10 = 260 =&gt; 255
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">([</span><span class="mi">250</span><span class="p">])</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">([</span><span class="mi">10</span><span class="p">])</span>
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="n">cv</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>  <span class="c1"># 250+10 = 260 =&gt; 255</span>
+</code></pre></div>
 <p>OpenCV 的加法和 Numpy 的加法是有区别的。OpenCV 加法是一个饱和操作，而 Numpy 加法是一个除余操作。</p>
-<pre><code class="language-python">x + y  # 250+10 = 260 % 256 = 4
-</code></pre>
-<h4 id="22_1">2.2、图像混合</h4>
-<pre><code class="language-python">cv.addWeighted()
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="n">x</span> <span class="o">+</span> <span class="n">y</span>  <span class="c1"># 250+10 = 260 % 256 = 4</span>
+</code></pre></div>
+<h4 id="22_1">2.2、图像混合<a class="headerlink" href="#22_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="n">cv</span><span class="o">.</span><span class="n">addWeighted</span><span class="p">()</span>
+</code></pre></div>
 <p>也是图像添加，但不同的权重给予图像，使它给人一种混合或透明的感觉。</p>
 <ul>
 <li>参数1、2：图像1及其权重。</li>
 <li>参数3、4：图像2及其权重。</li>
 <li>参数5：图像混合的α 值，通过改变 α 从0→1，你可以在一张图片到另一张图片之间进行一个很魔幻的转换。</li>
 </ul>
-<pre><code class="language-python">img1 = cv.imread('ml.png')
-img2 = cv.imread('opencv-logo.png')
-# 第一幅图像的权重为0.7，第二幅图像的权重为0.3
-dst = cv.addWeighted(img1,0.7,img2,0.3,0)
-cv.imshow('dst',dst)
-cv.waitKey(0)
-cv.destroyAllWindows()
-</code></pre>
-<h4 id="23_1">2.3、按位操作</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="n">img1</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;ml.png&#39;</span><span class="p">)</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="n">img2</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;opencv-logo.png&#39;</span><span class="p">)</span>
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="c1"># 第一幅图像的权重为0.7，第二幅图像的权重为0.3</span>
+<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="n">dst</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">addWeighted</span><span class="p">(</span><span class="n">img1</span><span class="p">,</span><span class="mf">0.7</span><span class="p">,</span><span class="n">img2</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a><span class="n">cv</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s1">&#39;dst&#39;</span><span class="p">,</span><span class="n">dst</span><span class="p">)</span>
+<a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a><span class="n">cv</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a><span class="n">cv</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+</code></pre></div>
+<h4 id="23_1">2.3、按位操作<a class="headerlink" href="#23_1" title="Permanent link">&para;</a></h4>
 <p>按位 AND、 OR、 NOT 和 XOR 操作。</p>
 <p>可以理解为图像的逻辑运算：</p>
-<pre><code class="language-python">img1 = cv.imread('messi5.jpg')
-img2 = cv.imread('opencv-logo-white.png')
-# 把标志放在左上角，所以创建了一个roi
-rows,cols,channels = img2.shape
-roi = img1[0:rows, 0:cols ]
-# 创建一个标志图案，以及它的反面
-img2gray = cv.cvtColor(img2,cv.COLOR_BGR2GRAY) # 灰度处理
-ret, mask = cv.threshold(img2gray, 10, 255, cv.THRESH_BINARY)
-mask_inv = cv.bitwise_not(mask)
-# 黑掉 ROI 中的 logo 区域
-img1_bg = cv.bitwise_and(roi,roi,mask = mask_inv)
-# 只取标志图像中的标志区域
-img2_fg = cv.bitwise_and(img2,img2,mask = mask)
-# 将 logo 放入 ROI 中，并修改主图像
-dst = cv.add(img1_bg,img2_fg)
-img1[0:rows, 0:cols ] = dst
-cv.imshow('res',img1)
-cv.waitKey(0)
-cv.destroyAllWindows()
-</code></pre>
-<h2 id="_5">五、图像处理</h2>
-<h3 id="1_2">1、改变色彩空间</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="n">img1</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;messi5.jpg&#39;</span><span class="p">)</span>
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="n">img2</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;opencv-logo-white.png&#39;</span><span class="p">)</span>
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="c1"># 把标志放在左上角，所以创建了一个roi</span>
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="n">rows</span><span class="p">,</span><span class="n">cols</span><span class="p">,</span><span class="n">channels</span> <span class="o">=</span> <span class="n">img2</span><span class="o">.</span><span class="n">shape</span>
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="n">roi</span> <span class="o">=</span> <span class="n">img1</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">rows</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">cols</span> <span class="p">]</span>
+<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a><span class="c1"># 创建一个标志图案，以及它的反面</span>
+<a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a><span class="n">img2gray</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">img2</span><span class="p">,</span><span class="n">cv</span><span class="o">.</span><span class="n">COLOR_BGR2GRAY</span><span class="p">)</span> <span class="c1"># 灰度处理</span>
+<a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a><span class="n">ret</span><span class="p">,</span> <span class="n">mask</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="n">img2gray</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="n">cv</span><span class="o">.</span><span class="n">THRESH_BINARY</span><span class="p">)</span>
+<a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a><span class="n">mask_inv</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">bitwise_not</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span>
+<a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a><span class="c1"># 黑掉 ROI 中的 logo 区域</span>
+<a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a><span class="n">img1_bg</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">bitwise_and</span><span class="p">(</span><span class="n">roi</span><span class="p">,</span><span class="n">roi</span><span class="p">,</span><span class="n">mask</span> <span class="o">=</span> <span class="n">mask_inv</span><span class="p">)</span>
+<a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a><span class="c1"># 只取标志图像中的标志区域</span>
+<a id="__codelineno-33-13" name="__codelineno-33-13" href="#__codelineno-33-13"></a><span class="n">img2_fg</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">bitwise_and</span><span class="p">(</span><span class="n">img2</span><span class="p">,</span><span class="n">img2</span><span class="p">,</span><span class="n">mask</span> <span class="o">=</span> <span class="n">mask</span><span class="p">)</span>
+<a id="__codelineno-33-14" name="__codelineno-33-14" href="#__codelineno-33-14"></a><span class="c1"># 将 logo 放入 ROI 中，并修改主图像</span>
+<a id="__codelineno-33-15" name="__codelineno-33-15" href="#__codelineno-33-15"></a><span class="n">dst</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">img1_bg</span><span class="p">,</span><span class="n">img2_fg</span><span class="p">)</span>
+<a id="__codelineno-33-16" name="__codelineno-33-16" href="#__codelineno-33-16"></a><span class="n">img1</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">rows</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">cols</span> <span class="p">]</span> <span class="o">=</span> <span class="n">dst</span>
+<a id="__codelineno-33-17" name="__codelineno-33-17" href="#__codelineno-33-17"></a><span class="n">cv</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s1">&#39;res&#39;</span><span class="p">,</span><span class="n">img1</span><span class="p">)</span>
+<a id="__codelineno-33-18" name="__codelineno-33-18" href="#__codelineno-33-18"></a><span class="n">cv</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-33-19" name="__codelineno-33-19" href="#__codelineno-33-19"></a><span class="n">cv</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="_5">五、图像处理<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="1_2">1、改变色彩空间<a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h3>
 <p>OpenCV 目前有150多种颜色空间转换方法。但其中两个最广泛使用的：</p>
-<h4 id="11gray">1.1、Gray</h4>
+<h4 id="11gray">1.1、Gray<a class="headerlink" href="#11gray" title="Permanent link">&para;</a></h4>
 <p><code>cv.COLOR_BGR2GRAY</code></p>
 <p>顾名思义：BGR → Gray </p>
 <p>这个图像识别中经常使用，可以提供识别速度和准确度。</p>
-<h4 id="12hsv">1.2、HSV</h4>
+<h4 id="12hsv">1.2、HSV<a class="headerlink" href="#12hsv" title="Permanent link">&para;</a></h4>
 <p><code>cv.COLOR_BGR2HSV</code></p>
 <p>顾名思义：BGR → HSV</p>
 <p>HSV 图像可以用它来提取有色物体在 HSV 中，比在 BGR 颜色空间中更容易表示颜色。</p>
-<pre><code class="language-python">import cv2 as cv
-import numpy as np
-cap = cv.VideoCapture(0)
-while True:
-    # 取出视频的每一帧
-    _, frame = cap.read()
-    # 从 BGR 到 HSV 颜色空间的转换
-    hsv = cv.cvtColor(frame, cv.COLOR_BGR2HSV)
-    # 定义 HSV 中蓝色的范围
-    lower_blue = np.array([110,50,50])
-    upper_blue = np.array([130,255,255])
-    # 得到蓝色
-    mask = cv.inRange(hsv, lower_blue, upper_blue)
-    # 按位-and 蒙版和原始图像
-    res = cv.bitwise_and(frame,frame, mask= mask)
-    cv.imshow('frame',frame)
-    cv.imshow('mask',mask)
-    cv.imshow('res',res)
-    k = cv.waitKey(5) &amp; 0xFF
-    if k == 27:
-        break
-cv.destroyAllWindows()
-</code></pre>
-<h3 id="2_2">2、几何变换</h3>
-<h4 id="21_2">2.1、缩放</h4>
-<pre><code class="language-python">res = cv.resize(InputArray, OutputArray, Size, fx, fy, interpolation)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="kn">import</span> <span class="nn">cv2</span> <span class="k">as</span> <span class="nn">cv</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>    <span class="c1"># 取出视频的每一帧</span>
+<a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a>    <span class="n">_</span><span class="p">,</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a>    <span class="c1"># 从 BGR 到 HSV 颜色空间的转换</span>
+<a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a>    <span class="n">hsv</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">cv</span><span class="o">.</span><span class="n">COLOR_BGR2HSV</span><span class="p">)</span>
+<a id="__codelineno-34-9" name="__codelineno-34-9" href="#__codelineno-34-9"></a>    <span class="c1"># 定义 HSV 中蓝色的范围</span>
+<a id="__codelineno-34-10" name="__codelineno-34-10" href="#__codelineno-34-10"></a>    <span class="n">lower_blue</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">110</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">])</span>
+<a id="__codelineno-34-11" name="__codelineno-34-11" href="#__codelineno-34-11"></a>    <span class="n">upper_blue</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">130</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">])</span>
+<a id="__codelineno-34-12" name="__codelineno-34-12" href="#__codelineno-34-12"></a>    <span class="c1"># 得到蓝色</span>
+<a id="__codelineno-34-13" name="__codelineno-34-13" href="#__codelineno-34-13"></a>    <span class="n">mask</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">inRange</span><span class="p">(</span><span class="n">hsv</span><span class="p">,</span> <span class="n">lower_blue</span><span class="p">,</span> <span class="n">upper_blue</span><span class="p">)</span>
+<a id="__codelineno-34-14" name="__codelineno-34-14" href="#__codelineno-34-14"></a>    <span class="c1"># 按位-and 蒙版和原始图像</span>
+<a id="__codelineno-34-15" name="__codelineno-34-15" href="#__codelineno-34-15"></a>    <span class="n">res</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">bitwise_and</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span><span class="n">frame</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span> <span class="n">mask</span><span class="p">)</span>
+<a id="__codelineno-34-16" name="__codelineno-34-16" href="#__codelineno-34-16"></a>    <span class="n">cv</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s1">&#39;frame&#39;</span><span class="p">,</span><span class="n">frame</span><span class="p">)</span>
+<a id="__codelineno-34-17" name="__codelineno-34-17" href="#__codelineno-34-17"></a>    <span class="n">cv</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s1">&#39;mask&#39;</span><span class="p">,</span><span class="n">mask</span><span class="p">)</span>
+<a id="__codelineno-34-18" name="__codelineno-34-18" href="#__codelineno-34-18"></a>    <span class="n">cv</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s1">&#39;res&#39;</span><span class="p">,</span><span class="n">res</span><span class="p">)</span>
+<a id="__codelineno-34-19" name="__codelineno-34-19" href="#__codelineno-34-19"></a>    <span class="n">k</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span>
+<a id="__codelineno-34-20" name="__codelineno-34-20" href="#__codelineno-34-20"></a>    <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">27</span><span class="p">:</span>
+<a id="__codelineno-34-21" name="__codelineno-34-21" href="#__codelineno-34-21"></a>        <span class="k">break</span>
+<a id="__codelineno-34-22" name="__codelineno-34-22" href="#__codelineno-34-22"></a><span class="n">cv</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="2_2">2、几何变换<a class="headerlink" href="#2_2" title="Permanent link">&para;</a></h3>
+<h4 id="21_2">2.1、缩放<a class="headerlink" href="#21_2" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="n">res</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">InputArray</span><span class="p">,</span> <span class="n">OutputArray</span><span class="p">,</span> <span class="n">Size</span><span class="p">,</span> <span class="n">fx</span><span class="p">,</span> <span class="n">fy</span><span class="p">,</span> <span class="n">interpolation</span><span class="p">)</span>
+</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1773,26 +1781,26 @@ cv.destroyAllWindows()
 </table>
 <p><code>interpolation</code> 默认情况下，使用的插值方法是  <code>cv.INTER_LINEAR</code>，用于所有调整大小。</p>
 <p>举例：</p>
-<pre><code class="language-python">import numpy as np
-import cv2 as cv
-img = cv.imread('messi5.jpg')
-res = cv.resize(img,None,fx=2, fy=2, interpolation = cv.INTER_CUBIC)
-</code></pre>
-<h4 id="22_2">2.2、旋转</h4>
-<pre><code class="language-python">cv.getRotationMatrix2D()
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="kn">import</span> <span class="nn">cv2</span> <span class="k">as</span> <span class="nn">cv</span>
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="n">img</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;messi5.jpg&#39;</span><span class="p">)</span>
+<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a><span class="n">res</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="n">fx</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">fy</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">interpolation</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">INTER_CUBIC</span><span class="p">)</span>
+</code></pre></div>
+<h4 id="22_2">2.2、旋转<a class="headerlink" href="#22_2" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="n">cv</span><span class="o">.</span><span class="n">getRotationMatrix2D</span><span class="p">()</span>
+</code></pre></div>
 <p>旋转90度：</p>
-<pre><code class="language-python">img = cv.imread('messi5.jpg',0)
-rows,cols = img.shape
-# cols-1 and rows-1 are the coordinate limits.
-M = cv.getRotationMatrix2D(((cols-1)/2.0,(rows-1)/2.0),90,1)
-dst = cv.warpAffine(img,M,(cols,rows))
-</code></pre>
-<h3 id="3_1">3、图像阈值化</h3>
-<h4 id="31_1">3.1、自适应阈值分割</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="n">img</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;messi5.jpg&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="n">rows</span><span class="p">,</span><span class="n">cols</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span>
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="c1"># cols-1 and rows-1 are the coordinate limits.</span>
+<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a><span class="n">M</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">getRotationMatrix2D</span><span class="p">(((</span><span class="n">cols</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mf">2.0</span><span class="p">,(</span><span class="n">rows</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mf">2.0</span><span class="p">),</span><span class="mi">90</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a><span class="n">dst</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">warpAffine</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">M</span><span class="p">,(</span><span class="n">cols</span><span class="p">,</span><span class="n">rows</span><span class="p">))</span>
+</code></pre></div>
+<h3 id="3_1">3、图像阈值化<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h3>
+<h4 id="31_1">3.1、自适应阈值分割<a class="headerlink" href="#31_1" title="Permanent link">&para;</a></h4>
 <p>如果像素值小于阈值，则将其设置为0，否则将其设置为最大值。</p>
-<pre><code class="language-python">ret,thresh1 = cv.threshold(img,127,255,cv.THRESH_BINARY)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="n">ret</span><span class="p">,</span><span class="n">thresh1</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="mi">127</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="n">cv</span><span class="o">.</span><span class="n">THRESH_BINARY</span><span class="p">)</span>
+</code></pre></div>
 <ul>
 <li>cv.THRESH_BINARY </li>
 <li>cv.THRESH_BINARY_INV</li>
@@ -1805,28 +1813,28 @@ dst = cv.warpAffine(img,M,(cols,rows))
 <li>cv.ADAPTIVE_THRESH_MEAN_C 阈值是邻近区域的平均值减去常数 c</li>
 <li>cv.ADAPTIVE_THRESH_GAUSSIAN_C  阈值是邻域值减去常数 c 的高斯加权和</li>
 </ul>
-<pre><code class="language-python">import cv2 as cv
-import numpy as np
-from matplotlib import pyplot as plt
-img = cv.imread('sudoku.png',0)
-img = cv.medianBlur(img,5)
-ret,th1 = cv.threshold(img,127,255,cv.THRESH_BINARY)
-th2 = cv.adaptiveThreshold(img,255,cv.ADAPTIVE_THRESH_MEAN_C,cv.THRESH_BINARY,11,2)
-th3 = cv.adaptiveThreshold(img,255,cv.ADAPTIVE_THRESH_GAUSSIAN_C,cv.THRESH_BINARY,11,2)
-titles = ['Original Image', 'Global Thresholding (v = 127)',
-            'Adaptive Mean Thresholding', 'Adaptive Gaussian Thresholding']
-images = [img, th1, th2, th3]
-for i in xrange(4):
-    plt.subplot(2,2,i+1),plt.imshow(images[i],'gray')
-    plt.title(titles[i])
-    plt.xticks([]),plt.yticks([])
-plt.show()
-</code></pre>
-<h3 id="4">4、模板匹配</h3>
-<h4 id="41">4.1、单目标匹配</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="kn">import</span> <span class="nn">cv2</span> <span class="k">as</span> <span class="nn">cv</span>
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a><span class="n">img</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;sudoku.png&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a><span class="n">img</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">medianBlur</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a><span class="n">ret</span><span class="p">,</span><span class="n">th1</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="mi">127</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="n">cv</span><span class="o">.</span><span class="n">THRESH_BINARY</span><span class="p">)</span>
+<a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a><span class="n">th2</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">adaptiveThreshold</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="n">cv</span><span class="o">.</span><span class="n">ADAPTIVE_THRESH_MEAN_C</span><span class="p">,</span><span class="n">cv</span><span class="o">.</span><span class="n">THRESH_BINARY</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-40-8" name="__codelineno-40-8" href="#__codelineno-40-8"></a><span class="n">th3</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">adaptiveThreshold</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="n">cv</span><span class="o">.</span><span class="n">ADAPTIVE_THRESH_GAUSSIAN_C</span><span class="p">,</span><span class="n">cv</span><span class="o">.</span><span class="n">THRESH_BINARY</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-40-9" name="__codelineno-40-9" href="#__codelineno-40-9"></a><span class="n">titles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Original Image&#39;</span><span class="p">,</span> <span class="s1">&#39;Global Thresholding (v = 127)&#39;</span><span class="p">,</span>
+<a id="__codelineno-40-10" name="__codelineno-40-10" href="#__codelineno-40-10"></a>            <span class="s1">&#39;Adaptive Mean Thresholding&#39;</span><span class="p">,</span> <span class="s1">&#39;Adaptive Gaussian Thresholding&#39;</span><span class="p">]</span>
+<a id="__codelineno-40-11" name="__codelineno-40-11" href="#__codelineno-40-11"></a><span class="n">images</span> <span class="o">=</span> <span class="p">[</span><span class="n">img</span><span class="p">,</span> <span class="n">th1</span><span class="p">,</span> <span class="n">th2</span><span class="p">,</span> <span class="n">th3</span><span class="p">]</span>
+<a id="__codelineno-40-12" name="__codelineno-40-12" href="#__codelineno-40-12"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+<a id="__codelineno-40-13" name="__codelineno-40-13" href="#__codelineno-40-13"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">images</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<a id="__codelineno-40-14" name="__codelineno-40-14" href="#__codelineno-40-14"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">titles</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<a id="__codelineno-40-15" name="__codelineno-40-15" href="#__codelineno-40-15"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([]),</span><span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+<a id="__codelineno-40-16" name="__codelineno-40-16" href="#__codelineno-40-16"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="4">4、模板匹配<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<h4 id="41">4.1、单目标匹配<a class="headerlink" href="#41" title="Permanent link">&para;</a></h4>
 <p>模板匹配是一种在较大图像中搜索和查找模板图像位置的方法。</p>
-<pre><code class="language-python">cv.matchTemplate()
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="n">cv</span><span class="o">.</span><span class="n">matchTemplate</span><span class="p">()</span>
+</code></pre></div>
 <ul>
 <li>参数1：大图</li>
 <li>参数2：小图</li>
@@ -1839,27 +1847,27 @@ plt.show()
 <li>cv.TM_SQDIFF_NORMED</li>
 </ul>
 <p>查找最大/最小值</p>
-<pre><code class="language-python"> cv.minMaxLoc()
-</code></pre>
-<pre><code class="language-python">res = cv.matchTemplate(source, template, cv.TM_CCOEFF_NORMED)
-cv.minMaxLoc(res)
-</code></pre>
-<h4 id="42">4.2、多目标匹配</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a> <span class="n">cv</span><span class="o">.</span><span class="n">minMaxLoc</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="n">res</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">matchTemplate</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span> <span class="n">cv</span><span class="o">.</span><span class="n">TM_CCOEFF_NORMED</span><span class="p">)</span>
+<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="n">cv</span><span class="o">.</span><span class="n">minMaxLoc</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</code></pre></div>
+<h4 id="42">4.2、多目标匹配<a class="headerlink" href="#42" title="Permanent link">&para;</a></h4>
 <p><code>cv.minMaxLoc()</code>不会给出所有位置。</p>
 <p>通过阈值处理多个模板匹配。</p>
-<pre><code class="language-python">import cv2 as cv
-import numpy as np
-from matplotlib import pyplot as plt
-img_rgb = cv.imread('mario.png')
-img_gray = cv.cvtColor(img_rgb, cv.COLOR_BGR2GRAY)
-template = cv.imread('mario_coin.png',0)
-w, h = template.shape[::-1]
-res = cv.matchTemplate(img_gray,template,cv.TM_CCOEFF_NORMED)
-loc = np.where( res &gt;= 0.8)
-for pt in zip(*loc[::-1]):
-    cv.rectangle(img_rgb, pt, (pt[0] + w, pt[1] + h), (0,0,255), 2)
-cv.imwrite('res.png',img_rgb)
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="kn">import</span> <span class="nn">cv2</span> <span class="k">as</span> <span class="nn">cv</span>
+<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a><span class="n">img_rgb</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;mario.png&#39;</span><span class="p">)</span>
+<a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a><span class="n">img_gray</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">img_rgb</span><span class="p">,</span> <span class="n">cv</span><span class="o">.</span><span class="n">COLOR_BGR2GRAY</span><span class="p">)</span>
+<a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a><span class="n">template</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;mario_coin.png&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-44-7" name="__codelineno-44-7" href="#__codelineno-44-7"></a><span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">shape</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-44-8" name="__codelineno-44-8" href="#__codelineno-44-8"></a><span class="n">res</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">matchTemplate</span><span class="p">(</span><span class="n">img_gray</span><span class="p">,</span><span class="n">template</span><span class="p">,</span><span class="n">cv</span><span class="o">.</span><span class="n">TM_CCOEFF_NORMED</span><span class="p">)</span>
+<a id="__codelineno-44-9" name="__codelineno-44-9" href="#__codelineno-44-9"></a><span class="n">loc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span> <span class="n">res</span> <span class="o">&gt;=</span> <span class="mf">0.8</span><span class="p">)</span>
+<a id="__codelineno-44-10" name="__codelineno-44-10" href="#__codelineno-44-10"></a><span class="k">for</span> <span class="n">pt</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">loc</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>
+<a id="__codelineno-44-11" name="__codelineno-44-11" href="#__codelineno-44-11"></a>    <span class="n">cv</span><span class="o">.</span><span class="n">rectangle</span><span class="p">(</span><span class="n">img_rgb</span><span class="p">,</span> <span class="n">pt</span><span class="p">,</span> <span class="p">(</span><span class="n">pt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">w</span><span class="p">,</span> <span class="n">pt</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-44-12" name="__codelineno-44-12" href="#__codelineno-44-12"></a><span class="n">cv</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="s1">&#39;res.png&#39;</span><span class="p">,</span><span class="n">img_rgb</span><span class="p">)</span>
+</code></pre></div>
 
 
   

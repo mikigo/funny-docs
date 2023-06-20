@@ -318,6 +318,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B6HttpRunner-2%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        接口自动化框架HttpRunner—2小时入门版
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -757,31 +771,31 @@
   
 
 
-<h1 id="linux-python-399">Linux 上安装 Python 3.9.9</h1>
+<h1 id="linux-python-399">Linux 上安装 Python 3.9.9<a class="headerlink" href="#linux-python-399" title="Permanent link">&para;</a></h1>
 <p>在 deepin 上默认是 Python 版本是 3.7.3 ，在做一些 Django 项目的时候需要用到 3.9 版本；</p>
 <p>此脚本直接下载并安装 Python 3.9.9，复制以下脚本执行在本地执行即可；</p>
-<pre><code class="language-shell">#!/bin/bash
-# 刷新源
-sudo apt update
-# 装依赖
-sudo apt install -y zlib1g-dev libbz2-dev libssl-dev libncurses5-dev libsqlite3-dev libreadline-dev tk-dev libgdbm-dev libdb-dev libpcap-dev xz-utils libexpat1-dev liblzma-dev libffi-dev libc6-dev
-# 下载源码
-wget https://cdn.npm.taobao.org/dist/python/3.9.9/Python-3.9.9.tgz
-# 解压
-tar -xzf Python-3.9.9.tgz
-# 放在/usr/local/share/下
-sudo mv  Python-3.9.9 /usr/local/share/
-# 编译
-cd  /usr/local/share/Python-3.9.9/
-./configure --prefix=/usr/local/python3.9
-# 设置优化选项--enable-optimizations
-# ./configure --prefix=/usr/local/python3.9 --enable-optimizations
-make -j4
-sudo make install
-# 设置软连接
-sudo ln -s /usr/local/python3.9/bin/python3.9 /usr/bin/python3.9
-sudo ln -s /usr/local/python3.9/bin/python3.9-config /usr/bin/python3.9-config
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="ch">#!/bin/bash</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># 刷新源</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># 装依赖</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>zlib1g-dev<span class="w"> </span>libbz2-dev<span class="w"> </span>libssl-dev<span class="w"> </span>libncurses5-dev<span class="w"> </span>libsqlite3-dev<span class="w"> </span>libreadline-dev<span class="w"> </span>tk-dev<span class="w"> </span>libgdbm-dev<span class="w"> </span>libdb-dev<span class="w"> </span>libpcap-dev<span class="w"> </span>xz-utils<span class="w"> </span>libexpat1-dev<span class="w"> </span>liblzma-dev<span class="w"> </span>libffi-dev<span class="w"> </span>libc6-dev
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># 下载源码</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>wget<span class="w"> </span>https://cdn.npm.taobao.org/dist/python/3.9.9/Python-3.9.9.tgz
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1"># 解压</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>tar<span class="w"> </span>-xzf<span class="w"> </span>Python-3.9.9.tgz
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># 放在/usr/local/share/下</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>sudo<span class="w"> </span>mv<span class="w">  </span>Python-3.9.9<span class="w"> </span>/usr/local/share/
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="c1"># 编译</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nb">cd</span><span class="w">  </span>/usr/local/share/Python-3.9.9/
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>./configure<span class="w"> </span>--prefix<span class="o">=</span>/usr/local/python3.9
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="c1"># 设置优化选项--enable-optimizations</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="c1"># ./configure --prefix=/usr/local/python3.9 --enable-optimizations</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>make<span class="w"> </span>-j4
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>sudo<span class="w"> </span>make<span class="w"> </span>install
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="c1"># 设置软连接</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/usr/local/python3.9/bin/python3.9<span class="w"> </span>/usr/bin/python3.9
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/usr/local/python3.9/bin/python3.9-config<span class="w"> </span>/usr/bin/python3.9-config
+</code></pre></div>
 <hr />
 
 
