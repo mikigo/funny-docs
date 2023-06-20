@@ -1025,20 +1025,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E6%96%B9%E6%A1%88/Linux%E4%B8%8Asudo%E5%85%8D%E5%AF%86/" class="md-nav__link">
-        Linux 上 sudo 免密
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -1648,7 +1634,7 @@ def add(a,b):
     c = a + b
     return c
 </code></pre>
-<p>&gt;&gt;x=add(1,2)  # 返回一个c的值赋给x，如果返回值有多个，而变量只有1个，则会生成一个元组。也可以用多个变量对应多个返回值，即多元赋值。</p>
+<p>>&gt;x=add(1,2)  # 返回一个c的值赋给x，如果返回值有多个，而变量只有1个，则会生成一个元组。也可以用多个变量对应多个返回值，即多元赋值。</p>
 <h3 id="_10">（三）参数</h3>
 <h4 id="1">1、位置参数(形参)</h4>
 <pre><code class="language-python">def func(name, age):
@@ -1671,7 +1657,7 @@ def add(a,b):
         sum = sum + n
         return sum
 </code></pre>
-<p>&gt;&gt;func(1,2,3,···)  传入的参数数量可变，会自动组装称一个元组，如果传入0个参数，结果时返回一个空元组。</p>
+<p>>&gt;func(1,2,3,···)  传入的参数数量可变，会自动组装称一个元组，如果传入0个参数，结果时返回一个空元组。</p>
 <ul>
 <li>如果传入的参数是一个元组，调用的时候在函数括号内加*号（参数解构）</li>
 </ul>
@@ -1681,12 +1667,12 @@ def add(a,b):
 <pre><code class="language-python">def func(**kwargs):
     print(kwargs)
 </code></pre>
-<p>&gt;&gt;func(name="peter")   # 结果是打印一个字典{"name"："peter"}</p>
+<p>>&gt;func(name="peter")   # 结果是打印一个字典{"name"："peter"}</p>
 <ul>
 <li>如果传入的参数是一个字典，调用的时候在函数括号内加**</li>
 </ul>
-<p>&gt;&gt;dct = {"eat1":"酸辣粉","eat2":"螺狮粉"}</p>
-<p>&gt;&gt;func(**dct)</p>
+<p>>&gt;dct = {"eat1":"酸辣粉","eat2":"螺狮粉"}</p>
+<p>>&gt;func(**dct)</p>
 <h4 id="5">5、组合参数</h4>
 <p>顺序为<strong>位置参数，可变参数，默认参数，关键字参数</strong></p>
 <pre><code class="language-python">def func(name, age, *args, gender=’男’, **kwargs)
@@ -1771,7 +1757,7 @@ def add(a,b):
 <span data-ty></span>
 </div></p>
 <p>（2）try ...except...finally 同（1）一样，但 <strong>finally</strong> 后的语句，无论是否发生异常，都会执行。</p>
-<p>（3）try...except...else 同（1）一样，但 **else ** 后的语句，是在没有发生异常的情况才会执行。</p>
+<p>（3）try...except...else 同（1）一样，但 <strong>else </strong> 后的语句，是在没有发生异常的情况才会执行。</p>
 <h3 id="_19">（二）抛出异常</h3>
 <p>① raise NameError("这是一个名称错误")</p>
 <h3 id="_20">（三）常见的异常</h3>
