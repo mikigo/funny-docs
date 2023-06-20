@@ -49,6 +49,7 @@ nav:
   - 自动化:
     - 自动化/Pytest从入门到起飞.md
     - 自动化/Playwright—8小时入门版.md
+    - 自动化/接口自动化框架HttpRunner-2小时入门版.md
   - 爬虫:
     - 爬虫/Requests.md
     - 爬虫/Httpx.md
@@ -79,3 +80,22 @@ extra:
 extra_javascript:
     - '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'
 
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
