@@ -62,7 +62,12 @@ nav:
     - Python/Python从进阶到高级—通俗易懂版.md
     - Python/Python包构建和发布.md
     - Python/Python环境与依赖管理.md
-  - 常见问题及方案.md
+  - 常见问题及方案:
+    - 常见问题及方案/Linux上安装Python3.9.9.md
+    - 常见问题及方案/Linux上安装Node.js.md
+    - 常见问题及方案/配置开机自启服务.md
+    - 常见问题及方案/配置Python源的几种方法.md
+    - 常见问题及方案/Linux上如何选择用pip3还是sudopip3.md
 
 extra:
   analytics:

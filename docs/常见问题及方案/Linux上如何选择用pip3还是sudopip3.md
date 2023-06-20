@@ -91,7 +91,7 @@ ExecStart=$do you shell scripts$
 WantedBy=multi-user.target
 ```
 
-注意，在 `ExecStart=$do you shell scripts$` 里面配置你的要执行的命令比如：`ExecStart=bash test.sh`
+注意，在 `ExecStart=$do you shell scripts$` 里面配置你的要执行的命令，比如：`ExecStart=bash test.sh`
 
 修改配置文件的权限：
 
@@ -157,7 +157,7 @@ sudo pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 
 ```shell
 pip3 config set global.extra-index-url https://pypi.douban.com/simple/
-p3 config set global.extra-index-url https://mirrors.aliyun.com/pypi/simple/
+pip3 config set global.extra-index-url https://mirrors.aliyun.com/pypi/simple/
 ```
 
 注意 `global.extra-index-url` 里面和上面不同；
