@@ -26,7 +26,7 @@ Requests 特点：简单、简洁、优雅。
 
 ```console
 pip3 install requests
----> 100%
+
 ```
 
 ## 3、请求

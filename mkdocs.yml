@@ -98,4 +98,5 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.highlight:
       anchor_linenums: true
+# 使用之后导致termynal失效
   - pymdownx.superfences

@@ -12,6 +12,6 @@
 
 ```console
 bash -c "$(curl -ksSL https://httprunner.com/script/install.sh)"
----> 100%
+
 ```
 

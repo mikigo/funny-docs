@@ -28,14 +28,14 @@ FastAPI 之所以能突破 Python 语言本身所带来的性能瓶颈，是因�
 
 ```console
 $ pip3 install fastapi
----> 100%
+
 ```
 
 安装 ASGI 服务器，用于启动服务
 
 ```console
 $ pip3 install "uvicorn[standard]"
----> 100%
+
 ```
 
 
@@ -635,7 +635,7 @@ async def login(username: str = Form(), password: str = Form()):
 
 ```console
 pip3 install python-multipart
----> 100%
+
 ```
 
 再重启服务之后，通过表单字段发送，注意不能用 JSON 发送；
@@ -927,7 +927,7 @@ FastAPI 使用数据一般采用 Python 社区最流行的 ORM 库：SQLAlchemy�
 
 ```console
 pip3 install SQLAlchemy
----> 100%
+
 ```
 
 ### 3、创建SQLAlchemy部件

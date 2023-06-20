@@ -1,5 +1,5 @@
 -i https://pypi.douban.com/simple/
 
 mkdocs-material
-termynal
+# termynal
 mkdocs-markdownextradata-plugin
