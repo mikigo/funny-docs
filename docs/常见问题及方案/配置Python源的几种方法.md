@@ -94,3 +94,10 @@ https://pypi.douban.com/simple/
 ```
 
 -------------------------------------
+
+补充小知识，pip 下载安装超时设置：
+
+```shell
+pip3 config set global.timeout 10000
+```
+
