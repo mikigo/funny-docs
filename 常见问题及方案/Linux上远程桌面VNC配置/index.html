@@ -9,17 +9,15 @@
       
       
       
-        <link rel="prev" href="../Linux%E4%B8%8A%E5%AE%89%E8%A3%85Node.js/">
+        <link rel="prev" href="../Linux%E4%B8%8Asudo%E5%85%8D%E5%AF%86/">
       
-      
-        <link rel="next" href="../%E9%85%8D%E7%BD%AEPython%E6%BA%90%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/">
       
       <link rel="icon" href="../../img/favicon.ico">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.16">
     
     
       
-        <title>配置开机自启服务 - Funny Docs</title>
+        <title>Linux 上远程桌面 VNC 服务配置 - Funny Docs</title>
       
     
     
@@ -83,7 +81,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#linux-vnc" class="md-skip">
           跳转至
         </a>
       
@@ -117,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              配置开机自启服务
+              Linux 上远程桌面 VNC 服务配置
             
           </span>
         </div>
@@ -667,21 +665,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../%E9%85%8D%E7%BD%AE%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E6%9C%8D%E5%8A%A1/" class="md-nav__link">
         配置开机自启服务
       </a>
-      
     </li>
   
 
@@ -733,11 +721,59 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../Linux%E4%B8%8A%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2VNC%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Linux 上远程桌面 VNC 服务配置
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Linux 上远程桌面 VNC 服务配置
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    服务端
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    客户端
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -769,6 +805,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    服务端
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    客户端
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -785,37 +843,20 @@
   
 
 
-<h1 id="_1">配置开机自启服务<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>写开机自启服务文件：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>vim<span class="w"> </span>/lib/systemd/system/test.service
+<h1 id="linux-vnc">Linux 上远程桌面 VNC 服务配置<a class="headerlink" href="#linux-vnc" title="Permanent link">&para;</a></h1>
+<h2 id="_1">服务端<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 安装vnc server</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>x11vnc<span class="w"> </span>vnc4server<span class="w"> </span>-y<span class="p">;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># 配置服务显示、端口等</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>sudo<span class="w"> </span>x11vnc<span class="w"> </span>-display<span class="w"> </span>:0<span class="w"> </span>-auth<span class="w"> </span>/var/run/lightdm/root/:0<span class="w"> </span>-forever<span class="w"> </span>-bg<span class="w"> </span>-o<span class="w"> </span>/var/log/x11vnc.log<span class="w"> </span>-rfbauth<span class="w"> </span>/etc/x11vnc.pass<span class="w"> </span>-shared<span class="w"> </span>-noxdamage<span class="w"> </span>-xrandr<span class="w"> </span><span class="s2">&quot;resize&quot;</span><span class="w"> </span>-rfbport<span class="w"> </span><span class="m">5900</span><span class="p">;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># 配置访问密码</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>sudo<span class="w"> </span>x11vnc<span class="w"> </span>-storepasswd<span class="w"> </span><span class="m">1</span><span class="w"> </span>/etc/x11vnc.pass<span class="p">;</span>
 </code></pre></div>
-<p>写入以下内容：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">[</span>Unit<span class="o">]</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nv">Description</span><span class="o">=</span>Test<span class="w"> </span>Service
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nv">After</span><span class="o">=</span>multi-user.target
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="o">[</span>Service<span class="o">]</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="nv">User</span><span class="o">=</span>uos
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="nv">Group</span><span class="o">=</span>uos
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="nv">Type</span><span class="o">=</span>idle
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="nv">WorkingDirectory</span><span class="o">=</span>/home/uos/ocr_env
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="nv">ExecStart</span><span class="o">=</span><span class="nv">$do</span><span class="w"> </span>you<span class="w"> </span>shell<span class="w"> </span>scripts$
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="o">[</span>Install<span class="o">]</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="nv">WantedBy</span><span class="o">=</span>multi-user.target
+<h2 id="_2">客户端<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">#安装tigervnc-viewer</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>tigervnc-viewer
 </code></pre></div>
-<p>注意，在 <code>ExecStart=$do you shell scripts$</code> 里面配置你的要执行的命令，比如：<code>ExecStart=bash test.sh</code></p>
-<p>修改配置文件的权限：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">644</span><span class="w"> </span>/lib/systemd/system/test.service
-</code></pre></div>
-<p>自启服务生效：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>test.service
-</code></pre></div>
-<p>查看服务状态：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>test.service
-</code></pre></div>
-<hr />
+<p>客户端打开 <code>tigervnc-viewer</code>，配置要远程连接服务器地址，点击 <code>Connect</code>，输入密码即可。</p>
 
 
   
