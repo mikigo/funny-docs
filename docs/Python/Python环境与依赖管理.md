@@ -344,12 +344,12 @@ pdm的安装方式有很多种，比如pip、pipx、homebrew等。这里推荐�
 python3 -m pip install --user pipx
 ```
 pipx 需要 Python 3.6 及以上版本，同时必须已经安装好了 pip。
-```plain
+```shell
 pipx install pdm
 ```
 如果提示虚拟环境没有被创建需要安装venv，可以通过命令进行安装。
-```plain
-apt-get install python3-venv
+```shell
+sudo apt-get install python3-venv
 ```
 安装完成之后再通过pipx命令进行安装pdm。
 ```plain
@@ -444,7 +444,7 @@ pdm show requests
 pmd remove requests
 ```
 更新包
-```plain
+```shell
 # 更新所有包
 pdm update 
 # 更新某个包
@@ -491,14 +491,15 @@ start = "python main.py"
 [tool.pdm.scripts]
 start = {cmd = "python main.py"}
 ```
-### 切换Python版本
+### 切换 Python 版本
 
 当你在初始化 pdm 项目时，就已经选定了当前的 Python 版本和可用的 Python 版本范围，后面如果想更改，可以使用 use 命令，但版本要受之前设定的版本范围约束。假设允许范围是 python 3.9+，当前使用的是 python 3.10，可以直接切换过去。
 
 ```plain
 pdm use python3.9  
-假设允许范围是 python 3.9+，当前使用的是 python 3.10，可以直接切换过去。
 ```
+假设允许范围是 python 3.9+，当前使用的是 python 3.10，可以直接切换过去。
+
 ### 兼容环境
 
 pdm 足够好用，也足够开放，如果你当前使用的是其他的包管理器，比如 pipenv ，poetry，或者还在用最原始的 requirements.txt ，你也可以很方便的迁移到 pdm 中来：
