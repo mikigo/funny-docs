@@ -15,7 +15,7 @@
         <link rel="next" href="../../%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E6%96%B9%E6%A1%88/Linux%E4%B8%8A%E5%AE%89%E8%A3%85Python3.9.9/">
       
       <link rel="icon" href="../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.16">
     
     
       
@@ -23,10 +23,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.85bb2934.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a6bdf11c.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -794,7 +794,7 @@
         
           <li class="md-nav__item">
   <a href="#python_2" class="md-nav__link">
-    切换Python版本
+    切换 Python 版本
   </a>
   
 </li>
@@ -1236,7 +1236,7 @@
         
           <li class="md-nav__item">
   <a href="#python_2" class="md-nav__link">
-    切换Python版本
+    切换 Python 版本
   </a>
   
 </li>
@@ -1601,10 +1601,10 @@
 <p><div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>python3 -m pip install --user pipx
 </code></pre></div>
 pipx 需要 Python 3.6 及以上版本，同时必须已经安装好了 pip。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>pipx install pdm
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>pipx<span class="w"> </span>install<span class="w"> </span>pdm
 </code></pre></div>
 如果提示虚拟环境没有被创建需要安装venv，可以通过命令进行安装。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>apt-get install python3-venv
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>python3-venv
 </code></pre></div>
 安装完成之后再通过pipx命令进行安装pdm。
 <div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>:~$ pipx install pdm
@@ -1685,10 +1685,10 @@ pdm list 还有两个选项：
 <div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>pmd remove requests
 </code></pre></div>
 更新包
-<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a># 更新所有包
-<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>pdm update 
-<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a># 更新某个包
-<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a>pdm update &lt;somepackage&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="c1"># 更新所有包</span>
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>pdm<span class="w"> </span>update<span class="w"> </span>
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="c1"># 更新某个包</span>
+<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a>pdm<span class="w"> </span>update<span class="w"> </span>&lt;somepackage&gt;
 </code></pre></div></p>
 <h3 id="_13">项目配置<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>pdm config
@@ -1722,11 +1722,11 @@ pdm config 里面有非常多的配置，想要一一搞清楚的可以去官网
 <a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a>[tool.pdm.scripts]
 <a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a>start = {cmd = &quot;python main.py&quot;}
 </code></pre></div></p>
-<h3 id="python_2">切换Python版本<a class="headerlink" href="#python_2" title="Permanent link">&para;</a></h3>
+<h3 id="python_2">切换 Python 版本<a class="headerlink" href="#python_2" title="Permanent link">&para;</a></h3>
 <p>当你在初始化 pdm 项目时，就已经选定了当前的 Python 版本和可用的 Python 版本范围，后面如果想更改，可以使用 use 命令，但版本要受之前设定的版本范围约束。假设允许范围是 python 3.9+，当前使用的是 python 3.10，可以直接切换过去。</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>pdm use python3.9  
-<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a>假设允许范围是 python 3.9+，当前使用的是 python 3.10，可以直接切换过去。
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>pdm use python3.9  
 </code></pre></div>
+假设允许范围是 python 3.9+，当前使用的是 python 3.10，可以直接切换过去。</p>
 <h3 id="_16">兼容环境<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
 <p>pdm 足够好用，也足够开放，如果你当前使用的是其他的包管理器，比如 pipenv ，poetry，或者还在用最原始的 requirements.txt ，你也可以很方便的迁移到 pdm 中来：</p>
 <p>1.使用 pdm import -f {file} 无需初始化，直接转换</p>
@@ -1781,7 +1781,7 @@ pdm config 里面有非常多的配置，想要一一搞清楚的可以去官网
 
 
                 
-              <hr><span id="busuanzi_container_page_pv"><font size="3" color="grey">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</font></span><br/></article>
+              </article>
             </div>
           
           
@@ -1816,11 +1816,15 @@ pdm config 里面有非常多的配置，想要一一搞清楚的可以去官网
     <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a51614de.min.js"></script>
       
-        <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        
+          <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        
       
-        <script src="../../termynal.js"></script>
+        
+          <script src="../../termynal.js"></script>
+        
       
     
   </body>
