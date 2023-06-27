@@ -37,19 +37,48 @@ theme:
 repo_name: funny-dream/funny-docs
 repo_url: "https://github.com/funny-dream/funny-docs"
 
+markdown_extensions:
+  - toc:
+      permalink: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - attr_list
+  - tables
+  - def_list
+
 plugins:
-  - termynal
   - search
-#  - meta
-  - markdownextradata:
-      data: data
+  - mike
+
+extra:
+  version:
+    provider: mike
+
+extra_javascript:
+    - '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'
 
 nav:
   - 首页: index.md
   - 自动化:
     - 自动化/Pytest从入门到起飞.md
     - 自动化/Playwright—8小时入门版.md
-    - 自动化/接口自动化框架HttpRunner-2小时入门版.md
+    - 自动化/HttpRunner-2小时入门版.md
   - 爬虫:
     - 爬虫/Requests.md
     - 爬虫/Httpx.md
@@ -71,33 +100,3 @@ nav:
     - 常见问题及方案/Linux上如何选择用pip3还是sudopip3.md
     - 常见问题及方案/Linux上sudo免密.md
     - 常见问题及方案/Linux上远程桌面VNC配置.md
-
-extra:
-  analytics:
-    provider: google
-#    property: G-YNEVN69SC3
-  generator: false
-
-extra_javascript:
-    - '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'
-
-markdown_extensions:
-  - abbr
-  - admonition
-  - attr_list
-  - def_list
-  - footnotes
-  - md_in_html
-  - tables
-  - toc:
-      permalink: true
-  - pymdownx.betterem
-  - pymdownx.caret
-  - pymdownx.mark
-  - pymdownx.tilde
-  - pymdownx.critic
-  - pymdownx.details
-  - pymdownx.highlight:
-      anchor_linenums: true
-# 使用之后导致termynal失效
-  - pymdownx.superfences

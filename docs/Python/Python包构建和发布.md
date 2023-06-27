@@ -2,7 +2,7 @@
 
 ## 1、必要的文件
 
-除了你的源代码以外，你还需要准备一下文件；
+除了你的源代码以外，你还需要准备以下文件；
 
 ### LICENSE
 
@@ -64,67 +64,67 @@ dependencies = [
 
 注意：
 
-1. classifiers 里面 License 字段要项目的开源协议一致；在这里列出了所有的开源协议应该怎么写：https://pypi.org/classifiers/
+（1）`classifiers` 里面 `License` 字段要和项目的开源协议一致；在这里列出了所有的开源协议应该怎么写：https://pypi.org/classifiers/
 
-2. dependencies 是你项目的依赖，别人使用 pip 安装的时候会同时安装上这些依赖；
+（2）`dependencies` 是你项目的依赖，别人使用 pip 安装的时候会同时安装上这些依赖；
 
-   注意这里如果有一些条件，比如有些包有版本的、操作系统、Python版本的限制，必须要按照规范写：https://peps.python.org/pep-0508/
+注意这里如果有一些条件，比如有些包有版本的、操作系统、Python版本的限制，必须要按照规范写：https://peps.python.org/pep-0508/
 
-3. 可选依赖
+（3）可选依赖
 
-   ```toml
-   [project.optional-dependencies]
-   test = [
-       "pytest",
-   ]
-   doc = ["mkdocs-material"]
-   ```
+```toml
+[project.optional-dependencies]
+test = [
+    "pytest",
+]
+doc = ["mkdocs-material"]
+```
 
-   这些是可选的，安装的时候可以这样进行安装：
+这些是可选的，安装的时候可以这样进行安装：
 
-   ```shell
-   pip install pdocr-rpc[test]
-   ```
+```shell
+pip install pdocr-rpc[test]
+```
 
-   这样就会安装 `pytest`
+这样就会安装 `pytest`
 
-4. urls
+（4）urls
 
-   ```toml
-   [project.urls]
-   Source = "https://github.com/funny-dream/pdocr-rpc"
-   Documentation = "https://funny-dream.github.io/pdocr-rpc"
-   ```
+```toml
+[project.urls]
+Source = "https://github.com/funny-dream/pdocr-rpc"
+Documentation = "https://funny-dream.github.io/pdocr-rpc"
+```
 
-   这个在 `pypi` 的网页端能展示，别人可以通过那里跳转的你的文档或源码页面；
+这个在 `pypi` 的网页端能展示，别人可以通过那里跳转的你的文档或源码页面；
 
-5. version
+（5）version
 
-   ```toml
-   [tool.hatch.version]
-   path = "allure_custom/__version__.py"
-   ```
+```toml
+[tool.hatch.version]
+path = "allure_custom/__version__.py"
+```
 
-   用一个 `__version__.py` 指定版本是比较优雅的方法；
+用一个 `__version__.py` 指定版本是比较优雅的方法；
 
-   ```python
-   __title__ = "allure_custom"
-   __version__ = "2023.6.26"
-   ```
+```python
+__title__ = "allure_custom"
+__version__ = "2023.6.26"
+```
 
-   
 
-关于 project 下的详细内容及规范，请查看：https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#declaring-project-metadata
+
+关于 `project` 下的详细内容及规范，请查看：https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#declaring-project-metadata
 
 ## 2、打包
 
-安装打包工具
+安装打包工具：
 
 ```shell
 sudo pip3 install build
 ```
 
-打包
+打包：
 
 ```shell
 python3 -m build
@@ -148,7 +148,7 @@ dist/
 sudo pip3 install twine
 ```
 
-发布
+发布：
 
 ```shell
 twine upload dist/*

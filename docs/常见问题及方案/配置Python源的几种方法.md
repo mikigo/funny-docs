@@ -38,7 +38,7 @@ pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 sudo pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
-可以多次执行添加多个:
+可以再次执行再添加一个:
 
 ```shell
 pip3 config set global.extra-index-url https://pypi.douban.com/simple/
