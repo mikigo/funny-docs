@@ -19,7 +19,7 @@
     
     
       
-        <title>接口自动化框架HttpRunner—2小时入门版 - Funny Docs</title>
+        <title>HttpRunner—2小时入门版 - Funny Docs</title>
       
     
     
@@ -42,21 +42,9 @@
       
     
     
-      <link rel="stylesheet" href="../../termynal.css">
-    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-  
-
-
-  
-  
-
-
-  
-    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-  
 
     
     
@@ -92,6 +80,10 @@
       
     </div>
     
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
     
       
 
@@ -117,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              接口自动化框架HttpRunner—2小时入门版
+              HttpRunner—2小时入门版
             
           </span>
         </div>
@@ -336,12 +328,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          接口自动化框架HttpRunner—2小时入门版
+          HttpRunner—2小时入门版
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        接口自动化框架HttpRunner—2小时入门版
+        HttpRunner—2小时入门版
       </a>
       
         
@@ -369,6 +361,13 @@
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     二、安装
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    创建项目
   </a>
   
 </li>
@@ -827,6 +826,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    创建项目
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -845,17 +851,40 @@
   
 
 
-<h1 id="httprunner2">接口自动化框架HttpRunner—2小时入门版<a class="headerlink" href="#httprunner2" title="Permanent link">&para;</a></h1>
+<h1 id="httprunner2">HttpRunner—2小时入门版<a class="headerlink" href="#httprunner2" title="Permanent link">&para;</a></h1>
 <h2 id="_1">一、简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>接口测试很多同学用 <code>Postman</code>、<code>Jmeter</code> 来做，用起来也挺简单的，但是接口用例多了之后就发现不好管理维护，要落地到公司级 CI 项目就有点难搞了；</p>
 <p>稍微有点技术能力的同学更愿意直接用 <code>requests</code> 来做接口自动化，但是大多用 <code>requests</code> 来做的接口自动化项目，在工程化方面都做得不太好，与其说是接口自动化项目，不如说是接口脚本的集中存放，没有体系化的框架结构设计，因此在大型 CI 项目中落地也显得不太够用，维护人员除了忙于接口脚本的维护，还要投入大量时间做新功能和修复代码中的 Bug。</p>
 <p>想要轻松快速的落地接口自动化，又不想自己去折腾，我个人还是推荐 <code>HttpRunner</code>，只需要写写配置文件就把活干完了；</p>
 <h2 id="_2">二、安装<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="go">bash -c &quot;$(curl -ksSL https://httprunner.com/script/install.sh)&quot;</span>
+<p>系统环境：<code>deepin</code> / <code>UOS</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="go">sudo bash -c &quot;$(curl -ksSL https://httprunner.com/script/install.sh)&quot;</span>
 </code></pre></div>
+<p>注意，使用 <code>sudo</code> 安装，不然命令行工具无法写入系统环境变量。</p>
+<p>装完之后会有一些版本、命令行参数的输出，说明安装成功。</p>
+<h2 id="_3">创建项目<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>hrp<span class="w"> </span>startproject<span class="w"> </span>funny-api-autotest
+</code></pre></div>
+<p>这里会使用 <code>venv</code> 创建一个虚拟，有可能报错需要安装 <code>python3-venv</code>；</p>
+<p>不要慌，我们来修复一下环境：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># 安装依赖</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3-pip
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># 安装venv</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3-venv
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1"># 把之前创建失败的虚拟环境删掉</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="nb">cd</span><span class="w"> </span>~/.hrp/
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>rm<span class="w"> </span>-rf<span class="w"> </span>venv
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="c1"># 重新创建一个</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1"># 激活虚拟环境</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="nb">source</span><span class="w"> </span>~/.hrp/venv/bin/activate
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="c1"># 把pip更新一下</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip<span class="w"> </span>setuptools<span class="w"> </span>wheel
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="c1"># 安装依赖funppy</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>pip<span class="w"> </span>install<span class="w"> </span>funppy
+</code></pre></div>
+<p>如果不出意外，环境就安装好了；</p>
 
-
-  
 
 
 
@@ -882,6 +911,11 @@
     </div>
   
   
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
 </div>
       
     </div>
@@ -893,17 +927,13 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.a51614de.min.js"></script>
       
         
           <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-        
-      
-        
-          <script src="../../termynal.js"></script>
         
       
     

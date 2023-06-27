@@ -42,21 +42,9 @@
       
     
     
-      <link rel="stylesheet" href="../../termynal.css">
-    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-  
-
-
-  
-  
-
-
-  
-    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-  
 
     
     
@@ -91,6 +79,10 @@
     <div data-md-component="announce">
       
     </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
     
     
       
@@ -324,8 +316,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A1%86%E6%9E%B6HttpRunner-2%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
-        接口自动化框架HttpRunner—2小时入门版
+      <a href="../../%E8%87%AA%E5%8A%A8%E5%8C%96/HttpRunner-2%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        HttpRunner—2小时入门版
       </a>
     </li>
   
@@ -955,7 +947,7 @@
 
 <h1 id="python">Python包构建和发布<a class="headerlink" href="#python" title="Permanent link">&para;</a></h1>
 <h2 id="1">1、必要的文件<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
-<p>除了你的源代码以外，你还需要准备一下文件；</p>
+<p>除了你的源代码以外，你还需要准备以下文件；</p>
 <h3 id="license">LICENSE<a class="headerlink" href="#license" title="Permanent link">&para;</a></h3>
 <p>开源协议文件</p>
 <p>这里以我的项目用到的开源协议举例：</p>
@@ -995,18 +987,10 @@
 </code></pre></div>
 <p>这里面就是一些基本信息，你可以按照自己的实际情况修改；</p>
 <p>注意：</p>
-<ol>
-<li>
-<p>classifiers 里面 License 字段要项目的开源协议一致；在这里列出了所有的开源协议应该怎么写：https://pypi.org/classifiers/</p>
-</li>
-<li>
-<p>dependencies 是你项目的依赖，别人使用 pip 安装的时候会同时安装上这些依赖；</p>
-</li>
-</ol>
+<p>（1）<code>classifiers</code> 里面 <code>License</code> 字段要和项目的开源协议一致；在这里列出了所有的开源协议应该怎么写：https://pypi.org/classifiers/</p>
+<p>（2）<code>dependencies</code> 是你项目的依赖，别人使用 pip 安装的时候会同时安装上这些依赖；</p>
 <p>注意这里如果有一些条件，比如有些包有版本的、操作系统、Python版本的限制，必须要按照规范写：https://peps.python.org/pep-0508/</p>
-<ol>
-<li>可选依赖</li>
-</ol>
+<p>（3）可选依赖</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[project.optional-dependencies]</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="s">&quot;pytest&quot;</span><span class="p">,</span>
@@ -1017,17 +1001,13 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pip<span class="w"> </span>install<span class="w"> </span>pdocr-rpc<span class="o">[</span>test<span class="o">]</span>
 </code></pre></div>
 <p>这样就会安装 <code>pytest</code></p>
-<ol>
-<li>urls</li>
-</ol>
+<p>（4）urls</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">[project.urls]</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">Source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;https://github.com/funny-dream/pdocr-rpc&quot;</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">Documentation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;https://funny-dream.github.io/pdocr-rpc&quot;</span>
 </code></pre></div>
 <p>这个在 <code>pypi</code> 的网页端能展示，别人可以通过那里跳转的你的文档或源码页面；</p>
-<ol>
-<li>version</li>
-</ol>
+<p>（5）version</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">[tool.hatch.version]</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;allure_custom/__version__.py&quot;</span>
 </code></pre></div>
@@ -1035,12 +1015,12 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">__title__</span> <span class="o">=</span> <span class="s2">&quot;allure_custom&quot;</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;2023.6.26&quot;</span>
 </code></pre></div>
-<p>关于 project 下的详细内容及规范，请查看：https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#declaring-project-metadata</p>
+<p>关于 <code>project</code> 下的详细内容及规范，请查看：https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#declaring-project-metadata</p>
 <h2 id="2">2、打包<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
-<p>安装打包工具</p>
+<p>安装打包工具：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>build
 </code></pre></div>
-<p>打包</p>
+<p>打包：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>python3<span class="w"> </span>-m<span class="w"> </span>build
 </code></pre></div>
 <p>完成后应生成两个目录中的文件：<code>dist</code></p>
@@ -1053,13 +1033,11 @@
 <p>安装发布工具：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>twine
 </code></pre></div>
-<p>发布</p>
+<p>发布：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>twine<span class="w"> </span>upload<span class="w"> </span>dist/*
 </code></pre></div>
 <p>输入你的账号密码即可发布到 pypi，以后每次发布包记得更新版本；</p>
 
-
-  
 
 
 
@@ -1086,6 +1064,11 @@
     </div>
   
   
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
 </div>
       
     </div>
@@ -1097,17 +1080,13 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.a51614de.min.js"></script>
       
         
           <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-        
-      
-        
-          <script src="../../termynal.js"></script>
         
       
     
