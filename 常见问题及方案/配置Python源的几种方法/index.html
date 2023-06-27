@@ -15,7 +15,7 @@
         <link rel="next" href="../Linux%E4%B8%8A%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E7%94%A8pip3%E8%BF%98%E6%98%AFsudopip3/">
       
       <link rel="icon" href="../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.16">
     
     
       
@@ -23,10 +23,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.85bb2934.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a6bdf11c.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -725,7 +725,7 @@
       
         <li class="md-nav__item">
   <a href="#2requirementstxt" class="md-nav__link">
-    （2）requirements.txt 添加三方源
+    （2）requirements.txt 临时添加三方源
   </a>
   
 </li>
@@ -746,7 +746,14 @@
       
         <li class="md-nav__item">
   <a href="#5" class="md-nav__link">
-    （5）常用的几个三方源
+    （5）作用域
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    （6）常用的几个三方源
   </a>
   
 </li>
@@ -843,7 +850,7 @@
       
         <li class="md-nav__item">
   <a href="#2requirementstxt" class="md-nav__link">
-    （2）requirements.txt 添加三方源
+    （2）requirements.txt 临时添加三方源
   </a>
   
 </li>
@@ -864,7 +871,14 @@
       
         <li class="md-nav__item">
   <a href="#5" class="md-nav__link">
-    （5）常用的几个三方源
+    （5）作用域
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    （6）常用的几个三方源
   </a>
   
 </li>
@@ -891,36 +905,35 @@
 <h2 id="1">（1）临时添加三方源<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip3<span class="w"> </span>install<span class="w"> </span>funnylog<span class="w"> </span>-i<span class="w"> </span>https://pypi.tuna.tsinghua.edu.cn/simple
 </code></pre></div>
-<p>如果想临时添加多个，后面可以加多个 -i</p>
+<p>如果不小心添加了多个，就像这样：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pip3<span class="w"> </span>install<span class="w"> </span>xxx<span class="w"> </span>-i<span class="w"> </span>yyyy<span class="w"> </span>-i<span class="w"> </span>zzzz
 </code></pre></div>
-<h2 id="2requirementstxt">（2）requirements.txt 添加三方源<a class="headerlink" href="#2requirementstxt" title="Permanent link">&para;</a></h2>
+<p>只有最后一个 -i 指定的三方源生效；</p>
+<h2 id="2requirementstxt">（2）requirements.txt 临时添加三方源<a class="headerlink" href="#2requirementstxt" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># requirements.txt</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>-i<span class="w"> </span>https://pypi.tuna.tsinghua.edu.cn/simple
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>-i<span class="w"> </span>https://pypi.douban.com/simple/
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>funnylog
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>...
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>funnylog
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>...
 </code></pre></div>
 <h2 id="3">（3）命令行永久配置<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
 <ul>
-<li>适用于 <code>pip3 install</code> 的安装方式：</li>
+<li>适用于 <code>pip3 install</code> 的安装方式（<strong>普通用户</strong>）：</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pip3<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>global.index-url<span class="w"> </span>https://pypi.tuna.tsinghua.edu.cn/simple
 </code></pre></div>
 <ul>
-<li>适用于 <code>sudo pip3 install</code> 的安装方式：</li>
+<li>适用于 <code>sudo pip3 install</code> 的安装方式（<strong>root用户</strong>）：</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo<span class="w"> </span>pip3<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>global.index-url<span class="w"> </span>https://pypi.tuna.tsinghua.edu.cn/simple
 </code></pre></div>
 <p>可以多次执行添加多个:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>pip3<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>global.extra-index-url<span class="w"> </span>https://pypi.douban.com/simple/
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>pip3<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>global.extra-index-url<span class="w"> </span>https://mirrors.aliyun.com/pypi/simple/
 </code></pre></div>
 <p>注意 <code>global.extra-index-url</code> 里面和上面不同；</p>
 <h2 id="4">（4）修改配置文件永久配置<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
 <ul>
-<li>适用于 <code>pip3 install</code> 的安装方式：</li>
+<li>适用于 <code>pip3 install</code> 的安装方式（<strong>普通用户</strong>）：</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>vi<span class="w"> </span>~/.config/pip/pip.conf
 </code></pre></div>
@@ -928,9 +941,10 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>[global]
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>index-url = https://pypi.douban.com/simple/
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>extra-index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>extra-index-url = https://mirrors.aliyun.com/pypi/simple/
 </code></pre></div>
 <ul>
-<li>适用于 <code>sudo pip3 install</code> 的安装方式：</li>
+<li>适用于 <code>sudo pip3 install</code> 的安装方式（<strong>root用户</strong>）：</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo<span class="w"> </span>vi<span class="w"> </span>/root/.config/pip/pip.conf
 </code></pre></div>
@@ -938,25 +952,45 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="o">[</span>global<span class="o">]</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>index-url<span class="w"> </span><span class="o">=</span><span class="w"> </span>https://pypi.douban.com/simple/
 <a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>extra-index-url<span class="w"> </span><span class="o">=</span><span class="w"> </span>https://pypi.tuna.tsinghua.edu.cn/simple
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>extra-index-url<span class="w"> </span><span class="o">=</span><span class="w"> </span>https://mirrors.aliyun.com/pypi/simple/
 </code></pre></div>
-<h2 id="5">（5）常用的几个三方源<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># 清华</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>https://pypi.tuna.tsinghua.edu.cn/simple/
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c1"># 阿里云</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>https://mirrors.aliyun.com/pypi/simple/
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="c1"># 中国科技大学</span>
-<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>https://pypi.mirrors.ustc.edu.cn/simple/
-<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="c1"># 华中科技大学</span>
-<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>https://pypi.hustunique.com/simple/
-<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="c1"># 上海交通大学</span>
-<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>https://mirror.sjtu.edu.cn/pypi/web/simple/
-<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="c1"># 豆瓣</span>
-<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>https://pypi.douban.com/simple/
+<ul>
+<li><strong>全局配置</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>vi<span class="w"> </span>/etc/pip.conf
+</code></pre></div>
+<p>配置如下：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="o">[</span>global<span class="o">]</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>index-url<span class="w"> </span><span class="o">=</span><span class="w"> </span>https://pypi.douban.com/simple/
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>extra-index-url<span class="w"> </span><span class="o">=</span><span class="w"> </span>https://pypi.tuna.tsinghua.edu.cn/simple
+</code></pre></div>
+<h2 id="5">（5）作用域<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<ul>
+<li>临时添加的方式，只在本次操作有效（不区分普通用户、root用户、全局配置）；</li>
+<li>普通用户的配置方式，只在普通用户权限下生效，就是只有使用 <code>pip3 install</code> 生效；</li>
+<li>root用户的配置方式，只在root用户权限下生效，就是只有使用 <code>sudo pip3 install</code> 生效；</li>
+<li>全局配置方式，所有情况下均生效；</li>
+</ul>
+<h2 id="6">（6）常用的几个三方源<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># 清华</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>https://pypi.tuna.tsinghua.edu.cn/simple/
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="c1"># 阿里</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>https://mirrors.aliyun.com/pypi/simple/
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="c1"># 中国科技大学</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>https://pypi.mirrors.ustc.edu.cn/simple/
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="c1"># 华中科技大学</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>https://pypi.hustunique.com/simple/
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="c1"># 上海交通大学</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>https://mirror.sjtu.edu.cn/pypi/web/simple/
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="c1"># 豆瓣</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>https://pypi.douban.com/simple/
 </code></pre></div>
 <hr />
 <p>补充小知识，pip 下载安装超时设置：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>pip3<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>global.timeout<span class="w"> </span><span class="m">10000</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>pip3<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>global.timeout<span class="w"> </span><span class="m">10000</span>
 </code></pre></div>
+<hr />
+<p>吐槽一下阿里的镜像，更新相当不及时，我个人不建议使用哈。</p>
 
 
   
@@ -965,7 +999,7 @@
 
 
                 
-              <hr><span id="busuanzi_container_page_pv"><font size="3" color="grey">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</font></span><br/></article>
+              </article>
             </div>
           
           
@@ -1000,11 +1034,15 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a51614de.min.js"></script>
       
-        <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        
+          <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        
       
-        <script src="../../termynal.js"></script>
+        
+          <script src="../../termynal.js"></script>
+        
       
     
   </body>
