@@ -20,7 +20,7 @@ sudo bash -c "$(curl -ksSL https://httprunner.com/script/install.sh)"
 
 装完之后会有一些版本、命令行参数的输出，说明安装成功。
 
-## 创建项目
+## 三、创建项目
 
 ```shell
 hrp startproject funny-api-autotest
@@ -50,5 +50,210 @@ pip install funppy
 
 如果不出意外，环境就安装好了；
 
+## 四、目录结构
 
+```shell
+.
+├── debugtalk.py # 定义一些函数并返回一些值，函数名和参数可以传入到yml文件参数里面；
+├── .env # 定义全局的环境变量
+├── .gitignore
+├── har # 导出的har文件
+├── proj.json # 工程信息
+├── README.md
+├── results # 测试报告
+└── testcases # 测试用例
+```
 
+ **`testcases`** 
+
+这里面用例是 `yaml` 或 `json` 文件，用 `yaml ` 文件写接口自动化的用例也是常规操作，因为接口几乎都是以字典（或 `json`）的形式提供参数，而 `yaml` 文件读出来刚好就是，所以大家就喜欢用这种格式。
+
+前面我说这个框架简单就是因为把接口的信息就直接在 `yaml` 文件里面一配置，活就干完了，根本都不需要写代码；
+
+对新手来说简直了，下面介绍一下 `yaml` 文件的字段：
+
+```yaml
+config:
+    name: "request methods testcase with functions"
+    variables:
+        foo1: config_bar1
+        foo2: config_bar2
+        expect_foo1: config_bar1
+        expect_foo2: config_bar2
+    base_url: "https://postman-echo.com"
+    verify: False
+    export: ["foo3"]
+
+teststeps:
+-
+    name: get with params
+    variables:
+        foo1: bar11
+        foo2: bar21
+        sum_v: "${sum_two(1, 2)}"
+    request:
+        method: GET
+        url: /get
+        params:
+            foo1: $foo1
+            foo2: $foo2
+            sum_v: $sum_v
+        headers:
+            User-Agent: HttpRunner/${get_httprunner_version()}
+    extract:
+        foo3: "body.args.foo2"
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["body.args.foo1", "bar11"]
+        - eq: ["body.args.sum_v", "3"]
+        - eq: ["body.args.foo2", "bar21"]
+-
+    name: post form data
+    variables:
+        foo2: bar23
+    request:
+        method: POST
+        url: /post
+        headers:
+            User-Agent: HttpRunner/${get_httprunner_version()}
+            Content-Type: "application/x-www-form-urlencoded"
+        data: "foo1=$foo1&foo2=$foo2&foo3=$foo3"
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["body.form.foo1", "$expect_foo1"]
+        - eq: ["body.form.foo2", "bar23"]
+        - eq: ["body.form.foo3", "bar21"]
+```
+
+- config：测试用例的公共配置部分，包括用例名称、base_url、参数化数据源、是否开启 SSL 校验等，举例：
+
+  ```yaml
+  config:
+    name: "demo with complex mechanisms"
+    verify: False
+    base_url: "https://postman-echo.com"
+    headers:
+      X-Request-Timestamp: "165460624942"
+    parameters:
+      user_agent: [ "iOS/10.1", "iOS/10.2" ]
+      username-password: ${parameterize($file)}
+    parameters_setting:
+      strategies:
+        user_agent:
+          name: "user-identity"
+          pick_order: "sequential"
+        username-password:
+          name: "user-info"
+          pick_order: "random"
+      limit: 6
+    think_time:
+      strategy: random_percentage
+      setting:
+        max_percentage: 1.5
+        min_percentage: 1
+      limit: 4
+    variables:
+      app_version: v1
+      user_agent: iOS/10.3
+      file: examples/hrp/account.csv
+    websocket:
+      reconnection_times: 5
+      reconnection_interval: 2000
+    export: ["app_version"]
+    weight: 10
+  ```
+
+- teststeps：有序步骤的集合；
+
+  | 测试步骤类型 | 含义                              |
+  | ------------ | --------------------------------- |
+  | request      | 用于发起 HTTP 请求的步骤类型      |
+  | api          | 用于引用 API 的步骤类型           |
+  | testcase     | 用于引用其他测试用例的步骤类型    |
+  | transaction  | 用于定义一个事务                  |
+  | rendezvous   | 集合点                            |
+  | think_time   | 思考时间                          |
+  | websocket    | 用于发起 WebSocket 请求的步骤类型 |
+
+  除了基本的测试步骤之外，部分测试步骤还可以进行增强；
+
+  | 增强操作类型   | 含义     | 适用的测试步骤        |
+  | -------------- | -------- | --------------------- |
+  | variables      | 局部变量 | 通用                  |
+  | setup_hooks    | 前置函数 | request/api/websocket |
+  | teardown_hooks | 后置函数 | request/api/websocket |
+  | extract        | 参数提取 | request/api/websocket |
+  | validate       | 结果校验 | request/api/websocket |
+  | export         | 导出变量 | testcase              |
+
+  举例：
+
+  ```yaml
+  teststeps:
+    -
+      name: get with params
+      variables:
+        foo1: ${ENV(USERNAME)}
+        foo2: bar21
+        sum_v: "${sum_two_int(1, 2)}"
+      request:
+        method: GET
+        url: $base_url/get
+        params:
+          foo1: $foo1
+          foo2: $foo2
+          sum_v: $sum_v
+      extract:
+        foo3: "body.args.foo2"
+      validate:
+        - eq: ["status_code", 200]
+        - eq: ["body.args.foo1", "debugtalk"]
+        - eq: ["body.args.sum_v", "3"]
+        - eq: ["body.args.foo2", "bar21"]
+    -
+      name: post form data
+      variables:
+        foo2: bar23
+      request:
+        method: POST
+        url: $base_url/post
+        headers:
+          Content-Type: "application/x-www-form-urlencoded"
+        body: "foo1=$foo1&foo2=$foo2&foo3=$foo3"
+      validate:
+        - eq: ["status_code", 200]
+        - eq: ["body.form.foo1", "$expect_foo1"]
+        - eq: ["body.form.foo2", "bar23"]
+        - eq: ["body.form.foo3", "bar21"]
+  ```
+
+**特殊值的规则：**
+
+- 变量引用：约定通过 `${}` 或 `$` 的形式来引用变量，例如 `$foo1` 或 `${foo1}`
+
+- 函数调用：约定通过 `${}` 的形式来调用插件函数，例如 `${sum_two(1, 2)}` ；
+
+  有同学要问了，yaml 文件里面写 `${sum_two(1, 2)}`，从哪里来的；
+
+  其实，`sum_two` 在`debugtalk.py` 里面定义;
+
+  ```python
+  # debugtalk.py
+  
+  import funppy
+  
+  def sum_two_int(a: int, b: int) -> int:
+      return a + b
+  
+  if __name__ == '__main__':
+      funppy.register("sum_two", sum_two_int)
+      funppy.serve()
+  ```
+
+## 五、执行用例
+
+```shell
+hrp run testcases/demo_requests.yml --gen-html-report
+```
+
+执行完成之后，在 `result` 目录下生成 `html` 测试报告。
