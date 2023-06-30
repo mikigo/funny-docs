@@ -1,73 +1,47 @@
 # Linux 上安装 Node.js
 
-【方法一】
-
 在官网下载：https://nodejs.cn/download/current/
 
-建议选择最新的 `LTS` 版本；
-
-下载下来加压到 `/opt` 目录下：
+以下代码可以直接复制下来，一键执行；
 
 ```shell
-sudo ln -s /opt/node/bin/npm   /usr/bin/npm
-sudo ln -s /opt/node/bin/node   /usr/bin/node
+# 定义下载版本
+node_version=v18.16.1
+
+# 定义/opt目录下node目录的名称，以兼容多个node版本
+opt_node_dir="node${node_version}"
+
+# 下载node包
+wget https://cdn.npmmirror.com/binaries/node/${node_version}/node-${node_version}-linux-x64.tar.xz
+
+# 解压安装包
+tar -xvJf node-${node_version}-linux-x64.tar.xz
+
+# 放到/opt目录下
+sudo rm -rf /opt/${opt_node_dir}
+sudo mv node-${node_version}-linux-x64 /opt/${opt_node_dir}
+
+# 创建npm、node链接到系统目录
+sudo rm -rf /usr/local/bin/npm; sudo ln -s /opt/${opt_node_dir}/bin/npm   /usr/local/bin/npm
+sudo rm -rf /usr/local/bin/node; sudo ln -s /opt/${opt_node_dir}/bin/node   /usr/local/bin/node
+
+# 安装pnpm
+npm install -g pnpm
+
+# 创建pnpm链接到系统目录
+sudo rm -rf /usr/local/bin/pnpm; sudo ln -s /opt/${opt_node_dir}/bin/pnpm /usr/local/bin/pnpm
+sudo rm -rf /usr/local/bin/pnpx; sudo ln -s /opt/${opt_node_dir}/bin/pnpx /usr/local/bin/pnpx
 ```
-
-【方法二】
-
-**Node.js v20.x**
-
-```shell
-curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
-sudo apt install -y nodejs
-```
-
-**Node.js v19.x**
-
-```shell
-curl -fsSL https://deb.nodesource.com/setup_19.x | sudo -E bash -
-sudo apt install -y nodejs
-```
-
-**Node.js v18.x**
-
-```shell
-curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-sudo apt install -y nodejs
-```
-
-**Node.js v16.x**
-
-```shell
-curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-sudo apt install -y nodejs
-```
-
-**Node.js LTS (v18.x)**
-
-```shell
-# 下载deb源，并刷新
-curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
-# apt 安装nodejs npm
-sudo apt install -y nodejs
-```
-
-**Node.js Current (v20.x)**
-
-```shell
-curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
-sudo apt install -y nodejs
-```
-
-我个人推荐**【方法一】**
 
 安装完之后查看版本，没报错就说明安装好了；
 
 ```shell
-mikigo@mikigo-PC:~$ node -v
-v10.24.0
-mikigo@mikigo-PC:~$ npm -v
-5.8.0
+node -v
+npm -v
+pnpm -v
 ```
 
----------------------------------------
+
+
+
+
