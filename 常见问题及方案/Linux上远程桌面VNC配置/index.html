@@ -853,12 +853,34 @@
 
 <h1 id="linux-vnc">Linux 上远程桌面 VNC 服务配置<a class="headerlink" href="#linux-vnc" title="Permanent link">&para;</a></h1>
 <h2 id="_1">服务端<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 安装vnc server</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>x11vnc<span class="w"> </span>vnc4server<span class="w"> </span>-y<span class="p">;</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># 配置服务显示、端口等</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>sudo<span class="w"> </span>x11vnc<span class="w"> </span>-display<span class="w"> </span>:0<span class="w"> </span>-auth<span class="w"> </span>/var/run/lightdm/root/:0<span class="w"> </span>-forever<span class="w"> </span>-bg<span class="w"> </span>-o<span class="w"> </span>/var/log/x11vnc.log<span class="w"> </span>-rfbauth<span class="w"> </span>/etc/x11vnc.pass<span class="w"> </span>-shared<span class="w"> </span>-noxdamage<span class="w"> </span>-xrandr<span class="w"> </span><span class="s2">&quot;resize&quot;</span><span class="w"> </span>-rfbport<span class="w"> </span><span class="m">5900</span><span class="p">;</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># 配置访问密码</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>sudo<span class="w"> </span>x11vnc<span class="w"> </span>-storepasswd<span class="w"> </span><span class="m">1</span><span class="w"> </span>/etc/x11vnc.pass<span class="p">;</span>
+<p>一键部署脚本：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="ch">#!/bin/bash</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># 安装VNC</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>x11vnc<span class="w"> </span>-y
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># 密码设置为1</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>sudo<span class="w"> </span>x11vnc<span class="w"> </span>-storepasswd<span class="w"> </span><span class="m">1</span><span class="w"> </span>/etc/x11vnc.pass
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># 配置开机自启服务</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>vnc_connect<span class="o">(){</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>sudo<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;cat &lt;&lt; EOF &gt; &quot;/lib/systemd/system/x11vnc.service&quot;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="s1">[Unit]</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="s1">Description=Start x11vnc at startup</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="s1">After=multi-user.target</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="s1">[Service]</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="s1">Type=simple</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="s1">ExecStart=/usr/bin/x11vnc -auth guess -forever -loop -noxdamage -repeat -rfbauth /etc/x11vnc.pass -rfbport 5900 -shared</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="s1">[Install]</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="s1">WantedBy=multi-user.target</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="s1">EOF&#39;</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="o">}</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>vnc_connect
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">755</span><span class="w"> </span>/lib/systemd/system/x11vnc.service
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>sudo<span class="w"> </span>chown<span class="w"> </span>root:root<span class="w"> </span>/lib/systemd/system/x11vnc.service
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>x11vnc.service
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="c1"># 启动服务</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>x11vnc.service
 </code></pre></div>
 <h2 id="_2">客户端<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">#安装tigervnc-viewer</span>
