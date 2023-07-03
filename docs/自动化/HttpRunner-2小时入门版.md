@@ -257,3 +257,89 @@ hrp run testcases/demo_requests.yml --gen-html-report
 ```
 
 执行完成之后，在 `result` 目录下生成 `html` 测试报告。
+
+## 六、实例
+
+### 1、mock接口
+
+咱们先使用 `FastAPI` 简单 `Mock` 一个接口：
+
+```python
+# mock.py
+import os
+
+import uvicorn
+from fastapi import FastAPI
+
+app = FastAPI()
+
+
+@app.get("/items/")
+async def read_item(name: str = ""):
+    return {"name": name}
+
+
+if __name__ == '__main__':
+    uvicorn.run(
+        app="mock:app",
+        host=os.popen("hostname -I").read().split(" ")[0], # 自动获取本机IP
+        port=5000,
+        reload=True
+    )
+
+```
+
+看看接口文档，非常简单的一个接口
+
+![](../img/httprunner/1.png)
+
+好，那咱们回到httprunner里面来写用例了；
+
+### 2、写接口用例
+
+用例也非常简单：
+
+```yaml
+# testcases/demo_1.yml
+
+config:
+    name: "demo_1"
+    variables:
+        name: mikigo
+    verify: False
+
+teststeps:
+-
+    name: get with params
+    request:
+        method: GET
+        url: http://10.8.7.199:5000/items/  # ip写你的机器的ip
+        params:
+            name: mikigo
+    validate:
+        - eq: ["status_code", 200]
+        - eq: ["body.name", "mikigo"]
+
+```
+
+### 3、执行用例
+
+使用hrp命令执行
+
+```shell
+hrp run testcases/demo_1.yml --gen-html-report
+```
+
+run 是使用 go 驱动执行；
+
+如果你习惯使用 pytest：
+
+```shell
+hrp pytest testcases/demo_1.yml
+```
+
+后面你要生成什么报告，加什么参数就完全按照 `pytest` 的规范来就好，不过 `pytest` 那一套咱们已经熟得不能再熟了，没啥意思，就用 go 驱动吧。
+
+跑完之后在 `results` 目录下生成一个 `html` 文件，打开它：
+
+![](../img/httprunner/2.png)
