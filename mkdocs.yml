@@ -67,6 +67,7 @@ plugins:
   - mike
 
 extra:
+  generator: false
   version:
     provider: mike
 
