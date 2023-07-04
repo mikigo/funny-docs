@@ -420,6 +420,61 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#debugtailpy" class="md-nav__link">
+    七、debugtail.py底层实现原理
+  </a>
+  
+    <nav class="md-nav" aria-label="七、debugtail.py底层实现原理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1、获取路径
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    2、原始数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    3、参数解构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4、函数调用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5、变量获取
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6、驱动入口
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -943,6 +998,61 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#debugtailpy" class="md-nav__link">
+    七、debugtail.py底层实现原理
+  </a>
+  
+    <nav class="md-nav" aria-label="七、debugtail.py底层实现原理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1、获取路径
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    2、原始数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    3、参数解构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4、函数调用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5、变量获取
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6、驱动入口
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1305,6 +1415,206 @@
 <p>后面你要生成什么报告，加什么参数就完全按照 <code>pytest</code> 的规范来就好，不过 <code>pytest</code> 那一套咱们已经熟得不能再熟了，没啥意思，就用 go 驱动吧。</p>
 <p>跑完之后在 <code>results</code> 目录下生成一个 <code>html</code> 文件，打开它：</p>
 <p><img alt="" src="../../img/httprunner/2.png" /></p>
+<h2 id="debugtailpy">七、debugtail.py底层实现原理<a class="headerlink" href="#debugtailpy" title="Permanent link">&para;</a></h2>
+<p>前面讲到可以在 <code>debugtalk.py</code> （下面就用“它”指代）里面定义一些变量或函数，然后在用例里面通过 <code>$var</code> 、<code>${func()}</code> 的方式调用；</p>
+<p>这章咱们就讲讲，为啥在 <code>debugtalk.py</code> 里面定义的代码，能在 <code>yaml</code> 文件里面写字符串的方式调用；</p>
+<h3 id="1">1、获取路径<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p>在 <code>loader.py</code> 里面：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># loader.py</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="k">def</span> <span class="nf">locate_project_root_directory</span><span class="p">(</span><span class="n">test_path</span><span class="p">:</span> <span class="n">Text</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Text</span><span class="p">,</span> <span class="n">Text</span><span class="p">]:</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;locate debugtalk.py path as project root directory</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="sd">    Args:</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="sd">        test_path: specified testfile path</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="sd">        (str, str): debugtalk.py path, project_root_directory</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>    <span class="o">...</span>
+<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>    <span class="k">return</span> <span class="n">debugtalk_path</span><span class="p">,</span> <span class="n">project_root_directory</span>
+</code></pre></div>
+<p>很明显返回了两个路径：<code>ebugtalk_path</code>, <code>project_root_directory</code></p>
+<h3 id="2_1">2、原始数据<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># loader</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="k">def</span> <span class="nf">load_project_meta</span><span class="p">(</span><span class="n">test_path</span><span class="p">:</span> <span class="n">Text</span><span class="p">,</span> <span class="n">reload</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ProjectMeta</span><span class="p">:</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;load testcases, .env, debugtalk.py functions.</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="sd">        testcases folder is relative to project_root_directory</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="sd">        by default, project_meta will be loaded only once, unless set reload to true.</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="sd">    Args:</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="sd">        test_path (str): test file/folder path, locate project RootDir from this path.</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="sd">        reload: reload project meta if set true, default to false</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="sd">        project loaded api/testcases definitions,</span>
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="sd">            environments and debugtalk.py functions.</span>
+<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>
+<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>    <span class="o">...</span>
+<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>    <span class="k">return</span> <span class="n">project_meta</span>
+</code></pre></div>
+<p>返回的 <code>project_meta</code> 是 <code>pydantic</code> 的模型对象，你可以理解成就是一个字典；</p>
+<p>在这个函数里面主要逻辑是通过一个函数获取它里面的函数对象：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># loader</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="k">def</span> <span class="nf">load_module_functions</span><span class="p">(</span><span class="n">module</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Text</span><span class="p">,</span> <span class="n">Callable</span><span class="p">]:</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;load python module functions.</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="sd">    Args:</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="sd">        module: python module</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="sd">        dict: functions mapping for specified python module</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="sd">            {</span>
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="sd">                &quot;func1_name&quot;: func1,</span>
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="sd">                &quot;func2_name&quot;: func2</span>
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="sd">            }</span>
+<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>
+<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a>    <span class="n">module_functions</span> <span class="o">=</span> <span class="p">{}</span>
+<a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a>    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">vars</span><span class="p">(</span><span class="n">module</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">types</span><span class="o">.</span><span class="n">FunctionType</span><span class="p">):</span>
+<a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a>            <span class="n">module_functions</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">item</span>
+<a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a>    <span class="k">return</span> <span class="n">module_functions</span>
+</code></pre></div>
+<p>这里面主要用到了 <code>vars</code> 函数来获取，感兴趣的同学可以去查一下这个用法；</p>
+<p>到这里也就是说获取到了它里面的 <code>函数名</code> 及 <code>函数对象</code> ，有了函数对象在合适的位置调用就行了；</p>
+<p>咱们接着往后看；</p>
+<h3 id="3_1">3、参数解构<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h3>
+<p>在 <code>parser.py</code> 中进行参数结构：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># parser.py</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="k">def</span> <span class="nf">parse_parameters</span><span class="p">(</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>    <span class="n">parameters</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">]:</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;parse parameters and generate cartesian product.</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="sd">    Args:</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="sd">        parameters (Dict) parameters: parameter name and value mapping</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="sd">            parameter value may be in three types:</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="sd">                (1) data list, e.g. [&quot;iOS/10.1&quot;, &quot;iOS/10.2&quot;, &quot;iOS/10.3&quot;]</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="sd">                (2) call built-in parameterize function, &quot;${parameterize(account.csv)}&quot;</span>
+<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="sd">                (3) call custom function in debugtalk.py, &quot;${gen_app_version()}&quot;</span>
+<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>
+<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="sd">        list: cartesian product list</span>
+<a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a>    <span class="o">...</span>
+<a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a>    <span class="k">return</span> <span class="n">utils</span><span class="o">.</span><span class="n">gen_cartesian_product</span><span class="p">(</span><span class="o">*</span><span class="n">parsed_parameters_list</span><span class="p">)</span>
+</code></pre></div>
+<p>经过一系列的数据处理，把参数列表返回出来</p>
+<h3 id="4">4、函数调用<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># parser.py</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="k">def</span> <span class="nf">parse_string</span><span class="p">(</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>    <span class="n">raw_string</span><span class="p">:</span> <span class="n">Text</span><span class="p">,</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>    <span class="n">variables_mapping</span><span class="p">:</span> <span class="n">VariablesMapping</span><span class="p">,</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>    <span class="n">functions_mapping</span><span class="p">:</span> <span class="n">FunctionsMapping</span><span class="p">,</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;parse string content with variables and functions mapping.</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="sd">    Args:</span>
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="sd">        raw_string: raw string content to be parsed.</span>
+<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="sd">        variables_mapping: variables mapping.</span>
+<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="sd">        functions_mapping: functions mapping.</span>
+<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>
+<a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="sd">        str: parsed string content.</span>
+<a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a>
+<a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a><span class="sd">        &gt;&gt;&gt; raw_string = &quot;abc${add_one($num)}def&quot;</span>
+<a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a><span class="sd">        &gt;&gt;&gt; variables_mapping = {&quot;num&quot;: 3}</span>
+<a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a><span class="sd">        &gt;&gt;&gt; functions_mapping = {&quot;add_one&quot;: lambda x: x + 1}</span>
+<a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a><span class="sd">        &gt;&gt;&gt; parse_string(raw_string, variables_mapping, functions_mapping)</span>
+<a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a><span class="sd">            &quot;abc4def&quot;</span>
+<a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a>
+<a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a><span class="sd">    &quot;&quot;&quot;</span>
+</code></pre></div>
+<p>在这个函数里面主要代码：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># parser.py</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="k">def</span> <span class="nf">parse_string</span><span class="p">(</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>    <span class="n">raw_string</span><span class="p">:</span> <span class="n">Text</span><span class="p">,</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>    <span class="n">variables_mapping</span><span class="p">:</span> <span class="n">VariablesMapping</span><span class="p">,</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>    <span class="n">functions_mapping</span><span class="p">:</span> <span class="n">FunctionsMapping</span><span class="p">,</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>    <span class="o">...</span>
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>    <span class="k">while</span> <span class="n">match_start_position</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">raw_string</span><span class="p">):</span>
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>        <span class="o">...</span>
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>        <span class="k">if</span> <span class="n">func_match</span><span class="p">:</span>
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>            <span class="n">func_name</span> <span class="o">=</span> <span class="n">func_match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>            <span class="n">func</span> <span class="o">=</span> <span class="n">get_mapping_function</span><span class="p">(</span><span class="n">func_name</span><span class="p">,</span> <span class="n">functions_mapping</span><span class="p">)</span>
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>
+<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>            <span class="n">func_params_str</span> <span class="o">=</span> <span class="n">func_match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>            <span class="n">function_meta</span> <span class="o">=</span> <span class="n">parse_function_params</span><span class="p">(</span><span class="n">func_params_str</span><span class="p">)</span>
+<a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a>            <span class="n">args</span> <span class="o">=</span> <span class="n">function_meta</span><span class="p">[</span><span class="s2">&quot;args&quot;</span><span class="p">]</span>
+<a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a>            <span class="n">kwargs</span> <span class="o">=</span> <span class="n">function_meta</span><span class="p">[</span><span class="s2">&quot;kwargs&quot;</span><span class="p">]</span>
+<a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a>            <span class="n">parsed_args</span> <span class="o">=</span> <span class="n">parse_data</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">variables_mapping</span><span class="p">,</span> <span class="n">functions_mapping</span><span class="p">)</span>
+<a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a>            <span class="n">parsed_kwargs</span> <span class="o">=</span> <span class="n">parse_data</span><span class="p">(</span><span class="n">kwargs</span><span class="p">,</span> <span class="n">variables_mapping</span><span class="p">,</span> <span class="n">functions_mapping</span><span class="p">)</span>
+<a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a>
+<a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a>            <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-18-22" name="__codelineno-18-22" href="#__codelineno-18-22"></a>                <span class="n">func_eval_value</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">parsed_args</span><span class="p">,</span> <span class="o">**</span><span class="n">parsed_kwargs</span><span class="p">)</span>
+<a id="__codelineno-18-23" name="__codelineno-18-23" href="#__codelineno-18-23"></a>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+<a id="__codelineno-18-24" name="__codelineno-18-24" href="#__codelineno-18-24"></a>                <span class="o">...</span>
+<a id="__codelineno-18-25" name="__codelineno-18-25" href="#__codelineno-18-25"></a>            <span class="o">...</span>
+<a id="__codelineno-18-26" name="__codelineno-18-26" href="#__codelineno-18-26"></a>    <span class="k">return</span> <span class="n">parsed_string</span>
+</code></pre></div>
+<p><code>func</code> 为函数对象，通过 <code>parse_data</code> 函数获取到参数 <code>parsed_args</code> 和 <code>parsed_kwargs</code>，通过 <code>func(*parsed_args, **parsed_kwargs)</code> 调用函数并获取到值；</p>
+<p>最后经过一顿组装返回最终的字符串；</p>
+<h3 id="5">5、变量获取<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
+<p>变量获取相对简单，不想函数调用，要考虑函数对象及参数；</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1"># parser.py</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="k">def</span> <span class="nf">parse_variables_mapping</span><span class="p">(</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>    <span class="n">variables_mapping</span><span class="p">:</span> <span class="n">VariablesMapping</span><span class="p">,</span> <span class="n">functions_mapping</span><span class="p">:</span> <span class="n">FunctionsMapping</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">VariablesMapping</span><span class="p">:</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>    <span class="o">...</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">parsed_variables</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">variables_mapping</span><span class="p">):</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>        <span class="o">...</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>            <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>                <span class="n">parsed_value</span> <span class="o">=</span> <span class="n">parse_data</span><span class="p">(</span>
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>                    <span class="n">var_value</span><span class="p">,</span> <span class="n">parsed_variables</span><span class="p">,</span> <span class="n">functions_mapping</span>
+<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>                <span class="p">)</span>
+<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>            <span class="k">except</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">VariableNotFound</span><span class="p">:</span>
+<a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>                <span class="k">continue</span>
+<a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a>            <span class="o">...</span>
+<a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a>    <span class="k">return</span> <span class="n">parsed_variables</span>
+</code></pre></div>
+<p>也是通过 <code>parse_data</code> 函数来获取；</p>
+<h3 id="6">6、驱动入口<a class="headerlink" href="#6" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1"># runner.py</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="k">class</span> <span class="nc">SessionRunner</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>    <span class="o">...</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>    <span class="k">def</span> <span class="nf">__parse_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">param</span><span class="p">:</span> <span class="n">Dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>        <span class="c1"># parse config variables</span>
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__config</span><span class="o">.</span><span class="n">variables</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__session_variables</span><span class="p">)</span>
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>        <span class="k">if</span> <span class="n">param</span><span class="p">:</span>
+<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">__config</span><span class="o">.</span><span class="n">variables</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">param</span><span class="p">)</span>
+<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__config</span><span class="o">.</span><span class="n">variables</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">parse_variables</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__config</span><span class="o">.</span><span class="n">variables</span><span class="p">)</span>
+<a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>
+<a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>        <span class="c1"># parse config name</span>
+<a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__config</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">parse_data</span><span class="p">(</span>
+<a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">__config</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__config</span><span class="o">.</span><span class="n">variables</span>
+<a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a>        <span class="p">)</span>
+<a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a>
+<a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a>        <span class="c1"># parse config base url</span>
+<a id="__codelineno-20-19" name="__codelineno-20-19" href="#__codelineno-20-19"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__config</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">parse_data</span><span class="p">(</span>
+<a id="__codelineno-20-20" name="__codelineno-20-20" href="#__codelineno-20-20"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">__config</span><span class="o">.</span><span class="n">base_url</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__config</span><span class="o">.</span><span class="n">variables</span>
+<a id="__codelineno-20-21" name="__codelineno-20-21" href="#__codelineno-20-21"></a>        <span class="p">)</span>
+<a id="__codelineno-20-22" name="__codelineno-20-22" href="#__codelineno-20-22"></a>
+<a id="__codelineno-20-23" name="__codelineno-20-23" href="#__codelineno-20-23"></a>    <span class="o">...</span>
+<a id="__codelineno-20-24" name="__codelineno-20-24" href="#__codelineno-20-24"></a>
+<a id="__codelineno-20-25" name="__codelineno-20-25" href="#__codelineno-20-25"></a>    <span class="k">def</span> <span class="nf">test_start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">param</span><span class="p">:</span> <span class="n">Dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;SessionRunner&quot;</span><span class="p">:</span>
+<a id="__codelineno-20-26" name="__codelineno-20-26" href="#__codelineno-20-26"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;main entrance, discovered by pytest&quot;&quot;&quot;</span>
+<a id="__codelineno-20-27" name="__codelineno-20-27" href="#__codelineno-20-27"></a>        <span class="o">...</span>
+<a id="__codelineno-20-28" name="__codelineno-20-28" href="#__codelineno-20-28"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__parse_config</span><span class="p">(</span><span class="n">param</span><span class="p">)</span>
+<a id="__codelineno-20-29" name="__codelineno-20-29" href="#__codelineno-20-29"></a>        <span class="o">...</span>
+</code></pre></div>
+<p>在入口文件 <code>runner.py</code> 里面把上面所有的逻辑串起来；</p>
+<p>在 <code>test_start</code> 里面调用私有方法 <code>__parse_config</code>，在 <code>__parse_config</code> 里面挨个处理前面的逻辑；</p>
+<p>在 <code>step</code> 里面通过：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">runner</span> <span class="o">=</span> <span class="n">HttpRunner</span><span class="p">()</span><span class="o">.</span><span class="n">test_start</span><span class="p">()</span>
+</code></pre></div>
+<p>进行驱动执行；</p>
 
 
 
