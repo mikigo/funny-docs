@@ -343,3 +343,250 @@ hrp pytest testcases/demo_1.yml
 跑完之后在 `results` 目录下生成一个 `html` 文件，打开它：
 
 ![](../img/httprunner/2.png)
+
+## 七、debugtail.py底层实现原理
+
+前面讲到可以在 `debugtalk.py` （下面就用“它”指代）里面定义一些变量或函数，然后在用例里面通过 `$var` 、`${func()}` 的方式调用；
+
+这章咱们就讲讲，为啥在 `debugtalk.py` 里面定义的代码，能在 `yaml` 文件里面写字符串的方式调用；
+
+### 1、获取路径
+
+在 `loader.py` 里面：
+
+```python
+# loader.py
+def locate_project_root_directory(test_path: Text) -> Tuple[Text, Text]:
+    """locate debugtalk.py path as project root directory
+
+    Args:
+        test_path: specified testfile path
+
+    Returns:
+        (str, str): debugtalk.py path, project_root_directory
+
+    """
+    ...
+    return debugtalk_path, project_root_directory
+```
+
+很明显返回了两个路径：`ebugtalk_path`, `project_root_directory`
+
+### 2、原始数据
+
+```python
+# loader
+def load_project_meta(test_path: Text, reload: bool = False) -> ProjectMeta:
+    """load testcases, .env, debugtalk.py functions.
+        testcases folder is relative to project_root_directory
+        by default, project_meta will be loaded only once, unless set reload to true.
+
+    Args:
+        test_path (str): test file/folder path, locate project RootDir from this path.
+        reload: reload project meta if set true, default to false
+
+    Returns:
+        project loaded api/testcases definitions,
+            environments and debugtalk.py functions.
+
+    """
+    ...
+    return project_meta
+```
+
+返回的 `project_meta` 是 `pydantic` 的模型对象，你可以理解成就是一个字典；
+
+在这个函数里面主要逻辑是通过一个函数获取它里面的函数对象：
+
+```python
+# loader
+def load_module_functions(module) -> Dict[Text, Callable]:
+    """load python module functions.
+
+    Args:
+        module: python module
+
+    Returns:
+        dict: functions mapping for specified python module
+
+            {
+                "func1_name": func1,
+                "func2_name": func2
+            }
+
+    """
+    module_functions = {}
+    for name, item in vars(module).items():
+        if isinstance(item, types.FunctionType):
+            module_functions[name] = item
+    return module_functions
+```
+
+这里面主要用到了 `vars` 函数来获取，感兴趣的同学可以去查一下这个用法；
+
+到这里也就是说获取到了它里面的 `函数名` 及 `函数对象` ，有了函数对象在合适的位置调用就行了；
+
+咱们接着往后看；
+
+### 3、参数解构
+
+在 `parser.py` 中进行参数结构：
+
+```python
+# parser.py
+def parse_parameters(
+    parameters: Dict,
+) -> List[Dict]:
+    """parse parameters and generate cartesian product.
+
+    Args:
+        parameters (Dict) parameters: parameter name and value mapping
+            parameter value may be in three types:
+                (1) data list, e.g. ["iOS/10.1", "iOS/10.2", "iOS/10.3"]
+                (2) call built-in parameterize function, "${parameterize(account.csv)}"
+                (3) call custom function in debugtalk.py, "${gen_app_version()}"
+
+    Returns:
+        list: cartesian product list
+    """
+    ...
+    return utils.gen_cartesian_product(*parsed_parameters_list)
+```
+
+经过一系列的数据处理，把参数列表返回出来
+
+### 4、函数调用
+
+```python
+# parser.py
+def parse_string(
+    raw_string: Text,
+    variables_mapping: VariablesMapping,
+    functions_mapping: FunctionsMapping,
+) -> Any:
+    """parse string content with variables and functions mapping.
+
+    Args:
+        raw_string: raw string content to be parsed.
+        variables_mapping: variables mapping.
+        functions_mapping: functions mapping.
+
+    Returns:
+        str: parsed string content.
+
+    Examples:
+        >>> raw_string = "abc${add_one($num)}def"
+        >>> variables_mapping = {"num": 3}
+        >>> functions_mapping = {"add_one": lambda x: x + 1}
+        >>> parse_string(raw_string, variables_mapping, functions_mapping)
+            "abc4def"
+
+    """
+    
+```
+
+在这个函数里面主要代码：
+
+```python
+# parser.py
+def parse_string(
+    raw_string: Text,
+    variables_mapping: VariablesMapping,
+    functions_mapping: FunctionsMapping,
+) -> Any:
+	...
+    while match_start_position < len(raw_string):
+        ...
+        if func_match:
+            func_name = func_match.group(1)
+            func = get_mapping_function(func_name, functions_mapping)
+
+            func_params_str = func_match.group(2)
+            function_meta = parse_function_params(func_params_str)
+            args = function_meta["args"]
+            kwargs = function_meta["kwargs"]
+            parsed_args = parse_data(args, variables_mapping, functions_mapping)
+            parsed_kwargs = parse_data(kwargs, variables_mapping, functions_mapping)
+
+            try:
+                func_eval_value = func(*parsed_args, **parsed_kwargs)
+            except Exception as ex:
+				...
+            ...
+    return parsed_string
+```
+
+`func` 为函数对象，通过 `parse_data` 函数获取到参数 `parsed_args` 和 `parsed_kwargs`，通过 `func(*parsed_args, **parsed_kwargs)` 调用函数并获取到值；
+
+最后经过一顿组装返回最终的字符串；
+
+### 5、变量获取
+
+变量获取相对简单，不想函数调用，要考虑函数对象及参数；
+
+```python
+# parser.py
+def parse_variables_mapping(
+    variables_mapping: VariablesMapping, functions_mapping: FunctionsMapping = None
+) -> VariablesMapping:
+    ...
+    while len(parsed_variables) != len(variables_mapping):
+        ...
+            try:
+                parsed_value = parse_data(
+                    var_value, parsed_variables, functions_mapping
+                )
+            except exceptions.VariableNotFound:
+                continue
+            ...
+    return parsed_variables
+```
+
+也是通过 `parse_data` 函数来获取；
+
+### 6、驱动入口
+
+```python
+# runner.py
+class SessionRunner(object):
+	
+    ...
+
+    def __parse_config(self, param: Dict = None) -> None:
+        # parse config variables
+        self.__config.variables.update(self.__session_variables)
+        if param:
+            self.__config.variables.update(param)
+        self.__config.variables = self.parser.parse_variables(self.__config.variables)
+
+        # parse config name
+        self.__config.name = self.parser.parse_data(
+            self.__config.name, self.__config.variables
+        )
+
+        # parse config base url
+        self.__config.base_url = self.parser.parse_data(
+            self.__config.base_url, self.__config.variables
+        )
+        
+    ...
+
+    def test_start(self, param: Dict = None) -> "SessionRunner":
+        """main entrance, discovered by pytest"""
+        ...
+        self.__parse_config(param)
+        ...
+```
+
+在入口文件 `runner.py` 里面把上面所有的逻辑串起来；
+
+在 `test_start` 里面调用私有方法 `__parse_config`，在 `__parse_config` 里面挨个处理前面的逻辑；
+
+在 `step` 里面通过：
+
+```python
+runner = HttpRunner().test_start()
+```
+
+进行驱动执行；
+
