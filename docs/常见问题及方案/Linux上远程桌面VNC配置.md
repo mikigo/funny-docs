@@ -28,6 +28,7 @@ EOF'
 vnc_connect
 sudo chmod 755 /lib/systemd/system/x11vnc.service
 sudo chown root:root /lib/systemd/system/x11vnc.service
+# 开机自启
 sudo systemctl enable x11vnc.service
 # 启动服务
 sudo systemctl daemon-reload
