@@ -1,10 +1,19 @@
 # locust—2小时入门版
 
+```shell
+# ==================================
+# Author : Mikigo
+# Time   : 2023/3/24
+# ==================================
+```
+
+## 一、简介
+
 性能测试通常指的是 `API` 性能测试，使用 `JMeter` 做的同学会多一点，因为它开源免费，提供了一些插件，只需要在图形化的界面录入一些数据就能很方便的进行接口测试、性能测试，相比于商用软件 `LoadRunner`更适合普通玩家，所以 `JMeter` 群众基础更好。
 
 locust 是近几年才流行起来的，主要是因为需要编码，所以好多同学有点抵触，但其功能完全不输 `JMeter` ；
 
-## 一、安装
+## 二、安装
 
 ```shell
 pip3 install locust
@@ -16,7 +25,7 @@ pip3 install locust
 locust -V
 ```
 
-## 二、用例模板
+## 三、用例模板
 
 ```python
 # template.py
@@ -106,7 +115,7 @@ class UserRun(HttpLocust):
 locust -f template.py 
 ```
 
-## 三、简单测试
+## 四、简单测试
 
 ### 1、mock接口
 
@@ -149,5 +158,5 @@ class HelloWorldUser(HttpUser):
         self.client.get("/items?name=mikigo")
 ```
 
-## 三、
+## 五、
 

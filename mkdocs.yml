@@ -78,8 +78,9 @@ nav:
   - 首页: index.md
   - 自动化:
     - 自动化/Pytest从入门到起飞.md
+    - 自动化/unittest—3小时入门版.md
     - 自动化/Playwright—8小时入门版.md
-    - 自动化/selenium—8小时入门版.md
+    - 自动化/Selenium—8小时入门版.md
     - 自动化/HttpRunner-2小时入门版.md
     - 自动化/locust—2小时入门版.md
   - 爬虫:
