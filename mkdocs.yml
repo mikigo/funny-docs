@@ -84,7 +84,7 @@ nav:
       - 自动化/HttpRunner-2小时入门版.md
       - 自动化/locust—2小时入门版.md
       - 自动化/JMeter—10小时入门版.md
-#      - 自动化/Appium—4小时入门版.md
+      - 自动化/Appium—5小时入门版.md
 
   - 网络/爬虫:
       - 爬虫/Requests.md
@@ -93,7 +93,7 @@ nav:
 
   - 后端/数据:
       - 后端/FastAPI—8小时入门版.md
-#      - 后端/MySQL基础.md
+      - 后端/MySQL基础.md
 
   - AI/视觉:
       - 视觉/OpenCV(Python)基础—9小时入门版.md

@@ -1,14 +1,21 @@
-**MySQL**
+## MySQL基础
 
-**一、数据库基础**
+```shell
+# =============================
+# Author : mikigo
+# Time   : 2020/3/1
+# =============================
+```
 
-**1、数据库概述**
+## 一、数据库基础
+
+### 1、数据库概述
 
 ①概念：依照某种数据模型组织起来并存放在二级存储器（硬盘）中的数据集合。
 
 ②主流的数据库：关系型的有MySQL、SQLserver、oracle、DB2，非关系型：HBase、NoSQL（mongoDB、redis、memache）
 
-**2、概念模型**
+### 2、概念模型
 
 ① 概念：是现实世界到机器世界的一个中间层侧，是数据库设计人员和用户之间交流的工具，通过它可以转换得到数据模型。
 
@@ -42,7 +49,7 @@ c.多对多（m：n）
 
 (1) 用矩形表示实体，用椭圆表示属性，用菱形表示关系，用直线连接。
 
-**3、数据模型**
+### 3、数据模型
 
 ① 数据模型的特点
 
@@ -98,9 +105,9 @@ c.关系数据模型的三种约束完整性
 
 3）用户定义完整性：指对关系中每个属性的取值作一个限制(或称为约束)的具体定义。比如 性别属性只能取”男“或”女“ ，再就是年龄的取值范围，可以取值0-130 ，但不能取负数，因为年龄不可能是负数。
 
-**二、MySQL基本知识**
+## 二、MySQL基本知识
 
-**1.MySQL概述**
+### 1.MySQL概述
 
 （1）MySQL是一个小型关系型数据库管理系统。
 
@@ -114,7 +121,7 @@ c.关系数据模型的三种约束完整性
 
 ④ 跨平台使用
 
-**2.MySQL的安装**
+### 2.MySQL的安装
 
 (1) MySQL为免费开源，可以在官网下载安装，使用wamp中的MySQL作为数据库。
 
@@ -124,7 +131,7 @@ c.关系数据模型的三种约束完整性
 
 (4) 输入连接名（可以自己取名字），输入服务器IP地址（本次直接用localhost即可），输入服务器端口号、用户名（root）和密码（可以为空）
 
-**3.远程访问数据库**
+### 3.远程访问数据库
 
 (1) 服务器端需要授权：MySQL查询编辑上输入：grant all privileges on*.*to’用户名’@’%’ identified by’密码’ with grant option;（%，是指对所有人，如果是针对某个人，可替换为对应的IP）
 
@@ -132,9 +139,9 @@ c.关系数据模型的三种约束完整性
 
 (3) Flush privileges（刷新权限）
 
-**4.MySQL系统数据简介**
+### 4.MySQL系统数据简介
 
-**(1) 四个系统数据库**
+(1) 四个系统数据库
 
 ① Information schema 是信息数据库。保存MySQL服务器维护的其他数据库的信息。
 
@@ -144,7 +151,7 @@ c.关系数据模型的三种约束完整性
 
 ④ Sys系统数据库，可以了解系统的元数据信息。
 
-**(2) 常用的MySQL数据类型**
+(2) 常用的MySQL数据类型
 
 ① int 整型，可以存储-2的31次方到2的31次方之间的整数。占用4个字节。
 
@@ -154,7 +161,7 @@ c.关系数据模型的三种约束完整性
 
 ④ Varchar字符型，指定最大长度。（可以小于）
 
-**(3) 数据库的基本操作**
+(3) 数据库的基本操作
 
 ①create database dbname;（创建数据库）
 
@@ -176,9 +183,9 @@ default character set utf8 ：代表的是将默认编码格式设置为utf8格�
 
 collate utf8_general_ci ：代表的是数据库校对规则
 
-**三、数据库基本操作**
+## 三、数据库基本操作
 
-**（一）数据库对象**
+### 数据库对象
 
 （1）表：有行和列表示
 
@@ -198,7 +205,7 @@ collate utf8_general_ci ：代表的是数据库校对规则
 
 （6）存储过程（store procedure）:存储在数据库的SQL程序。 
 
-**（二）表约束**
+### 表约束
 
 **1.主键约束（primary key）**
 
@@ -248,7 +255,7 @@ Constraint pk_id primary key(m_id)
 
 （6）空值约束（null）：不为空时约束为not null， 为空为null，为空可以不写。
 
-**（三）SQL结构化查询语句**
+### SQL结构化查询语句
 
 SQL（structrued query language）查询语句包含四类：
 
@@ -260,17 +267,16 @@ SQL（structrued query language）查询语句包含四类：
 
 (4) 系统存储语言（System Stored procedure）
 
-**1.数据定义语言**
+#### 1.数据定义语言
 
 (1) Create table（建表）
 
-① Create table 表名(
-
+```sql
+Create table 表名(
 sname varchar(3) not null,
-
 Sid varchar(5) primary key
-
 );
+```
 
 (2) Create index（建索引）
 
@@ -282,53 +288,72 @@ Sid varchar(5) primary key
 
 (5) Drop index（删索引）
 
-(6)Insert into....select... ：表示将一个表中的数据插入到另一个表中
+(6) Insert into....select... ：表示将一个表中的数据插入到另一个表中
 
-Eg. Insert into student(sno,ssex,sname)
-
-Select sno,ssex,sname from student_1
+```sql
+Insert into student(sno,ssex,sname) Select sno,ssex,sname from student_1
+```
 
 (7)update 表名 set 列名=’更新值’ Where 。。。。  (表示更新某个字段数据）
 
-Eg. update student
-
+```sql
+update student
 Set sname=’mikigo’
-
 Where sno=401
+```
 
 (8)delete from 表名 Where.. （表示删除某行数据）(drop 是直接删表，delete是对表中的数据进行删除)
 
-Eg.  Delete from student
-
- Where sno=101
+```sql
+Delete from student
+Where sno=101
+```
 
 （9）alter table修改表
 
-①修改表名：Alter table 原表名 rename to 目标表名 Eg. Alter table student rename to student_1
+- 修改表名：Alter table 原表名 rename to 目标表名 
 
-②新增字段：Alter table 表名 add 字段名 varchar(50) null Eg. Alter table student add pass_or_not varchar（50）
+  ```sql
+  Alter table student rename to student_1
+  ```
 
-③修改字段属性：Alter table 表名 change 原字段名 新字段名 varchar(4) Eg. Alter table student change sno sno varchar(4) primary key
+- 新增字段：Alter table 表名 add 字段名 varchar(50) null
 
-④删除字段：alter table 表名 drop column 字段名 Eg. Alter table student drop column pass_or_not
+  ```sql
+  Alter table student add pass_or_not varchar（50）
+  ```
 
-**2.数据操纵语言**
+- 修改字段属性：Alter table 表名 change 原字段名 新字段名 varchar(4)
 
-**(1) insert插入语句**
+  ```sql
+   Alter table student change sno sno varchar(4) primary key
+  ```
 
-① Insert into student(sno, sname)（表名）
+- 删除字段：alter table 表名 drop column 字段名
 
+  ```sql
+   Alter table student drop column pass_or_not
+  ```
+
+#### 2.数据操纵语言
+
+##### (1) insert插入语句
+
+```sql
+Insert into student(sno, sname)（表名）
 Values（001，mikigo）
+```
 
 表示向student表中插入一行数据。
 
-② Insert into student2（sno,sname）
-
+```sql
+Insert into student2（sno,sname）
 Select student1 (s_no,s_name)
+```
 
 表示将student1中的内容插入到student2中。
 
-**(2) select查询**
+##### (2) select查询
 
 ① Select * From student
 
@@ -336,35 +361,37 @@ Select student1 (s_no,s_name)
 
 ② Distinct 过滤重复行
 
+```sql
 Select distinct sno from score
+```
 
 （从成绩表中查询剔重后的学号）
 
-**(3) Where 子句，指定条件查询**
+##### (3) Where 子句，指定条件查询
 
 ① 范围运算符 between...and..，not between....and...（（不）在什么之间）
 
+```sql
 Select title , price
-
 From titles
-
 Where price between 10 and 30
+```
 
 ② 列表运算符in ，not in（表示在指定项中）
 
+```sql
 Select sname
-
 From student
-
 Where sno in (‘001’,’002’)
+```
 
 ③ 空值判断符 is null , is not null  （是否为空）
 
+```sql
 Select title , price
-
 From titles
-
 Where price is null
+```
 
 ④ 逻辑运算符 and , or
 
@@ -372,29 +399,29 @@ And 表示同时满足
 
 Or 表示满足一个条件即可
 
-**(4) 模糊匹配like ， not like**
+##### (4) 模糊匹配like ， not like
 
 ① 匹配任意类型长度的字符用%，固定长度字符用下划线__
 
-Eg. Select sname ,sage
-
+```sql
+Select sname ,sage
 From student
-
 Where sname like ‘%王%’ (‘王_’)
+```
 
 表示查询命中中带有“王”的姓名
 
-② 指定一个字符、字符串或范围用[  ]、[^  ]
+② 指定一个字符、字符串或范围用[  ]、`[^  ]`
 
-Eg. Select sname
-
- From student
-
- Where sname like ‘[b-k]%’
+```sql
+Select sname
+From student
+Where sname like ‘[b-k]%’
+```
 
 表示名字开头是b-k的姓名
 
-**(5) 集合函数（聚合函数）**
+##### (5) 集合函数（聚合函数）
 
 ① 平均值 avg
 
@@ -408,85 +435,99 @@ Eg. Select sname
 
 集合函数使用在select 后面
 
-Eg. Select min(price) from titles
+```sql
+Select min(price) from titles
+```
 
 表示在表中，取价格的最小值，min(price) as 价格
 
-**(6) Group by 子句，分组**
+##### (6) Group by 子句，分组
 
 ① Group by 子句中，不能使用集合函数
 
-Eg. Select sname,ssex
-
+```sql
+Select sname,ssex
 From student
-
 Group by ssex
+```
 
 表示已性别作为分组，统计显示姓名和性别
 
 ②select 中多个非集合项出现时，group by 里面也要有同样的非集合项
 
-**(7) Order by 排序：对查询结果按照升序（asc）或降序（desc）排列。**
+##### (7) Order by 排序：
 
-Eg .Select sname,sage
+对查询结果按照升序（asc）或降序（desc）排列。
 
+```sql
+Select sname,sage
 From student
-
 Where ssex=’男’
-
 Order by sage desc
+```
 
 表示将student表中的男生，按照年龄降序排列，显示姓名和年龄
 
-**(8)having ...条件**
+##### (8)having ...条件
 
-  Having 子句与group by 使用表示增加某个条件。
+Having 子句与group by 使用表示增加某个条件。
 
-Eg. select count(*)
-
+```sql
+select count(*)
 From student
-
 Group by ssex
-
 Having age<15
+```
 
-**(9)嵌套查询**
+##### (9)嵌套查询
 
 ①Where 表达式 （not）in  (子查询)
 
- Eg.select *
-
+```sql
+select *
 from score
-
 where cno in(select cno
-
 from course
-
 where tno in(select tno from teacherwhere depart ='电子工程系'));
+```
 
-​            ②比较运算符
+②比较运算符
 
-a.Any: where degree >any(81.85) 表示degree 大于81或85中的任意一个。
+a.Any: `where degree >any(81.85) `表示degree 大于81或85中的任意一个。
 
-b.All :where degree >all(81.85) 表示degree 大于81或85中的每一个。
+b.All : `where degree >all(81.85) `表示degree 大于81或85中的每一个。
 
-c.Some：同any
+c.Some：同 any
 
 ③联接查询
 
 a.内连接
 
+```sql
 from student inner join score on student.sno=score.sno
+```
 
-或Where student.sno=score.sno
+或
+
+```sql
+Where student.sno=score.sno
+```
 
 b.外连接
 
-1）左联接：from course left join score on course.cno=score.cno （以左边表为基准，左边所有数据要出现，右边表无数据的，为空值）
+1）左联接：（以左边表为基准，左边所有数据要出现，右边表无数据的，为空值）
 
-2）右联接：from course right join score on course.cno=score.cno (以右边表为基准，右边所有数据要出现，左边表无数据的，为空值）
+```sql
+from course left join score on course.cno=score.cno 
+```
 
-**3.数据控制语言（DCL）**
+2）右联接： (以右边表为基准，右边所有数据要出现，左边表无数据的，为空值）
+
+```sql
+from course right join score on course.cno=score.cno
+```
+
+#### 3.数据控制语言（DCL）
 
 （1）grant 语句
 
@@ -494,7 +535,9 @@ Grant 权限1，权限2 on 表名 to uername
 
 为某个用户授予某个权限
 
-Eg.grant update on student to mikigo
+```sql
+grant update on student to mikigo
+```
 
 （2）Revoke 语句
 
@@ -502,27 +545,27 @@ Revoke 权限1，权限2 on 表名 from uername
 
 收回某个用户的某个权限
 
-Eg. Revoke update on student from mikigo 
+```sql
+Revoke update on student from mikigo 
+```
 
-**4.View 视图**
+#### 4.View 视图
 
 （1）视图是某个查询结果的虚表。试图对应的数据并不实际存在。
 
 （2）语法：create view 视图名称 As Select 列名称 from 表名称 where 条件
 
-​       Eg.  Create view mikigo
-
-​      As
-
-Select *
-
-From Student
-
-Where ssex=’男’
+ ```sql
+ Create view mikigo
+ As
+ Select *
+ From Student
+ Where ssex=’男’
+ ```
 
 （3）修改视图：drop view 视图名称。
 
-**5.procedure 存储过程**
+#### 5.procedure 存储过程
 
 （1）存储过程的三个组成部分。
 
@@ -535,21 +578,18 @@ Where ssex=’男’
 1) 点击函数右键，选择新建函数，输入定义模式、参数名、数据类型。
 2) 点击完成，在begin和end之间存储过程语句，点击保存，设置过程名。
 
-（3）Eg. Begin
-
+```sql
+Begin
 While i<30 do
-
 Insert into score values (floor(110+rand()+20),’5-245’,’99’);
-
 Set i=i+1;
-
 End while;
-
 End
+```
 
 调用的使用：call 过程名（赋值）
 
-**6.trigger 触发器**
+#### 6.trigger 触发器
 
 （1）触发器是一种特殊类型的存储过程，主要通过事件进行触发而被执行。触发器用于MySQL约束、默认值和规则的完整新的检查。
 
@@ -562,17 +602,16 @@ End
 
 （3）语法：
 
+```sql
 Create trigger huang
-
 After update on student for each row
-
 Insert into student_1
-
 Values (404,’明天’,’男’)
+```
 
 表示当对student表进行更新之后，将一组数据插入到student_1表中。
 
-**7.常见函数**
+#### 7.常见函数
 
 （1）Left/right 函数
 
