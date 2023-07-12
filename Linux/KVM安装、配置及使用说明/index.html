@@ -380,6 +380,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%87%AA%E5%8A%A8%E5%8C%96/Appium%E2%80%945%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        Appium—5小时入门版
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -500,6 +514,20 @@
     <li class="md-nav__item">
       <a href="../../%E5%90%8E%E7%AB%AF/FastAPI%E2%80%948%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
         FastAPI—8小时入门版
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%90%8E%E7%AB%AF/MySQL%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        MySQL基础
       </a>
     </li>
   
@@ -1121,60 +1149,65 @@
 
 
 <h1 id="kvm"><code>KVM</code> 安装、配置及使用说明<a class="headerlink" href="#kvm" title="Permanent link">&para;</a></h1>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># =============================</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Author : mikigo</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Time   : 2021/3/1</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># =============================</span>
+</code></pre></div>
 <h2 id="kvm_1">一、安装 <code>KVM</code><a class="headerlink" href="#kvm_1" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>libvirt0<span class="w"> </span>libvirt-daemon<span class="w"> </span>qemu<span class="w"> </span>virt-manager<span class="w"> </span>bridge-utils<span class="w"> </span>libvirt-clients<span class="w"> </span>python-libvirt<span class="w"> </span>qemu-efi<span class="w"> </span>uml-utilities<span class="w"> </span>virtinst<span class="w"> </span>qemu-system
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>libvirt0<span class="w"> </span>libvirt-daemon<span class="w"> </span>qemu<span class="w"> </span>virt-manager<span class="w"> </span>bridge-utils<span class="w"> </span>libvirt-clients<span class="w"> </span>python-libvirt<span class="w"> </span>qemu-efi<span class="w"> </span>uml-utilities<span class="w"> </span>virtinst<span class="w"> </span>qemu-system
 </code></pre></div>
 <h2 id="_1">二、命令安装镜像<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <h3 id="1">1、创建存储卷<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>work/kvm<span class="p">;</span>qemu-img<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>qcow2<span class="w"> </span>/home/uos/work/kvm/autotest1.qcow2<span class="w"> </span>80G
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>work/kvm<span class="p">;</span>qemu-img<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>qcow2<span class="w"> </span>/home/uos/work/kvm/autotest1.qcow2<span class="w"> </span>80G
 </code></pre></div>
 <h3 id="2">2、创建虚拟机<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>virt-install<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>--name<span class="w"> </span>autotest1<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>--memory<span class="w"> </span><span class="m">2048</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>--vcpus<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>--disk<span class="w"> </span>/home/uos/work/kvm/autotest1.qcow2,device<span class="o">=</span>disk,bus<span class="o">=</span>virtio<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>--os-type<span class="o">=</span>linux<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>--os-variant<span class="w"> </span>debian10<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>--graphics<span class="w"> </span>spice<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>--noreboot<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>--boot<span class="w"> </span>hd<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>--cdrom<span class="w">  </span><span class="s2">&quot;/home/uos/Desktop/test.iso&quot;</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>--connect<span class="w"> </span>qemu:///system<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>--network<span class="w"> </span><span class="nv">type</span><span class="o">=</span>direct,source<span class="o">=</span>enp5s0f0,source_mode<span class="o">=</span>bridge
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>virt-install<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>--name<span class="w"> </span>autotest1<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>--memory<span class="w"> </span><span class="m">2048</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>--vcpus<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>--disk<span class="w"> </span>/home/uos/work/kvm/autotest1.qcow2,device<span class="o">=</span>disk,bus<span class="o">=</span>virtio<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>--os-type<span class="o">=</span>linux<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>--os-variant<span class="w"> </span>debian10<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>--graphics<span class="w"> </span>spice<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>--noreboot<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>--boot<span class="w"> </span>hd<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>--cdrom<span class="w">  </span><span class="s2">&quot;/home/uos/Desktop/test.iso&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>--connect<span class="w"> </span>qemu:///system<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>--network<span class="w"> </span><span class="nv">type</span><span class="o">=</span>direct,source<span class="o">=</span>enp5s0f0,source_mode<span class="o">=</span>bridge
 </code></pre></div>
 <h2 id="_2">三、配置远程管理<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="1-libvirtd">1、增加 <code>libvirtd</code> 用户组<a class="headerlink" href="#1-libvirtd" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>groupadd<span class="w"> </span>libvirtd
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>groupadd<span class="w"> </span>libvirtd
 </code></pre></div>
 <h3 id="2_1">2、设置用户到组<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span>libvirtd<span class="w"> </span><span class="nv">$USER</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span>libvirtd<span class="w"> </span><span class="nv">$USER</span>
 </code></pre></div>
 <h3 id="3libvirtd">3、设置启动libvirtd服务的用户组<a class="headerlink" href="#3libvirtd" title="Permanent link">&para;</a></h3>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>vi<span class="w"> </span>/etc/libvirt/libvirtd.conf
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>vi<span class="w"> </span>/etc/libvirt/libvirtd.conf
 </code></pre></div>
 在尾行写入
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nv">unix_sock_group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;libvirtd&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nv">unix_sock_group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;libvirtd&quot;</span>
 </code></pre></div></p>
 <h3 id="4">4、增加权限启动配置<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo<span class="w"> </span>vi<span class="w"> </span>/etc/polkit-1/localauthority/50-local.d/50-org.libvirtd-group-access.pkla
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo<span class="w"> </span>vi<span class="w"> </span>/etc/polkit-1/localauthority/50-local.d/50-org.libvirtd-group-access.pkla
 </code></pre></div>
 写入
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="o">[</span>libvirtd<span class="w"> </span>group<span class="w"> </span>Management<span class="w"> </span>Access<span class="o">]</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nv">Identity</span><span class="o">=</span>unix-group:libvirtd
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="nv">Action</span><span class="o">=</span>org.libvirt.unix.manage
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="nv">ResultAny</span><span class="o">=</span>yes
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="nv">ResultInactive</span><span class="o">=</span>yes
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="nv">ResultActive</span><span class="o">=</span>yes
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="o">[</span>libvirtd<span class="w"> </span>group<span class="w"> </span>Management<span class="w"> </span>Access<span class="o">]</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nv">Identity</span><span class="o">=</span>unix-group:libvirtd
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nv">Action</span><span class="o">=</span>org.libvirt.unix.manage
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="nv">ResultAny</span><span class="o">=</span>yes
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="nv">ResultInactive</span><span class="o">=</span>yes
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="nv">ResultActive</span><span class="o">=</span>yes
 </code></pre></div></p>
 <h3 id="5">5、重启服务<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo<span class="w"> </span>service<span class="w"> </span>libvirtd<span class="w"> </span>restart
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo<span class="w"> </span>service<span class="w"> </span>libvirtd<span class="w"> </span>restart
 </code></pre></div>
 <h2 id="_3">四、常见问题<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p><strong>1、Requested operation is not valid: network 'default' is not active</strong></p>
 <p>解决方案：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo<span class="w"> </span>virsh<span class="w"> </span>net-start<span class="w"> </span>default
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>sudo<span class="w"> </span>virsh<span class="w"> </span>net-autostart<span class="w"> </span>default
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sudo<span class="w"> </span>virsh<span class="w"> </span>net-start<span class="w"> </span>default
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>sudo<span class="w"> </span>virsh<span class="w"> </span>net-autostart<span class="w"> </span>default
 </code></pre></div>
 
 
