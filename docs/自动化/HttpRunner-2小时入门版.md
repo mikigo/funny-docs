@@ -351,7 +351,7 @@ hrp pytest testcases/demo_1.yml
 
 ![](../img/httprunner/2.png)
 
-## 七、debugtail.py底层实现原理
+## 七、debugtalk.py底层实现原理
 
 前面讲到可以在 `debugtalk.py` （下面就用“它”指代）里面定义一些变量或函数，然后在用例里面通过 `$var` 、`${func()}` 的方式调用；
 

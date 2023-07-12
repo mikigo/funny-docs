@@ -6,23 +6,23 @@ theme:
   # 评论系统
   custom_dir: overrides
   palette:
-  # 自动亮/暗模式
-  - media: '(prefers-color-scheme: light)'
-    # 配色方案
-    scheme: default
-    # 原色
-    primary: teal
-    accent: amber
-    toggle:
-      icon: material/lightbulb
-      name: Switch to light mode
-  - media: '(prefers-color-scheme: dark)'
-    scheme: slate
-    primary: teal
-    accent: amber
-    toggle:
-      icon: material/lightbulb-outline
-      name: Switch to dark mode
+    # 自动亮/暗模式
+    - media: '(prefers-color-scheme: light)'
+      # 配色方案
+      scheme: default
+      # 原色
+      primary: teal
+      accent: amber
+      toggle:
+        icon: material/lightbulb
+        name: Switch to light mode
+    - media: '(prefers-color-scheme: dark)'
+      scheme: slate
+      primary: teal
+      accent: amber
+      toggle:
+        icon: material/lightbulb-outline
+        name: Switch to dark mode
   features:
     - search.suggest
     - search.highlight
@@ -72,36 +72,49 @@ extra:
     provider: mike
 
 extra_javascript:
-    - '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'
+  - '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'
 
 nav:
   - 首页: index.md
-  - 自动化:
-    - 自动化/Pytest从入门到起飞.md
-    - 自动化/unittest—3小时入门版.md
-    - 自动化/Playwright—8小时入门版.md
-    - 自动化/Selenium—8小时入门版.md
-    - 自动化/HttpRunner-2小时入门版.md
-    - 自动化/locust—2小时入门版.md
-  - 爬虫:
-    - 爬虫/Requests.md
-    - 爬虫/Httpx.md
-    - 爬虫/Scrapy.md
-  - 后端:
-    - 后端/FastAPI—8小时入门版.md
-  - 视觉:
-    - 视觉/OpenCV(Python)基础—9小时入门版.md
+  - 自动化测试:
+      - 自动化/Pytest从入门到起飞.md
+      - 自动化/unittest—3小时入门版.md
+      - 自动化/Playwright—8小时入门版.md
+      - 自动化/Selenium—8小时入门版.md
+      - 自动化/HttpRunner-2小时入门版.md
+      - 自动化/locust—2小时入门版.md
+      - 自动化/JMeter—10小时入门版.md
+#      - 自动化/Appium—4小时入门版.md
+
+  - 网络/爬虫:
+      - 爬虫/Requests.md
+      - 爬虫/Httpx.md
+      - 爬虫/Scrapy.md
+
+  - 后端/数据:
+      - 后端/FastAPI—8小时入门版.md
+#      - 后端/MySQL基础.md
+
+  - AI/视觉:
+      - 视觉/OpenCV(Python)基础—9小时入门版.md
+      - 视觉/MMDetection入门基础.md
+
   - Python:
-    - Python/Python基础语法—8小时入门版.md
-    - Python/Python从进阶到高级—通俗易懂版.md
-    - Python/Python包构建和发布.md
-    - Python/Python环境与依赖管理.md
+      - Python/Python基础语法—8小时入门版.md
+      - Python/Python从进阶到高级—通俗易懂版.md
+      - Python/Python包构建和发布.md
+      - Python/Python环境与依赖管理.md
+
+  - Linux:
+      - Linux/KVM安装、配置及使用说明.md
+#      - Linux/Linux基础.md
+
   - 常见问题及方案:
-    - 常见问题及方案/Linux上安装Python3.9.9.md
-    - 常见问题及方案/Linux上安装Node.js.md
-    - 常见问题及方案/配置开机自启服务.md
-    - 常见问题及方案/配置Python源的几种方法.md
-    - 常见问题及方案/Linux上如何选择用pip3还是sudopip3.md
-    - 常见问题及方案/Linux上sudo免密.md
-    - 常见问题及方案/Linux上远程桌面VNC配置.md
-    - 常见问题及方案/node-error-01.md
+      - 常见问题及方案/Linux上安装Python3.9.9.md
+      - 常见问题及方案/Linux上安装Node.js.md
+      - 常见问题及方案/配置开机自启服务.md
+      - 常见问题及方案/配置Python源的几种方法.md
+      - 常见问题及方案/Linux上如何选择用pip3还是sudopip3.md
+      - 常见问题及方案/Linux上sudo免密.md
+      - 常见问题及方案/Linux上远程桌面VNC配置.md
+      - 常见问题及方案/node-error-01.md
