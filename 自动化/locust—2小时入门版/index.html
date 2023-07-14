@@ -443,8 +443,35 @@
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    五、在线运行
+    五、运行
   </a>
+  
+    <nav class="md-nav" aria-label="五、运行">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    网页在线运行
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    命令行运行
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    分布式运行
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1085,8 +1112,35 @@
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    五、在线运行
+    五、运行
   </a>
+  
+    <nav class="md-nav" aria-label="五、运行">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    网页在线运行
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    命令行运行
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    分布式运行
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1147,7 +1201,7 @@
 <a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>    <span class="c1"># 装饰器，定义有执行顺序的任务，扩展中的数字，从小到大，代表先后执行顺序</span>
 <a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>    <span class="nd">@seq_task</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  
 <a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>    <span class="c1"># 一个方法， 方法名称可以自己改</span>
-<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>    <span class="k">def</span> <span class="nf">regist_</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> 
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>    <span class="k">def</span> <span class="nf">regist</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> 
 <a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>        <span class="c1"># 接口请求的URL地址</span>
 <a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>        <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;/erp/regist&#39;</span>
 <a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>        <span class="c1"># 定义请求头为类变量，这样其他任务也可以调用该变量</span>
@@ -1167,7 +1221,7 @@
 <a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>    <span class="nd">@task</span> 
 <a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>    <span class="c1"># 顺序任务装饰器，说明下面的任务，第二个执行</span>
 <a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a>    <span class="nd">@seq_task</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  
-<a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a>    <span class="k">def</span> <span class="nf">login_</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a>    <span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a>        <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;/erp/loginIn&#39;</span> 
 <a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a>        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="p">,</span> <span class="s2">&quot;pwd&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">pwd</span><span class="p">}</span>
 <a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a>        <span class="c1"># 使用self.client发起请求，请求的方法 选择post</span>
@@ -1181,7 +1235,7 @@
 <a id="__codelineno-3-55" name="__codelineno-3-55" href="#__codelineno-3-55"></a>
 <a id="__codelineno-3-56" name="__codelineno-3-56" href="#__codelineno-3-56"></a>    <span class="nd">@task</span>
 <a id="__codelineno-3-57" name="__codelineno-3-57" href="#__codelineno-3-57"></a>    <span class="nd">@seq_task</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> 
-<a id="__codelineno-3-58" name="__codelineno-3-58" href="#__codelineno-3-58"></a>    <span class="k">def</span> <span class="nf">getuser_</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-3-58" name="__codelineno-3-58" href="#__codelineno-3-58"></a>    <span class="k">def</span> <span class="nf">getuser</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <a id="__codelineno-3-59" name="__codelineno-3-59" href="#__codelineno-3-59"></a>        <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;/erp/user&#39;</span>
 <a id="__codelineno-3-60" name="__codelineno-3-60" href="#__codelineno-3-60"></a>        <span class="c1"># 引用上一个任务的 类变量值,实现参数关联</span>
 <a id="__codelineno-3-61" name="__codelineno-3-61" href="#__codelineno-3-61"></a>        <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Token&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">token</span><span class="p">}</span>  
@@ -1242,7 +1296,8 @@
 <a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    <span class="k">def</span> <span class="nf">hello_world</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items?name=mikigo&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="_5">五、在线运行<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_5">五、运行<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="_6">网页在线运行<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>locust<span class="w"> </span>-f<span class="w"> </span>demo_1.py<span class="w"> </span>
 </code></pre></div>
 <p>终端会提示一个链接，使劲戳他：</p>
@@ -1250,6 +1305,40 @@
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="o">[</span><span class="m">2023</span>-07-13<span class="w"> </span><span class="m">17</span>:55:51,182<span class="o">]</span><span class="w"> </span>uos-PC/INFO/locust.main:<span class="w"> </span>Starting<span class="w"> </span>web<span class="w"> </span>interface<span class="w"> </span>at<span class="w"> </span>http://0.0.0.0:8089<span class="w"> </span>
 </code></pre></div>
 <p><img alt="" src="../../img/locust/1.jpg" /></p>
+<p>第1个"<code>Number of users</code>" 总共将运行的用户数；</p>
+<p>第2个 "<code>Spawn rate</code>" 每秒加载的用户数；</p>
+<p>第3个 "<code>Host</code>"，被测接口的域名；咱们 Mock 的接口地址是：http://10.8.13.224:5000/items?name=mikigo</p>
+<p><img alt="" src="../../img/locust/2.jpg" /></p>
+<p>点击【Start swarming】开始测试：</p>
+<p><img alt="" src="../../img/locust/3.jpg" /></p>
+<p>这玩意儿是一直跑的，不会自己停下来，要停止测试，需要点击右上角【STOP】；</p>
+<h3 id="_7">命令行运行<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>常用的参数</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>locust<span class="w"> </span>--headless<span class="w"> </span>-f<span class="w"> </span>demo_1.py<span class="w"> </span>-u<span class="w"> </span><span class="m">20</span><span class="w"> </span>-r<span class="w"> </span><span class="m">2</span><span class="w"> </span>-t<span class="w"> </span>2m<span class="w"> </span>--host<span class="o">=</span>http://10.8.13.224:5000/items?name<span class="o">=</span>mikigo<span class="w"> </span>--csv<span class="o">=</span>mikigo
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="c1"># --headless 指名用无图形界面模式</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="c1"># -u 指定运行的最大用户数，对应图形界面中的 </span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1"># -r 指定每秒生成用户数，对应图形界面中的 Spawn rate</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="c1"># -t 指定总共运行时长，因在无图形界面中，没有停止按钮，需要有这个参数才能到时间就停止，不然会一直运行下去，直到终端ctrl+c强行停止</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="c1"># --host 被测服务器域名或ip端口地址</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="c1"># --csv 输出结果到csv文件的前缀</span>
+</code></pre></div>
+<p>终端会以表格的形式刷新数据，在当前目录会生成一些 <code>csv</code> 的报告；</p>
+<h3 id="_8">分布式运行<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>主控机器</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>locust<span class="w"> </span>-f<span class="w"> </span>demo_1.py<span class="w"> </span>--master
+</code></pre></div>
+<p>助攻机器</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># 和主控在同一台机器</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>locust<span class="w"> </span>-f<span class="w"> </span>demo_1.py<span class="w"> </span>--worker
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="c1"># 和主控在不同一台机器</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>locust<span class="w"> </span>-f<span class="w"> </span>demo_1.py<span class="w"> </span>--worker<span class="w"> </span>--master-host<span class="o">=</span><span class="si">${</span><span class="nv">master_ip</span><span class="si">}</span><span class="w"> </span>--master-port<span class="o">=</span><span class="si">${</span><span class="nv">master_port</span><span class="si">}</span>
+</code></pre></div>
+<p>助攻机器可以有多个；</p>
+<p>主控机器终端输入类似这样：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Worker<span class="w"> </span>uos-PC_4880a337c8ed49769a9995d6a14950af<span class="w"> </span><span class="o">(</span>index<span class="w"> </span><span class="m">0</span><span class="o">)</span><span class="w"> </span>reported<span class="w"> </span>as<span class="w"> </span>ready.<span class="w"> </span><span class="m">1</span><span class="w"> </span>workers<span class="w"> </span>connected.
+</code></pre></div>
+<p>就说明呼应上了；</p>
+<p>分布式运行同样支持网页运行和命令行运行；</p>
 
 
 
