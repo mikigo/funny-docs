@@ -51,7 +51,7 @@ class MyTaskCase(TaskSequence):
     # 装饰器，定义有执行顺序的任务，扩展中的数字，从小到大，代表先后执行顺序
     @seq_task(1)  
     # 一个方法， 方法名称可以自己改
-    def regist_(self): 
+    def regist(self): 
         # 接口请求的URL地址
         url = '/erp/regist'
         # 定义请求头为类变量，这样其他任务也可以调用该变量
@@ -71,7 +71,7 @@ class MyTaskCase(TaskSequence):
     @task 
     # 顺序任务装饰器，说明下面的任务，第二个执行
     @seq_task(2)  
-    def login_(self):
+    def login(self):
         url = '/erp/loginIn' 
         data = {"name": self.user, "pwd": self.pwd}
         # 使用self.client发起请求，请求的方法 选择post
@@ -85,7 +85,7 @@ class MyTaskCase(TaskSequence):
 
     @task
     @seq_task(3) 
-    def getuser_(self):
+    def getuser(self):
         url = '/erp/user'
         # 引用上一个任务的 类变量值,实现参数关联
         headers = {"Token": self.token}  
@@ -158,7 +158,9 @@ class HelloWorldUser(HttpUser):
         self.client.get("/items?name=mikigo")
 ```
 
-## 五、在线运行
+## 五、运行
+
+### 网页在线运行
 
 ```shell
 locust -f demo_1.py 
@@ -173,3 +175,65 @@ $ locust -f demo_1.py
 
 ![](../img/locust/1.jpg)
 
+第1个"`Number of users`" 总共将运行的用户数；
+
+第2个 "`Spawn rate`" 每秒加载的用户数；
+
+第3个 "`Host`"，被测接口的域名；咱们 Mock 的接口地址是：http://10.8.13.224:5000/items?name=mikigo
+
+
+
+![](../img/locust/2.jpg)
+
+
+
+点击【Start swarming】开始测试：
+
+![](../img/locust/3.jpg)
+
+这玩意儿是一直跑的，不会自己停下来，要停止测试，需要点击右上角【STOP】；
+
+### 命令行运行
+
+常用的参数
+
+```shell
+locust --headless -f demo_1.py -u 20 -r 2 -t 2m --host=http://10.8.13.224:5000/items?name=mikigo --csv=mikigo
+# --headless 指名用无图形界面模式
+# -u 指定运行的最大用户数，对应图形界面中的 
+# -r 指定每秒生成用户数，对应图形界面中的 Spawn rate
+# -t 指定总共运行时长，因在无图形界面中，没有停止按钮，需要有这个参数才能到时间就停止，不然会一直运行下去，直到终端ctrl+c强行停止
+# --host 被测服务器域名或ip端口地址
+# --csv 输出结果到csv文件的前缀
+```
+
+终端会以表格的形式刷新数据，在当前目录会生成一些 `csv` 的报告；
+
+### 分布式运行
+
+主控机器
+
+```sh
+locust -f demo_1.py --master
+```
+
+助攻机器
+
+```shell
+# 和主控在同一台机器
+locust -f demo_1.py --worker
+# 和主控在不同一台机器
+locust -f demo_1.py --worker --master-host=${master_ip} --master-port=${master_port}
+```
+
+助攻机器可以有多个；
+
+主控机器终端输入类似这样：
+
+```sh
+Worker uos-PC_4880a337c8ed49769a9995d6a14950af (index 0) reported as ready. 1 workers connected.
+```
+
+就说明呼应上了；
+
+分布式运行同样支持网页运行和命令行运行；
