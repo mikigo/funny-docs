@@ -91,9 +91,10 @@ nav:
       - 爬虫/Httpx.md
       - 爬虫/Scrapy.md
 
-  - 后端/数据:
-      - 后端/FastAPI—8小时入门版.md
-      - 后端/MySQL基础.md
+  - 前端/后端:
+      - 前后端/FastAPI—8小时入门版.md
+      - 前后端/MySQL基础.md
+      - 前后端/Linux上安装Node.js.md
 
   - AI/视觉:
       - 视觉/OpenCV(Python)基础—9小时入门版.md
@@ -104,6 +105,9 @@ nav:
       - Python/Python从进阶到高级—通俗易懂版.md
       - Python/Python包构建和发布.md
       - Python/Python环境与依赖管理.md
+      - Python/Linux上安装Python3.9.9.md
+      - Python/Linux上如何选择用pip3还是sudopip3.md
+      - Python/配置Python源的几种方法.md
 
   - Linux/容器:
       - Linux/KVM安装配置及使用说明.md
@@ -111,11 +115,7 @@ nav:
       - Linux/Linux基础.md
 
   - 常见问题及方案:
-      - 常见问题及方案/Linux上安装Python3.9.9.md
-      - 常见问题及方案/Linux上安装Node.js.md
       - 常见问题及方案/配置开机自启服务.md
-      - 常见问题及方案/配置Python源的几种方法.md
-      - 常见问题及方案/Linux上如何选择用pip3还是sudopip3.md
       - 常见问题及方案/Linux上sudo免密.md
       - 常见问题及方案/Linux上远程桌面VNC配置.md
       - 常见问题及方案/node-error-01.md
