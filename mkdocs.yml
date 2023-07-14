@@ -84,7 +84,7 @@ nav:
       - 自动化/HttpRunner-2小时入门版.md
       - 自动化/locust—2小时入门版.md
       - 自动化/JMeter—10小时入门版.md
-      - 自动化/Appium—5小时入门版.md
+      - 自动化/Appium—6小时入门版.md
 
   - 网络/爬虫:
       - 爬虫/Requests.md
@@ -105,9 +105,10 @@ nav:
       - Python/Python包构建和发布.md
       - Python/Python环境与依赖管理.md
 
-  - Linux:
+  - Linux/容器:
       - Linux/KVM安装、配置及使用说明.md
-#      - Linux/Linux基础.md
+      - Linux/Docker入门.md
+      - Linux/Linux基础.md
 
   - 常见问题及方案:
       - 常见问题及方案/Linux上安装Python3.9.9.md

@@ -158,5 +158,18 @@ class HelloWorldUser(HttpUser):
         self.client.get("/items?name=mikigo")
 ```
 
-## 五、
+## 五、在线运行
+
+```shell
+locust -f demo_1.py 
+```
+
+终端会提示一个链接，使劲戳他：
+
+```shell
+$ locust -f demo_1.py 
+[2023-07-13 17:55:51,182] uos-PC/INFO/locust.main: Starting web interface at http://0.0.0.0:8089 
+```
+
+![](../img/locust/1.jpg)
 

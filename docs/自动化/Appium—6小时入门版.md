@@ -1,6 +1,117 @@
-# Appium—5小时入门版
+# Appium—6小时入门版
 
-## 一、Appium基础
+```shell
+# =============================
+# Author : mikigo
+# Time   : 2023/3/1
+# =============================
+```
+
+## 简介
+
+Appium 主要用于做 APP UI 自动化测试。
+
+## 安装
+
+### 安装 Appium 应用
+
+```shell
+npm i -g appium@next
+```
+
+安装完之后把 appium 映射到环境变量里面：
+
+```shell
+sudo ln -s /opt/nodev18.16.1/bin/appium /usr/local/bin/appium
+```
+
+最后在终端输入：
+
+```shell
+appium
+```
+
+如果得到这样的输出：
+
+```shell
+uos@uos-PC:~$ appium 
+[Appium] Welcome to Appium v2.0.0-rc.5
+....
+```
+
+说明安装没问题。
+
+### 安装驱动程序 UiAutomator2
+
+Appium UiAutomator2 Driver 是 Android 设备的测试自动化框架。Appium UiAutomator2 Driver 可自动执行本机、混合和移动 Web 应用程序，并在模拟器和真实设备上进行测试。
+
+Github地址：https://github.com/appium/appium-uiautomator2-driver
+
+1、安装 Android SDK 平台工具
+
+Android SDK Platform-Tools 是 Android SDK 的一个组件。它包含与 Android 平台进行交互的工具，主要是 adb 和 fastboot。
+
+下载链接：https://developer.android.com/studio/releases/platform-tools?hl=zh-cn
+
+选择 Linux 版本下载即可得到一个压缩包：`platform-tools_r34.0.4-linux.zip` ；
+
+我这里就直接放到 `~/Downloads/` 下面：
+
+解压后得到这样的文件：
+
+```shell
+platform-tools
+├── adb  # adb
+├── dmtracedump
+├── etc1tool
+├── fastboot  # fastboot
+├── hprof-conv
+├── lib64
+│   └── libc++.so
+├── make_f2fs
+├── make_f2fs_casefold
+├── mke2fs
+├── mke2fs.conf
+├── NOTICE.txt
+├── source.properties
+└── sqlite3
+```
+
+2、设置环境变量
+
+```shell
+export ANDROID_HOME=~/Downloads
+export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools
+```
+
+你可以在终端输入 `env` 查看这两个环境变量是否存在。
+
+3、安装 Java JDK
+
+```shell
+sudo apt install openjdk-11-jdk
+```
+
+4、Android设备必须启用USB调试；
+
+5、安装
+
+```shell
+# 安卓
+appium driver install uiautomator2
+# IOS
+appium driver install xcuitest
+```
+
+### 安装 Appium Python 客户端
+
+```shell
+pip install Appium-Python-Client
+```
+
+文档地址：https://appium.github.io/python-client-sphinx/
+
+## Appium基础
 
 ###   adb工具
 
@@ -50,7 +161,7 @@
 
 （2）`RelativeLayout` 相对布局
 
-（3）`FrameLayout`
+（3）`FrameLayout` 框架布局
 
 2.常见控件
 
@@ -64,7 +175,7 @@
 
 （5）ListView 就是一个列表的展示
 
-## 二、Appium脚本
+## Appium脚本
 
 ### 认识appium
 
@@ -118,9 +229,13 @@ driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_capabilities)
   "browserName" : 'Chrome'
   ```
 
-## 三、Appium元素定位
+## Appium元素定位
 
-### 1.UIAutomatorviewer
+### 1、元素探测工具-appium-inspector
+
+Github地址：https://github.com/appium/appium-inspector
+
+### 2、元素探测工具-UIAutomatorviewer
 
 （1）打开在 `Android_sdk_windows/tools_xpaths/uiautomatorviewer.bat`
 
@@ -130,7 +245,7 @@ driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_capabilities)
 
 （4）保存功能，可将页面快照和元素信息保存下来，方便下次查看。
 
-### 2.原生应用的定位
+### 3、原生应用的定位
 
   定位的方式有以下几种
 
@@ -186,7 +301,7 @@ driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_capabilities)
   from appium.webdriver.common.mobileby import MobileBy as By
 ```
 
-### 3.UIAutomator
+### 4、UIAutomator
 
 ```py 
  driver.find_element(By.ANDROID_UIAUTOMATOR,'new UiSelector().resourceId("resourece-id")')
@@ -200,9 +315,9 @@ driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_capabilities)
 
 ③当前类往下递归找符合条件的子级控件
 
-    ```py
-    new UiSelector().resourceId("resourece-id").childSelector(new UiSelector().resourceId("resourece-id"))
-    ```
+```py
+new UiSelector().resourceId("resourece-id").childSelector(new UiSelector().resourceId("resourece-id"))
+```
 
 ④从父类往下递归找符合条件的控件
 
@@ -216,15 +331,13 @@ driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_capabilities)
 find_elements
 ```
 
-### 4.混合应用hybrid
+### 5、混合应用hybrid
 
 （1）Chrome 远程调试
 
 ①在浏览器中输入：
 
-      ```url
-      chrome://inspect/#devices
-      ```
+    chrome://inspect/#devices
 
 ②浏览器上会显示手机上所有APP的web网页的地址
 
@@ -244,7 +357,7 @@ driver.switch_to.context('NATIVE_APP')
 
 在 `appium` 右上角点击放大镜符号，填入 `desired_capabilities` 里面的参数
 
-### 5.web应用
+### 6、web应用
 
 通过 `pc` 端 `chrome` 操作
 
@@ -261,7 +374,7 @@ sleep(20)
 driver.quit()
 ```
 
-## 四、Appium操作
+## Appium操作
 
 ### 基本操作
 
