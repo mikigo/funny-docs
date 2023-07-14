@@ -106,7 +106,7 @@ nav:
       - Python/Python环境与依赖管理.md
 
   - Linux/容器:
-      - Linux/KVM安装、配置及使用说明.md
+      - Linux/KVM安装配置及使用说明.md
       - Linux/Docker入门.md
       - Linux/Linux基础.md
 
