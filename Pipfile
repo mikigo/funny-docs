@@ -3,12 +3,21 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 name = "pypi"
 
+[[source]]
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+verify_ssl = true
+name = "pypitunatsinghuaedu"
+
 [packages]
 mkdocs-material = "*"
 termynal = "*"
 mkdocs-markdownextradata-plugin = "*"
+mike = "*"
+mkdocs = "*"
+mkdocs-pymdownx-material-extras = "*"
+mkdocs-mermaid2-plugin = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.9"
+python_version = "3.7"
