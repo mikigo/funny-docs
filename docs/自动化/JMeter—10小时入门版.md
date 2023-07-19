@@ -167,8 +167,6 @@ Github地址：https://github.com/apache/jmeter
 
 ​    ![0](../img/jmeter/29.png)
 
-​    ![0](../img/jmeter/.png)
-
 `${__v(name_${N})}` 两层变量用v函数，固定用法。
 
 ## 元件的作用域
