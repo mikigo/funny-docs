@@ -1,4 +1,4 @@
-comments: true
+
 # Httpx
 
 ```shell
@@ -22,14 +22,12 @@ httpx 号称下一代 HTTP 客户端，最开始是为了解决 Requests 不支�
 
 ```console
 pip3 install httpx
-
 ```
 
 它还提供命令行工具：
 
 ```console
 pip3 install 'httpx[cli]'
-
 ```
 
 我一般不咋习惯用命令行做接口请求，所以基本都不装这玩意儿。

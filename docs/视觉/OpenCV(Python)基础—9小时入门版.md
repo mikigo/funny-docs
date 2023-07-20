@@ -1,4 +1,4 @@
-comments: true
+
 # OpenCV(Python)基础—9小时入门版
 
 ```shell

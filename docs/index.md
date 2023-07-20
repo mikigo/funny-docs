@@ -10,3 +10,18 @@ comments: true
 
 因此，不要害怕犯错，不要害怕失败，开始你的探索之旅，让我们一起记录、分享、成长！
 
+<br/>
+
+><p>
+><span id="busuanzi_container_site_pv">
+>本站总访问量
+><span id="busuanzi_value_site_pv">
+></span>
+>次
+></span>    
+></p>
+
+
+
+
+

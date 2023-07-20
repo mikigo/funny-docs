@@ -1,4 +1,4 @@
-comments: true
+
 # Python基础语法—8小时入门版
 
 ```shell

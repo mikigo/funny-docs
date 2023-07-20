@@ -1,4 +1,4 @@
-comments: true
+
 # FastAPI—8小时入门版
 
 ```shell
