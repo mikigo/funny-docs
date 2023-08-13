@@ -114,9 +114,18 @@ nav:
       - Linux/Docker入门.md
       - Linux/Linux基础.md
 
+  - ruankao:
+      - ruankao/软件架构设计.md
+      - ruankao/分布式系统.md
+      - ruankao/系统开发.md
+      - ruankao/面向对象方法.md
+      - ruankao/数据库系统.md
+      - ruankao/基于构件的开发.md
+
   - 常见问题及方案:
       - 常见问题及方案/配置开机自启服务.md
       - 常见问题及方案/Linux上sudo免密.md
       - 常见问题及方案/Linux上远程桌面VNC配置.md
       - 常见问题及方案/常用的获取随机字符串的方法.md
       - 常见问题及方案/node-error-01.md
+  
