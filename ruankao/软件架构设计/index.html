@@ -911,6 +911,88 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3、架构风格
+  </a>
+  
+    <nav class="md-nav" aria-label="3、架构风格">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 管道/过滤器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2 数据抽象和面向对象
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    3.3 基于事件的隐式调用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    4.4 分层系统
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35" class="md-nav__link">
+    3.5 仓库系统及知识库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-c2" class="md-nav__link">
+    3.6 C2风格
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37" class="md-nav__link">
+    3.7 客户机/服务器风格
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#38-cs" class="md-nav__link">
+    3.8 三层 C/S 结构风格
+  </a>
+  
+    <nav class="md-nav" aria-label="3.8 三层 C/S 结构风格">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#39-bs" class="md-nav__link">
+    3.9 B/S 架构
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1141,6 +1223,88 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3、架构风格
+  </a>
+  
+    <nav class="md-nav" aria-label="3、架构风格">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 管道/过滤器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2 数据抽象和面向对象
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    3.3 基于事件的隐式调用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    4.4 分层系统
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35" class="md-nav__link">
+    3.5 仓库系统及知识库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-c2" class="md-nav__link">
+    3.6 C2风格
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37" class="md-nav__link">
+    3.7 客户机/服务器风格
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#38-cs" class="md-nav__link">
+    3.8 三层 C/S 结构风格
+  </a>
+  
+    <nav class="md-nav" aria-label="3.8 三层 C/S 结构风格">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#39-bs" class="md-nav__link">
+    3.9 B/S 架构
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1164,7 +1328,7 @@
 <p>软件架构的作用：</p>
 <ul>
 <li>软件架构是项目干系人进行交流的手段；</li>
-<li>软件架构是早起设计决策的体现；</li>
+<li>软件架构是早期设计决策的体现；</li>
 <li>软件架构是可传递和可重用的模型；</li>
 </ul>
 <h2 id="2">2、建模<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
@@ -1179,12 +1343,69 @@
 <p>将5种模型有机地统一在一起，形成一个完整的模型来刻画软件架构更格式。</p>
 <p>“4 + 1”视图模型从5个不同的视角来描述软件架构：</p>
 <ul>
-<li>逻辑视图；</li>
-<li>进程视图；</li>
-<li>物理视图；</li>
-<li>开发视图；</li>
-<li>场景视图；</li>
+<li>
+<p>逻辑视图；主要支持系统的功能需求。</p>
+</li>
+<li>
+<p>开发视图；也称为模块视图，主要侧重于软件模块的组织和管理。</p>
+</li>
+<li>
+<p>进程视图；侧重于系统的运行特性，主要关注一些非功能性的需求，例如系统的性能和可用性。</p>
+</li>
+<li>
+<p>物理视图；主要考虑如何把软件映射到硬件上，它通常要考虑到解决系统拓扑结构、系统安装、通信等问题。</p>
+</li>
+<li>
+<p>场景；可以看作是那些重要系统活动的抽象，它使四个视图有机联系起来。</p>
+</li>
 </ul>
+<p><img alt="" src="../../img/ruankao/jiagousheji/1.png" /></p>
+<h2 id="3">3、架构风格<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1 管道/过滤器<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<p>在管道/过滤器风格的软件体系结构中，每个构建都有一组输入和输出，构建读输入的数据流，经过内部处理，然后产生输出数据流。</p>
+<h3 id="32">3.2 数据抽象和面向对象<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<p>这种风格建立在数据抽象和面向对象的基础上，数据的表示方法和它们的相应操作封装在一个抽象数据类型或对象中。</p>
+<h3 id="33">3.3 基于事件的隐式调用<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
+<p>基于事件的隐式调用风格 的思想是 构建不直接调用一个过程，而是触发或广播一个或多个事件。</p>
+<p>系统中的其他构件中的过程 在一个或多个事件中注册，当一个事件被触发，系统自动调用在这个事件中注册的所有过程，这样，一个事件的触发就导致了另一个模块中的过程的调用。</p>
+<p>基于事件的隐式调用风格的主要特点是事件的触发者并不指导哪些构件会被这些事件影响。</p>
+<h3 id="44">4.4 分层系统<a class="headerlink" href="#44" title="Permanent link">&para;</a></h3>
+<p>层次系统组成一个层次结构，每一层为上层服务，并作为下层客户。</p>
+<h3 id="35">3.5 仓库系统及知识库<a class="headerlink" href="#35" title="Permanent link">&para;</a></h3>
+<p>在仓库风格中，有两种不同的构件：中央数据结构说明当前状态，独立构件在中央数据存储上执行。若构件控制共享数据，则仓库是一个传统型数据库。若中央数据结构的当前状态触发进程执行的选择，则仓库是一个黑板系统。</p>
+<p>黑板系统主要由三部分组成：</p>
+<ul>
+<li>知识源</li>
+</ul>
+<p>知识元中包括独立的、与应用程序相关的知识，知识源之间不直接进行通信，它们之间的交互只通过黑板来完成；</p>
+<ul>
+<li>黑板数据结构</li>
+</ul>
+<p>黑板数据是按照与应用程序相关的层次来组织的解决问题的数据，知识源通过不断的改变黑板数据来解决问题；</p>
+<ul>
+<li>控制</li>
+</ul>
+<p>控制完全由黑板的状态驱动，黑板状态的改变决定使用的特定知识。</p>
+<h3 id="36-c2">3.6 C2风格<a class="headerlink" href="#36-c2" title="Permanent link">&para;</a></h3>
+<p>C2体系结构风格可以概括为通过连接件绑定在一起，按照一组规则运行的并行构件网络；</p>
+<p>系统组织规则如下：</p>
+<p>系统中的构件和连接件都有一个顶部和一个底部；</p>
+<p>构件的顶部应连接到某个连接件的底部，构件的底部则应连接到某连接件的顶部，而构件和构件之间的直接连接是不允许的；</p>
+<p>一个连接件可以和任意数目的其他构件和连接件连接；</p>
+<p>当两个连接件进行直接连接时，必须有其中一个的底部连接到另一个的顶部。</p>
+<h3 id="37">3.7 客户机/服务器风格<a class="headerlink" href="#37" title="Permanent link">&para;</a></h3>
+<p>C/S体系结构有三个主要组成部分：数据库服务器、客户应用程序、网络；</p>
+<h2 id="38-cs">3.8 三层 C/S 结构风格<a class="headerlink" href="#38-cs" title="Permanent link">&para;</a></h2>
+<p>二层 C/S 结构是单一服务器且以局域网为中心的，所以难以扩展至大型企业广域网，软硬件组合及集成能力有限，客户机的负荷太重，难以管理大量的客户机，系统的性能容易变坏，数据安全性不好。</p>
+<p>三层 C/S 体系结构是将应用功能分为表示层、功能层、数据层：</p>
+<p><img alt="" src="../../img/ruankao/jiagousheji/2.png" /></p>
+<ul>
+<li>表示层。表示层是应用的用户接口部分，它担负着用户与应用间的对话功能。</li>
+<li>功能层。功能层相当于应用的本体，它是将具体的业务处理逻辑编入程序中。</li>
+<li>数据层。数据层就是DBMS，负责管理对数据库的读写。</li>
+</ul>
+<h3 id="39-bs">3.9 B/S 架构<a class="headerlink" href="#39-bs" title="Permanent link">&para;</a></h3>
+<p>B/S 架构是上层 C/S 结构的一种实现方式，具体结构为浏览器/Web 服务器/数据库服务器。</p>
 
 
 
