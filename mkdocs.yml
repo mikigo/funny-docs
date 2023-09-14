@@ -1,29 +1,28 @@
 site_name: Funny Docs
-copyright: Copyright © 2022-2023 funny-dream. All Rights Reserved.
+copyright: Copyright © 2022-2023 mikigo. All Rights Reserved.
 theme:
   name: material
   language: zh
-  # 评论系统
   custom_dir: overrides
   palette:
-    # 自动亮/暗模式
     - media: '(prefers-color-scheme: light)'
-      # 配色方案
       scheme: default
-      # 原色
-      primary: teal
+      primary: light green
       accent: amber
       toggle:
         icon: material/lightbulb
         name: Switch to light mode
     - media: '(prefers-color-scheme: dark)'
       scheme: slate
-      primary: teal
+      primary: light green
       accent: amber
       toggle:
         icon: material/lightbulb-outline
         name: Switch to dark mode
   features:
+    - navigation.instant
+    - navigation.top
+    - navigation.sections
     - search.suggest
     - search.highlight
     - content.tabs.link
@@ -34,8 +33,8 @@ theme:
     repo: fontawesome/brands/github
 
 # 右上角
-repo_name: funny-dream/funny-docs
-repo_url: "https://github.com/funny-dream/funny-docs"
+repo_name: mikigo/funny-docs
+repo_url: "https://github.com/mikigo/funny-docs"
 
 markdown_extensions:
   - toc:
@@ -75,7 +74,7 @@ extra_javascript:
   - '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'
 
 nav:
-  - 首页: index.md
+  - 欢迎: index.md
   - 自动化测试:
       - 自动化/Pytest从入门到起飞.md
       - 自动化/unittest—3小时入门版.md
