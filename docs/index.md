@@ -1,6 +1,6 @@
 comments: true
 
-# Funny Docs
+# Mikigo Docs
 
 生命中最美好的事情之一就是不断学习新知识，并与其他人分享。
 

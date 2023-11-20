@@ -1,4 +1,4 @@
-site_name: Funny Docs
+site_name: Mikigo Docs
 copyright: Copyright © 2022-2023 mikigo. All Rights Reserved.
 theme:
   name: material
@@ -7,14 +7,14 @@ theme:
   palette:
     - media: '(prefers-color-scheme: light)'
       scheme: default
-      primary: light green
+      primary: blue grey
       accent: amber
       toggle:
         icon: material/lightbulb
         name: Switch to light mode
     - media: '(prefers-color-scheme: dark)'
       scheme: slate
-      primary: light green
+      primary: blue grey
       accent: amber
       toggle:
         icon: material/lightbulb-outline
@@ -27,8 +27,8 @@ theme:
     - search.highlight
     - content.tabs.link
 
-  logo: "img/logo.png"
-  favicon: img/favicon.ico
+#  logo: "img/logo.png"
+#  favicon: img/favicon.ico
   icon:
     repo: fontawesome/brands/github
 

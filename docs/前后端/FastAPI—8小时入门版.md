@@ -988,7 +988,7 @@ class Item(Base):
     description = Column(String, index=True)
     owner_id = Column(Integer, ForeignKey("users.id"))
     # 表示该表与其他相关的表中的值
-    owner = relationship("User", back_populates="items")3
+    owner = relationship("User", back_populates="items")
 ```
 
 当访问 `my_user.items` 时，SQLAlchemy 实际上会从 `items` 表中的获取一批记录并在此处填充进去。
