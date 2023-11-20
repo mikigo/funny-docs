@@ -2,6 +2,10 @@ comments: true
 
 # Mikigo Docs
 
+Github Docs: https://mikigo.github.io/funny-docs/
+
+Gitee Docs: https://mikigo.gitee.io/funny-docs/
+
 生命中最美好的事情之一就是不断学习新知识，并与其他人分享。
 
 通过记录这些有趣的知识和经历，我们可以帮助自己更深入地理解它们，并将它们传递给其他人。
@@ -9,6 +13,7 @@ comments: true
 在这个过程中，虽然也许会遇到挑战和困难，但当你看着你的笔记和文章，看着你涉足和探索的新领域，你会感到无比快乐和满足。
 
 因此，不要害怕犯错，不要害怕失败，开始你的探索之旅，让我们一起记录、分享、成长！
+
 
 <br/>
 
