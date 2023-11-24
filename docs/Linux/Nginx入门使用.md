@@ -19,7 +19,7 @@ sudo vim /etc/nginx/nginx.conf
 
 默认配置如下：
 
-```ini
+```shell
 # 全局配置
 user www-data;
 worker_processes auto;
@@ -110,7 +110,7 @@ http {
 
 ## 全局配置
 
-```ini
+```shell
 # 全局配置
 user www-data;
 worker_processes auto;
@@ -126,7 +126,7 @@ include /etc/nginx/modules-enabled/*.conf;
 
 ## events
 
-```ini
+```shell
 # events配置
 events {
         worker_connections 768;
@@ -140,7 +140,7 @@ events {
 
 ## http
 
-```ini
+```shell
 # http配置
 http {
 		# http全局配置

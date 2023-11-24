@@ -2,9 +2,11 @@ comments: true
 
 # Mikigo Docs
 
-Github Docs: https://mikigo.github.io/funny-docs/
+**Github Docs**: <a href="https://mikigo.github.io/funny-docs/" target="_blank">https://mikigo.github.io/funny-docs/</a>
 
-Gitee Docs: https://mikigo.gitee.io/funny-docs/
+**Gitee Docs**: <a href="https://mikigo.gitee.io/funny-docs/" target="_blank">https://mikigo.gitee.io/funny-docs/</a>
+
+------------------------------------------
 
 生命中最美好的事情之一就是不断学习新知识，并与其他人分享。
 
@@ -14,6 +16,7 @@ Gitee Docs: https://mikigo.gitee.io/funny-docs/
 
 因此，不要害怕犯错，不要害怕失败，开始你的探索之旅，让我们一起记录、分享、成长！
 
+--------------------------------------------
 
 <br/>
 

@@ -112,6 +112,7 @@ nav:
       - Linux/KVM安装配置及使用说明.md
       - Linux/Docker入门.md
       - Linux/Linux基础.md
+      - Linux/Nginx入门使用.md
 
   - ruankao:
       - ruankao/软件架构设计.md
