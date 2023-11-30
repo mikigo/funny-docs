@@ -2,9 +2,9 @@ comments: true
 
 # Mikigo Docs
 
-**Github Docs**: <a href="https://mikigo.github.io/funny-docs/" target="_blank">https://mikigo.github.io/funny-docs/</a>
+**在线地址1**: <a href="https://mikigo.github.io/funny-docs/" target="_blank">https://mikigo.github.io/funny-docs/</a>
 
-**Gitee Docs**: <a href="https://mikigo.gitee.io/funny-docs/" target="_blank">https://mikigo.gitee.io/funny-docs/</a>
+**在线地址2**: <a href="https://mikigo.gitee.io/funny-docs/" target="_blank">https://mikigo.gitee.io/funny-docs/</a>
 
 ------------------------------------------
 
