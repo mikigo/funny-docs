@@ -20,7 +20,7 @@
     
     
       
-        <title>Nginx 入门使用 - mikigo docs</title>
+        <title>Nginx入门使用 - mikigo docs</title>
       
     
     
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Nginx 入门使用
+              Nginx入门使用
             
           </span>
         </div>
@@ -1061,7 +1061,7 @@
           
   
   <span class="md-ellipsis">
-    Nginx 入门使用
+    Nginx入门使用
   </span>
   
 
@@ -1072,7 +1072,7 @@
         
   
   <span class="md-ellipsis">
-    Nginx 入门使用
+    Nginx入门使用
   </span>
   
 
@@ -1549,10 +1549,9 @@
   
 
 
-<h1 id="nginx">Nginx 入门使用<a class="headerlink" href="#nginx" title="Permanent link">&para;</a></h1>
+<h1 id="nginx">Nginx入门使用<a class="headerlink" href="#nginx" title="Permanent link">&para;</a></h1>
 <h2 id="_1">安装<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>nginx
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>nginx
 </code></pre></div>
 <p>安装之后 <code>/var/www/html</code> 就可以作为默认的 <code>http</code> 服务使用了；</p>
 <h2 id="_2">配置<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
@@ -1561,7 +1560,7 @@
 </code></pre></div>
 <p>默认配置如下：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># 全局配置</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>user<span class="w"> </span>www-data<span class="p">;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>user<span class="w"> </span>mikigo<span class="p">;</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>worker_processes<span class="w"> </span>auto<span class="p">;</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>pid<span class="w"> </span>/run/nginx.pid<span class="p">;</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>include<span class="w"> </span>/etc/nginx/modules-enabled/*.conf<span class="p">;</span>
@@ -1632,21 +1631,22 @@
 <a id="__codelineno-2-70" name="__codelineno-2-70" href="#__codelineno-2-70"></a><span class="w">        </span>charset<span class="w"> </span>utf-8<span class="p">;</span>
 <a id="__codelineno-2-71" name="__codelineno-2-71" href="#__codelineno-2-71"></a><span class="w">        </span><span class="c1"># server配置，可以有多个server</span>
 <a id="__codelineno-2-72" name="__codelineno-2-72" href="#__codelineno-2-72"></a><span class="w">        </span>server<span class="w"> </span><span class="o">{</span>
-<a id="__codelineno-2-73" name="__codelineno-2-73" href="#__codelineno-2-73"></a><span class="w">                </span><span class="c1"># server全局配置</span>
-<a id="__codelineno-2-74" name="__codelineno-2-74" href="#__codelineno-2-74"></a><span class="w">                </span>charset<span class="w"> </span>utf-8<span class="p">;</span>
-<a id="__codelineno-2-75" name="__codelineno-2-75" href="#__codelineno-2-75"></a><span class="w">                </span><span class="c1"># location配置</span>
+<a id="__codelineno-2-73" name="__codelineno-2-73" href="#__codelineno-2-73"></a><span class="w">                </span>listen<span class="w">          </span><span class="m">8001</span><span class="p">;</span>
+<a id="__codelineno-2-74" name="__codelineno-2-74" href="#__codelineno-2-74"></a><span class="w">                </span>server_name<span class="w">     </span>localhost<span class="p">;</span>
+<a id="__codelineno-2-75" name="__codelineno-2-75" href="#__codelineno-2-75"></a>
 <a id="__codelineno-2-76" name="__codelineno-2-76" href="#__codelineno-2-76"></a><span class="w">                </span>location<span class="w"> </span>/<span class="w"> </span><span class="o">{</span>
-<a id="__codelineno-2-77" name="__codelineno-2-77" href="#__codelineno-2-77"></a><span class="w">                        </span>charset<span class="w"> </span>utf-8<span class="p">;</span>
-<a id="__codelineno-2-78" name="__codelineno-2-78" href="#__codelineno-2-78"></a><span class="w">                </span><span class="o">}</span>
-<a id="__codelineno-2-79" name="__codelineno-2-79" href="#__codelineno-2-79"></a><span class="w">        </span><span class="o">}</span>
-<a id="__codelineno-2-80" name="__codelineno-2-80" href="#__codelineno-2-80"></a><span class="o">}</span>
+<a id="__codelineno-2-77" name="__codelineno-2-77" href="#__codelineno-2-77"></a><span class="w">                        </span>root<span class="w"> </span>/home/mikigo/Desktop/share<span class="p">;</span>
+<a id="__codelineno-2-78" name="__codelineno-2-78" href="#__codelineno-2-78"></a><span class="w">                        </span>index<span class="w"> </span>index.html<span class="p">;</span>
+<a id="__codelineno-2-79" name="__codelineno-2-79" href="#__codelineno-2-79"></a><span class="w">                </span><span class="o">}</span>
+<a id="__codelineno-2-80" name="__codelineno-2-80" href="#__codelineno-2-80"></a><span class="w">        </span><span class="o">}</span>
+<a id="__codelineno-2-81" name="__codelineno-2-81" href="#__codelineno-2-81"></a><span class="o">}</span>
 </code></pre></div>
 <p>一共由三部分组成，分别为 全局配置、<code>events</code>  配置和 <code>http</code> 配置；</p>
 <p>在 <code>http</code> 中，又包含 <code>http</code> 全局配置、多个 <code>server</code> 配置，每个 <code>server</code> 中，可以包含 <code>server</code> 全局配置和多个 <code>location</code> 配置；</p>
 <p>下面展开讲。</p>
 <h2 id="_3">全局配置<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># 全局配置</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>user<span class="w"> </span>www-data<span class="p">;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>user<span class="w"> </span>mikigo<span class="p">;</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>worker_processes<span class="w"> </span>auto<span class="p">;</span>
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>pid<span class="w"> </span>/run/nginx.pid<span class="p">;</span>
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>include<span class="w"> </span>/etc/nginx/modules-enabled/*.conf<span class="p">;</span>
@@ -1732,15 +1732,19 @@
 <a id="__codelineno-5-66" name="__codelineno-5-66" href="#__codelineno-5-66"></a>
 <a id="__codelineno-5-67" name="__codelineno-5-67" href="#__codelineno-5-67"></a><span class="w">        </span><span class="c1"># server配置，可以有多个server</span>
 <a id="__codelineno-5-68" name="__codelineno-5-68" href="#__codelineno-5-68"></a><span class="w">        </span>server<span class="w"> </span><span class="o">{</span>
-<a id="__codelineno-5-69" name="__codelineno-5-69" href="#__codelineno-5-69"></a><span class="w">                </span><span class="c1"># server全局配置</span>
-<a id="__codelineno-5-70" name="__codelineno-5-70" href="#__codelineno-5-70"></a><span class="w">                </span>charset<span class="w"> </span>utf-8<span class="p">;</span>
-<a id="__codelineno-5-71" name="__codelineno-5-71" href="#__codelineno-5-71"></a><span class="w">                </span><span class="c1"># location配置</span>
+<a id="__codelineno-5-69" name="__codelineno-5-69" href="#__codelineno-5-69"></a><span class="w">                </span>listen<span class="w">          </span><span class="m">8001</span><span class="p">;</span>
+<a id="__codelineno-5-70" name="__codelineno-5-70" href="#__codelineno-5-70"></a><span class="w">                </span>server_name<span class="w">     </span>localhost<span class="p">;</span>
+<a id="__codelineno-5-71" name="__codelineno-5-71" href="#__codelineno-5-71"></a>
 <a id="__codelineno-5-72" name="__codelineno-5-72" href="#__codelineno-5-72"></a><span class="w">                </span>location<span class="w"> </span>/<span class="w"> </span><span class="o">{</span>
-<a id="__codelineno-5-73" name="__codelineno-5-73" href="#__codelineno-5-73"></a><span class="w">                        </span>charset<span class="w"> </span>utf-8<span class="p">;</span>
-<a id="__codelineno-5-74" name="__codelineno-5-74" href="#__codelineno-5-74"></a><span class="w">                </span><span class="o">}</span>
-<a id="__codelineno-5-75" name="__codelineno-5-75" href="#__codelineno-5-75"></a><span class="w">        </span><span class="o">}</span>
-<a id="__codelineno-5-76" name="__codelineno-5-76" href="#__codelineno-5-76"></a><span class="o">}</span>
+<a id="__codelineno-5-73" name="__codelineno-5-73" href="#__codelineno-5-73"></a><span class="w">                        </span>root<span class="w"> </span>/home/mikigo/Desktop/share<span class="p">;</span>
+<a id="__codelineno-5-74" name="__codelineno-5-74" href="#__codelineno-5-74"></a><span class="w">                        </span>index<span class="w"> </span>index.html<span class="p">;</span>
+<a id="__codelineno-5-75" name="__codelineno-5-75" href="#__codelineno-5-75"></a><span class="w">                </span><span class="o">}</span>
+<a id="__codelineno-5-76" name="__codelineno-5-76" href="#__codelineno-5-76"></a><span class="w">        </span><span class="o">}</span>
+<a id="__codelineno-5-77" name="__codelineno-5-77" href="#__codelineno-5-77"></a><span class="o">}</span>
 </code></pre></div>
+<p>默认的 80 端口的服务是不用配置的；</p>
+<p>访问：<code>IP:80</code>，实际访问的路径为：<code>/var/www/html</code></p>
+<p>访问：<code>IP:8001</code>，实际访问的路径为：<code>/home/mikigo/Desktop/share</code></p>
 
 
 
