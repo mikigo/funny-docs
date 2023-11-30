@@ -1,6 +1,7 @@
 # funny-docs
 
 在线地址：[https://mikigo.github.io/funny-docs](https://mikigo.github.io/funny-docs)
+       [https://mikigo.gitee.io/funny-docs](https://mikigo.gitee.io/funny-docs)
 
 使用mkdocs构建的文档系统，记录一些有趣的知识；
 

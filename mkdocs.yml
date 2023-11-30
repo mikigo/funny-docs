@@ -1,4 +1,4 @@
-site_name: Mikigo Docs
+site_name: mikigo docs
 copyright: Copyright © 2022-2023 mikigo. All Rights Reserved.
 theme:
   name: material
@@ -113,6 +113,7 @@ nav:
       - Linux/Docker入门.md
       - Linux/Linux基础.md
       - Linux/Nginx入门使用.md
+      - Linux/FTP服务搭建.md
 
   - ruankao:
       - ruankao/软件架构设计.md
