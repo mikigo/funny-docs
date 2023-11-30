@@ -1,6 +1,6 @@
 comments: true
 
-# Mikigo Docs
+# mikigo docs
 
 **在线地址1**: <a href="https://mikigo.github.io/funny-docs/" target="_blank">https://mikigo.github.io/funny-docs/</a>
 
