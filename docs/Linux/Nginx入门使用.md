@@ -1,9 +1,8 @@
-# Nginx 入门使用
+# Nginx入门使用
 
 ## 安装
 
 ```shell
-sudo apt update
 sudo apt install nginx
 ```
 
@@ -21,7 +20,7 @@ sudo vim /etc/nginx/nginx.conf
 
 ```shell
 # 全局配置
-user www-data;
+user mikigo;
 worker_processes auto;
 pid /run/nginx.pid;
 include /etc/nginx/modules-enabled/*.conf;
@@ -92,11 +91,12 @@ http {
         charset utf-8;
         # server配置，可以有多个server
         server {
-        		# server全局配置
-                charset utf-8;
-				# location配置
+                listen          8001;
+                server_name     localhost;
+
                 location / {
-                        charset utf-8;
+                        root /home/mikigo/Desktop/share;
+                        index index.html;
                 }
         }
 }
@@ -112,7 +112,7 @@ http {
 
 ```shell
 # 全局配置
-user www-data;
+user mikigo;
 worker_processes auto;
 pid /run/nginx.pid;
 include /etc/nginx/modules-enabled/*.conf;
@@ -209,13 +209,19 @@ http {
         
         # server配置，可以有多个server
         server {
-        		# server全局配置
-                charset utf-8;
-				# location配置
+                listen          8001;
+                server_name     localhost;
+
                 location / {
-                        charset utf-8;
+                        root /home/mikigo/Desktop/share;
+                        index index.html;
                 }
         }
 }
 ```
 
+默认的 80 端口的服务是不用配置的；
+
+访问：`IP:80`，实际访问的路径为：`/var/www/html`
+
+访问：`IP:8001`，实际访问的路径为：`/home/mikigo/Desktop/share`
