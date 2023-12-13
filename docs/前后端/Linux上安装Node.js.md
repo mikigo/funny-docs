@@ -25,15 +25,15 @@ sudo mv node-${node_version}-linux-x64 /opt/${opt_node_dir}
 sudo rm -rf /usr/local/bin/npm; sudo ln -s /opt/${opt_node_dir}/bin/npm   /usr/local/bin/npm
 sudo rm -rf /usr/local/bin/node; sudo ln -s /opt/${opt_node_dir}/bin/node   /usr/local/bin/node
 
+# 设置淘宝镜像源
+npm config set registry https://registry.npm.taobao.org
+
 # 安装pnpm
 npm install -g pnpm
 
 # 创建pnpm链接到系统目录
 sudo rm -rf /usr/local/bin/pnpm; sudo ln -s /opt/${opt_node_dir}/bin/pnpm /usr/local/bin/pnpm
 sudo rm -rf /usr/local/bin/pnpx; sudo ln -s /opt/${opt_node_dir}/bin/pnpx /usr/local/bin/pnpx
-
-# 设置淘宝镜像源
-npm config set registry https://registry.npm.taobao.org
 ```
 
 安装完之后查看版本，没报错就说明安装好了；
