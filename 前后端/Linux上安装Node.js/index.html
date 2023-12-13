@@ -1470,6 +1470,9 @@
 <a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="c1"># 创建pnpm链接到系统目录</span>
 <a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/usr/local/bin/pnpm<span class="p">;</span><span class="w"> </span>sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/opt/<span class="si">${</span><span class="nv">opt_node_dir</span><span class="si">}</span>/bin/pnpm<span class="w"> </span>/usr/local/bin/pnpm
 <a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/usr/local/bin/pnpx<span class="p">;</span><span class="w"> </span>sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/opt/<span class="si">${</span><span class="nv">opt_node_dir</span><span class="si">}</span>/bin/pnpx<span class="w"> </span>/usr/local/bin/pnpx
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="c1"># 设置淘宝镜像源</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>npm<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>registry<span class="w"> </span>https://registry.npm.taobao.org
 </code></pre></div>
 <p>安装完之后查看版本，没报错就说明安装好了；</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>node<span class="w"> </span>-v
