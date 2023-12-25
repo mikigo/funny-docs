@@ -20,11 +20,23 @@ theme:
         icon: material/lightbulb-outline
         name: Switch to dark mode
   features:
+    - announce.dismiss
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    - content.tooltips
+#    - navigation.footer
+    - navigation.indexes
     - navigation.instant
+    - navigation.tracking
+#    - navigation.sections
     - navigation.top
-    - navigation.sections
-    - search.suggest
+    - navigation.tracking
     - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
     - content.tabs.link
 
 #  logo: "img/logo.png"
@@ -72,6 +84,13 @@ extra:
 
 extra_javascript:
   - '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'
+  - js/termynal.js
+  - js/custom.js
+
+extra_css:
+  - stylesheets/extra.css
+  - css/termynal.css
+  - css/custom.css
 
 nav:
   - 欢迎: index.md

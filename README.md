@@ -1,45 +1,15 @@
-# funny-docs
+# mikigo docs
 
-在线文档1：[https://mikigo.github.io/funny-docs](https://mikigo.github.io/funny-docs)
+------------------------------------------
 
-在线文档2：[https://mikigo.gitee.io/funny-docs](https://mikigo.gitee.io/funny-docs)
+[Github Web](https://mikigo.github.io/funny-docs) | [Gitee Web](https://mikigo.gitee.io/funny-docs)
 
-使用mkdocs构建的文档系统，记录一些有趣的知识；
+------------------------------------------
 
-不积跬步无以至千里，不积小流无以成江海。
+生命中最美好的事情之一就是不断学习新知识，并与其他人分享。
 
-## 安装
-```shell
-pipenv install
-```
+通过记录这些有趣的知识和经历，我们可以帮助自己更深入地理解它们，并将它们传递给其他人。
 
-安装完成之后：
+在这个过程中，虽然也许会遇到挑战和困难，但当你看着你的笔记和文章，看着你涉足和探索的新领域，你会感到无比快乐和满足。
 
-```shell
-pipenv shell
-```
-
-进入虚拟环境；
-
-## 在线开发预览
-```shell
-mkdocs serve
-```
-
-编辑markdown文件就可以及时查看网站显示效果；
-
-## 编译打包
-```shell
-mkdocs build
-```
-
-编译完成之后会在根目录下生成一个site目录，里面报告编译后的文件；
-
-可以将编译打包之后的文件(site目录)部署到任意HTTP服务，即可，通过浏览器访问；
-
-## markdown文档编写规范
-1.`md` 文档按照现有目录结构存放；
-
-2.新增文档注意在 `yml` 文件里面添加配置；
-
-3.图片资源存放在 `img` 目录下，可参考现有目录划分结构；
+因此，不要害怕犯错，不要害怕失败，开始你的探索之旅，让我们一起记录、分享、成长！
