@@ -17,10 +17,14 @@ Pytest 是一个流行的基于 Python 的自动化测试框架，以其灵活�
 
 ## 二、安装
 
+<div class="termy">
+
 ```console
 pip3 install pytest
-
+---> 100%
 ```
+
+</div>
 
 只需要这样安装一下就行了，够简单易用吧。
 
