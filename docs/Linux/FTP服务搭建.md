@@ -109,3 +109,19 @@ sudo systemctl restart vsftpd.service
 sudo systemctl status vsftpd.service
 ```
 
+## SFTP
+
+```shell
+# Match Group mysftp 
+# 告诉sshd进程，mysftp用户组中的用户适用下面的限制；
+
+# 限制sftp的活动目录在其sftp目录；
+ChrootDirectory /data/sftp  
+# 防止用户执行他们自己自定义的命令，限制用户命令执行上下文为sftp；
+ForceCommand internal-sftp 
+# 禁止X11转发；
+X11Forwarding no 
+# 禁止tcp转发；
+AllowTcpForwarding no 
+```
+
