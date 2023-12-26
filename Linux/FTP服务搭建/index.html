@@ -1215,6 +1215,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#sftp" class="md-nav__link">
+    SFTP
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1620,6 +1627,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#sftp" class="md-nav__link">
+    SFTP
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1728,6 +1742,19 @@
 <h2 id="_4">重启服务<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>vsftpd.service
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>vsftpd.service
+</code></pre></div>
+<h2 id="sftp">SFTP<a class="headerlink" href="#sftp" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Match Group mysftp </span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="c1"># 告诉sshd进程，mysftp用户组中的用户适用下面的限制；</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c1"># 限制sftp的活动目录在其sftp目录；</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>ChrootDirectory<span class="w"> </span>/data/sftp<span class="w">  </span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="c1"># 防止用户执行他们自己自定义的命令，限制用户命令执行上下文为sftp；</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>ForceCommand<span class="w"> </span>internal-sftp<span class="w"> </span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="c1"># 禁止X11转发；</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>X11Forwarding<span class="w"> </span>no<span class="w"> </span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="c1"># 禁止tcp转发；</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>AllowTcpForwarding<span class="w"> </span>no<span class="w"> </span>
 </code></pre></div>
 
 
