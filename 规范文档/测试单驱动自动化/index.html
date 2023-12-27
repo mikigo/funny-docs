@@ -1369,6 +1369,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#at_1" class="md-nav__link">
+    AT过程日志
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1819,6 +1826,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#at_1" class="md-nav__link">
+    AT过程日志
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1856,6 +1870,10 @@
 
 
 <h1 id="_1">测试单驱动自动化测试<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># ==================================</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Author : mikigo</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># ==================================</span>
+</code></pre></div>
 <h2 id="_2">一、测试流程<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p><img alt="" src="../../img/guifan/at.drawio.png" /></p>
 <h2 id="_3">二、测试单关键信息规范<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
@@ -1865,15 +1883,15 @@
 <p><a href="https://pms.uniontech.com/testtask-view-35573.html">2023-12-12-专业版V20-软件包安装器-6.0.18.2-SP11-第1轮-【1062】BUG回归</a></p>
 <h3 id="2">2、测试单版本详情<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p>在 <strong><code>版本详情</code>-<code>描述</code></strong> 中包含关键信息：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>【镜像环境】：【1062】
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>【deb地址】：【http://10.0.32.52:5001/tasks/373109/】
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>【仓库源】：【deb<span class="w"> </span><span class="o">[</span><span class="nv">trusted</span><span class="o">=</span>yes<span class="o">]</span><span class="w"> </span>https://aptly.uniontech.com/pkg/eagle-1063/release-candidate/44CQ5paH566h44CRMTA2M-mcgOaxgua1i-ivlS0yMDIzLTEyLTEyMjAyMy0xMi0xMiAxNDowNjowNw/<span class="w"> </span>unstable<span class="w"> </span>main】
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>【镜像环境】：【1062】
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>【deb地址】：【http://10.0.32.52:5001/tasks/373109/】
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>【仓库源】：【deb<span class="w"> </span><span class="o">[</span><span class="nv">trusted</span><span class="o">=</span>yes<span class="o">]</span><span class="w"> </span>https://aptly.uniontech.com/pkg/eagle-1063/release-candidate/44CQ5paH566h44CRMTA2M-mcgOaxgua1i-ivlS0yMDIzLTEyLTEyMjAyMy0xMi0xMiAxNDowNjowNw/<span class="w"> </span>unstable<span class="w"> </span>main】
 </code></pre></div>
 <h4 id="deb">多个deb地址或仓库源的情况<a class="headerlink" href="#deb" title="Permanent link">&para;</a></h4>
 <p>在同一个中括号里面写多个 deb 地址或仓库源地址，用 <strong><code>英文逗号</code></strong> 分隔；</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>【deb地址】：【deepin-deb-installer：http://10.0.32.52:5001/tasks/373109/,libqapt：http://10.0.32.52:5001/tasks/373108/】
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>【仓库源】：【deb<span class="w"> </span><span class="o">[</span><span class="nv">trusted</span><span class="o">=</span>yes<span class="o">]</span><span class="w"> </span>https://aptly.uniontech.com/pkg/eagle-1063/release-candidate/44CQ5paH566h44CRMTA2M-mcgOaxgua1i-ivlS0yMDIzLTEyLTEyMjAyMy0xMi0xMiAxNDowNjowNw/<span class="w"> </span>unstable<span class="w"> </span>main,deb<span class="w"> </span><span class="o">[</span><span class="nv">trusted</span><span class="o">=</span>yes<span class="o">]</span><span class="w"> </span>https://aptly.uniontech.com/pkg/eagle-1063/release-candidate/44CQ5paH566h44CRMTA2M-mcgOaxgua1i-ivlS0yMDIzLTEyLTEyMjAyMy0xMi0xMiAxNDowNjowNw/<span class="w"> </span>unstable<span class="w"> </span>main】
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>【deb地址】：【deepin-deb-installer：http://10.0.32.52:5001/tasks/373109/,libqapt：http://10.0.32.52:5001/tasks/373108/】
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>【仓库源】：【deb<span class="w"> </span><span class="o">[</span><span class="nv">trusted</span><span class="o">=</span>yes<span class="o">]</span><span class="w"> </span>https://aptly.uniontech.com/pkg/eagle-1063/release-candidate/44CQ5paH566h44CRMTA2M-mcgOaxgua1i-ivlS0yMDIzLTEyLTEyMjAyMy0xMi0xMiAxNDowNjowNw/<span class="w"> </span>unstable<span class="w"> </span>main,deb<span class="w"> </span><span class="o">[</span><span class="nv">trusted</span><span class="o">=</span>yes<span class="o">]</span><span class="w"> </span>https://aptly.uniontech.com/pkg/eagle-1063/release-candidate/44CQ5paH566h44CRMTA2M-mcgOaxgua1i-ivlS0yMDIzLTEyLTEyMjAyMy0xMi0xMiAxNDowNjowNw/<span class="w"> </span>unstable<span class="w"> </span>main】
 </code></pre></div>
 <h2 id="_4">三、测试包获取&amp;部署<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <h3 id="1deb">1、deb地址<a class="headerlink" href="#1deb" title="Permanent link">&para;</a></h3>
@@ -1900,7 +1918,7 @@
 <h2 id="atat">六、AT报告和AT过程日志<a class="headerlink" href="#atat" title="Permanent link">&para;</a></h2>
 <h3 id="at">AT报告<a class="headerlink" href="#at" title="Permanent link">&para;</a></h3>
 <p>在 <strong><a href="https://cooperation.uniontech.com/app/3642d1a4-7463-4bb6-96bc-69c5c1092a02/64083c8c571dca6a6b0c69e6/64097be258096ffd1a12dda2/64c35664cc11a7bd3d7e4b68">明道云-测试部-工具应用测试部-任务排期表-测试单任务视图</a></strong> 中，找到 <strong>自动化报告</strong> 列，点击里面的 <code>url</code> 即可访问测试单对应的自动化测试报告在线地址；</p>
-<p>### AT过程日志</p>
+<h3 id="at_1">AT过程日志<a class="headerlink" href="#at_1" title="Permanent link">&para;</a></h3>
 <p>在 <strong><a href="https://cooperation.uniontech.com/app/3642d1a4-7463-4bb6-96bc-69c5c1092a02/64083c8c571dca6a6b0c69e6/64097be258096ffd1a12dda2/64c35664cc11a7bd3d7e4b68">明道云-测试部-工具应用测试部-任务排期表-测试单任务视图</a></strong> 中，找到 <strong>Jenkins URL</strong> 列，点击里面的 <code>url</code> 即可访问测试单对应的 <code>Jenkins</code> 任务地址，可以查看整个测试过程的日志输出；</p>
 
 
