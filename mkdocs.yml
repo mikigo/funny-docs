@@ -115,8 +115,8 @@ nav:
       - 前后端/Linux上安装Node.js.md
 
   - AI/视觉:
-      - 视觉/OpenCV(Python)基础—9小时入门版.md
-      - 视觉/MMDetection入门基础.md
+      - AI/OpenCV(Python)基础—9小时入门版.md
+      - AI/MMDetection入门基础.md
 
   - Python:
       - Python/Python基础语法—8小时入门版.md
@@ -126,6 +126,7 @@ nav:
       - Python/Linux上安装Python3.9.9.md
       - Python/Linux上如何选择用pip3还是sudopip3.md
       - Python/配置Python源的几种方法.md
+      - Python/常用的获取随机字符串的方法.md
 
   - Linux:
       - Linux/KVM安装配置及使用说明.md
@@ -133,6 +134,9 @@ nav:
       - Linux/Linux基础.md
       - Linux/Nginx入门使用.md
       - Linux/FTP服务搭建.md
+      - Linux/配置开机自启服务.md
+      - Linux/Linux上sudo免密.md
+      - Linux/Linux上远程桌面VNC配置.md
 
   - 规范文档:
       - 规范文档/测试单驱动自动化.md
@@ -144,10 +148,7 @@ nav:
       - 规范文档/商店上架测试策略.md
       - 规范文档/安全漏洞更新测试策略.md
 
-  - 常见问题及方案:
-      - 常见问题及方案/配置开机自启服务.md
-      - 常见问题及方案/Linux上sudo免密.md
-      - 常见问题及方案/Linux上远程桌面VNC配置.md
-      - 常见问题及方案/常用的获取随机字符串的方法.md
+  - 常见问题:
       - 常见问题及方案/node-error-01.md
-  
+      - 常见问题及方案/Wayland下sniff报错.md
+      - 常见问题及方案/报错Python字符串不相等.md
