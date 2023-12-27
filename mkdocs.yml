@@ -45,7 +45,7 @@ theme:
     repo: fontawesome/brands/github
 
 # 右上角
-repo_name: mikigo/funny-docs
+repo_name: funny docs
 repo_url: "https://github.com/mikigo/funny-docs"
 
 markdown_extensions:
