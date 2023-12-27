@@ -1,5 +1,5 @@
-site_name: funny docs
-copyright: Copyright © 2022-2023 mikigo. All Rights Reserved.
+site_name: Funny Docs
+copyright: Copyright © 2023 UnionTech Software Technology Co., Ltd. All Rights Reserved.
 theme:
   name: material
   language: zh
@@ -45,7 +45,7 @@ theme:
     repo: fontawesome/brands/github
 
 # 右上角
-repo_name: funny docs
+repo_name: funny-docs
 repo_url: "https://github.com/mikigo/funny-docs"
 
 markdown_extensions:
@@ -127,20 +127,22 @@ nav:
       - Python/Linux上如何选择用pip3还是sudopip3.md
       - Python/配置Python源的几种方法.md
 
-  - Linux/容器:
+  - Linux:
       - Linux/KVM安装配置及使用说明.md
       - Linux/Docker入门.md
       - Linux/Linux基础.md
       - Linux/Nginx入门使用.md
       - Linux/FTP服务搭建.md
 
-  - ruankao:
-      - ruankao/软件架构设计.md
-      - ruankao/分布式系统.md
-      - ruankao/系统开发.md
-      - ruankao/面向对象方法.md
-      - ruankao/数据库系统.md
-      - ruankao/基于构件的开发.md
+  - 规范文档:
+      - 规范文档/测试单驱动自动化.md
+      - 规范文档/简易版报告新增规范.md
+      - 规范文档/BUG和用例附加规范.md
+      - 规范文档/研发自测规范.md
+      - 规范文档/主线机型覆盖策略.md
+      - 规范文档/商业定制回合测试策略.md
+      - 规范文档/商店上架测试策略.md
+      - 规范文档/安全漏洞更新测试策略.md
 
   - 常见问题及方案:
       - 常见问题及方案/配置开机自启服务.md

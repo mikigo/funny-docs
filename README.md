@@ -1,8 +1,4 @@
-# funny docs
-
-------------------------------------------
-
-[Github Web](https://mikigo.github.io/funny-docs) | [Gitee Web](https://mikigo.gitee.io/funny-docs)
+# Funny Docs
 
 ------------------------------------------
 
