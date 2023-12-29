@@ -1,1 +1,6 @@
---8<-- "README.md"
+---
+hide:
+    - date
+    - navigation
+
+---

@@ -5,58 +5,59 @@ theme:
   language: zh
   custom_dir: overrides
   palette:
-    - media: '(prefers-color-scheme: light)'
-      scheme: default
-      primary: blue grey
-      accent: amber
-      toggle:
-        icon: material/lightbulb
-        name: Switch to light mode
-    - media: '(prefers-color-scheme: dark)'
-      scheme: slate
-      primary: blue grey
-      accent: amber
-      toggle:
-        icon: material/lightbulb-outline
-        name: Switch to dark mode
+    - scheme: default
   features:
+    - navigation.indexes
+    - navigation.instant
+    - navigation.tracking
+    - navigation.top
+    - navigation.tracking
+    - navigation.tabs
+    #    - navigation.sections
+    #    - navigation.footer
     - announce.dismiss
     - content.action.edit
     - content.action.view
     - content.code.annotate
     - content.code.copy
     - content.tooltips
-#    - navigation.footer
-    - navigation.indexes
-    - navigation.instant
-    - navigation.tracking
-#    - navigation.sections
-    - navigation.top
-    - navigation.tracking
+    - content.tabs.link
     - search.highlight
     - search.share
     - search.suggest
+    - header.autohide
     - toc.follow
-    - content.tabs.link
 
 #  logo: "img/logo.png"
 #  favicon: img/favicon.ico
   icon:
     repo: fontawesome/brands/github
 
-# 右上角
 repo_name: funny-docs
 repo_url: "https://github.com/mikigo/funny-docs"
 
 markdown_extensions:
   - toc:
-      permalink: true
+      permalink: 🐟
+      toc_depth: 4
+  - meta
+  - tables
+  - def_list
+  - attr_list
+  - md_in_html
+  - sane_lists
   - admonition
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.critic
   - pymdownx.details
+  - pymdownx.snippets
+  - pymdownx.magiclink
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
   - pymdownx.highlight:
       anchor_linenums: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
@@ -69,13 +70,20 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
-  - attr_list
-  - tables
-  - def_list
 
 plugins:
   - search
   - mike
+  - git-revision-date-localized:
+      type: datetime
+      timezone: Asia/Shanghai
+      enable_creation_date: true
+      exclude:
+        - index.md
+        - comments.md
+  - statistics:
+      page_check_metadata: comment
+  - toc
 
 extra:
   generator: false
@@ -93,62 +101,106 @@ extra_css:
   - css/custom.css
 
 nav:
-  - 欢迎: index.md
-  - 自动化测试:
-      - 自动化/Pytest从入门到起飞.md
-      - 自动化/unittest—3小时入门版.md
-      - 自动化/Playwright—8小时入门版.md
-      - 自动化/Selenium—8小时入门版.md
-      - 自动化/HttpRunner-2小时入门版.md
-      - 自动化/Locust—2小时入门版.md
-      - 自动化/JMeter—10小时入门版.md
-      - 自动化/Appium—6小时入门版.md
+  - 首页: index.md
+  - 自动化技术:
+    - 自动化技术/index.md
+    - 自动化测试框架:
+      - 自动化技术/自动化测试框架/Pytest从入门到起飞.md
+      - 自动化技术/自动化测试框架/unittest—3小时入门版.md
+    - UI自动化:
+      - 自动化技术/UI自动化/Playwright—8小时入门版.md
+      - 自动化技术/UI自动化/Selenium—8小时入门版.md
+      - 自动化技术/UI自动化/Appium—6小时入门版.md
+    - 接口自动化:
+      - 自动化技术/接口自动化/HttpRunner-2小时入门版.md
+    - 性能自动化:
+      - 自动化技术/性能自动化/JMeter—10小时入门版.md
+      - 自动化技术/性能自动化/Locust—2小时入门版.md
+    - 自动化思想:
+      - 自动化技术/自动化思想/rpa.md
 
-  - 网络/爬虫:
-      - 爬虫/Requests.md
-      - 爬虫/Httpx.md
-      - 爬虫/Scrapy.md
+  - 网络爬虫:
+    - 网络爬虫/index.md
+    - 接口请求工具:
+      - 网络爬虫/接口请求工具/Requests.md
+      - 网络爬虫/接口请求工具/Httpx.md
+    - 爬虫框架:
+      - 网络爬虫/爬虫框架/Scrapy.md
 
-  - 前端/后端:
-      - 前后端/FastAPI—8小时入门版.md
-      - 前后端/MySQL基础.md
-      - 前后端/Linux上安装Node.js.md
+  - 前后端:
+    - 前后端/index.md
+    - 前端:
+      - 前后端/前端/Linux上安装Node.js.md
+    - 后端:
+      - 前后端/后端/FastAPI—8小时入门版.md
+      - 前后端/后端/MySQL基础.md
 
-  - AI/视觉:
-      - AI/OpenCV(Python)基础—9小时入门版.md
-      - AI/MMDetection入门基础.md
+  - 人工智能:
+    - 人工智能/index.md
+    - 图像:
+      - 人工智能/图像/OpenCV(Python)基础—9小时入门版.md
+      - 人工智能/图像/MMDetection入门基础.md
 
-  - Python:
-      - Python/Python基础语法—8小时入门版.md
-      - Python/Python从进阶到高级—通俗易懂版.md
-      - Python/Python包构建和发布.md
-      - Python/Python环境与依赖管理.md
-      - Python/Linux上安装Python3.9.9.md
-      - Python/Linux上如何选择用pip3还是sudopip3.md
-      - Python/配置Python源的几种方法.md
-      - Python/常用的获取随机字符串的方法.md
+  - 编程语言:
+    - 编程语言/index.md
+    - Python:
+      - 编程语言/Python/Python基础语法—8小时入门版.md
+      - 编程语言/Python/Python从进阶到高级—通俗易懂版.md
+      - 编程语言/Python/Python包构建和发布.md
+      - 编程语言/Python/Python环境与依赖管理.md
+      - 编程语言/Python/Linux上安装Python3.9.9.md
+      - 编程语言/Python/Linux上如何选择用pip3还是sudopip3.md
+      - 编程语言/Python/配置Python源的几种方法.md
+      - 编程语言/Python/常用的获取随机字符串的方法.md
+    - Shell:
+        - shell入门.md
 
   - Linux:
-      - Linux/KVM安装配置及使用说明.md
-      - Linux/Docker入门.md
-      - Linux/Linux基础.md
-      - Linux/Nginx入门使用.md
-      - Linux/FTP服务搭建.md
-      - Linux/配置开机自启服务.md
-      - Linux/Linux上sudo免密.md
-      - Linux/Linux上远程桌面VNC配置.md
+    - Linux/index.md
+    - 工具使用:
+      - Linux/工具使用/KVM安装配置及使用说明.md
+      - Linux/工具使用/Docker入门.md
+      - Linux/工具使用/Nginx入门使用.md
+      - Linux/工具使用/FTP服务搭建.md
+    - 方案教程:
+      - Linux/方案教程/Linux基础.md
+      - Linux/方案教程/配置开机自启服务.md
+      - Linux/方案教程/Linux上sudo免密.md
+      - Linux/方案教程/Linux上远程桌面VNC配置.md
+
+  - 技术文档:
+      - 技术文档/index.md
+      - 专利:
+          - _index.md
+      - 技术调研:
+          - _index.md
+      - 根因分析:
+          - _index.md
 
   - 规范文档:
-      - 规范文档/测试单驱动自动化.md
-      - 规范文档/简易版报告新增规范.md
-      - 规范文档/BUG和用例附加规范.md
-      - 规范文档/研发自测规范.md
-      - 规范文档/主线机型覆盖策略.md
-      - 规范文档/商业定制回合测试策略.md
-      - 规范文档/商店上架测试策略.md
-      - 规范文档/安全漏洞更新测试策略.md
+    - 规范文档/index.md
+    - 流程规范:
+      - 规范文档/流程规范/测试单驱动自动化.md
+      - 规范文档/流程规范/简易版报告新增规范.md
+      - 规范文档/流程规范/BUG和用例附加规范.md
+      - 规范文档/流程规范/研发自测规范.md
+    - 测试策略:
+      - 规范文档/测试策略/主线机型覆盖策略.md
+      - 规范文档/测试策略/商业定制回合测试策略.md
+      - 规范文档/测试策略/商店上架测试策略.md
+      - 规范文档/测试策略/安全漏洞更新测试策略.md
 
   - 常见问题:
-      - 常见问题及方案/node-error-01.md
-      - 常见问题及方案/Wayland下sniff报错.md
-      - 常见问题及方案/报错Python字符串不相等.md
+    - 常见问题/index.md
+    - 常见问题/报错Python字符串不相等.md
+    - 常见问题/Wayland下sniff报错.md
+    - 常见问题/node-error-01.md
+
+  - 投稿:
+    - 投稿/index.md
+
+  - 留言:
+      - comments.md
+
+  - YouQu: https://linuxdeepin.github.io/deepin-autotest-framework/" target="_blank
+
