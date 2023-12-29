@@ -1,3 +1,7 @@
+---
+counter: True
+---
+
 
 # FastAPI—8小时入门版
 

@@ -1,3 +1,7 @@
+---
+counter: True
+---
+
 # Locust—2小时入门版
 
 ```shell

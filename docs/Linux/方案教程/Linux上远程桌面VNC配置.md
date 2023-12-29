@@ -1,3 +1,7 @@
+---
+counter: True
+---
+
 # Linux 上远程桌面 VNC 服务配置
 
 ```shell

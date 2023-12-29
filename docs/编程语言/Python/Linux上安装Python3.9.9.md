@@ -1,3 +1,7 @@
+---
+counter: True
+---
+
 # Linux 上安装 Python 3.9.9
 
 ```shell

@@ -1,6 +1,5 @@
 ---
 counter: True
-comment: True
 ---
 
 # Pytest 从入门到起飞

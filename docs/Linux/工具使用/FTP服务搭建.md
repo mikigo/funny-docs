@@ -1,3 +1,7 @@
+---
+counter: True
+---
+
 # FTP服务搭建
 
 ```shell

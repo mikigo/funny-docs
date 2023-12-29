@@ -1,3 +1,7 @@
+---
+counter: True
+---
+
 # Linux 上安装 Node.js
 
 ```shell

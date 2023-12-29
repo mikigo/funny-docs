@@ -1,3 +1,7 @@
+---
+counter: True
+---
+
 
 # Python基础语法—8小时入门版
 

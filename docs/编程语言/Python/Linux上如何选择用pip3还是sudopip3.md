@@ -1,3 +1,7 @@
+---
+counter: True
+---
+
 # Linux 上如何选择用 pip3 还是 sudo pip3
 
 ```shell

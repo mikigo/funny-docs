@@ -1,3 +1,7 @@
+---
+counter: True
+---
+
 # KVM安装配置及使用说明
 
 ```shell

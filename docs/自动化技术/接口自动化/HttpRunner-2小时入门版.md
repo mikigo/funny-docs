@@ -1,3 +1,7 @@
+---
+counter: True
+---
+
 # HttpRunner—2小时入门版
 
 ```shell

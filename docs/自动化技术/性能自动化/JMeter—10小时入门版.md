@@ -1,3 +1,7 @@
+---
+counter: True
+---
+
 # JMeter—10小时入门版
 
 ```shell

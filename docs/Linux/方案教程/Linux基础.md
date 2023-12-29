@@ -1,3 +1,7 @@
+---
+counter: True
+---
+
 # Linux&Shell基础
 
 ```shell

@@ -1,3 +1,6 @@
+---
+counter: True
+---
 
 # Playwright—8小时入门版
 

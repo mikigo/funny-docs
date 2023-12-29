@@ -1,3 +1,7 @@
+---
+counter: True
+---
+
 # Appium—6小时入门版
 
 ```shell

@@ -1,3 +1,7 @@
+---
+counter: True
+---
+
 # 配置 Python 源的几种方法
 
 ```shell

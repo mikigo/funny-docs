@@ -1,3 +1,7 @@
+---
+counter: True
+---
+
 # Python环境与依赖管理
 
 ```shell

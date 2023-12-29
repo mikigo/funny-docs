@@ -1,3 +1,7 @@
+---
+counter: True
+---
+
 # MMDetection 入门基础
 
 ```shell

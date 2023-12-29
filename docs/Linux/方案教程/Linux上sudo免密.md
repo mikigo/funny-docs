@@ -1,3 +1,7 @@
+---
+counter: True
+---
+
 # Linux 上 sudo 免密
 
 ```shell

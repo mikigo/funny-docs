@@ -1,3 +1,7 @@
+---
+counter: True
+---
+
 # Nginx入门使用
 
 ```shell
