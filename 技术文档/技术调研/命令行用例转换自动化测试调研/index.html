@@ -1,0 +1,4408 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../%E5%8F%AF%E7%94%A8%E4%BA%8EUOS%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8%E6%80%A7%E8%83%BD%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E5%85%B7%E7%9A%84%E8%B0%83%E7%A0%94/">
+      
+      
+        <link rel="next" href="../%E3%80%8A%E5%BA%94%E7%94%A8%E4%BA%8E%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%E7%9A%84%E6%A8%A1%E6%8B%9F%E8%BE%93%E5%85%A5%E5%B7%A5%E5%85%B7%E3%80%8B%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.2.7">
+    
+    
+      
+        <title>命令行用例转换自动化测试调研 - Funny Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.046329b4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.85d0ee34.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/toc_extra.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../../css/termynal.css">
+    
+      <link rel="stylesheet" href="../../../css/custom.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Funny Docs" class="md-header__button md-logo" aria-label="Funny Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Funny Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              命令行用例转换自动化测试调研
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/mikigo/funny-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    funny-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/" class="md-tabs__link">
+          
+  
+    
+  
+  自动化技术
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" class="md-tabs__link">
+          
+  
+    
+  
+  网络爬虫
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E5%89%8D%E5%90%8E%E7%AB%AF/" class="md-tabs__link">
+          
+  
+    
+  
+  前后端
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" class="md-tabs__link">
+          
+  
+    
+  
+  人工智能
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="md-tabs__link">
+          
+  
+    
+  
+  编程语言
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Linux/" class="md-tabs__link">
+          
+  
+    
+  
+  Linux
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+    
+  
+  技术文档
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/" class="md-tabs__link">
+          
+  
+    
+  
+  规范文档
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="md-tabs__link">
+          
+  
+    
+  
+  常见问题
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E6%8A%95%E7%A8%BF/" class="md-tabs__link">
+          
+  
+    
+  
+  投稿
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../comments/" class="md-tabs__link">
+          
+  
+    
+  
+  留言
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://linuxdeepin.github.io/deepin-autotest-framework/" target="_blank" class="md-tabs__link">
+        
+  
+    
+  
+  YouQu
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Funny Docs" class="md-nav__button md-logo" aria-label="Funny Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Funny Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/mikigo/funny-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    funny-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    首页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    自动化技术
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_2">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            自动化技术
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    自动化测试框架
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            自动化测试框架
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/Pytest%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E8%B5%B7%E9%A3%9E/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pytest 从入门到起飞
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/unittest%E2%80%943%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    unittest—3小时入门版
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UI自动化
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            UI自动化
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/UI%E8%87%AA%E5%8A%A8%E5%8C%96/Playwright%E2%80%948%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Playwright—8小时入门版
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/UI%E8%87%AA%E5%8A%A8%E5%8C%96/Selenium%E2%80%948%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selenium—8小时入门版
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/UI%E8%87%AA%E5%8A%A8%E5%8C%96/Appium%E2%80%946%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Appium—6小时入门版
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    接口自动化
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            接口自动化
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96/HttpRunner-2%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HttpRunner—2小时入门版
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    性能自动化
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            性能自动化
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/%E6%80%A7%E8%83%BD%E8%87%AA%E5%8A%A8%E5%8C%96/JMeter%E2%80%9410%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JMeter—10小时入门版
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/%E6%80%A7%E8%83%BD%E8%87%AA%E5%8A%A8%E5%8C%96/Locust%E2%80%942%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Locust—2小时入门版
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    自动化思想
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            自动化思想
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%80%9D%E6%83%B3/rpa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RPA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    网络爬虫
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_3">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            网络爬虫
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    接口请求工具
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            接口请求工具
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82%E5%B7%A5%E5%85%B7/Requests/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Requests
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82%E5%B7%A5%E5%85%B7/Httpx/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Httpx
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    爬虫框架
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            爬虫框架
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6/Scrapy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scrapy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../%E5%89%8D%E5%90%8E%E7%AB%AF/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    前后端
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_4">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            前后端
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    前端
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            前端
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%89%8D%E5%90%8E%E7%AB%AF/%E5%89%8D%E7%AB%AF/Linux%E4%B8%8A%E5%AE%89%E8%A3%85Node.js/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux 上安装 Node.js
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    后端
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            后端
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%89%8D%E5%90%8E%E7%AB%AF/%E5%90%8E%E7%AB%AF/FastAPI%E2%80%948%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FastAPI—8小时入门版
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%89%8D%E5%90%8E%E7%AB%AF/%E5%90%8E%E7%AB%AF/MySQL%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MySQL基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    人工智能
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_5">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            人工智能
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    图像
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            图像
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E5%9B%BE%E5%83%8F/OpenCV%28Python%29%E5%9F%BA%E7%A1%80%E2%80%949%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenCV(Python)基础—9小时入门版
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E5%9B%BE%E5%83%8F/MMDetection%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MMDetection 入门基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    编程语言
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_6">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            编程语言
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/Python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E2%80%948%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python基础语法—8小时入门版
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/Python%E4%BB%8E%E8%BF%9B%E9%98%B6%E5%88%B0%E9%AB%98%E7%BA%A7%E2%80%94%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82%E7%89%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python从进阶到高级—通俗易懂版
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/Python%E5%8C%85%E6%9E%84%E5%BB%BA%E5%92%8C%E5%8F%91%E5%B8%83/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python包构建和发布
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/Python%E7%8E%AF%E5%A2%83%E4%B8%8E%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python环境与依赖管理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/Linux%E4%B8%8A%E5%AE%89%E8%A3%85Python3.9.9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux 上安装 Python 3.9.9
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/Linux%E4%B8%8A%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E7%94%A8pip3%E8%BF%98%E6%98%AFsudopip3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux 上如何选择用 pip3 还是 sudo pip3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/%E9%85%8D%E7%BD%AEPython%E6%BA%90%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    配置 Python 源的几种方法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/%E5%B8%B8%E7%94%A8%E7%9A%84%E8%8E%B7%E5%8F%96%E9%9A%8F%E6%9C%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%96%B9%E6%B3%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    常用的获取随机字符串的方法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Shell
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            Shell
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../shell入门.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Linux/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Linux
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_7">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Linux
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2" >
+        
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    工具使用
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            工具使用
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/KVM%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    KVM安装配置及使用说明
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/Docker%E5%85%A5%E9%97%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker入门
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/Nginx%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nginx入门使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/FTP%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FTP服务搭建
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_3" >
+        
+          <label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    方案教程
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            方案教程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/%E6%96%B9%E6%A1%88%E6%95%99%E7%A8%8B/Linux%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux&Shell基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/%E6%96%B9%E6%A1%88%E6%95%99%E7%A8%8B/%E9%85%8D%E7%BD%AE%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E6%9C%8D%E5%8A%A1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    配置开机自启服务
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/%E6%96%B9%E6%A1%88%E6%95%99%E7%A8%8B/Linux%E4%B8%8Asudo%E5%85%8D%E5%AF%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux 上 sudo 免密
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/%E6%96%B9%E6%A1%88%E6%95%99%E7%A8%8B/Linux%E4%B8%8A%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2VNC%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux 上远程桌面 VNC 服务配置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    技术文档
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_8">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            技术文档
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_2" >
+        
+          <label class="md-nav__link" for="__nav_8_2" id="__nav_8_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    专利交底书
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_2">
+            <span class="md-nav__icon md-icon"></span>
+            专利交底书
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../一种自动化测试用例步骤中断后恢复执行的技术交底书:技术文档/专利交底书/一种自动化测试用例步骤中断后恢复执行的技术交底书.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3" checked>
+        
+          <label class="md-nav__link" for="__nav_8_3" id="__nav_8_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    技术调研
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8_3">
+            <span class="md-nav__icon md-icon"></span>
+            技术调研
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%8F%AF%E7%94%A8%E4%BA%8EUOS%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8%E6%80%A7%E8%83%BD%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E5%85%B7%E7%9A%84%E8%B0%83%E7%A0%94/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    可用于UOS桌面应用性能自动化工具的调研
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    命令行用例转换自动化测试调研
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    命令行用例转换自动化测试调研
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    相关术语
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    问题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    现状
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    技术方案
+  </a>
+  
+    <nav class="md-nav" aria-label="技术方案">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    整体设计
+  </a>
+  
+    <nav class="md-nav" aria-label="整体设计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#case" class="md-nav__link">
+    用例模块（case）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method" class="md-nav__link">
+    方法封装模块（method）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run_repor" class="md-nav__link">
+    启动测试模块（run_repor）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    关键技术
+  </a>
+  
+    <nav class="md-nav" aria-label="关键技术">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    测试用例文件功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    初始化功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    断言功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    测试执行功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    测试报告功能
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    实验验证
+  </a>
+  
+    <nav class="md-nav" aria-label="实验验证">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    现状与方案初步对比
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    模拟一次完整测试
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    依赖库相关信息
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    实验代码存放地址
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    小结
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E3%80%8A%E5%BA%94%E7%94%A8%E4%BA%8E%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%E7%9A%84%E6%A8%A1%E6%8B%9F%E8%BE%93%E5%85%A5%E5%B7%A5%E5%85%B7%E3%80%8B%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    应用于桌面应用压力测试的模拟输入工具调研
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%92%88%E5%AF%B9PMS%E7%94%A8%E4%BE%8B%E6%95%B0%E6%8D%AE%E6%A3%80%E6%9F%A5%E4%B8%8E%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E7%A8%8BCSV%E6%96%87%E4%BB%B6%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E7%9A%84%E6%96%B9%E6%B3%95%E8%B0%83%E7%A0%94/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    针对PMS用例数据检查与自动化工程CSV文件数据同步的方法调研
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_4" >
+        
+          <label class="md-nav__link" for="__nav_8_4" id="__nav_8_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    根因分析
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_4">
+            <span class="md-nav__icon md-icon"></span>
+            根因分析
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%A0%B9%E5%9B%A0%E5%88%86%E6%9E%90/Python%E8%B0%83%E7%94%A8%E5%8A%A8%E6%80%81%E5%BA%93%E8%BF%90%E8%A1%8C%E6%97%B6%E6%8A%A5%E9%9D%99%E6%80%81TLS%E5%9D%97%E4%B8%8D%E8%83%BD%E5%88%86%E9%85%8D%E5%86%85%E5%AD%98%E6%A0%B9%E5%9B%A0%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python调用动态库运行时报静态TLS块不能分配内存根因分析报告
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%A0%B9%E5%9B%A0%E5%88%86%E6%9E%90/CentOS8U%E7%9B%98%E5%AE%89%E8%A3%85%E6%97%B6%E6%97%A0%E6%B3%95%E6%AD%A3%E5%B8%B8%E8%BF%9B%E5%85%A5%E5%AE%89%E8%A3%85%E7%95%8C%E9%9D%A2%E6%A0%B9%E5%9B%A0%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CentOS8U盘安装时无法正常进入安装界面问题根因分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%A0%B9%E5%9B%A0%E5%88%86%E6%9E%90/rootfs%E8%BF%9B%E5%85%A5MATE%E6%A1%8C%E9%9D%A2%E5%90%8E%E6%89%93%E5%BC%80%E7%BB%88%E7%AB%AF%E4%B8%8D%E8%83%BD%E6%89%A7%E8%A1%8Creboot%E6%8C%87%E4%BB%A4%E6%A0%B9%E5%9B%A0%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    rootfs进入MATE桌面后打开终端不能执行reboot指令根因分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    规范文档
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_9">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            规范文档
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_2" >
+        
+          <label class="md-nav__link" for="__nav_9_2" id="__nav_9_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    流程规范
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_2">
+            <span class="md-nav__icon md-icon"></span>
+            流程规范
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/%E6%B5%81%E7%A8%8B%E8%A7%84%E8%8C%83/%E6%B5%8B%E8%AF%95%E5%8D%95%E9%A9%B1%E5%8A%A8%E8%87%AA%E5%8A%A8%E5%8C%96/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    测试单驱动自动化测试
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/%E6%B5%81%E7%A8%8B%E8%A7%84%E8%8C%83/%E7%AE%80%E6%98%93%E7%89%88%E6%8A%A5%E5%91%8A%E6%96%B0%E5%A2%9E%E8%A7%84%E8%8C%83/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    简易版报告新增规范
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/%E6%B5%81%E7%A8%8B%E8%A7%84%E8%8C%83/BUG%E5%92%8C%E7%94%A8%E4%BE%8B%E9%99%84%E5%8A%A0%E8%A7%84%E8%8C%83/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BUG和用例附加规范
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/%E6%B5%81%E7%A8%8B%E8%A7%84%E8%8C%83/%E7%A0%94%E5%8F%91%E8%87%AA%E6%B5%8B%E8%A7%84%E8%8C%83/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    研发自测规范
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_3" >
+        
+          <label class="md-nav__link" for="__nav_9_3" id="__nav_9_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    测试策略
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_3">
+            <span class="md-nav__icon md-icon"></span>
+            测试策略
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/%E4%B8%BB%E7%BA%BF%E6%9C%BA%E5%9E%8B%E8%A6%86%E7%9B%96%E7%AD%96%E7%95%A5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    主线机型覆盖策略
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/%E5%95%86%E4%B8%9A%E5%AE%9A%E5%88%B6%E5%9B%9E%E5%90%88%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    商业定制回合测试策略
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/%E5%95%86%E5%BA%97%E4%B8%8A%E6%9E%B6%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    商店上架测试策略
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E%E6%9B%B4%E6%96%B0%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    安全漏洞更新测试策略
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    常见问题
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_10">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            常见问题
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E6%8A%A5%E9%94%99Python%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8D%E7%9B%B8%E7%AD%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    报错Python字符串不相等
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/Wayland%E4%B8%8Bsniff%E6%8A%A5%E9%94%99/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Wayland下sniff命令报错~/.Xauthorty文件不存在
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/node-error-01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Error: ENOSPC: System limit for number of file watchers reached
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../%E6%8A%95%E7%A8%BF/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    投稿
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            投稿
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    留言
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            留言
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../comments/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://linuxdeepin.github.io/deepin-autotest-framework/" target="_blank" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    YouQu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    相关术语
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    问题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    现状
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    技术方案
+  </a>
+  
+    <nav class="md-nav" aria-label="技术方案">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    整体设计
+  </a>
+  
+    <nav class="md-nav" aria-label="整体设计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#case" class="md-nav__link">
+    用例模块（case）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method" class="md-nav__link">
+    方法封装模块（method）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run_repor" class="md-nav__link">
+    启动测试模块（run_repor）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    关键技术
+  </a>
+  
+    <nav class="md-nav" aria-label="关键技术">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    测试用例文件功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    初始化功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    断言功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    测试执行功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    测试报告功能
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    实验验证
+  </a>
+  
+    <nav class="md-nav" aria-label="实验验证">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    现状与方案初步对比
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    模拟一次完整测试
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    依赖库相关信息
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    实验代码存放地址
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    小结
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/mikigo/funny-docs/edit/master/docs/技术文档/技术调研/命令行用例转换自动化测试调研.md" title="编辑此页" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/mikigo/funny-docs/raw/master/docs/技术文档/技术调研/命令行用例转换自动化测试调研.md" title="查看本页的源代码" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+<h1 id="_1">命令行用例转换自动化测试调研<a class="headerlink" href="#_1" title="Permanent link">🐟</a></h1>
+<h2 id="_2">相关术语<a class="headerlink" href="#_2" title="Permanent link">🐟</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">缩写</th>
+<th style="text-align: center;">全称</th>
+<th style="text-align: center;">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">SAT</td>
+<td style="text-align: center;">Shell Automated Test</td>
+<td style="text-align: center;">使用Shell实现的自动化测试</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_3">问题<a class="headerlink" href="#_3" title="Permanent link">🐟</a></h2>
+<p>​       目前基于UOS专用设备系统的测试中，包含命令行模式测试和图像化页面测试，在命令行模式对应的用例中，有部分用例执行起来较为简单（操作单一、交互性弱），但是在执行起来却相当繁琐。</p>
+<p>​       而且在实际测试过程中需要覆盖多个架构进行测试，重复工作较大，一条用例最多会被执行6遍，详情数据如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">问题</th>
+<th style="text-align: left;">内容</th>
+<th style="text-align: left;">此类用例数量</th>
+<th style="text-align: left;">完整用例数量</th>
+<th style="text-align: left;">此类用例占比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">执行繁琐</td>
+<td style="text-align: left;">执行命令行模式相关用例时，需要在命令行手动执行命令，然后通过命令输出结果与预期结果对比，得出用例执行结论，过程中需要不断的输入——验证——输入——验证......。</td>
+<td style="text-align: left;">283</td>
+<td style="text-align: left;">517</td>
+<td style="text-align: left;">54.73%</td>
+</tr>
+<tr>
+<td style="text-align: left;">重复工作量大</td>
+<td style="text-align: left;">测试过程中需要覆盖架构：AMD（Intel）、MIPS、ARM、SW，除此之外有时还需要验证AMD（兆芯）、虚拟机场景，综上所述，一条相同的用例，在进行全量测试时最少需要重复执行4次，最多需要重复执行6次。</td>
+<td style="text-align: left;">1698</td>
+<td style="text-align: left;">3102</td>
+<td style="text-align: left;">54.73%</td>
+</tr>
+</tbody>
+</table>
+<p>​       以上表格统计的用例数量并不能代表执行命令的数量，因为每一条用例可能包含多条执行命令，所以执行命令条数是远远大于用例条数的；除了以上目前问题（执行繁琐及重复工作）外，还存在以下影响效率的问题：</p>
+<ul>
+<li>
+<p>专用设备系统没有图形页面，相对于桌面版裁剪了大部分功能，用例的查看与执行是在不同设备上操作，所以无法粘贴命令，只能手动输入。</p>
+</li>
+<li>
+<p>若用例负责人请假/离职，更换测试人员进行测试，因为对用例不熟悉，需要依次查看用例文档预期内容。</p>
+</li>
+</ul>
+<h2 id="_4">现状<a class="headerlink" href="#_4" title="Permanent link">🐟</a></h2>
+<p>​       以上指出的问题，解决方案为把这54.73%的用例(后续称这54.73%的用例为：<strong>A类用例</strong>，另外一部分用例称为：<strong>B类用例</strong>)，从人工执行转换为自动化执行（自动执行命令、自动验证输出结果、自动生成测试报告），这样除了在全量测试时减少工作量，提升测试效率；还能在回归测试、边缘测试时多覆盖一定的测试范围。</p>
+<p>​       在Linux系统上实现自动化，首先想到的是通过Shell实现，把所有用例写到一个脚本中自动执行并判断结果即可，例如：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="ch">#! /bin/bash</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nv">case1</span><span class="o">=</span><span class="sb">`</span>which<span class="w"> </span>bash<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;/usr/bin/bash&quot;</span><span class="sb">`</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="si">${</span><span class="nv">case1</span><span class="si">}</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="k">then</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;case1:pass&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>result.log
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">else</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;case1:fail&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>result.log
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="k">fi</span>
+</code></pre></div>
+<p>​       执行以上Shell脚本即可完成对该条命令的测试，根据用例内容设计测试命令，并把命令结果赋值给变量，最后通过判断变量的情况得出结论。该方法能实现，但是当命令达到几百条并且后期还会继续增加时，那不管是代码编写还是后期维护都会越来越困难，会产生大量的代码冗余、内容无清晰等问题，所以该方案结论是测试内容少的时候可满足，但无法长远。</p>
+<p>​       这样看来我们需要的是一个自动化测试框架，满足自动处理/执行测试用例、自动验证输出结果、自动生成测试报告。就目前常见的自动化测试框架来说均可满足需求，确定了以下2个方案：</p>
+<ul>
+<li>
+<p>unitest：Python标准库中的单元测试框架，支持批量导入/执行用例、提供断言、初始化环境、环境清理、通过第三方库生成测试报告等。</p>
+</li>
+<li>
+<p>自行设计框架：根据目前需求，基于Shell自行编写一套适合项目的自动化测试框架</p>
+</li>
+</ul>
+<p>​       Shell框架和Python框架对比，Shell可直接执行系统命令，Python只能通过os、subprocess库来调用linux系统命令，在脚本的编写和调式都不如Shell简洁、方便。使用简单场景【查询音乐应用进程状态】的Shell、Python代码作为对比：
+* Python</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span> <span class="nn">subprocess</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">ps_state</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">&#39;ps aux|grep -v grep|grep -q deepin-music&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">returncode</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">ps_state</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li>Shell</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ps<span class="w"> </span>aux<span class="p">|</span>grep<span class="w"> </span>-v<span class="w"> </span>grep<span class="p">|</span>grep<span class="w"> </span>-q<span class="w"> </span>deepin-music
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$?</span>
+</code></pre></div>
+<p>​       通过以上对比可发现，在Linux系统上，实现一个相同的功能，Shell编写的代码要更为直接、简洁，命令越多越复杂这个优势越明显，对于几百条用例编写代码来说更偏向于使用Shell。</p>
+<p>​       除此之外Python通过第三方库生成的测试报告格式为HTML，但是针对当前项目中的裁剪系统来说，不带GUI页面所以并不支持查看HTML的文件；Shell框架生成的测试报告不带图形化内容，可直接在被测系统上直观的看到测试结果并进行验证，所以对查看测试结果来说Shell框架更适合当前项目。</p>
+<p>​       该类测试需要的测试框架不需要很复杂，轻量级的即可，通过自行设计能更自由，更贴合项目，所以最终选定通过Shell自行设计自动化测试框架方案。</p>
+<p>​       </p>
+<h2 id="_5">技术方案<a class="headerlink" href="#_5" title="Permanent link">🐟</a></h2>
+<p>​       通过Shell实现设计自动化测试框架，命名为<code>SAT</code>，通过<code>SAT</code>主要实现<strong>现状</strong>部分所描述的需求：自动处理/执行测试用例、自动验证输出结果、自动生成测试报告。</p>
+<p>​       <code>SAT</code>自动化测试框架运行流程图如下：</p>
+<p><img alt="流程图" src=".assets/流程图.png" /></p>
+<h3 id="_6">整体设计<a class="headerlink" href="#_6" title="Permanent link">🐟</a></h3>
+<p>​       <code>SAT</code>总体可以划分为下面几个模块：</p>
+<ul>
+<li>
+<p>用例模块（case）：存放转换为自动化测试用例的代码，最小单位为函数，该框架支持多个用例模块文件。</p>
+</li>
+<li>
+<p>方法封装模块（method）：存放一些公用方法函数，比如：断言、测试报告等。</p>
+</li>
+<li>
+<p>启动测试模块（run_repor）：存放启动测试的主代码，对用例模块文件进行批量处理并生成测试报告。</p>
+</li>
+<li>
+<p>SAT目录结构如下：</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="w">   </span>SAT<span class="w">                          </span><span class="c1">#主目录</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">   </span>├──<span class="w"> </span><span class="k">case</span><span class="w">                      </span><span class="c1"># 存放用例模块的目录</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>case_a.sh<span class="w">           </span><span class="c1"># 测试人员A用例文件</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>case_b.sh<span class="w">               </span><span class="c1"># 测试人员B用例文件</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>...
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">   </span>├──<span class="w"> </span>method<span class="w">                    </span><span class="c1"># 存放方法封装模块的目录</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>assertion.sh<span class="w">               </span><span class="c1"># 断言函数封装模块文件</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>other.sh<span class="w">                   </span><span class="c1"># 其他函数封装模块文件</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">   </span>├──<span class="w"> </span>report<span class="w">                  </span><span class="c1"># 存放测试报告的目录</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>report_0817231130<span class="w">      </span><span class="c1"># 测试报告文件</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>report_0819115441
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">   </span>└──<span class="w"> </span>run_report.sh<span class="w">           </span><span class="c1"># 启动测试模块文件</span>
+</code></pre></div>
+<h4 id="case">用例模块（case）<a class="headerlink" href="#case" title="Permanent link">🐟</a></h4>
+<p>​       实际项目中每个人负责的模块与用例不同，所以自动化测试用例需要自己编写负责部分，不像其他模块中的代码都是公用的，那么在编写格式上需要做统一的约定。格式统一之后，每人完成自己部分的用例文件，在启动测试时只要汇总全部用例模块文件，即可完成所有人的测试用例执行：
+  - 用例模块文件命名统一，测试人员A、B的用例模块文件：case_a.sh、case_b.sh。
+  - 测试用例最小单位统一：每一条测试用例为一条函数，通过函数来管理用例。
+  - 用例函数命名统一，测试人员A的第1、2条用例：test_a1(){}、test_a2(){}。
+  - 用例函数元素统一，需要包含变量：title、case_id、断言函数。</p>
+<h4 id="method">方法封装模块（method）<a class="headerlink" href="#method" title="Permanent link">🐟</a></h4>
+<p>​       该模块主要用于存放公共方法函数，其他模块直接调用即可，使代码更为清晰简洁，并减少冗余。封装的函数主要实现以下功能：</p>
+<ul>
+<li>用例断言：判断用例执行结果与预期是否一致，给出对应输出结果。</li>
+<li>用例处理：批量处理不同的用例模块文件：执行不同的用例模块文件，输出用例执行结果。</li>
+<li>用例统计：统计用例执行的数据：统计执行用例数量、通过用例数量、失败用例数量、失败用例编号。</li>
+<li>测试报告：结合以上全部内容输出本地文档，方便测试结果归档保存。</li>
+</ul>
+<h4 id="run_repor">启动测试模块（run_repor）<a class="headerlink" href="#run_repor" title="Permanent link">🐟</a></h4>
+<p>​       该模块为执行测试的主模块，主要是对测试开始前环境做初始化并运行测试，主要包含：</p>
+<ul>
+<li>
+<p>模块初始化：导入方法模块；根据对用例模块文件的分析，导入对应的模块文件。</p>
+</li>
+<li>
+<p>变量初始化：针对一些数据统计相关的函数做初始化赋值：用例数量、用例通过/失败数量、定义数组变量等。</p>
+</li>
+<li>
+<p>运行测试：调用测试执行函数、测试报告生成函数、提示用户测试报告生成路径。</p>
+</li>
+</ul>
+<h3 id="_7">关键技术<a class="headerlink" href="#_7" title="Permanent link">🐟</a></h3>
+<p>​       这里主要选取部分关键功能的设计与实现做说明：</p>
+<ul>
+<li>
+<p>测试用例</p>
+</li>
+<li>
+<p>初始化</p>
+</li>
+<li>
+<p>断言</p>
+</li>
+<li>
+<p>执行测试</p>
+</li>
+<li>
+<p>测试报告</p>
+</li>
+</ul>
+<h4 id="_8">测试用例文件功能<a class="headerlink" href="#_8" title="Permanent link">🐟</a></h4>
+<p>​       测试用例文件为管理用户用例的最小单位，每次测试至少包含1份测试用例文件，即可开始正常测试。可放入的测试文件数量无上限，可无限累加。</p>
+<p>​       查看测试人员A的用例模块文件 "case_a.sh" 部分内容：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="ch">#! /bin/bash</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># 文件：case_a.sh</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1"># 说明：基础镜像自动化测试用例</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># 作者：黄海针</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># 日期：2020/08/16</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1"># 测试人员A的第一条用例</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>test_a1<span class="o">(){</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="nv">title</span><span class="o">=</span><span class="s2">&quot;检查内核启动信息&quot;</span><span class="w">   </span><span class="c1"># 用例标题</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="nv">case_id</span><span class="o">=</span><span class="m">12170</span><span class="w">           </span><span class="c1"># 用例编号</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">    </span><span class="nv">a</span><span class="o">=</span><span class="s2">&quot;error|fail|warning|call\ trace&quot;</span><span class="w">  </span><span class="c1"># 用例执行命令结果</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span><span class="nv">b</span><span class="o">=</span><span class="sb">`</span>sudo<span class="w"> </span>dmesg<span class="sb">`</span><span class="w">                      </span><span class="c1"># 用例预期结果</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">    </span>assertNoIn<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">a</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">b</span><span class="si">}</span><span class="s2">&quot;</span><span class="w">            </span><span class="c1"># 断言比较用例执行情况，若b中不包含a则通过</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="o">}</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="c1"># 测试人员A的第二条用例</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>test_a2<span class="o">(){</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">    </span>pass
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="o">}</span>
+</code></pre></div>
+<p>​       通过以上代码可看出，用例函数中包含：</p>
+<ul>
+<li>
+<p>执行用例信息：用例标题、用例编号</p>
+</li>
+<li>
+<p>命令执行结果</p>
+</li>
+<li>
+<p>命令执行预期结果</p>
+</li>
+<li>
+<p>断言判断结果</p>
+</li>
+</ul>
+<p>完成该条用例的测试后，针对用例末尾的<code>assert</code>类断言函数内部，做了特殊处理，可以收集以上所有数据为最终的测试报告提供数据支撑。</p>
+<h4 id="_9">初始化功能<a class="headerlink" href="#_9" title="Permanent link">🐟</a></h4>
+<p>​       该功能是为后续测试提供良好的运行环境，以下为初始化函数代码：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># 初始化函数</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>setup<span class="o">(){</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;`whoami`&quot;</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">&quot;root&quot;</span><span class="w"> </span><span class="o">]</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="k">then</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">        </span><span class="nb">read</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;请以root用户运行该脚本，点击Enter退出&quot;</span><span class="w"> </span>end
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">        </span><span class="nb">exit</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="k">fi</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="nb">source</span><span class="w"> </span>./method/assertion.sh<span class="w">   </span><span class="c1"># 导入模块</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="nb">source</span><span class="w"> </span>./method/other.sh
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="c1"># 变量初始化</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span><span class="nv">fail</span><span class="o">=</span><span class="m">0</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">    </span><span class="nv">pass</span><span class="o">=</span><span class="m">0</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="nv">total</span><span class="o">=</span><span class="m">0</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">    </span><span class="nb">declare</span><span class="w"> </span>-a<span class="w"> </span>fail_id
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">    </span><span class="nv">user_list</span><span class="o">=(</span>a<span class="w"> </span>b<span class="w"> </span>c<span class="o">)</span><span class="w"> </span><span class="c1"># 测试用户组：a=黄海针 b=禄烨 c=蔡恒强</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">    </span><span class="c1"># ----------独立区域-----------</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">    </span><span class="c1"># 黄海针环境初始化</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">    </span>setup_a
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">    </span><span class="c1"># 蔡恒强环境初始化</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">    </span><span class="c1"># 暂无</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="w">    </span><span class="c1"># 禄烨环境初始化</span>
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="w">    </span><span class="c1"># 暂无</span>
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="w">    </span><span class="c1"># ----------------------------</span>
+<a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a>
+<a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a><span class="w">    </span><span class="c1"># 用例导入</span>
+<a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">user_list</span><span class="p">[*]</span><span class="si">}</span><span class="p">;</span><span class="k">do</span>
+<a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>-f<span class="w"> </span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/case/case_<span class="si">${</span><span class="nv">i</span><span class="si">}</span>.sh
+<a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a><span class="w">        </span><span class="k">then</span>
+<a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a><span class="w">            </span><span class="nb">source</span><span class="w"> </span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/case/case_<span class="si">${</span><span class="nv">i</span><span class="si">}</span>.sh
+<a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a><span class="w">            </span><span class="nb">eval</span><span class="w"> </span>num_<span class="si">${</span><span class="nv">i</span><span class="si">}</span><span class="o">=</span><span class="s2">&quot;`cat </span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span><span class="s2">/case/case_</span><span class="si">${</span><span class="nv">i</span><span class="si">}</span><span class="s2">.sh|grep ^test_</span><span class="si">${</span><span class="nv">i</span><span class="si">}</span><span class="s2">|wc -l`&quot;</span>
+<a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a><span class="w">        </span><span class="k">else</span>
+<a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a><span class="w">            </span><span class="nb">eval</span><span class="w"> </span>num_<span class="si">${</span><span class="nv">i</span><span class="si">}</span><span class="o">=</span><span class="m">0</span>
+<a id="__codelineno-5-38" name="__codelineno-5-38" href="#__codelineno-5-38"></a><span class="w">        </span><span class="k">fi</span>
+<a id="__codelineno-5-39" name="__codelineno-5-39" href="#__codelineno-5-39"></a><span class="w">    </span><span class="k">done</span>
+<a id="__codelineno-5-40" name="__codelineno-5-40" href="#__codelineno-5-40"></a>
+<a id="__codelineno-5-41" name="__codelineno-5-41" href="#__codelineno-5-41"></a><span class="o">}</span>
+<a id="__codelineno-5-42" name="__codelineno-5-42" href="#__codelineno-5-42"></a>
+<a id="__codelineno-5-43" name="__codelineno-5-43" href="#__codelineno-5-43"></a><span class="c1"># 环境清理函数</span>
+<a id="__codelineno-5-44" name="__codelineno-5-44" href="#__codelineno-5-44"></a>teardown<span class="o">(){</span>
+<a id="__codelineno-5-45" name="__codelineno-5-45" href="#__codelineno-5-45"></a>
+<a id="__codelineno-5-46" name="__codelineno-5-46" href="#__codelineno-5-46"></a><span class="w">    </span><span class="c1"># ----------独立区域-----------</span>
+<a id="__codelineno-5-47" name="__codelineno-5-47" href="#__codelineno-5-47"></a><span class="w">    </span><span class="c1"># 黄海针环境清理</span>
+<a id="__codelineno-5-48" name="__codelineno-5-48" href="#__codelineno-5-48"></a><span class="w">    </span>teardown_a
+<a id="__codelineno-5-49" name="__codelineno-5-49" href="#__codelineno-5-49"></a>
+<a id="__codelineno-5-50" name="__codelineno-5-50" href="#__codelineno-5-50"></a><span class="w">    </span><span class="c1"># 蔡恒强环境清理</span>
+<a id="__codelineno-5-51" name="__codelineno-5-51" href="#__codelineno-5-51"></a><span class="w">    </span><span class="c1"># 暂无</span>
+<a id="__codelineno-5-52" name="__codelineno-5-52" href="#__codelineno-5-52"></a>
+<a id="__codelineno-5-53" name="__codelineno-5-53" href="#__codelineno-5-53"></a><span class="w">    </span><span class="c1"># 禄烨环境清理</span>
+<a id="__codelineno-5-54" name="__codelineno-5-54" href="#__codelineno-5-54"></a><span class="w">    </span><span class="c1"># 暂无</span>
+<a id="__codelineno-5-55" name="__codelineno-5-55" href="#__codelineno-5-55"></a><span class="w">    </span><span class="c1"># ----------------------------</span>
+<a id="__codelineno-5-56" name="__codelineno-5-56" href="#__codelineno-5-56"></a>
+<a id="__codelineno-5-57" name="__codelineno-5-57" href="#__codelineno-5-57"></a><span class="w">    </span><span class="c1"># 用例执行情况：整体返回值</span>
+<a id="__codelineno-5-58" name="__codelineno-5-58" href="#__codelineno-5-58"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">fail</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="k">then</span>
+<a id="__codelineno-5-59" name="__codelineno-5-59" href="#__codelineno-5-59"></a><span class="w">        </span><span class="nb">exit</span><span class="w"> </span><span class="m">0</span>
+<a id="__codelineno-5-60" name="__codelineno-5-60" href="#__codelineno-5-60"></a><span class="w">    </span><span class="k">else</span>
+<a id="__codelineno-5-61" name="__codelineno-5-61" href="#__codelineno-5-61"></a><span class="w">        </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<a id="__codelineno-5-62" name="__codelineno-5-62" href="#__codelineno-5-62"></a><span class="w">    </span><span class="k">fi</span>
+<a id="__codelineno-5-63" name="__codelineno-5-63" href="#__codelineno-5-63"></a><span class="o">}</span>
+</code></pre></div>
+<p>​       通过代码分析，初始化/清理环境函数设计内容及流程：</p>
+<ul>
+<li>测试开始前执行初始化函数，为后续测试提供环境支持</li>
+<li>公共区域：针对框架本身的初始化<ul>
+<li>判断用户执行测试时是否是root用户，因为部分系统命令需要root权限，若非root用户则提示用户并退出</li>
+<li>导入公共函数文件，提供公共函数的调用</li>
+<li>初始化变量（变量赋值、定义变量类型），为最终的测试报告提供数据支撑</li>
+<li>扫描测试用例文件，收集数据（包含多少份文件、每份文件包含多少条用例），为最终的测试报告提供数据支撑</li>
+</ul>
+</li>
+<li>
+<p>独立区域：针对各测试人员，存放各自独立维护的初始化函数（比如测试人员a的，初始化函数：setup_a）</p>
+</li>
+<li>
+<p>测试结束后执行环境清理函数</p>
+</li>
+<li>
+<p>公共区域：针对框架本身的环境清理</p>
+<ul>
+<li>清理/释放测试过程中生成的垃圾文件或资源占用（该内容暂时缺失，因示例中用例暂未涉及）</li>
+<li>根据用例执行情况返回状态：用例均为pass返回0，用例存在fail返回1，后期可配合CI/CD使用</li>
+<li>独立区域：针对各测试人员，存放各自独立维护的清理函数（比如测试人员a的，环境清理函数：teardown_a）</li>
+</ul>
+</li>
+</ul>
+<h4 id="_10">断言功能<a class="headerlink" href="#_10" title="Permanent link">🐟</a></h4>
+<p>​       该功能实现的是在每条用例执行之后，对用例执行结果与预期结果对比，判断用例执行结果（通过/失败），并且对结果进行输出与数据收集。</p>
+<p>​       断言对比的方法多种多样，这里拿部分举例，详情见下方代码：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># assertEqual ${1}等于${2}则为true</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>assertEqual<span class="o">(){</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">2</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="k">then</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">        </span><span class="nv">r</span><span class="o">=</span><span class="s2">&quot;pass&quot;</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="k">else</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">        </span><span class="nv">r</span><span class="o">=</span><span class="s2">&quot;fail&quot;</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">        </span>fail_id<span class="o">[</span><span class="si">${</span><span class="nv">fail</span><span class="si">}</span><span class="o">]=</span><span class="si">${</span><span class="nv">case_id</span><span class="si">}</span><span class="w"> </span><span class="c1"># 处理失败用例</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="k">fi</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span>case_pf<span class="w"> </span><span class="c1"># 数据处理函数调用</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="o">}</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="c1"># assertNoIn ${1}不在${2}中则为true</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>assertNoIn<span class="o">(){</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">    </span><span class="nv">result</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">|</span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="sb">`</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">    </span><span class="k">then</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">        </span><span class="nv">r</span><span class="o">=</span><span class="s2">&quot;fail&quot;</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="w">        </span>fail_id<span class="o">[</span><span class="si">${</span><span class="nv">fail</span><span class="si">}</span><span class="o">]=</span><span class="si">${</span><span class="nv">case_id</span><span class="si">}</span>
+<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="w">    </span><span class="k">else</span>
+<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="w">        </span><span class="nv">r</span><span class="o">=</span><span class="s2">&quot;pass&quot;</span>
+<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a><span class="w">    </span><span class="k">fi</span>
+<a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="w">    </span>case_pf
+<a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>
+<a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a><span class="o">}</span>
+</code></pre></div>
+<p>​       通过代码分析，初始化设计内容及流程：</p>
+<ul>
+<li>通过判断用例的执行结果与预期结果是否一致</li>
+<li>判断输出结果，通过输出pass，失败输出fail（如底部截图）</li>
+<li>针对fail的用例id至数组变量，便于在拿到测试报告后验证复盘</li>
+<li>代码末尾的<code>case_pf</code>函数针对以上所有数据做了数据处理与收集（递增通过/失败/执行用例数量），为最终的测试报告提供数据支撑</li>
+</ul>
+<p><img alt="3" src=".assets/3.png" /></p>
+<h4 id="_11">测试执行功能<a class="headerlink" href="#_11" title="Permanent link">🐟</a></h4>
+<p>​       该功能主要是实现不同用例模块中，用例的批量执行：</p>
+<p>​       具体代码如下：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># 执行测试</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>test_start<span class="o">(){</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="nv">t_start</span><span class="o">=</span><span class="k">$(</span>date<span class="w"> </span>+<span class="s2">&quot;%m%d%H%M%S&quot;</span><span class="k">)</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="nv">report</span><span class="o">=</span><span class="s2">&quot;report_</span><span class="si">${</span><span class="nv">t_start</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nv">report_path</span><span class="o">=</span>./report/<span class="si">${</span><span class="nv">report</span><span class="si">}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>touch<span class="w"> </span><span class="si">${</span><span class="nv">report_path</span><span class="si">}</span><span class="w">  </span><span class="c1"># 初始化测试报告文件</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;_____________________________________________________________________________&quot;</span><span class="w"> </span>&gt;&gt;<span class="w">  </span><span class="si">${</span><span class="nv">report_path</span><span class="si">}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>cat<span class="w"> </span><span class="si">${</span><span class="nv">report_path</span><span class="si">}</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span>&gt;&gt;<span class="w">  </span><span class="si">${</span><span class="nv">report_path</span><span class="si">}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>cat<span class="w"> </span><span class="si">${</span><span class="nv">report_path</span><span class="si">}</span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-1
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot; # 测试开始 #&quot;</span><span class="w"> </span>&gt;&gt;<span class="w">  </span><span class="si">${</span><span class="nv">report_path</span><span class="si">}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>cat<span class="w"> </span><span class="si">${</span><span class="nv">report_path</span><span class="si">}</span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-1
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot; # 测试人员A：本轮测试，用例数量：</span><span class="si">${</span><span class="nv">num_a</span><span class="si">}</span><span class="s2">条 #&quot;</span><span class="w"> </span>&gt;&gt;<span class="w">  </span><span class="si">${</span><span class="nv">report_path</span><span class="si">}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>cat<span class="w"> </span><span class="si">${</span><span class="nv">report_path</span><span class="si">}</span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-1
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot; # 测试人员B：本轮测试，用例数量：</span><span class="si">${</span><span class="nv">num_b</span><span class="si">}</span><span class="s2">条 #&quot;</span><span class="w"> </span>&gt;&gt;<span class="w">  </span><span class="si">${</span><span class="nv">report_path</span><span class="si">}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>cat<span class="w"> </span><span class="si">${</span><span class="nv">report_path</span><span class="si">}</span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-1
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot; # 测试人员C：本轮测试，用例数量：</span><span class="si">${</span><span class="nv">num_c</span><span class="si">}</span><span class="s2">条 #&quot;</span><span class="w"> </span>&gt;&gt;<span class="w">  </span><span class="si">${</span><span class="nv">report_path</span><span class="si">}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>cat<span class="w"> </span><span class="si">${</span><span class="nv">report_path</span><span class="si">}</span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-1
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;_____________________________________________________________________________&quot;</span><span class="w"> </span>&gt;&gt;<span class="w">  </span><span class="si">${</span><span class="nv">report_path</span><span class="si">}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>cat<span class="w"> </span><span class="si">${</span><span class="nv">report_path</span><span class="si">}</span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-1
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span>&gt;&gt;<span class="w">  </span><span class="si">${</span><span class="nv">report_path</span><span class="si">}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>cat<span class="w"> </span><span class="si">${</span><span class="nv">report_path</span><span class="si">}</span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-1
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;%-20s %-20s%20s\n&quot;</span><span class="w"> </span>用例ID<span class="w"> </span>执行结果<span class="w"> </span>用例标题<span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="si">${</span><span class="nv">report_path</span><span class="si">}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>cat<span class="w"> </span><span class="si">${</span><span class="nv">report_path</span><span class="si">}</span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-1
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">num_a</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="w"> </span><span class="o">]</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">    </span><span class="k">then</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="sb">`</span>seq<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="si">${</span><span class="nv">num_a</span><span class="si">}</span><span class="sb">`</span><span class="w">  </span><span class="c1"># 批量执行测试人员A用例</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">        </span><span class="k">do</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">            </span>test_a<span class="si">${</span><span class="nv">i</span><span class="si">}</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="w">            </span>test_result<span class="p">;</span>sleep<span class="w"> </span><span class="m">1</span>
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="w">        </span><span class="k">done</span>
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="w">    </span><span class="k">fi</span>
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>
+<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">num_b</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="w"> </span><span class="o">]</span>
+<a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="w">    </span><span class="k">then</span>
+<a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="sb">`</span>seq<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="si">${</span><span class="nv">num_b</span><span class="si">}</span><span class="sb">`</span><span class="w">  </span><span class="c1"># 批量执行测试人员B用例</span>
+<a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a><span class="w">        </span><span class="k">do</span>
+<a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a><span class="w">            </span>test_b<span class="si">${</span><span class="nv">i</span><span class="si">}</span>
+<a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a><span class="w">            </span>test_result<span class="p">;</span>sleep<span class="w"> </span><span class="m">1</span>
+<a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a><span class="w">        </span><span class="k">done</span>
+<a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a><span class="w">    </span><span class="k">fi</span>
+<a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a>
+<a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">num_c</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="w"> </span><span class="o">]</span>
+<a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a><span class="w">    </span><span class="k">then</span>
+<a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="sb">`</span>seq<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="si">${</span><span class="nv">num_c</span><span class="si">}</span><span class="sb">`</span><span class="w">  </span><span class="c1"># 批量执行测试人员C用例</span>
+<a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a><span class="w">        </span><span class="k">do</span>
+<a id="__codelineno-7-38" name="__codelineno-7-38" href="#__codelineno-7-38"></a><span class="w">            </span>test_c<span class="si">${</span><span class="nv">i</span><span class="si">}</span>
+<a id="__codelineno-7-39" name="__codelineno-7-39" href="#__codelineno-7-39"></a><span class="w">            </span>test_result<span class="p">;</span>sleep<span class="w"> </span><span class="m">1</span>
+<a id="__codelineno-7-40" name="__codelineno-7-40" href="#__codelineno-7-40"></a><span class="w">        </span><span class="k">done</span>
+<a id="__codelineno-7-41" name="__codelineno-7-41" href="#__codelineno-7-41"></a><span class="w">    </span><span class="k">fi</span>
+<a id="__codelineno-7-42" name="__codelineno-7-42" href="#__codelineno-7-42"></a><span class="o">}</span>
+</code></pre></div>
+<p>​       通过代码可看出，这里除了实现用例的批量执行外，还包含了一些其他设计：</p>
+<ul>
+<li>获取测试开始时间</li>
+<li>初始化测试报告文件（创建、命名、赋值路径）</li>
+<li>
+<p>针对测试结果输出做了双向处理：输出至终端、输出至本地测试报告文件</p>
+</li>
+<li>
+<p>针对测试结果的输出样式做了排版，使之更为美观</p>
+</li>
+<li>展示即将测试的用例数据（如底部截图）</li>
+<li>依次执行每个测试文件中的用例</li>
+<li>执行用例中<code>test_result</code>函数是处理用例执行结果，使之格式化输出</li>
+</ul>
+<p><img alt="1" src=".assets/1.png" /></p>
+<h4 id="_12">测试报告功能<a class="headerlink" href="#_12" title="Permanent link">🐟</a></h4>
+<p>​       该功能主要实现测试结果的展示，通过分析测试结果获取失败用例信息，验证并提交Bug。同时还有一个重要作用是针对这次测试结果做归档，便于在不同时间查看本次测试结果，具体实现代码如下：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># 测试报告统计通过、失败用例数量</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>case_pf<span class="o">(){</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">r</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;pass&quot;</span><span class="w"> </span><span class="o">]</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="k">then</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">        </span><span class="nb">let</span><span class="w"> </span><span class="nv">pass</span><span class="o">+=</span><span class="m">1</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">r</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;fail&quot;</span><span class="w"> </span><span class="o">]</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="k">then</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">        </span><span class="nb">let</span><span class="w"> </span><span class="nv">fail</span><span class="o">+=</span><span class="m">1</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">    </span><span class="k">fi</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">    </span><span class="nb">let</span><span class="w"> </span><span class="nv">total</span><span class="o">+=</span><span class="m">1</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="o">}</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="c1"># 输出用例结果,并对结果进行格式化排版</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>test_result<span class="o">(){</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">    </span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;%-20s %-20s %-20s\n&quot;</span><span class="w"> </span><span class="si">${</span><span class="nv">case_id</span><span class="si">}</span><span class="w"> </span><span class="si">${</span><span class="nv">r</span><span class="si">}</span><span class="w"> </span><span class="si">${</span><span class="nv">title</span><span class="si">}</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="si">${</span><span class="nv">report_path</span><span class="si">}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>cat<span class="w"> </span><span class="si">${</span><span class="nv">report_path</span><span class="si">}</span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-1
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="o">}</span>
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>
+<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="c1"># 测试报告结束</span>
+<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a>test_report<span class="o">(){</span>
+<a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="w">    </span><span class="nv">t_end</span><span class="o">=</span><span class="k">$(</span>date<span class="w"> </span>+<span class="s2">&quot;%m%d%H%M%S&quot;</span><span class="k">)</span><span class="w">  </span><span class="c1"># 获取测试结束时间</span>
+<a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;_____________________________________________________________________________&quot;</span><span class="w"> </span>&gt;&gt;<span class="w">  </span><span class="si">${</span><span class="nv">report_path</span><span class="si">}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>cat<span class="w"> </span><span class="si">${</span><span class="nv">report_path</span><span class="si">}</span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-1
+<a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span>&gt;&gt;<span class="w">  </span><span class="si">${</span><span class="nv">report_path</span><span class="si">}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>cat<span class="w"> </span><span class="si">${</span><span class="nv">report_path</span><span class="si">}</span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-1
+<a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;测试开始时间：</span><span class="si">${</span><span class="nv">t_start</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="si">${</span><span class="nv">report_path</span><span class="si">}</span><span class="w">    </span><span class="c1"># 依次输出各关键信息</span>
+<a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;测试结束时间：</span><span class="si">${</span><span class="nv">t_end</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="si">${</span><span class="nv">report_path</span><span class="si">}</span><span class="w">    </span>
+<a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;测试电脑架构：`uname -m`&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="si">${</span><span class="nv">report_path</span><span class="si">}</span>
+<a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;执行用例合计：</span><span class="si">${</span><span class="nv">total</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="si">${</span><span class="nv">report_path</span><span class="si">}</span>
+<a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;用例通过数量：</span><span class="si">${</span><span class="nv">pass</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="si">${</span><span class="nv">report_path</span><span class="si">}</span>
+<a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;用例失败数量：</span><span class="si">${</span><span class="nv">fail</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="si">${</span><span class="nv">report_path</span><span class="si">}</span>
+<a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;失败用例ID：</span><span class="si">${</span><span class="nv">fail_id</span><span class="p">[*]</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span><span class="si">${</span><span class="nv">report_path</span><span class="si">}</span>
+<a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a><span class="w">    </span>cat<span class="w"> </span><span class="si">${</span><span class="nv">report_path</span><span class="si">}</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-7
+<a id="__codelineno-8-35" name="__codelineno-8-35" href="#__codelineno-8-35"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;_____________________________________________________________________________&quot;</span><span class="w"> </span>&gt;&gt;<span class="w">  </span><span class="si">${</span><span class="nv">report_path</span><span class="si">}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>cat<span class="w"> </span><span class="si">${</span><span class="nv">report_path</span><span class="si">}</span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-1
+<a id="__codelineno-8-36" name="__codelineno-8-36" href="#__codelineno-8-36"></a>
+<a id="__codelineno-8-37" name="__codelineno-8-37" href="#__codelineno-8-37"></a><span class="o">}</span>
+</code></pre></div>
+<p>​       通过分析代码，该功能工作流程为：</p>
+<ul>
+<li>通过辅助函数<code>case_pf</code>、<code>test_result</code>分散在测试过程中关键位置，收集测试过程中产生的关键数据</li>
+<li>获取测试结束时间</li>
+<li>通过测试过程中收集到的数据，汇总整理成结果呈现给用户（如底部截图）</li>
+<li>测试结果同样双向输出至：终端、本地测试报告文件</li>
+</ul>
+<p><img alt="report" src=".assets/report.png" /></p>
+<h2 id="_13">实验验证<a class="headerlink" href="#_13" title="Permanent link">🐟</a></h2>
+<h3 id="_14">现状与方案初步对比<a class="headerlink" href="#_14" title="Permanent link">🐟</a></h3>
+<table>
+    <tr>
+        <td>用例标题</td> 
+        <td>步骤</td> 
+        <td>预期</td> 
+    </tr>
+    <tr>
+        <td rowspan="6">[t]基础命令：验证touch基础命令功能正确</td>    
+        <td >1、 在命令行输入：touch /opt/test2.txt</td>
+        <td >1、创建test2.txt文件成功</td> 
+    </tr>
+    <tr>
+        <td >2、在命令行输入：stat /opt/test2.txt</td>  
+        <td >2、查看test2.txt文件详情成功</td>  
+    </tr>
+    <tr>
+        <td >3、在命令行输入：cat /opt/test2.txt</td>  
+        <td >3、打开test2.txt文件正文为空</td>  
+    </tr>
+    <tr>
+        <td >4、在命令行输入：ls -l</td>  
+        <td >4、文件时间信息正常</td>  
+    </tr>
+    <tr>
+        <td >5、在命令行输入：touch /opt/test2.txt</td>  
+        <td >5、覆盖步骤1创建的文件</td>  
+    </tr>
+    <tr>
+        <td >6、在命令行输入：ls -l</td>  
+        <td >6、时间信息成功更新</td>  
+    </tr>
+</table>
+<p>​       以上为一条实际存在的A类测试用例，我们模拟一下手工执行和自动化执行对比：</p>
+<ul>
+<li>
+<p>手工执行模拟：</p>
+</li>
+<li>
+<p>执行步骤1：命令行中输入命令<code>touch /opt/test2.txt</code></p>
+</li>
+<li>验证步骤1：查看步骤1输出结果，验证结果与用例中预期是否一致</li>
+<li>执行步骤2：命令行中输入命令<code>stat /opt/test2.txt</code></li>
+<li>验证步骤2：查看步骤2输出结果，验证结果与用例中预期是否一致</li>
+<li>执行步骤3：命令行中输入命令<code>cat /opt/test2.txt</code></li>
+<li>验证步骤3：查看步骤3输出结果，验证结果与用例中预期是否一致</li>
+<li>执行步骤4：命令行中输入命令<code>ls -l</code></li>
+<li>验证步骤4：查看步骤3输出结果，验证结果与用例中预期是否一致</li>
+<li>执行步骤5：命令行中输入命令<code>touch /opt/test2.txt</code></li>
+<li>验证步骤5：查看步骤3输出结果，验证结果与用例中预期是否一致</li>
+<li>执行步骤6：命令行中输入命令<code>ls -l</code></li>
+<li>验证步骤6：查看步骤3输出结果，验证结果与用例中预期是否一致</li>
+</ul>
+<p>通过手工执行以上用例，大致估算完成每个步骤（输入命令、验证结果、用户思考）的耗时为10秒，那么执行完这条用例需要的耗时为==60==秒。</p>
+<ul>
+<li>自动化执行模拟</li>
+</ul>
+<p><img alt="耗时计算" src=".assets/耗时计算.png" /></p>
+<p>​       通过上面的例子可看出，测试人员手工执行耗时==60秒==的用例，若通过自动化执行该条用例，耗时只需要==6豪秒==（后续按0.01秒算），A类用例有283条，假设每条用例的平均耗时为60秒，那么执行耗时对比如下：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>手动执行耗时：283*60=16980秒
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>自动化执行耗时：283*0.01=2.83秒
+</code></pre></div>
+<p>​       通过差异数据对比，可看出A类用例从手工转化为自动化后可大量提升执行效率，相比手动执行耗时的==16980秒==，自动化执行耗时的==2.83秒==可忽略不计。</p>
+<p>​       完整的全量测试流程中耗时分布大致为：</p>
+<ul>
+<li>
+<p>执行全测试用例：占比60%（按平时测试经验，A类用例与B类用例，执行耗时占比大致为1:4）</p>
+</li>
+<li>
+<p>分析失败用例，提交Bug单：占比15%</p>
+</li>
+<li>
+<p>验证异常情况:5%</p>
+</li>
+<li>
+<p>发散交互性测试:10%</p>
+</li>
+<li>
+<p>回归Bug，针对Bug进行边缘测试，处理Bug单:10%</p>
+</li>
+</ul>
+<p>​ 计算效率提升率：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>A类用例与B类用例耗时比例*全测试用例耗时占比 = 效率提升率
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>实际计算：
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>（1/4）*0.6 = 15%
+</code></pre></div>
+<p>结合以上数据，可得出结论实现自动化技术后，每次全量测试，<mark>A类用例部分==执行耗时可比之前手工测试提升效率==15%</mark>，且能够较好解决当前面临的问题。</p>
+<h3 id="_15">模拟一次完整测试<a class="headerlink" href="#_15" title="Permanent link">🐟</a></h3>
+<p>​       为了演示<code>SAT</code>的工作流程，这里拿一个实际场景举例，本次测试需要自动化执行：测试人员A的用例5条、测试人员B的用例1条，无需执行测试人员C的用例：</p>
+<p>​       <strong>执行流程如下：</strong></p>
+<ul>
+<li>
+<p>收集测试人员A、测试人员B最新的测试用例文件，放入目录<code>SAT/case/</code>下</p>
+</li>
+<li>
+<p>SAT目录下启动终端，运行命令<code>su</code>进入Root</p>
+</li>
+<li>因部分命令需要root权限，使用sudo+命令需要提示用户输入密码，不友好。</li>
+<li>
+<p>若用户使用普通用户权限运行，则给出对应提示：<code>请已root用户运行该脚本，点击Enter退出</code>，并关闭。</p>
+</li>
+<li>
+<p>初始化环境：导入依赖文件、扫描测试用例文件并分析数据、变量初始化赋值/定义</p>
+</li>
+<li>
+<p>终端输出即将测试的内容</p>
+</li>
+<li>
+<p>开始测试并输出每条测试用例的执行结果</p>
+</li>
+<li>
+<p>所有用例执行完毕，整理测试过程中获取的数据</p>
+</li>
+<li>
+<p>生成测试报告：测试起止时间、电脑架构、执行用例数量、通过/失败用例数量、失败用例编号、本地测试报告存放路径</p>
+</li>
+<li>
+<p>根据测试报告中失败用例编号，验证复盘并提交BUG单</p>
+</li>
+<li>
+<p>测试完成</p>
+</li>
+</ul>
+<p>​       <strong>输出结果如下：</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>_____________________________________________________________________________
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a> # 测试开始 #
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a> # 测试人员A：本轮测试，用例数量：5条 #
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a> # 测试人员B：本轮测试，用例数量：1条 #
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a> # 测试人员C：本轮测试，用例数量：0条 #
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>_____________________________________________________________________________
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>用例ID              执行结果                用例标题
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>121772               pass                 检查内核信息与版本号
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>12170                fail                 检查内核启动信息
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>121769               pass                 验证perl环境    
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>121768               pass                 验证python环境  
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>121766               pass                 验证系统预装软件包状态
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>12119                fail                 创建test文件夹 
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>_____________________________________________________________________________
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>测试开始时间：0818102422
+<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>测试结束时间：0818102428
+<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>测试电脑架构：x86_64
+<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>执行用例合计：6
+<a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>用例通过数量：5
+<a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a>用例失败数量：2
+<a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a>失败用例ID：12170 12119
+<a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a>_____________________________________________________________________________
+<a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a>
+<a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a>#  测试完毕，测试报告生成在&#39;./report&#39;目录，点击Enter退出！ #
+</code></pre></div>
+<h3 id="_16">依赖库相关信息<a class="headerlink" href="#_16" title="Permanent link">🐟</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">库名称</th>
+<th style="text-align: center;">版本号</th>
+<th style="text-align: center;">描述</th>
+<th style="text-align: center;">所使用开源协议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">暂无</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_17">实验代码存放地址<a class="headerlink" href="#_17" title="Permanent link">🐟</a></h3>
+<ul>
+<li><a href="https://gitlabcd.uniontech.com/ut000827/sat">gitlab</a></li>
+</ul>
+<h2 id="_18">小结<a class="headerlink" href="#_18" title="Permanent link">🐟</a></h2>
+<p>​       <code>SAT</code>实现的自动化测试，通过<strong>实验验证</strong>部分得出的结论，可看出每次全量测试，A类用例部分执行部分效率可提高15%。而且每次回归测试时，除了Bug回归和边缘测试，也可以自动化执行一次A类用例，就用例覆盖面来说提升了54.73%。同时解决了当前所面临的问题：</p>
+<ul>
+<li>
+<p>手工测试时针对A类用例时，繁琐的输入、验证</p>
+</li>
+<li>
+<p>覆盖多个架构测试时，大量的重复性工作</p>
+</li>
+</ul>
+<p>​       除此之外<code>SAT</code>是自行设计的，有较高的扩展性，可根据后续项目的变动对框架内容作出对应调整（优化、新增功能），而且框架是通用的，不同项目间也可以同时使用，只要按照约定编写测试用例代码，把用例文件放在在<code>SAT/case/</code>目录下，即可运行测试。</p>
+<p>​       再往后说，随着<code>SAT</code>内容越来越丰富，创新性越来越多时，可把该方案转换为对应的创新性发明专利。</p>
+<h2 id="_19">参考资料<a class="headerlink" href="#_19" title="Permanent link">🐟</a></h2>
+<ul>
+<li><a href="http://manual.51yip.com/shell/">Linux Shell编程</a></li>
+<li><a href="https://baike.baidu.com/item/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/6170164?fr=aladdin">自动化测试框架</a></li>
+</ul>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      最后更新:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年12月29日 18:05:12</span>
+      
+        <br>
+        创建日期:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年12月29日 18:05:12</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2023 UnionTech Software Technology Co., Ltd. All Rights Reserved.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes", "navigation.instant", "navigation.tracking", "navigation.top", "navigation.tracking", "navigation.tabs", "announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "content.tabs.link", "search.highlight", "search.share", "search.suggest", "header.autohide", "toc.follow"], "search": "../../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+        <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+      
+        <script src="../../../js/termynal.js"></script>
+      
+        <script src="../../../js/custom.js"></script>
+      
+    
+  </body>
+</html>

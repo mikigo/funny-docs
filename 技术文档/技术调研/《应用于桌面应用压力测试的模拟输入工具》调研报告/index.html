@@ -1,0 +1,4185 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%94%A8%E4%BE%8B%E8%BD%AC%E6%8D%A2%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E8%B0%83%E7%A0%94/">
+      
+      
+        <link rel="next" href="../%E9%92%88%E5%AF%B9PMS%E7%94%A8%E4%BE%8B%E6%95%B0%E6%8D%AE%E6%A3%80%E6%9F%A5%E4%B8%8E%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E7%A8%8BCSV%E6%96%87%E4%BB%B6%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E7%9A%84%E6%96%B9%E6%B3%95%E8%B0%83%E7%A0%94/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.2.7">
+    
+    
+      
+        <title>应用于桌面应用压力测试的模拟输入工具调研 - Funny Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.046329b4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.85d0ee34.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/toc_extra.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../../css/termynal.css">
+    
+      <link rel="stylesheet" href="../../../css/custom.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Funny Docs" class="md-header__button md-logo" aria-label="Funny Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Funny Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              应用于桌面应用压力测试的模拟输入工具调研
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/mikigo/funny-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    funny-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/" class="md-tabs__link">
+          
+  
+    
+  
+  自动化技术
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" class="md-tabs__link">
+          
+  
+    
+  
+  网络爬虫
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E5%89%8D%E5%90%8E%E7%AB%AF/" class="md-tabs__link">
+          
+  
+    
+  
+  前后端
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" class="md-tabs__link">
+          
+  
+    
+  
+  人工智能
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="md-tabs__link">
+          
+  
+    
+  
+  编程语言
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Linux/" class="md-tabs__link">
+          
+  
+    
+  
+  Linux
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+    
+  
+  技术文档
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/" class="md-tabs__link">
+          
+  
+    
+  
+  规范文档
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="md-tabs__link">
+          
+  
+    
+  
+  常见问题
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E6%8A%95%E7%A8%BF/" class="md-tabs__link">
+          
+  
+    
+  
+  投稿
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../comments/" class="md-tabs__link">
+          
+  
+    
+  
+  留言
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://linuxdeepin.github.io/deepin-autotest-framework/" target="_blank" class="md-tabs__link">
+        
+  
+    
+  
+  YouQu
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Funny Docs" class="md-nav__button md-logo" aria-label="Funny Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Funny Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/mikigo/funny-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    funny-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    首页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    自动化技术
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_2">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            自动化技术
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    自动化测试框架
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            自动化测试框架
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/Pytest%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E8%B5%B7%E9%A3%9E/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pytest 从入门到起飞
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/unittest%E2%80%943%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    unittest—3小时入门版
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UI自动化
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            UI自动化
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/UI%E8%87%AA%E5%8A%A8%E5%8C%96/Playwright%E2%80%948%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Playwright—8小时入门版
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/UI%E8%87%AA%E5%8A%A8%E5%8C%96/Selenium%E2%80%948%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selenium—8小时入门版
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/UI%E8%87%AA%E5%8A%A8%E5%8C%96/Appium%E2%80%946%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Appium—6小时入门版
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    接口自动化
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            接口自动化
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96/HttpRunner-2%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HttpRunner—2小时入门版
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    性能自动化
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            性能自动化
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/%E6%80%A7%E8%83%BD%E8%87%AA%E5%8A%A8%E5%8C%96/JMeter%E2%80%9410%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JMeter—10小时入门版
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/%E6%80%A7%E8%83%BD%E8%87%AA%E5%8A%A8%E5%8C%96/Locust%E2%80%942%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Locust—2小时入门版
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    自动化思想
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            自动化思想
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%80%9D%E6%83%B3/rpa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RPA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    网络爬虫
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_3">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            网络爬虫
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    接口请求工具
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            接口请求工具
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82%E5%B7%A5%E5%85%B7/Requests/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Requests
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82%E5%B7%A5%E5%85%B7/Httpx/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Httpx
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    爬虫框架
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            爬虫框架
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6/Scrapy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scrapy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../%E5%89%8D%E5%90%8E%E7%AB%AF/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    前后端
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_4">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            前后端
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    前端
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            前端
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%89%8D%E5%90%8E%E7%AB%AF/%E5%89%8D%E7%AB%AF/Linux%E4%B8%8A%E5%AE%89%E8%A3%85Node.js/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux 上安装 Node.js
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    后端
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            后端
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%89%8D%E5%90%8E%E7%AB%AF/%E5%90%8E%E7%AB%AF/FastAPI%E2%80%948%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FastAPI—8小时入门版
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%89%8D%E5%90%8E%E7%AB%AF/%E5%90%8E%E7%AB%AF/MySQL%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MySQL基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    人工智能
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_5">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            人工智能
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    图像
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            图像
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E5%9B%BE%E5%83%8F/OpenCV%28Python%29%E5%9F%BA%E7%A1%80%E2%80%949%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenCV(Python)基础—9小时入门版
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E5%9B%BE%E5%83%8F/MMDetection%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MMDetection 入门基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    编程语言
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_6">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            编程语言
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/Python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E2%80%948%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python基础语法—8小时入门版
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/Python%E4%BB%8E%E8%BF%9B%E9%98%B6%E5%88%B0%E9%AB%98%E7%BA%A7%E2%80%94%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82%E7%89%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python从进阶到高级—通俗易懂版
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/Python%E5%8C%85%E6%9E%84%E5%BB%BA%E5%92%8C%E5%8F%91%E5%B8%83/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python包构建和发布
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/Python%E7%8E%AF%E5%A2%83%E4%B8%8E%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python环境与依赖管理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/Linux%E4%B8%8A%E5%AE%89%E8%A3%85Python3.9.9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux 上安装 Python 3.9.9
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/Linux%E4%B8%8A%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E7%94%A8pip3%E8%BF%98%E6%98%AFsudopip3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux 上如何选择用 pip3 还是 sudo pip3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/%E9%85%8D%E7%BD%AEPython%E6%BA%90%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    配置 Python 源的几种方法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/%E5%B8%B8%E7%94%A8%E7%9A%84%E8%8E%B7%E5%8F%96%E9%9A%8F%E6%9C%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%96%B9%E6%B3%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    常用的获取随机字符串的方法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Shell
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            Shell
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../shell入门.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Linux/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Linux
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_7">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Linux
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2" >
+        
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    工具使用
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            工具使用
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/KVM%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    KVM安装配置及使用说明
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/Docker%E5%85%A5%E9%97%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker入门
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/Nginx%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nginx入门使用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/FTP%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FTP服务搭建
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_3" >
+        
+          <label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    方案教程
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            方案教程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/%E6%96%B9%E6%A1%88%E6%95%99%E7%A8%8B/Linux%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux&Shell基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/%E6%96%B9%E6%A1%88%E6%95%99%E7%A8%8B/%E9%85%8D%E7%BD%AE%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E6%9C%8D%E5%8A%A1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    配置开机自启服务
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/%E6%96%B9%E6%A1%88%E6%95%99%E7%A8%8B/Linux%E4%B8%8Asudo%E5%85%8D%E5%AF%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux 上 sudo 免密
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linux/%E6%96%B9%E6%A1%88%E6%95%99%E7%A8%8B/Linux%E4%B8%8A%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2VNC%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux 上远程桌面 VNC 服务配置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    技术文档
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_8">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            技术文档
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_2" >
+        
+          <label class="md-nav__link" for="__nav_8_2" id="__nav_8_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    专利交底书
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_2">
+            <span class="md-nav__icon md-icon"></span>
+            专利交底书
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../一种自动化测试用例步骤中断后恢复执行的技术交底书:技术文档/专利交底书/一种自动化测试用例步骤中断后恢复执行的技术交底书.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3" checked>
+        
+          <label class="md-nav__link" for="__nav_8_3" id="__nav_8_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    技术调研
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8_3">
+            <span class="md-nav__icon md-icon"></span>
+            技术调研
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%8F%AF%E7%94%A8%E4%BA%8EUOS%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8%E6%80%A7%E8%83%BD%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E5%85%B7%E7%9A%84%E8%B0%83%E7%A0%94/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    可用于UOS桌面应用性能自动化工具的调研
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%94%A8%E4%BE%8B%E8%BD%AC%E6%8D%A2%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E8%B0%83%E7%A0%94/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    命令行用例转换自动化测试调研
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    应用于桌面应用压力测试的模拟输入工具调研
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    应用于桌面应用压力测试的模拟输入工具调研
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    相关术语
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    现状
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    技术方案
+  </a>
+  
+    <nav class="md-nav" aria-label="技术方案">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    整体设计
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    关键技术
+  </a>
+  
+    <nav class="md-nav" aria-label="关键技术">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    坐标服务
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%92%88%E5%AF%B9PMS%E7%94%A8%E4%BE%8B%E6%95%B0%E6%8D%AE%E6%A3%80%E6%9F%A5%E4%B8%8E%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E7%A8%8BCSV%E6%96%87%E4%BB%B6%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E7%9A%84%E6%96%B9%E6%B3%95%E8%B0%83%E7%A0%94/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    针对PMS用例数据检查与自动化工程CSV文件数据同步的方法调研
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_4" >
+        
+          <label class="md-nav__link" for="__nav_8_4" id="__nav_8_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    根因分析
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_4">
+            <span class="md-nav__icon md-icon"></span>
+            根因分析
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%A0%B9%E5%9B%A0%E5%88%86%E6%9E%90/Python%E8%B0%83%E7%94%A8%E5%8A%A8%E6%80%81%E5%BA%93%E8%BF%90%E8%A1%8C%E6%97%B6%E6%8A%A5%E9%9D%99%E6%80%81TLS%E5%9D%97%E4%B8%8D%E8%83%BD%E5%88%86%E9%85%8D%E5%86%85%E5%AD%98%E6%A0%B9%E5%9B%A0%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python调用动态库运行时报静态TLS块不能分配内存根因分析报告
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%A0%B9%E5%9B%A0%E5%88%86%E6%9E%90/CentOS8U%E7%9B%98%E5%AE%89%E8%A3%85%E6%97%B6%E6%97%A0%E6%B3%95%E6%AD%A3%E5%B8%B8%E8%BF%9B%E5%85%A5%E5%AE%89%E8%A3%85%E7%95%8C%E9%9D%A2%E6%A0%B9%E5%9B%A0%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CentOS8U盘安装时无法正常进入安装界面问题根因分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%A0%B9%E5%9B%A0%E5%88%86%E6%9E%90/rootfs%E8%BF%9B%E5%85%A5MATE%E6%A1%8C%E9%9D%A2%E5%90%8E%E6%89%93%E5%BC%80%E7%BB%88%E7%AB%AF%E4%B8%8D%E8%83%BD%E6%89%A7%E8%A1%8Creboot%E6%8C%87%E4%BB%A4%E6%A0%B9%E5%9B%A0%E5%88%86%E6%9E%90/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    rootfs进入MATE桌面后打开终端不能执行reboot指令根因分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    规范文档
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_9">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            规范文档
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_2" >
+        
+          <label class="md-nav__link" for="__nav_9_2" id="__nav_9_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    流程规范
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_2">
+            <span class="md-nav__icon md-icon"></span>
+            流程规范
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/%E6%B5%81%E7%A8%8B%E8%A7%84%E8%8C%83/%E6%B5%8B%E8%AF%95%E5%8D%95%E9%A9%B1%E5%8A%A8%E8%87%AA%E5%8A%A8%E5%8C%96/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    测试单驱动自动化测试
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/%E6%B5%81%E7%A8%8B%E8%A7%84%E8%8C%83/%E7%AE%80%E6%98%93%E7%89%88%E6%8A%A5%E5%91%8A%E6%96%B0%E5%A2%9E%E8%A7%84%E8%8C%83/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    简易版报告新增规范
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/%E6%B5%81%E7%A8%8B%E8%A7%84%E8%8C%83/BUG%E5%92%8C%E7%94%A8%E4%BE%8B%E9%99%84%E5%8A%A0%E8%A7%84%E8%8C%83/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BUG和用例附加规范
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/%E6%B5%81%E7%A8%8B%E8%A7%84%E8%8C%83/%E7%A0%94%E5%8F%91%E8%87%AA%E6%B5%8B%E8%A7%84%E8%8C%83/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    研发自测规范
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_3" >
+        
+          <label class="md-nav__link" for="__nav_9_3" id="__nav_9_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    测试策略
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_3">
+            <span class="md-nav__icon md-icon"></span>
+            测试策略
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/%E4%B8%BB%E7%BA%BF%E6%9C%BA%E5%9E%8B%E8%A6%86%E7%9B%96%E7%AD%96%E7%95%A5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    主线机型覆盖策略
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/%E5%95%86%E4%B8%9A%E5%AE%9A%E5%88%B6%E5%9B%9E%E5%90%88%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    商业定制回合测试策略
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/%E5%95%86%E5%BA%97%E4%B8%8A%E6%9E%B6%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    商店上架测试策略
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E%E6%9B%B4%E6%96%B0%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    安全漏洞更新测试策略
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    常见问题
+  </span>
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_10">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            常见问题
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E6%8A%A5%E9%94%99Python%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8D%E7%9B%B8%E7%AD%89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    报错Python字符串不相等
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/Wayland%E4%B8%8Bsniff%E6%8A%A5%E9%94%99/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Wayland下sniff命令报错~/.Xauthorty文件不存在
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/node-error-01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Error: ENOSPC: System limit for number of file watchers reached
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../%E6%8A%95%E7%A8%BF/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    投稿
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            投稿
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    留言
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            留言
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../comments/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://linuxdeepin.github.io/deepin-autotest-framework/" target="_blank" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    YouQu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    相关术语
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    现状
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    技术方案
+  </a>
+  
+    <nav class="md-nav" aria-label="技术方案">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    整体设计
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    关键技术
+  </a>
+  
+    <nav class="md-nav" aria-label="关键技术">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    坐标服务
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/mikigo/funny-docs/edit/master/docs/技术文档/技术调研/《应用于桌面应用压力测试的模拟输入工具》调研报告.md" title="编辑此页" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/mikigo/funny-docs/raw/master/docs/技术文档/技术调研/《应用于桌面应用压力测试的模拟输入工具》调研报告.md" title="查看本页的源代码" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+<h1 id="_1">应用于桌面应用压力测试的模拟输入工具调研<a class="headerlink" href="#_1" title="Permanent link">🐟</a></h1>
+<h2 id="_2">相关术语<a class="headerlink" href="#_2" title="Permanent link">🐟</a></h2>
+<table>
+<thead>
+<tr>
+<th>术语</th>
+<th style="text-align: center;">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>InputDevice</strong></td>
+<td style="text-align: center;">支持 linux 管理不同类型、不同原理、不同的输入信息的输入设备软件体系</td>
+</tr>
+<tr>
+<td><strong>MEM</strong></td>
+<td style="text-align: center;">MEM 是一个内存显示程序，显示所有内存驻留程序的占用情况</td>
+</tr>
+<tr>
+<td><strong>输入子系统</strong></td>
+<td style="text-align: center;">输入子系统核心层（Input Core）、驱动层和事件处理层（Event Handler）</td>
+</tr>
+<tr>
+<td><center style="color:#C0C0C0;text-decoration:underline">表一 术语</center></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>## 问题</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>随着文件管理器（以下简称"文管"）的使用者越来越多，厂商和社区反馈了越来越多反复操作后出现概率概率性 BUG，为了对 BUG 进行复现，就需要进行压力测试。</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<p>在我们日常压力测试过程中，文管测试组需要使用现有的设备进行问题复验和场景压测，设备和人力资源有限，因此，在复现和验证这些问题的过程中，存在着如下问题：</p>
+<ol>
+<li>
+<p>耗时巨大，追其原因，是因为在测试过程中，测试复现时反复操作的顺序不同、频率不够、操作慢都可能导致Bug无法复现，整个复现周期相对较长，人力和时间耗费较多。</p>
+</li>
+<li>
+<p>无可靠性，在遇到概率性 BUG 进行回归的时候，我们无法确定需要测试多少次才能确保问题已修复，而且有可能人力压力测试无法达到复现条件，没有数据支撑测试结论。</p>
+</li>
+</ol>
+<p>因此，探索一种良好的压力测试方案，是迫在眉睫的，可以更准确的验证及回归问题，并且减少人力资源和提升测试效率。</p>
+<h2 id="_3">现状<a class="headerlink" href="#_3" title="Permanent link">🐟</a></h2>
+<p>基于上述问题，当前市面上对于应用压测存在如下几个方案：</p>
+<p><strong>方案一：使用 Python 脚本进行场景压测</strong></p>
+<p>使用 Python 编写压测脚本，需要使用第三方库 PyAutoGUI 和 Dogtail，PyAutoGUI 是一个纯Python 的 GUI 自动化工具，可以用程序自动控制鼠标和键盘操作模拟用户操作行为，多平台支持（Windows，OS X，Linux）</p>
+<p>在编写脚本之前，我们首先需要准备环境，即安装 PyAutoGUI 和 Dogtail 库。</p>
+<p>开始编写一个简单压测场景脚本：循环一直新建文件夹。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">pyautogui</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">for</span> <span class="n">i</span>  <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="c1"># 鼠标移动到x=100,y=100</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">pyautogui</span><span class="o">.</span><span class="n">rightClick</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">pyautogui</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">155</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mi">117</span><span class="p">)</span>
+</code></pre></div>
+<p>一个场景压测，往往不会这么简单，列举部分文管场景压力测试项如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">压测场景</th>
+<th style="text-align: left;">压测步骤</th>
+<th style="text-align: center;">压测次数/时长</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">循环执行创建，删除文件</td>
+<td style="text-align: left;">1.在桌面/文管空白处，右键菜单<br />2.点击“新建文件夹“<br />3.选择新建文件夹右键”删除“</td>
+<td style="text-align: center;">8H</td>
+</tr>
+<tr>
+<td style="text-align: center;">重复打开 1000 张图片的文件夹</td>
+<td style="text-align: left;">1.在桌面选择包含 1000 张图片的文件夹<br />2.关闭文管</td>
+<td style="text-align: center;">8H</td>
+</tr>
+<tr>
+<td style="text-align: center;">重复搜索目录中的文件</td>
+<td style="text-align: left;">1.打开文件管理器，进入test目录中<br />2.点击搜索按钮<br />3.在输入框输入 "test"，进行搜索<br />4.关闭文管</td>
+<td style="text-align: center;">8H</td>
+</tr>
+<tr>
+<td style="text-align: center;">重复同时执行 10 个复制文件任务</td>
+<td style="text-align: left;">1.在 dock 栏目右键打开 2 个文管窗口<br />2.在 A 窗口中，选择文件右键-复制<br />3.在 B 窗口中，右键粘贴<br />4.快速粘贴 10 次<br />5.删除B窗口的文件</td>
+<td style="text-align: center;">8H</td>
+</tr>
+<tr>
+<td style="text-align: center;">重复向桌面复制文件</td>
+<td style="text-align: left;">1.在dock栏目打开文管<br />2.选择一个“音乐”目录  CTRL+C  复制文件<br />3.在桌面粘贴文件<br />4.关闭提示弹窗<br />5.关闭文管</td>
+<td style="text-align: center;">8H</td>
+</tr>
+</tbody>
+</table>
+<p><center style="color:#C0C0C0;text-decoration:underline">表二 压力测试场景</center></p>
+<p>可以很直观的看出，这些测试项的操作都较复杂。</p>
+<p>Dogtail 是 Python 的三方库，它使用 Accessbility 技术与桌面应用程序通信。代码通过提前设置好的 Accessbility 标签进行操作，但 Accessbility 标签需要开发人员提前在应用程序中添加，在下图一中看到，1021 的文管中就不存在标签，部分版本基线中该方法并不适用。</p>
+<p><img alt="1021-文管" src="../test/1021-%E6%96%87%E7%AE%A1.png" /></p>
+<p><center style="color:#C0C0C0;text-decoration:underline">图一 1021文管Accessbility标签</center></p>
+<p>通过 Dogtail 和 PyAutogui 来控制键盘、鼠标来进行应用的操作，在 Python 代码遍历寻找应用程序上可用的 Accessbility 节点时候，过程需要 1-2S 左右，之后再执行其他操作，这个过程耗时较长，失去了压力测试本身的意义。</p>
+<p>纵观整个方案一，缺点是显而易见的，例如无法测试所有的应用版本、无法满足压力测试暴力操作的要求。</p>
+<p><strong>方案二：使用 shell 脚本进行场景压测</strong></p>
+<p>这个方案使用 Xdotool 工具模拟键盘、鼠标操作，Xwininfo 工具来获取窗体属性，此方法通过窗体固有属性，找到对应坐标，之后来进行键盘鼠标操作，整个流程如下图所示：</p>
+<p><img alt="x操作" src="../test/x%E6%93%8D%E4%BD%9C.png" />
+<center style="color:#C0C0C0;text-decoration:underline">图二  Xdotool和Xwininfo流程</center></p>
+<p>UOS 系统自带了Xdotool和Xwininfo工具，这个方法其实和方案二比较相似，方案二使用 Dogtail 定位元素位置、PyAutoGUI 来操作键盘、鼠标，使用wininfo 获取窗体属性计算坐标，通过 Xdotool 控制键鼠操作。</p>
+<p>编写shell脚本，使用 Xodtool 工具进行简单操作，运行代码，查看图三，能看到与上述 Python 脚本同样的操作，shell脚本运行时间接近快了1s。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="ch">#!/bin/bash/</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">for</span><span class="w"> </span><span class="k">in</span><span class="w">  </span><span class="k">in</span><span class="w"> </span><span class="o">{</span><span class="m">0</span>..10<span class="o">}</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">do</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>xdotool<span class="w"> </span>mousemove<span class="w"> </span><span class="m">100</span><span class="w"> </span><span class="m">100</span><span class="w">  </span>click<span class="w"> </span><span class="m">3</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>xdotool<span class="w"> </span>mousemove<span class="w"> </span><span class="m">155</span><span class="w"> </span><span class="m">117</span><span class="w">  </span>click<span class="w"> </span><span class="m">1</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="k">done</span>
+</code></pre></div>
+<p><img alt="速度" src="../test/%E9%80%9F%E5%BA%A6.png" />
+<center style="color:#C0C0C0;text-decoration:underline">图三  Python 脚本与 shell 脚本运行速度对比</center></p>
+<p>使用 shell 脚本编写：<strong>重复向桌面复制文件，并且每次输出桌面和文管的窗口 ID(寻找窗口 ID 来获取坐标)</strong> 测试场景，多次运行后，在下图四能看到，同一个场景同一套代码同一个机器，运行结果，极其不稳定，容易报错找不到窗口。</p>
+<p><img alt="向桌面复制文件.png" src="../test/%E5%90%91%E6%A1%8C%E9%9D%A2%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6.png" />
+<center style="color:#C0C0C0;text-decoration:underline">图四  xdotool 不稳定</center></p>
+<p>纵观整个方案二：运行环境简单、但是运行结果不稳定。</p>
+<p>总结： 现目前这两种方案，各有优劣，都是现阶段较主流的方案，优缺点如表三所示：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">方案</th>
+<th style="text-align: center;">优点</th>
+<th style="text-align: center;">缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">可自动化、场景覆盖多</td>
+<td style="text-align: center;">无法适用所有版本，环境复杂、键鼠操作比较慢达不到压测效果</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">可自动化、运行环境简单，能适用所有版本</td>
+<td style="text-align: center;">不稳定</td>
+</tr>
+</tbody>
+</table>
+<p><center style="color:#C0C0C0;text-decoration:underline">表三 二种方案优缺点总结</center></p>
+<p>在目前的测试环境下，方案一由于 Python 在使用第三方库的时候，程序响应往往都需要 1-2s 时间，运行速度较慢，而且无法满足所有版本的压测需求。方案二使用 shell 脚本编写压测脚本，在运行 Xdotool  工具时候容易出错，Xdotool 工具对键鼠的操作已经算是比较快的工具了，但是在特殊 BUG 上，鼠标操作速度还是有所欠缺，如：异步线程出错，在测试过程中，经常性会遇到这样的小概率问题、同样的操作，有时候能复现问题有时候又不能复现，BUG 复现条件极其苛刻，需要更快的操作增加 复现概率，如下表列举部分的 BUG，在回归 BUG 就需要快速的键鼠操作。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">BUG编号</th>
+<th style="text-align: center;">描述</th>
+<th style="text-align: center;">严重程度</th>
+<th>优先级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">29689</td>
+<td style="text-align: center;">【文件管理器】【5.1.1.63-1】【sp2】桌面空白处右键，选择“壁纸与屏保”，再快速在右键，桌面黑屏</td>
+<td style="text-align: center;">2</td>
+<td>2</td>
+</tr>
+<tr>
+<td style="text-align: center;">26972</td>
+<td style="text-align: center;">【文件管理器】【5.1.1.39-1】在列表试图下，快速来回切换排列顺序，再点击上级栏目，文件管理器崩溃</td>
+<td style="text-align: center;">2</td>
+<td>2</td>
+</tr>
+<tr>
+<td style="text-align: center;">26100</td>
+<td style="text-align: center;">【文件管理器】【5.1.1.33-1】4K屏幕，2.75缩放，在桌面空白处快速多次点击右键，桌面崩溃</td>
+<td style="text-align: center;">2</td>
+<td>2</td>
+</tr>
+<tr>
+<td style="text-align: center;">25591</td>
+<td style="text-align: center;">【文件管理器】【5.1.1.31-1】鼠标左右键，快速连续一起按，桌面黑屏</td>
+<td style="text-align: center;">3</td>
+<td>3</td>
+</tr>
+<tr>
+<td style="text-align: center;">24478</td>
+<td style="text-align: center;">【sp1】【文件管理器】【5.1.0.8-1】拖动文件到其他目录下，快速敲击键盘“ctrl+z”出现不正确提示</td>
+<td style="text-align: center;">4</td>
+<td>4</td>
+</tr>
+<tr>
+<td style="text-align: center;">21172</td>
+<td style="text-align: center;">【文件管理器】【5.1.0.8-1】左侧栏目快速切换，右键闪退。</td>
+<td style="text-align: center;">2</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p><center style="color:#C0C0C0;text-decoration:underline">表四 BUG 列表</center></p>
+<p>因此，我们需要对方案二进行优化，找到能解决<strong>键鼠操作速度不够快</strong>和<strong>容易出错不稳定</strong>的方案。</p>
+<h2 id="_4">技术方案<a class="headerlink" href="#_4" title="Permanent link">🐟</a></h2>
+<p>在用户使用桌面应用时候，都是通过键盘与鼠标输入设备与软件交互。</p>
+<p>我们对现状中的方案二进行优化，也参考了 Xdotool 和 Xwininfo 工具的逻辑，设计一款新的应用程序，程序名称为 <strong>app-wininfo-m</strong>，计划解决上述<strong>键鼠操作速度不够快</strong>和<strong>容易出错不稳定</strong>的问题。</p>
+<p>对于<strong>键鼠操作速度不够快</strong>的问题，了解到 Linux <strong>输入子系统</strong>，可以通过<strong>设备驱动程序</strong>写入键鼠事件驱动设备文件来对 USB 键盘输入和鼠标移动进行操作。</p>
+<p>一个输入事件，如鼠标移动或者键盘按键事件，到达用户空间传给应用程序，如下图四流程</p>
+<p><img alt="input" src="../test/input.png" /></p>
+<p><center style="color:#C0C0C0;text-decoration:underline">图五  输入事件响应流程</center></p>
+<p>事件处理层为不同类型硬件提供了用户访问及处理接口。在 /dev/input 目录下显示的是已经注册在内核中的设备编程接口，用户通过 open 这些设备文件来打开不同的输入设备进行硬件操作，当打开设备 /dev/input/mice 时，会调用到事件处理层的 Mouse Handler 来处理输入事件，这也使得设备驱动层无需关心设备文件的操作，因为 Mouse Handler 已经有了对应事件处理的方法。</p>
+<p>对于<strong>容易出错不稳定</strong>的问题，是 Xdotool 这个工具在经过长时间运行后获取窗口 ID 值出错，目前我们能接触到的 UOS 系统图形化界面都是基于  X11 协议，<strong>Xlib</strong> 是 X11 协议的 API 实现，另外用于代替 Xlib 的新型 API 为 XCB。下图五 Xlib 告诉我们每个窗口和像素图都有自己的坐标系，通过坐标系的位置，可以鼠标定位操作应用。</p>
+<p><img alt="xlib窗口说明" src="../test/xlib%E7%AA%97%E5%8F%A3%E8%AF%B4%E6%98%8E.png" /></p>
+<p><center style="color:#C0C0C0;text-decoration:underline">图六 xlib 窗口说明</center></p>
+<h3 id="_5">整体设计<a class="headerlink" href="#_5" title="Permanent link">🐟</a></h3>
+<p><strong>app-wininfo-m</strong> 自上而下的模块结构呈现如下图七：</p>
+<p><img alt="app-wininfo-m.png" src="../test/app-wininfo-m.png" />
+<center style="color:#C0C0C0;text-decoration:underline">图七  app-wininfo-m 模块结构</center></p>
+<p>当按照这种模式设计，每个业务都比较统一有序和模块化，再扩展其他功能更加方便，不会影响到原有的功能。</p>
+<ul>
+<li><strong>keyboard-event</strong>：处理用户传入类型为 EV_KEY 的事件，将事件写入到 “/dev/input” 目录下的键盘设备文件中，上报事件和同步给 input 子系统中。</li>
+<li><strong>mouse-event</strong>：处理用户传入类型为 EV_REL 的事件，将事件写入到 “/dev/input” 目录下的鼠标设备文件中，上报事件和同步给 input 子系统中。</li>
+<li><strong>mouse-position</strong>：基于 xlib 实现获取鼠标的位置，给 app-action 层提供数据支持，监视鼠标的位置变化。</li>
+<li><strong>app-attribute</strong>：提供一个基于 xlib 获桌面应用窗口属性的集合，具体需要其他的接口，可根据实际需要自由扩展。</li>
+</ul>
+<p><strong>app-action</strong> 的设计理念是一个  wrapper，从功能需求上来看，app-action  提供以下功能：</p>
+<ul>
+<li><strong>坐标</strong>：主要业务是窗口坐标和鼠标指针位置的获取，根据用户传入的 PID 查到应用的窗口ID，获取窗口属性。</li>
+<li><strong>键鼠</strong>：主要业务是对设备驱动文件写入键鼠事件，来进行鼠标移动、点击和键盘输入。</li>
+</ul>
+<p><strong>app-wininfo-m</strong>程序运行流程如下：</p>
+<pre class="mermaid"><code>sequenceDiagram
+    应用 -&gt;&gt; 坐标 :传入应用的进程、窗口 id
+    坐标 -&gt;&gt; 键鼠 : 通过进程、窗口 id 获取窗口属性
+    键鼠 --&gt;&gt; 应用 :通过坐标信息，控制键盘鼠标操作应用</code></pre>
+<p>对应用使用者提供了友好的说明文档，程序已经帮助实现了需要的操作，使用者只需要根据说明文档传入对应的参数，执行需要的操作。以及添加简单崩溃的断言服务，通过对 coredump 日志监控，判断经过压力测试的应用是否出现崩溃现象，并输出结果提供给测试人员。</p>
+<h3 id="_6">关键技术<a class="headerlink" href="#_6" title="Permanent link">🐟</a></h3>
+<h4 id="_7">坐标服务<a class="headerlink" href="#_7" title="Permanent link">🐟</a></h4>
+<p>在坐标获取业务中，获取不同应用的坐标位置，在之前我们获取坐标的方式是通过 Xdotool 获取到Window_ID，再通过 Window_ID 使用工具 Xwininfo 获取坐标。需要进行多个步骤操作后才能获取到坐标，在代码编写上步骤复杂，而且获取的结果不够稳定，因此找到了一个获取坐标的新方法，基本操作流程如下：</p>
+<p>根据应用的进程寻找应用的坐标位置：</p>
+<p>​   传入的 PID，再调用 <strong>app-wininfo-m</strong> 程序，如果 PID 不存在，则不会返回窗口的坐标等属性，如果 PID 存在，就返回窗口的坐标等属性。</p>
+<p><pre class="mermaid"><code> graph TD
+ A(开始)--&gt;B(读取传入的进程)
+ B--&gt;C(判断PID是否存在?)
+ C--&gt;|是|D[根据进程PID查找窗口属性]
+ D--&gt;E(反回窗口的坐标等属性)
+ C--&gt;|否|G[不会返回窗口的坐标等属性]
+ E--&gt;F(结束)
+ G--&gt;F(结束)</code></pre>
+在编码过程中，获取窗口的坐标引入 Xlib 的头文件 #include <linux/xlib.h> 获取结构体：<strong>XGetWindowAttributes()</strong> 函数返回指定窗口到当前属性 <strong>XWindowAttributes</strong> 结构。</p>
+<p>```c
+// 获取窗口的属性
+extern Status XGetWindowAttributes(
+    Display<em>        /</em> display <em>/,
+    Window      /</em> w <em>/,
+    XWindowAttributes</em>  /<em> window_attributes_return </em>/
+);
+// ...</p>
+<p>// 窗口的属性详细信息
+typedef struct {
+    int x, y;           /<em> location of window </em>/
+    int width, height;      /<em> width and height of window </em>/
+    int border_width;       /<em> border width of window </em>/
+    int depth;              /<em> depth of window </em>/
+    Visual <em>visual;     /</em> the associated visual structure <em>/
+    Window root;            /</em> root of screen containing window */</p>
+<h1 id="if-defined__cplusplus-definedc_plusplus">if defined(__cplusplus) || defined(c_plusplus)<a class="headerlink" href="#if-defined__cplusplus-definedc_plusplus" title="Permanent link">🐟</a></h1>
+<div class="highlight"><pre><span></span><code>int c_class;        /* C++ InputOutput, InputOnly*/
+</code></pre></div>
+<h1 id="else">else<a class="headerlink" href="#else" title="Permanent link">🐟</a></h1>
+<div class="highlight"><pre><span></span><code>int class;          /* InputOutput, InputOnly*/
+</code></pre></div>
+<h1 id="endif">endif<a class="headerlink" href="#endif" title="Permanent link">🐟</a></h1>
+<div class="highlight"><pre><span></span><code>int bit_gravity;        /* one of bit gravity values */
+int win_gravity;        /* one of the window gravity values */
+int backing_store;      /* NotUseful, WhenMapped, Always */
+unsigned long backing_planes;/* planes to be preserved if possible */
+unsigned long backing_pixel;/* value to be used when restoring planes */
+Bool save_under;        /* boolean, should bits under be saved? */
+Colormap colormap;      /* color map to be associated with window */
+Bool map_installed;     /* boolean, is color map currently installed*/
+int map_state;      /* IsUnmapped, IsUnviewable, IsViewable */
+long all_event_masks;   /* set of events all people have interest in*/
+long your_event_mask;   /* my event mask */
+long do_not_propagate_mask; /* set of events that should not propagate */
+Bool override_redirect; /* boolean value for override-redirect */
+Screen *screen;     /* back pointer to correct screen */
+</code></pre></div>
+<p>} XWindowAttributes;
+// ...
+   ```</p>
+<p>了解到 Xlib 函数，就可以围绕 XGetWindowAttributes() 函数来获取窗口属性，经过以下流程，就完成窗口的属性获取了。</p>
+<ul>
+<li>传入进程判断，获取窗口，伪代码如下</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// Get the PID property atom 获取PID属性atom</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">_atomPID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XInternAtom</span><span class="p">(</span><span class="n">display</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;_NET_WM_PID&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">True</span><span class="p">);</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">_atomPID</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">None</span><span class="p">)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">            </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;No such atom&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="c1">// ...</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1">// Get the PID for the current Window.获取当前所有窗口的PID。</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="kt">void</span><span class="w"> </span><span class="n">searchmywindow</span><span class="p">(</span><span class="n">window</span><span class="w"> </span><span class="n">w</span><span class="p">){</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">        </span><span class="n">Atom</span><span class="w">           </span><span class="n">type</span><span class="p">;</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">        </span><span class="kt">int</span><span class="w">            </span><span class="n">format</span><span class="p">;</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">        </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w">  </span><span class="n">nItems</span><span class="p">;</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">        </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w">  </span><span class="n">bytesAfter</span><span class="p">;</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">        </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">propPID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">Success</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">XGetWindowProperty</span><span class="p">(</span><span class="n">_display</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">_atomPID</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">False</span><span class="p">,</span><span class="w"> </span><span class="n">XA_CARDINAL</span><span class="p">,</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">                                         </span><span class="o">&amp;</span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nItems</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">bytesAfter</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">propPID</span><span class="p">))</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">propPID</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">            </span><span class="c1">// If the PID matches, add this window to the result set.</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">            </span><span class="c1">//如果PID匹配，则将此窗口添加到result中。</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">                </span><span class="k">if</span><span class="p">(</span><span class="n">_pid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">*</span><span class="p">((</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">propPID</span><span class="p">))</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">                    </span><span class="n">_result</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">w</span><span class="p">);</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">                </span><span class="n">XFree</span><span class="p">(</span><span class="n">propPID</span><span class="p">);</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="w">    </span><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>对鼠标进行移动点击，程序要知道鼠标的位置，获取鼠标位置的代码如下：</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">//获取鼠标坐标 </span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w"> </span><span class="n">Display</span><span class="w"> </span><span class="o">*</span><span class="n">display</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XOpenDisplay</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w"> </span><span class="n">Window</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XDefaultRootWindow</span><span class="p">(</span><span class="n">display</span><span class="p">);</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w"> </span><span class="n">Window</span><span class="w"> </span><span class="n">root_return</span><span class="p">;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w"> </span><span class="n">Window</span><span class="w"> </span><span class="n">child_return</span><span class="p">;</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">root_x_return</span><span class="p">;</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">root_y_return</span><span class="p">;</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">mask_return</span><span class="p">;</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">::</span><span class="n">XQueryPointer</span><span class="p">(</span><span class="n">display</span><span class="p">,</span><span class="w"> </span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">root_return</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">child_return</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">root_x_return</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">root_y_return</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">win_x_return</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">win_y_return</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">mask_return</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">True</span><span class="p">)</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">     </span><span class="p">{</span><span class="w"> </span><span class="c1">//输出鼠标的属性</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">         </span><span class="n">qWarning</span><span class="p">()</span><span class="o">&lt;&lt;</span><span class="s">&quot;Window_ID:&quot;</span><span class="o">&lt;&lt;</span><span class="n">child_return</span><span class="o">&lt;&lt;</span><span class="s">&quot;x:&quot;</span><span class="o">&lt;&lt;</span><span class="n">win_x_return</span><span class="o">&lt;&lt;</span><span class="s">&quot;y:&quot;</span><span class="o">&lt;&lt;</span><span class="s">&quot;win_y_return&quot;</span><span class="p">;</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">     </span><span class="p">}</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w"> </span><span class="n">XCloseDisplay</span><span class="p">(</span><span class="n">display</span><span class="p">);</span>
+</code></pre></div>
+<ul>
+<li>窗口属性的获取，伪代码如下:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">Window</span><span class="w"> </span><span class="nf">get_toplevel_parent</span><span class="p">(</span><span class="n">Display</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">display</span><span class="p">,</span><span class="w"> </span><span class="n">Window</span><span class="w"> </span><span class="n">window</span><span class="p">)</span><span class="c1">//获取父窗口ID</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">     </span><span class="n">Window</span><span class="w"> </span><span class="n">parent</span><span class="p">;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">     </span><span class="n">Window</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">     </span><span class="n">Window</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">children</span><span class="p">;</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">     </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">num_children</span><span class="p">;</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">     </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">XQueryTree</span><span class="p">(</span><span class="n">display</span><span class="p">,</span><span class="w"> </span><span class="n">window</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">root</span><span class="p">,</span><span class="o">&amp;</span><span class="n">parent</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">children</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">num_children</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">             </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;XQueryTree error</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">             </span><span class="n">abort</span><span class="p">();</span><span class="w"> </span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">         </span><span class="p">}</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">children</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">             </span><span class="n">XFree</span><span class="p">(</span><span class="n">children</span><span class="p">);</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">         </span><span class="p">}</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">window</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">parent</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">             </span><span class="k">return</span><span class="w"> </span><span class="n">window</span><span class="p">;</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">         </span><span class="p">}</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">         </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">             </span><span class="n">window</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parent</span><span class="p">;</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">         </span><span class="p">}</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">     </span><span class="p">}</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="p">}</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="kt">void</span><span class="w"> </span><span class="nf">getwindowattribute</span><span class="p">(</span><span class="n">Window</span><span class="w"> </span><span class="n">w</span><span class="p">){</span>
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="w">    </span><span class="c1">//获取窗口的属性</span>
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="w">    </span><span class="n">Display</span><span class="w"> </span><span class="o">*</span><span class="n">display</span><span class="p">;</span>
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="w">    </span><span class="n">Window</span><span class="w">  </span><span class="n">focus</span><span class="p">,</span><span class="n">toplevel_parent_of_focus</span><span class="p">;</span>
+<a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="w">    </span><span class="n">XWindowAttributes</span><span class="w"> </span><span class="n">attr</span><span class="p">;</span>
+<a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">revert</span><span class="p">;</span>
+<a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a><span class="w">    </span><span class="n">display</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">XOpenDisplay</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+<a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a><span class="w">    </span><span class="n">XGetInputFocus</span><span class="p">(</span><span class="n">display</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">revert</span><span class="p">);</span>
+<a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a><span class="w">    </span><span class="n">toplevel_parent_of_focus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_toplevel_parent</span><span class="p">(</span><span class="n">display</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">);</span>
+<a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a><span class="w">    </span><span class="n">XGetWindowAttributes</span><span class="p">(</span><span class="n">display</span><span class="p">,</span><span class="w"> </span><span class="n">toplevel_parent_of_focus</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">attr</span><span class="p">);</span>
+<a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a><span class="w">    </span><span class="n">qWarning</span><span class="p">()</span><span class="o">&lt;&lt;</span><span class="s">&quot;width:&quot;</span><span class="o">&lt;&lt;</span><span class="n">attr</span><span class="p">.</span><span class="n">width</span><span class="o">&lt;&lt;</span><span class="s">&quot;height:&quot;</span><span class="o">&lt;&lt;</span><span class="n">attr</span><span class="p">.</span><span class="n">height</span><span class="o">&lt;&lt;</span><span class="s">&quot;x:&quot;</span><span class="o">&lt;&lt;</span><span class="n">attr</span><span class="p">.</span><span class="n">x</span><span class="o">&lt;&lt;</span><span class="s">&quot;y:&quot;</span><span class="o">&lt;&lt;</span><span class="n">attr</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+<a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a><span class="w">    </span><span class="n">XCloseDisplay</span><span class="p">(</span><span class="n">display</span><span class="p">);</span>
+<a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a><span class="p">}</span>
+</code></pre></div></li>
+</ul>
+<h4 id="_8">操作服务<a class="headerlink" href="#_8" title="Permanent link">🐟</a></h4>
+<p>在 Linux 系统中，万物皆文件，我们的键盘和鼠标都是设备文件，经过调研，通过对设备文件写入，就可以对键盘和鼠标进行操作，这个操作是硬件操作的最快的方法，其基本流程如下：</p>
+<pre class="mermaid"><code>graph TD
+A(开始)--&gt;B(查找设备文件)
+B--&gt;C(打开设备文件)
+C--&gt;D(写入设备文件)
+D--&gt;E(同步写入事件)
+E--&gt;F(事件执行)
+F--&gt;G(结束)</code></pre>
+<p>在编码过程中，对设备文件写入生效，需要引入子系统头文件 #include <linux/input.h> 获取到结构体：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">input_event</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="cp">#if (__BITS_PER_LONG != 32 || !defined(__USE_TIME_BITS64)) &amp;&amp; !defined(__KERNEL__)</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">timeval</span><span class="w"> </span><span class="n">time</span><span class="p">;</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="cp">#define input_event_sec time.tv_sec</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="cp">#define input_event_usec time.tv_usec</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="cp">#else</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="n">__kernel_ulong_t</span><span class="w"> </span><span class="n">__sec</span><span class="p">;</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="cp">#if defined(__sparc__) &amp;&amp; defined(__arch64__)</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">__usec</span><span class="p">;</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">__pad</span><span class="p">;</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="cp">#else</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="n">__kernel_ulong_t</span><span class="w"> </span><span class="n">__usec</span><span class="p">;</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="cp">#endif</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="cp">#define input_event_sec  __sec</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="cp">#define input_event_usec __usec</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="cp">#endif</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">    </span><span class="n">__u16</span><span class="w"> </span><span class="n">type</span><span class="p">;</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">    </span><span class="n">__u16</span><span class="w"> </span><span class="n">code</span><span class="p">;</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">    </span><span class="n">__s32</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="p">};</span>
+</code></pre></div>
+<p>通过 write() 函数对 /dev/input 目录下设备文件写入，伪代码如下：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">//fd:打开的文件设备文件</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">Move_mouse</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">rel_x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">rel_y</span><span class="p">)</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="p">{</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">input_event</span><span class="w"> </span><span class="n">event</span><span class="p">;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="c1">//x轴坐标的相对位移</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="n">event</span><span class="p">.</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EV_REL</span><span class="p">;</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="n">event</span><span class="p">.</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rel_x</span><span class="p">;</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="n">event</span><span class="p">.</span><span class="n">code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">REL_X</span><span class="p">;</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="n">write</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">event</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">event</span><span class="p">));</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="c1">//y轴坐标的相对位移</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span><span class="n">event</span><span class="p">.</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EV_REL</span><span class="p">;</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="n">event</span><span class="p">.</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rel_y</span><span class="p">;</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">    </span><span class="n">event</span><span class="p">.</span><span class="n">code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">REL_Y</span><span class="p">;</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">    </span><span class="n">write</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">event</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">event</span><span class="p">));</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">    </span><span class="c1">//同步</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">    </span><span class="n">event</span><span class="p">.</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EV_SYN</span><span class="p">;</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">    </span><span class="n">event</span><span class="p">.</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">    </span><span class="n">event</span><span class="p">.</span><span class="n">code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SYN_REPORT</span><span class="p">;</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">    </span><span class="n">write</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">event</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">event</span><span class="p">));</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="p">}</span>
+</code></pre></div>
+<p>最终，通过公式移动到鼠标想要的位置，如移动到应用左上角的位置（ X1，Y1 ），鼠标位置（ X2，Y2 ），鼠标相对位置 rel_x，rel_y 相对移动位置。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="w">   </span><span class="n">rel_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">X2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">X1</span><span class="p">;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">   </span><span class="n">rel_y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Y1</span><span class="p">;</span>
+</code></pre></div>
+<p>对于键盘的操作，与上面操作类似，就需要修改参数，代码如下：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">//fd:打开的文件设备文件 kval：键盘按键</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">simulate_key</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">kval</span><span class="p">)</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="p">{</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">         </span><span class="k">struct</span><span class="w"> </span><span class="nc">input_event</span><span class="w"> </span><span class="n">event</span><span class="p">;</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">         </span><span class="n">gettimeofday</span><span class="p">(</span><span class="o">&amp;</span><span class="n">event</span><span class="p">.</span><span class="n">time</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">         </span><span class="n">event</span><span class="p">.</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EV_KEY</span><span class="p">;</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">         </span><span class="n">event</span><span class="p">.</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">         </span><span class="n">event</span><span class="p">.</span><span class="n">code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kval</span><span class="p">;</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">         </span><span class="n">write</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">event</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">event</span><span class="p">));</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">       </span><span class="c1">//同步，报告给系统</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">         </span><span class="n">event</span><span class="p">.</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EV_SYN</span><span class="p">;</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">         </span><span class="n">event</span><span class="p">.</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">         </span><span class="n">event</span><span class="p">.</span><span class="n">code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SYN_REPORT</span><span class="p">;</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">         </span><span class="n">write</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">event</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">event</span><span class="p">));</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">         </span><span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">event</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">event</span><span class="p">));</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">         </span><span class="n">gettimeofday</span><span class="p">(</span><span class="o">&amp;</span><span class="n">event</span><span class="p">.</span><span class="n">time</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">         </span><span class="n">event</span><span class="p">.</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EV_KEY</span><span class="p">;</span><span class="c1">//松开kval键</span>
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">         </span><span class="n">event</span><span class="p">.</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">         </span><span class="n">event</span><span class="p">.</span><span class="n">code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kval</span><span class="p">;</span>
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="w">         </span><span class="n">write</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">event</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">event</span><span class="p">));</span>
+<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>
+<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="w">       </span><span class="c1">//同步，报告给系统</span>
+<a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a>
+<a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="w">        </span><span class="n">event</span><span class="p">.</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EV_SYN</span><span class="p">;</span>
+<a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a><span class="w">        </span><span class="n">event</span><span class="p">.</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a><span class="w">        </span><span class="n">event</span><span class="p">.</span><span class="n">code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SYN_REPORT</span><span class="p">;</span>
+<a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a><span class="w">        </span><span class="n">write</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">event</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">event</span><span class="p">));</span>
+<a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a>
+<a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="_9">实验验证<a class="headerlink" href="#_9" title="Permanent link">🐟</a></h2>
+<p>根据技术方案调研的结果，需要对整体设计的方案和一些技术细节进行验证，为此设计以下实验：</p>
+<h3 id="app-wininfo-m">app-wininfo-m 可行性和兼容性验证<a class="headerlink" href="#app-wininfo-m" title="Permanent link">🐟</a></h3>
+<p>app-wininfo-m 的目的是对桌面应用坐标定位，通过输入设备的设备文件操作鼠标键盘，本次实验将按照<strong>整体设计</strong>中的方式，生成一个可以运行的程序执行文件，以<strong>通过进程获取到应用坐标，并且鼠标点击关闭窗口</strong>为例进行演示。</p>
+<p>app-wininfo-m 应用程序参数文件说明：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th style="text-align: center;">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-m</td>
+<td style="text-align: center;">鼠标移动位置，参数一：坐标Ｘ轴，参数二：坐标Ｙ轴，参数三：１点击鼠标左键，２鼠标中键，３鼠标右键</td>
+</tr>
+<tr>
+<td>-p</td>
+<td style="text-align: center;">通过传入的进程号查找应用窗口的属性，查看所有进程下的窗口，并输出窗口属性</td>
+</tr>
+<tr>
+<td>-k</td>
+<td style="text-align: center;">键盘输入，如：<code>-k  KEY_A</code>，键盘输入A</td>
+</tr>
+</tbody>
+</table>
+<p><center style="color:#C0C0C0;text-decoration:underline">表五 app-wininfo-m参数文件说明</center></p>
+<p>【实验环境】</p>
+<ul>
+<li>系统：UOS 20 1030</li>
+<li>架构：X86 、ARM64、MIPS64EL</li>
+</ul>
+<p>【实验步骤】</p>
+<ul>
+<li>安装环境</li>
+</ul>
+<ol>
+<li>app-wininfo-m 代码编写完毕，在 Qt Creator 中构建制执行文件为 demo。</li>
+</ol>
+<ul>
+<li>编写测试脚本</li>
+</ul>
+<p>使用 shell 方式来运行 demo 程序，编写的代码如下</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="ch">#!/bin/bash</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nv">file_pid</span><span class="o">=</span>pidof<span class="w"> </span><span class="s2">&quot;dde-file-manager&quot;</span><span class="w">   </span><span class="c1">#获取文管进程pid</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nv">window_PP</span><span class="o">=</span><span class="sb">`</span>./demo<span class="w"> </span>-p<span class="w"> </span><span class="nv">$file_pid</span><span class="sb">`</span><span class="w">     </span><span class="c1">#获取输出应用窗口属性</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="nv">window_W</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span><span class="w"> </span><span class="si">${</span><span class="nv">window_PP</span><span class="p">#*</span><span class="s2">&quot;width:&quot;</span><span class="si">}</span><span class="p">|</span>awk<span class="w"> </span>-F<span class="w"> </span><span class="s1">&#39;X&#39;</span><span class="w"> </span><span class="s1">&#39;{print $1}&#39;</span><span class="sb">`</span><span class="w">  </span><span class="c1">#截取窗口属性宽</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="nv">window_H</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span><span class="w"> </span><span class="si">${</span><span class="nv">window_PP</span><span class="p">#*</span><span class="s2">&quot;height:&quot;</span><span class="si">}</span><span class="p">|</span>awk<span class="w"> </span>-F<span class="w"> </span><span class="s1">&#39;)&#39;</span><span class="w"> </span><span class="s1">&#39;{print $1}&#39;</span><span class="sb">`</span><span class="w"> </span><span class="c1">#截取窗口属性高</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="nv">window_X</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span><span class="w"> </span><span class="si">${</span><span class="nv">window_PP</span><span class="p">#*</span><span class="s2">&quot;x:&quot;</span><span class="si">}</span><span class="p">|</span>awk<span class="w"> </span>-F<span class="w"> </span><span class="s1">&#39;y&#39;</span><span class="w"> </span><span class="s1">&#39;{print $1}&#39;</span><span class="sb">`</span><span class="w">  </span><span class="c1">#截取窗口属性x轴坐标</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="nv">window_Y</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span><span class="w"> </span><span class="si">${</span><span class="nv">window_PP</span><span class="p">#*</span><span class="s2">&quot;y:&quot;</span><span class="si">}</span><span class="sb">`</span><span class="w">  </span><span class="c1">#截取窗口属性Y轴坐标</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>./demo<span class="w"> </span>-m<span class="w"> </span>$<span class="o">[</span><span class="w"> </span>window_X<span class="w"> </span>+<span class="w"> </span>window_W<span class="w"> </span>-5<span class="w"> </span><span class="o">]</span><span class="w"> </span>$<span class="o">[</span><span class="w"> </span>window_Y<span class="w"> </span>+<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="m">1</span><span class="w">   </span><span class="c1">#鼠标移动到关闭按钮位置，并点击关闭按钮</span>
+</code></pre></div>
+<ul>
+<li>运行结果</li>
+</ul>
+<p>查看下图运行结果，看到 <strong>通过进程获取到应用坐标，并且鼠标点击关闭窗口</strong> 演示操作的例子完美运行成功，<strong>app-wininfo-m</strong> 程序的整体方案是正确的。</p>
+<p><img alt="newdemo" src="../test/%E5%8F%AF%E8%A1%8C%E6%80%A7%E8%BF%90%E8%A1%8C.gif" />
+<center style="color:#C0C0C0;text-decoration:underline">图八 demo运行结果</center></p>
+<p>以上述例子运行，进行不同系统架构测试，测试结果如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">系统架构</th>
+<th>测试结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">MIPS64EL</td>
+<td>正常运行</td>
+</tr>
+<tr>
+<td style="text-align: left;">X86</td>
+<td>正常运行</td>
+</tr>
+<tr>
+<td style="text-align: left;">ARM64</td>
+<td>正常运行</td>
+</tr>
+<tr>
+<td style="text-align: left;"><center style="color:#C0C0C0;text-decoration:underline">表六 兼容性运行结果</center></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="app-wininfo-m_1">app-wininfo-m 稳定性验证<a class="headerlink" href="#app-wininfo-m_1" title="Permanent link">🐟</a></h3>
+<p>压力测试对稳定性要求很高，设计以下测试项，对 app-wininfo-m 程序的关键点进行稳定性验证。</p>
+<table>
+<thead>
+<tr>
+<th>测试项</th>
+<th>测试说明</th>
+<th>时长</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>获取10个应用窗口属性</td>
+<td>打开多个10个应用，对10个窗口属性获取，demo程序稳定</td>
+<td>24H</td>
+<td>通过</td>
+</tr>
+<tr>
+<td>同一个应用打开10个窗口，获取所有窗口属性</td>
+<td>选择文管，打开10个窗口，获取10个窗口属性，demo程序稳定</td>
+<td>24H</td>
+<td>通过</td>
+</tr>
+<tr>
+<td>鼠标移动</td>
+<td>使用demo控制在桌面随意移动，demo程序稳定</td>
+<td>24H</td>
+<td>通过</td>
+</tr>
+<tr>
+<td>长时间获取鼠标位置</td>
+<td>桌面随机一定，一直获取鼠标位置，demo程序稳定</td>
+<td>24H</td>
+<td>通过</td>
+</tr>
+<tr>
+<td>点击鼠标左键</td>
+<td>使用demo程序，鼠标随机一直标右键，demo程序稳定</td>
+<td>24H</td>
+<td>通过</td>
+</tr>
+<tr>
+<td>点击鼠标右键</td>
+<td>使用demo程序，鼠标随机一直标左键，demo程序稳定</td>
+<td>24H</td>
+<td>通过</td>
+</tr>
+<tr>
+<td>键盘输入</td>
+<td>使用demo程序，控制键盘一直输入，demo程序稳定</td>
+<td>24H</td>
+<td>通过</td>
+</tr>
+</tbody>
+</table>
+<p><center style="color:#C0C0C0;text-decoration:underline">表七 稳定测试项</center></p>
+<p>经过上面的测试项，demo 程序满足了稳定性</p>
+<h3 id="app-wininfo-m_2">app-wininfo-m 操作性能验证<a class="headerlink" href="#app-wininfo-m_2" title="Permanent link">🐟</a></h3>
+<p>demo 程序在设计当初考虑了极限的压力操作场景，准备了一下实验，进行验证结果，代码如下：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">for</span><span class="w"> </span>i<span class="w">  </span><span class="k">in</span><span class="w"> </span><span class="o">{</span><span class="m">1</span>..10<span class="o">}</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">do</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span>./demo<span class="w"> </span>-m<span class="w"> </span><span class="m">100</span><span class="w"> </span><span class="m">100</span><span class="w"> </span><span class="m">3</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span>./demo<span class="w"> </span>-m<span class="w"> </span><span class="m">155</span><span class="w"> </span><span class="m">117</span><span class="w"> </span><span class="m">1</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="k">done</span>
+</code></pre></div>
+<p>使用 time 命令运行 shell 脚本，下图就是 demo 程序运行速度。</p>
+<p><img alt="newdemo" src="../test/newdemo.png" />
+<center style="color:#C0C0C0;text-decoration:underline">图九 demo运行速度</center></p>
+<p>由上图九可知 demo 程序运行速达到 1.844s，对比方案二的 2.315s 速度，明显超过 Xdotool 工具的运行速度。</p>
+<h2 id="_10">小结<a class="headerlink" href="#_10" title="Permanent link">🐟</a></h2>
+<p>本文针对压力测试工具提出技术方案，<strong>整体设计</strong>中通过对设备文件写入操作和使用 xlib 库开发了定位和操作服务，解决了方案二获取坐标不稳定和操作速度不够快的问题，基本上能满足现有压测场景的使用要求，同时提供简单崩溃断言的服务。</p>
+<p><strong>app-wininfo-m</strong> 工具作为我们自己开发的工具，未来可以根据需求进行功能扩展，如在“进行搜索的压力测试”，目前只能验证搜索出现崩溃这样的问题，无法验证搜索结果是否正确，现有市面上仍然没有这样功能的工具，我们可以在 app-wininfo-m 工具中定制开发。</p>
+<p>一个新开发工具，往往要经过无数次的版本迭代和优化，接下来的方向，就是对工具进行以下功能扩展和优化。</p>
+<table>
+<thead>
+<tr>
+<th>扩展功能</th>
+<th>优化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>模拟拖拽操作</td>
+<td>优化鼠标移动计算方式</td>
+</tr>
+<tr>
+<td>元素定位</td>
+<td>优化 app-wininfo-m 代码</td>
+</tr>
+<tr>
+<td>图像定位</td>
+<td>优化数据输出方式</td>
+</tr>
+<tr>
+<td>增加断言方式（如：搜索）</td>
+<td>优化键盘输入传值方式</td>
+</tr>
+<tr>
+<td>模拟触摸操作</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="_11">参考资料<a class="headerlink" href="#_11" title="Permanent link">🐟</a></h2>
+<ul>
+<li><a href="https://www.Linux.org/threads/xdotool-keyboard.10528/">xdotool 介绍</a></li>
+<li><a href="https://www.x.org/releases/X11R7.7/doc/man/man1/xwininfo.1.xhtml">xｗininfo 介绍</a></li>
+<li><a href="https://www.x.org/releases/X11R7.6/doc/libX11/specs/libX11/libX11.html">xlib 介绍</a></li>
+<li><a href="https://www.kernel.org/doc/html/v4.17/input/event-codes.html">input 子系统</a></li>
+</ul>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      最后更新:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年12月29日 18:05:12</span>
+      
+        <br>
+        创建日期:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年12月29日 18:05:12</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2023 UnionTech Software Technology Co., Ltd. All Rights Reserved.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes", "navigation.instant", "navigation.tracking", "navigation.top", "navigation.tracking", "navigation.tabs", "announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "content.tabs.link", "search.highlight", "search.share", "search.suggest", "header.autohide", "toc.follow"], "search": "../../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+        <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+      
+        <script src="../../../js/termynal.js"></script>
+      
+        <script src="../../../js/custom.js"></script>
+      
+    
+  </body>
+</html>
