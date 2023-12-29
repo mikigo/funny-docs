@@ -3364,20 +3364,31 @@
 <p><img alt="" src="file:////tmp/wps-mikigo/ksohtml/wpsvRLQLm.jpg" /> </p>
 <p>图（二）用例步骤函数标签字符串编码算法几个关键信息的关系</p>
 <p>代码示例如下：</p>
-<p>1 # test.py\
-2 _from _page _import _Page\
-3\
-4 _class _MyTest:\
-5    \
-6    _def _test_001(self):\
-7        \
-8        Page.click_some_element()\
-9        sleep(1)\
-10       Page.click_some_element()</p>
-<p>l test.py 是用例文件，它在操作系统中是存在一个路径的；</p>
-<p>l MyTest 是用例类类名；</p>
-<p>l test_001 是用例函数的函数名称；</p>
-<p>l click_some_element 是用例步骤函数，它来源于 page 模块的 Page 类，而且可以看出它在第 8 行和第 10 行都有调用；</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="mi">1</span> <span class="c1"># test.py</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="mi">2</span> <span class="kn">from</span> <span class="nn">page</span> <span class="kn">import</span> <span class="n">Page</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="mi">3</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="mi">4</span> <span class="k">class</span> <span class="nc">MyTest</span><span class="p">:</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="mi">5</span>    
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="mi">6</span>    <span class="k">def</span> <span class="nf">test_001</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="mi">7</span>        
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="mi">8</span>        <span class="n">Page</span><span class="o">.</span><span class="n">click_some_element</span><span class="p">()</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="mi">9</span>        <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="mi">10</span>       <span class="n">Page</span><span class="o">.</span><span class="n">click_some_element</span><span class="p">()</span>
+</code></pre></div>
+<ul>
+<li>
+<p>test.py 是用例文件，它在操作系统中是存在一个路径的；</p>
+</li>
+<li>
+<p>MyTest 是用例类类名；</p>
+</li>
+<li>
+<p>test_001 是用例函数的函数名称；</p>
+</li>
+<li>
+<p>click_some_element 是用例步骤函数，它来源于 page 模块的 Page 类，而且可以看出它在第 8 行和第 10 行都有调用；</p>
+</li>
+</ul>
 <p><strong>2.2.5、用例步骤中断后重启</strong></p>
 <p>如果用例步骤中某个步骤涉及重启系统，此用例在执行开始时同样会被记录到执行记录文件中，重新启动之后，由开机自启服务将自动化测试程序自动拉起，根据前面执行判断模块的描述可知，会直接从重启前的用例步骤的下一个步骤开始执行。</p>
 <p>这样，就实现了在用例步骤里面重启机器也能完成整个测试用例执行的功能。</p>
@@ -3403,7 +3414,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年12月29日 18:05:12</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年12月29日 18:08:45</span>
       
         <br>
         创建日期:
