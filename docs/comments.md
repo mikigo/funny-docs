@@ -6,4 +6,4 @@ hide:
 comments: true
 ---
 
-# 留言
+# 欢迎留言
