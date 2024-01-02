@@ -90,6 +90,24 @@
     </div>
     <div data-md-component="announce">
       
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+              <button class="md-banner__button md-icon" aria-label="不再显示此消息">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+              </button>
+            
+            
+  <!-- Add announcement here, including arbitrary HTML -->
+  通知：新域名 youqu.uniontech.com
+
+          </div>
+          
+            <script>var content,el=document.querySelector("[data-md-component=announce]");el&&(content=el.querySelector(".md-typeset"),__md_hash(content.innerHTML)===__md_get("__announce")&&(el.hidden=!0))</script>
+          
+        </aside>
+      
     </div>
     
       <div data-md-color-scheme="default" data-md-component="outdated" hidden>
@@ -3318,6 +3336,136 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prpull-request" class="md-nav__link">
+    PR（Pull Request）流程
+  </a>
+  
+    <nav class="md-nav" aria-label="PR（Pull Request）流程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-fork" class="md-nav__link">
+    1. Fork 文档仓库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-fork" class="md-nav__link">
+    2. 克隆这个 Fork 的项目
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-pr" class="md-nav__link">
+    3. 提交PR
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 提交PR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-fork" class="md-nav__link">
+    3.1 同步 Fork 仓库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-github" class="md-nav__link">
+    3.2 提交 Github
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-pr" class="md-nav__link">
+    3.3 提交 PR
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    编辑文档
+  </a>
+  
+    <nav class="md-nav" aria-label="编辑文档">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 部署工程环境
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 目录结构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 文档规范
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 文档规范">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-markdown" class="md-nav__link">
+    3.1 Markdown规范
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2 配置项修改（重要）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 启动本地开发效果预览
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3349,6 +3497,201 @@
 
 
 <h1 id="_1">投稿<a class="headerlink" href="#_1" title="Permanent link">🐟</a></h1>
+<p>文档工程使用 <code>Github</code> 管理，投稿走 <code>PR</code> 流程；</p>
+<h2 id="prpull-request">PR（Pull Request）流程<a class="headerlink" href="#prpull-request" title="Permanent link">🐟</a></h2>
+<h3 id="1-fork">1. Fork 文档仓库<a class="headerlink" href="#1-fork" title="Permanent link">🐟</a></h3>
+<p>点击网站右上角 <code>funny-docs</code> 图标：<img alt="" src="index_assets/1.png" /> 或者也可以直接访问地址：<a href="https://github.com/mikigo/funny-docs">https://github.com/mikigo/funny-docs</a> 进入到文档工程仓库；</p>
+<p>然后用你自己的 <code>GitHub</code> 账号登录</p>
+<p>点击右上角的 <code>Fork</code> 按钮：</p>
+<p><img alt="" src="index_assets/2.png" /></p>
+<p>然后不用想，直接戳这里：</p>
+<p><img alt="" src="index_assets/3.png" /></p>
+<p>稍等片刻，就把此仓库 <code>Fork</code> 到你的 <code>GitHub</code> 中了；</p>
+<h3 id="2-fork">2. 克隆这个 Fork 的项目<a class="headerlink" href="#2-fork" title="Permanent link">🐟</a></h3>
+<p>将你自己的 <code>Github</code> 中 <code>Fork</code> 的这个项目克隆下来：</p>
+<p><img alt="" src="index_assets/4.png" /></p>
+<p>终端输入：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:king123666/funny-docs.git
+</code></pre></div>
+<p>其中 <code>git@github.com:king123666/funny-docs.git</code> 可以直接用从网站上复制的；</p>
+<p>不出意外的话就把仓库拉到本地了；</p>
+<h3 id="3-pr">3. 提交PR<a class="headerlink" href="#3-pr" title="Permanent link">🐟</a></h3>
+<p>上一步之后本地就有文档工程，之后你就可以在里面新增或修改文档，这部分由于涉及到一些技巧和规范，我在后面单独开了一章来讲解；</p>
+<p>提交你的新增或修改的内容到 Fork 仓库：</p>
+<h4 id="31-fork">3.1 同步 Fork 仓库<a class="headerlink" href="#31-fork" title="Permanent link">🐟</a></h4>
+<p>在你 <code>Fork</code> 的仓库右上角点这里：</p>
+<p><img alt="" src="index_assets/5.png" /></p>
+<p>确保 Fork 的仓库和原仓库保持同步；</p>
+<h4 id="32-github">3.2 提交 Github<a class="headerlink" href="#32-github" title="Permanent link">🐟</a></h4>
+<p>在 <code>~</code> 目录下新建文件，并命名为 <code>gitcommit_template</code></p>
+<p>将以下内容写入文件当中：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># commit type :fix（问题修复）、feat（功能开发）、style(风格修改)、refactor(重构)、docs（文档）、chore（其他)、test(测试) + 简单描述. 默认fix,根据情况修改</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>fix:<span class="w"> </span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># 详细说明代码的改动，包含代码的实现思路，以及为什么这么做，可能会影响哪些功能。对于代码的审核者，需要从这段描述中能完全理解代码中所有改动的内容</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>Description:<span class="w"> </span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># 写一段面向于产品的总结性内容，用于自动生成crp上的changlog，需要注意的事，这段描述必须从产品的角度考虑。</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>Log:<span class="w"> </span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># 关联pms上的bug号，提交后，则会自动在pms对应bug信息页面添加备注，关联本次提交。若本次提交为修复bug相关，则请取消注释</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="c1">#Bug: </span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="c1"># 修复 github issue </span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="c1">#Issue: </span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="c1"># 关联pms上的任务号，提交后，则会自动在pms对应任务信息页面添加备注，关联本次提交。若本次提交为任务相关，则请取消注释</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="c1">#Task: </span>
+</code></pre></div>
+<p>命令行执行:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git config --global commit.template ~/gitcommit_template
+</code></pre></div>
+<p>此命令将模板加入到 <code>git</code> 的提交模板中。</p>
+<p>添加 <code>commit</code> 信息</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>add<span class="w"> </span>后面加文件名称
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>git<span class="w"> </span>add<span class="w"> </span>.<span class="w"> </span><span class="c1"># 表示添加所有文件</span>
+</code></pre></div>
+<p>使用这条命令注意有些临时文件不要提交到仓库了。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git<span class="w"> </span>commit<span class="w"> </span>-a
+</code></pre></div>
+<p>之后在 <code>fix:</code> 后面（注意冒号后面必须加空格）写本地提交的 <code>commit</code> 信息，然后就可以提交代码了</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git<span class="w"> </span>push
+</code></pre></div>
+<p>这样就把你新增或修改的内容提交到你 Fork 的仓库中了；</p>
+<h4 id="33-pr">3.3 提交 PR<a class="headerlink" href="#33-pr" title="Permanent link">🐟</a></h4>
+<p>回到 <code>Github</code> 网站点这里：</p>
+<p><img alt="" src="index_assets/6.png" /></p>
+<p>再点这里：</p>
+<p><img alt="" src="index_assets/7.png" /></p>
+<p>然后你可以写一些你的描述，再点这里：</p>
+<p><img alt="" src="index_assets/8.png" /></p>
+<p>好了，这样就完成了一个 <code>PR</code>，你可以在这里查看：</p>
+<p><img alt="" src="index_assets/9.png" /></p>
+<h2 id="_2">编辑文档<a class="headerlink" href="#_2" title="Permanent link">🐟</a></h2>
+<p>这个章节默认你已经把文档工程拉到本地了，如果还没有请参考前面 <code>PR（Pull Request）流程</code> 章节；</p>
+<h3 id="1">1. 部署工程环境<a class="headerlink" href="#1" title="Permanent link">🐟</a></h3>
+<p>在项目根目录下，终端输入：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>pipenv
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>pipenv<span class="w"> </span>--python<span class="w"> </span><span class="m">3</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>pipenv<span class="w"> </span>shell
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</code></pre></div>
+<h3 id="2">2. 目录结构<a class="headerlink" href="#2" title="Permanent link">🐟</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>funny-docs
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>├──<span class="w"> </span>docs<span class="w"> </span><span class="c1"># 文档编写目录</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>├──<span class="w"> </span>LICENSE
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>├──<span class="w"> </span>mkdocs.yml
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>├──<span class="w"> </span>overrides
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>├──<span class="w"> </span>publish.sh
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>├──<span class="w"> </span>README.md
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>└──<span class="w"> </span>requirements.txt
+</code></pre></div>
+<p>咱们啥也别管，直接掏 <code>docs</code> 目录：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>docs
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>├──<span class="w"> </span>编程语言
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>├──<span class="w"> </span>常见问题
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>├──<span class="w"> </span>读书笔记
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>├──<span class="w"> </span>规范文档
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>├──<span class="w"> </span>技术文档
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>├──<span class="w"> </span>前后端
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>├──<span class="w"> </span>人工智能
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>├──<span class="w"> </span>投稿
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>├──<span class="w"> </span>网络爬虫
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>├──<span class="w"> </span>自动化技术
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>├──<span class="w"> </span>Linux
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>├──<span class="w"> </span>img
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>├──<span class="w"> </span>comments.md<span class="w"> </span><span class="c1"># 不用管</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>├──<span class="w"> </span>index.md<span class="w"> </span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>├──<span class="w"> </span>css<span class="w"> </span><span class="c1"># 不用管</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>├──<span class="w"> </span>js<span class="w"> </span><span class="c1"># 不用管</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>└──<span class="w"> </span>stylesheets<span class="w"> </span><span class="c1"># 不用管</span>
+</code></pre></div>
+<p>上面标记了 <code>不用管</code> 的文件或文件夹是一些配置文件，剩下的目录就是按文档类型做的划分，如果是新增文档，你看看你写的内容方向是属于哪个，那就在哪个目录下写文档，文档只支持 <code>MarkDown</code> 格；</p>
+<p>比如你要写的内容是 Linux 方向的：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Linux
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>├──<span class="w"> </span>方案教程
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>│<span class="w">   </span>├──<span class="w"> </span>配置开机自启服务.md
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>│<span class="w">   </span>└──<span class="w"> </span>...
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>├──<span class="w"> </span>工具使用
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>│<span class="w">   </span>├──<span class="w"> </span>KVM安装配置及使用说明.md
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>│<span class="w">   </span>└──<span class="w"> </span>...
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>└──<span class="w"> </span>index.md<span class="w"> </span><span class="c1"># 目录</span>
+</code></pre></div>
+<ul>
+<li>
+<p><code>index.md</code> 是 <code>Linux</code> 这个大类的目录文件；</p>
+</li>
+<li>
+<p>其他目录：是做的一些小类划分；</p>
+</li>
+</ul>
+<h3 id="3">3. 文档规范<a class="headerlink" href="#3" title="Permanent link">🐟</a></h3>
+<h4 id="31-markdown">3.1 Markdown规范<a class="headerlink" href="#31-markdown" title="Permanent link">🐟</a></h4>
+<p>咱们在 <code>Linux - 方案教程</code> 里面新建一个 <code>test.md</code> 文件举例：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Linux
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>├──<span class="w"> </span>方案教程
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>│<span class="w">   </span>└──<span class="w"> </span>test.md
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>├──<span class="w"> </span>工具使用
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>│<span class="w">   </span>└──<span class="w"> </span>...
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>└──<span class="w"> </span>index.md
+</code></pre></div>
+<p><code>test.md</code> 规范：</p>
+<ul>
+<li>文章大标题用 <code>一级标题</code>；</li>
+<li>文章各章节用 <code>二级标题</code>；</li>
+<li>
+<p>图片或其他资源，在同级目录下新建一个文档同名 +  <code>_assets</code> 的目录，<code>test_assets</code> 里面放你的图片等资源；</p>
+</li>
+<li>
+<p><code>markdown</code> 里面图片资源加载使用相对路径；</p>
+</li>
+<li>
+<p>在文章大标题下面标注作者，模板如下：</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># =============================</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="c1"># Author : mikigo</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="c1"># =============================</span>
+</code></pre></div>
+<h4 id="32">3.2 配置项修改（重要）<a class="headerlink" href="#32" title="Permanent link">🐟</a></h4>
+<h5 id="321-mkdocsyml">3.2.1 修改 <code>mkdocs.yml</code><a class="headerlink" href="#321-mkdocsyml" title="Permanent link">🐟</a></h5>
+<p>在  <code>mkdocs.yml</code> 中找到 <code>nav</code>，在找到里面的 Linux ：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nt">nav</span><span class="p">:</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">- Linux</span><span class="p p-Indicator">:</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Linux/index.md</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">方案教程</span><span class="p">:</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Linux/方案教程/test.md</span>
+</code></pre></div>
+<p>按照 <code>yml</code> 文件的编写方式，添加一行，注意路径关系哦；</p>
+<h5 id="322-indexmd">3.2.2 修改 <code>index.md</code><a class="headerlink" href="#322-indexmd" title="Permanent link">🐟</a></h5>
+<p>找到 <code>Linux</code> 目录下的 <code>index.md</code> 文件：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Linux
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>├──<span class="w"> </span>方案教程
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>│<span class="w">   </span>└──<span class="w"> </span>test.md
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>├──<span class="w"> </span>工具使用
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>│<span class="w">   </span>└──<span class="w"> </span>...
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>└──<span class="w"> </span>index.md<span class="w">  </span><span class="c1"># 目录文件</span>
+</code></pre></div>
+<p><code>index.md</code> 是 <code>Linux</code> 这个大类的目录文件，在网站上对应这个界面：</p>
+<p><img alt="" src="index_assets/10.png" /></p>
+<p><code>index.md</code> 里面也是 <code>yml</code> 文件的配置方法，在里面找到 <code>方案教程</code>：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>-<span class="w"> </span>方案教程:
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span>...
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">  </span>-<span class="w"> </span>test:<span class="w"> </span>方案教程/test/
+</code></pre></div>
+<p>这里解释一下 <code>test: 方案教程/test/</code> ：</p>
+<ul>
+<li>冒号前面是描述，你可以自定义，但最好和 <code>md</code> 文件名保持一致；</li>
+<li>冒号后面是文件相对路径，不加文件后缀 <code>.md</code> ，最后的斜杠 <code>/</code> 必须要；</li>
+</ul>
+<h3 id="4">4. 启动本地开发效果预览<a class="headerlink" href="#4" title="Permanent link">🐟</a></h3>
+<p>在项目根目录下，终端输入：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>pipenv<span class="w"> </span>shell
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>mkdocs<span class="w"> </span>serve
+</code></pre></div>
+<p>即可在本地启动一个在线服务，可以在浏览器中预览效果；</p>
 
   <hr>
 <div class="md-source-file">

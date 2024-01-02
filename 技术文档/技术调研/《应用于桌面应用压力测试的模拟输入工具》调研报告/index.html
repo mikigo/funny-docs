@@ -90,6 +90,24 @@
     </div>
     <div data-md-component="announce">
       
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+              <button class="md-banner__button md-icon" aria-label="不再显示此消息">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+              </button>
+            
+            
+  <!-- Add announcement here, including arbitrary HTML -->
+  通知：新域名 youqu.uniontech.com
+
+          </div>
+          
+            <script>var content,el=document.querySelector("[data-md-component=announce]");el&&(content=el.querySelector(".md-typeset"),__md_hash(content.innerHTML)===__md_get("__announce")&&(el.hidden=!0))</script>
+          
+        </aside>
+      
     </div>
     
       <div data-md-color-scheme="default" data-md-component="outdated" hidden>
@@ -2576,13 +2594,20 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    现状
+    问题
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    现状
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     技术方案
   </a>
   
@@ -2590,14 +2615,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     整体设计
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     关键技术
   </a>
   
@@ -2605,7 +2630,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     坐标服务
   </a>
   
@@ -3429,13 +3454,20 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    现状
+    问题
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    现状
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     技术方案
   </a>
   
@@ -3443,14 +3475,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     整体设计
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     关键技术
   </a>
   
@@ -3458,7 +3490,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     坐标服务
   </a>
   
@@ -3528,20 +3560,11 @@
 <td><strong>输入子系统</strong></td>
 <td style="text-align: center;">输入子系统核心层（Input Core）、驱动层和事件处理层（Event Handler）</td>
 </tr>
-<tr>
-<td><center style="color:#C0C0C0;text-decoration:underline">表一 术语</center></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr>
-<td>## 问题</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr>
-<td>随着文件管理器（以下简称"文管"）的使用者越来越多，厂商和社区反馈了越来越多反复操作后出现概率概率性 BUG，为了对 BUG 进行复现，就需要进行压力测试。</td>
-<td style="text-align: center;"></td>
-</tr>
 </tbody>
 </table>
+<p><center style="color:#C0C0C0;text-decoration:underline">表一 术语</center></p>
+<h2 id="_3">问题<a class="headerlink" href="#_3" title="Permanent link">🐟</a></h2>
+<p>随着文件管理器（以下简称"文管"）的使用者越来越多，厂商和社区反馈了越来越多反复操作后出现概率概率性 BUG，为了对 BUG 进行复现，就需要进行压力测试。</p>
 <p>在我们日常压力测试过程中，文管测试组需要使用现有的设备进行问题复验和场景压测，设备和人力资源有限，因此，在复现和验证这些问题的过程中，存在着如下问题：</p>
 <ol>
 <li>
@@ -3552,7 +3575,7 @@
 </li>
 </ol>
 <p>因此，探索一种良好的压力测试方案，是迫在眉睫的，可以更准确的验证及回归问题，并且减少人力资源和提升测试效率。</p>
-<h2 id="_3">现状<a class="headerlink" href="#_3" title="Permanent link">🐟</a></h2>
+<h2 id="_4">现状<a class="headerlink" href="#_4" title="Permanent link">🐟</a></h2>
 <p>基于上述问题，当前市面上对于应用压测存在如下几个方案：</p>
 <p><strong>方案一：使用 Python 脚本进行场景压测</strong></p>
 <p>使用 Python 编写压测脚本，需要使用第三方库 PyAutoGUI 和 Dogtail，PyAutoGUI 是一个纯Python 的 GUI 自动化工具，可以用程序自动控制鼠标和键盘操作模拟用户操作行为，多平台支持（Windows，OS X，Linux）</p>
@@ -3701,7 +3724,7 @@
 </table>
 <p><center style="color:#C0C0C0;text-decoration:underline">表四 BUG 列表</center></p>
 <p>因此，我们需要对方案二进行优化，找到能解决<strong>键鼠操作速度不够快</strong>和<strong>容易出错不稳定</strong>的方案。</p>
-<h2 id="_4">技术方案<a class="headerlink" href="#_4" title="Permanent link">🐟</a></h2>
+<h2 id="_5">技术方案<a class="headerlink" href="#_5" title="Permanent link">🐟</a></h2>
 <p>在用户使用桌面应用时候，都是通过键盘与鼠标输入设备与软件交互。</p>
 <p>我们对现状中的方案二进行优化，也参考了 Xdotool 和 Xwininfo 工具的逻辑，设计一款新的应用程序，程序名称为 <strong>app-wininfo-m</strong>，计划解决上述<strong>键鼠操作速度不够快</strong>和<strong>容易出错不稳定</strong>的问题。</p>
 <p>对于<strong>键鼠操作速度不够快</strong>的问题，了解到 Linux <strong>输入子系统</strong>，可以通过<strong>设备驱动程序</strong>写入键鼠事件驱动设备文件来对 USB 键盘输入和鼠标移动进行操作。</p>
@@ -3712,7 +3735,7 @@
 <p>对于<strong>容易出错不稳定</strong>的问题，是 Xdotool 这个工具在经过长时间运行后获取窗口 ID 值出错，目前我们能接触到的 UOS 系统图形化界面都是基于  X11 协议，<strong>Xlib</strong> 是 X11 协议的 API 实现，另外用于代替 Xlib 的新型 API 为 XCB。下图五 Xlib 告诉我们每个窗口和像素图都有自己的坐标系，通过坐标系的位置，可以鼠标定位操作应用。</p>
 <p><img alt="xlib窗口说明" src="../test/xlib%E7%AA%97%E5%8F%A3%E8%AF%B4%E6%98%8E.png" /></p>
 <p><center style="color:#C0C0C0;text-decoration:underline">图六 xlib 窗口说明</center></p>
-<h3 id="_5">整体设计<a class="headerlink" href="#_5" title="Permanent link">🐟</a></h3>
+<h3 id="_6">整体设计<a class="headerlink" href="#_6" title="Permanent link">🐟</a></h3>
 <p><strong>app-wininfo-m</strong> 自上而下的模块结构呈现如下图七：</p>
 <p><img alt="app-wininfo-m.png" src="../test/app-wininfo-m.png" />
 <center style="color:#C0C0C0;text-decoration:underline">图七  app-wininfo-m 模块结构</center></p>
@@ -3734,8 +3757,8 @@
     坐标 -&gt;&gt; 键鼠 : 通过进程、窗口 id 获取窗口属性
     键鼠 --&gt;&gt; 应用 :通过坐标信息，控制键盘鼠标操作应用</code></pre>
 <p>对应用使用者提供了友好的说明文档，程序已经帮助实现了需要的操作，使用者只需要根据说明文档传入对应的参数，执行需要的操作。以及添加简单崩溃的断言服务，通过对 coredump 日志监控，判断经过压力测试的应用是否出现崩溃现象，并输出结果提供给测试人员。</p>
-<h3 id="_6">关键技术<a class="headerlink" href="#_6" title="Permanent link">🐟</a></h3>
-<h4 id="_7">坐标服务<a class="headerlink" href="#_7" title="Permanent link">🐟</a></h4>
+<h3 id="_7">关键技术<a class="headerlink" href="#_7" title="Permanent link">🐟</a></h3>
+<h4 id="_8">坐标服务<a class="headerlink" href="#_8" title="Permanent link">🐟</a></h4>
 <p>在坐标获取业务中，获取不同应用的坐标位置，在之前我们获取坐标的方式是通过 Xdotool 获取到Window_ID，再通过 Window_ID 使用工具 Xwininfo 获取坐标。需要进行多个步骤操作后才能获取到坐标，在代码编写上步骤复杂，而且获取的结果不够稳定，因此找到了一个获取坐标的新方法，基本操作流程如下：</p>
 <p>根据应用的进程寻找应用的坐标位置：</p>
 <p>​   传入的 PID，再调用 <strong>app-wininfo-m</strong> 程序，如果 PID 不存在，则不会返回窗口的坐标等属性，如果 PID 存在，就返回窗口的坐标等属性。</p>
@@ -3883,7 +3906,7 @@ Screen *screen;     /* back pointer to correct screen */
 <a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a><span class="p">}</span>
 </code></pre></div></li>
 </ul>
-<h4 id="_8">操作服务<a class="headerlink" href="#_8" title="Permanent link">🐟</a></h4>
+<h4 id="_9">操作服务<a class="headerlink" href="#_9" title="Permanent link">🐟</a></h4>
 <p>在 Linux 系统中，万物皆文件，我们的键盘和鼠标都是设备文件，经过调研，通过对设备文件写入，就可以对键盘和鼠标进行操作，这个操作是硬件操作的最快的方法，其基本流程如下：</p>
 <pre class="mermaid"><code>graph TD
 A(开始)--&gt;B(查找设备文件)
@@ -3973,7 +3996,7 @@ F--&gt;G(结束)</code></pre>
 <a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a>
 <a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a><span class="p">}</span>
 </code></pre></div>
-<h2 id="_9">实验验证<a class="headerlink" href="#_9" title="Permanent link">🐟</a></h2>
+<h2 id="_10">实验验证<a class="headerlink" href="#_10" title="Permanent link">🐟</a></h2>
 <p>根据技术方案调研的结果，需要对整体设计的方案和一些技术细节进行验证，为此设计以下实验：</p>
 <h3 id="app-wininfo-m">app-wininfo-m 可行性和兼容性验证<a class="headerlink" href="#app-wininfo-m" title="Permanent link">🐟</a></h3>
 <p>app-wininfo-m 的目的是对桌面应用坐标定位，通过输入设备的设备文件操作鼠标键盘，本次实验将按照<strong>整体设计</strong>中的方式，生成一个可以运行的程序执行文件，以<strong>通过进程获取到应用坐标，并且鼠标点击关闭窗口</strong>为例进行演示。</p>
@@ -4129,7 +4152,7 @@ F--&gt;G(结束)</code></pre>
 <p><img alt="newdemo" src="../test/newdemo.png" />
 <center style="color:#C0C0C0;text-decoration:underline">图九 demo运行速度</center></p>
 <p>由上图九可知 demo 程序运行速达到 1.844s，对比方案二的 2.315s 速度，明显超过 Xdotool 工具的运行速度。</p>
-<h2 id="_10">小结<a class="headerlink" href="#_10" title="Permanent link">🐟</a></h2>
+<h2 id="_11">小结<a class="headerlink" href="#_11" title="Permanent link">🐟</a></h2>
 <p>本文针对压力测试工具提出技术方案，<strong>整体设计</strong>中通过对设备文件写入操作和使用 xlib 库开发了定位和操作服务，解决了方案二获取坐标不稳定和操作速度不够快的问题，基本上能满足现有压测场景的使用要求，同时提供简单崩溃断言的服务。</p>
 <p><strong>app-wininfo-m</strong> 工具作为我们自己开发的工具，未来可以根据需求进行功能扩展，如在“进行搜索的压力测试”，目前只能验证搜索出现崩溃这样的问题，无法验证搜索结果是否正确，现有市面上仍然没有这样功能的工具，我们可以在 app-wininfo-m 工具中定制开发。</p>
 <p>一个新开发工具，往往要经过无数次的版本迭代和优化，接下来的方向，就是对工具进行以下功能扩展和优化。</p>
@@ -4163,7 +4186,7 @@ F--&gt;G(结束)</code></pre>
 </tr>
 </tbody>
 </table>
-<h2 id="_11">参考资料<a class="headerlink" href="#_11" title="Permanent link">🐟</a></h2>
+<h2 id="_12">参考资料<a class="headerlink" href="#_12" title="Permanent link">🐟</a></h2>
 <ul>
 <li><a href="https://www.Linux.org/threads/xdotool-keyboard.10528/">xdotool 介绍</a></li>
 <li><a href="https://www.x.org/releases/X11R7.7/doc/man/man1/xwininfo.1.xhtml">xｗininfo 介绍</a></li>
