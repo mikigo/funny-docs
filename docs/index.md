@@ -17,19 +17,19 @@ hide:
 
 ---------------------------
 
-[自动化技术](/自动化技术){ .md-button}
-[网络爬虫](/网络爬虫){ .md-button}
-[前后端](/前后端){ .md-button}
-[人工智能](/人工智能){ .md-button}
+[自动化技术](/docs/自动化技术){ .md-button .md-button--primary }
+[网络爬虫](/docs/网络爬虫){ .md-button .md-button--primary }
+[前后端](/docs/前后端){ .md-button .md-button--primary }
+[人工智能](/docs/人工智能){ .md-button .md-button--primary }
 
-[编程语言](/编程语言){ .md-button}
-[Linux](/Linux){ .md-button}
-[技术文档](/技术文档){ .md-button}
-[规范文档](/规范文档){ .md-button}
+[编程语言](/docs/编程语言){ .md-button .md-button--primary }
+[Linux](/docs/Linux){ .md-button .md-button--primary }
+[技术文档](/docs/技术文档){ .md-button .md-button--primary }
+[规范文档](/docs/规范文档){ .md-button .md-button--primary }
 
-[读书笔记](/读书笔记){ .md-button}
-[常见问题](/常见问题){ .md-button}
-[投稿](/投稿){ .md-button}
-[留言](/留言){ .md-button}
+[读书笔记](/docs/读书笔记){ .md-button .md-button--primary }
+[常见问题](/docs/常见问题){ .md-button .md-button--primary }
+[投稿](/docs/投稿){ .md-button .md-button--primary }
+[留言](/docs/留言){ .md-button .md-button--primary }
 
 ---------------------------
