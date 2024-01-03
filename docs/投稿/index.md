@@ -3,7 +3,8 @@ counter: True
 ---
 # 欢迎投稿
 
-文档工程使用 `Github` 管理，投稿走 `PR` 流程；
+!!! note ""
+	文档工程使用 `Github` 管理，投稿走 `PR` 流程；
 
 ## PR（Pull Request）流程
 
@@ -11,7 +12,7 @@ counter: True
 
 点击网站右上角 `funny-docs` 图标：![](./index_assets/1.png) 或者也可以直接访问地址：[https://github.com/mikigo/funny-docs](https://github.com/mikigo/funny-docs) 进入到文档工程仓库；
 
-然后用你自己的 `GitHub` 账号登录
+然后用你自己的 `GitHub` 账号登录；
 
 点击右上角的 `Fork` 按钮：
 
@@ -41,7 +42,9 @@ git clone git@github.com:king123666/funny-docs.git
 
 ### 3. 提交PR
 
-上一步之后本地就有文档工程，之后你就可以在里面新增或修改文档，这部分由于涉及到一些技巧和规范，我在后面单独开了一章来讲解；
+!!! note "编辑文档"
+
+	上一步之后本地就有文档工程，之后你就可以在里面新增或修改文档，这部分由于涉及到一些技巧和规范，我在后面单独开了一章来讲解；
 
 提交你的新增或修改的内容到 Fork 仓库：
 
@@ -55,37 +58,37 @@ git clone git@github.com:king123666/funny-docs.git
 
 #### 3.2 提交 Github
 
-在 `~` 目录下新建文件，并命名为 `gitcommit_template`
-
-将以下内容写入文件当中：
-
-```shell
-# commit type :fix（问题修复）、feat（功能开发）、style(风格修改)、refactor(重构)、docs（文档）、chore（其他)、test(测试) + 简单描述. 默认fix,根据情况修改
-fix: 
-
-# 详细说明代码的改动，包含代码的实现思路，以及为什么这么做，可能会影响哪些功能。对于代码的审核者，需要从这段描述中能完全理解代码中所有改动的内容
-Description: 
-
-# 写一段面向于产品的总结性内容，用于自动生成crp上的changlog，需要注意的事，这段描述必须从产品的角度考虑。
-Log: 
-
-# 关联pms上的bug号，提交后，则会自动在pms对应bug信息页面添加备注，关联本次提交。若本次提交为修复bug相关，则请取消注释
-#Bug: 
-
-# 修复 github issue 
-#Issue: 
-
-# 关联pms上的任务号，提交后，则会自动在pms对应任务信息页面添加备注，关联本次提交。若本次提交为任务相关，则请取消注释
-#Task: 
-```
-
-命令行执行:
-
-```
-git config --global commit.template ~/gitcommit_template
-```
-
-此命令将模板加入到 `git` 的提交模板中。
+??? note "添加git提交模板"
+	在 `~` 目录下新建文件，并命名为 `gitcommit_template`
+	将以下内容写入文件当中：
+	```shell
+	# commit type :fix（问题修复）、feat（功能开发）、style(风格修改)、refactor(重构)、docs（文档）、chore（其他)、test(测试) + 简单描述. 默认fix,根据情况修改
+	fix: 
+	
+	# 详细说明代码的改动，包含代码的实现思路，以及为什么这么做，可能会影响哪些功能。对于代码的审核者，需要从这段描述中能完全理解代码中所有改动的内容
+	Description: 
+	
+	# 写一段面向于产品的总结性内容，用于自动生成crp上的changlog，需要注意的事，这段描述必须从产品的角度考虑。
+	Log: 
+	
+	# 关联pms上的bug号，提交后，则会自动在pms对应bug信息页面添加备注，关联本次提交。若本次提交为修复bug相关，则请取消注释
+	#Bug: 
+	
+	# 修复 github issue 
+	#Issue: 
+	
+	# 关联pms上的任务号，提交后，则会自动在pms对应任务信息页面添加备注，关联本次提交。若本次提交为任务相关，则请取消注释
+	#Task: 
+	
+	```
+	
+	命令行执行:
+	
+	```
+	git config --global commit.template ~/gitcommit_template
+	```
+	
+	此命令将模板加入到 `git` 的提交模板中。
 
 添加 `commit` 信息
 
@@ -135,11 +138,11 @@ git push
 在项目根目录下，终端输入：
 
 ```shell
-sudo pip3 install pipenv
-pipenv --python 3
-pipenv shell
-pip install -r requirements.txt
+bash env.sh
 ```
+
+!!! note "密码"
+	需要输入密码
 
 ### 2. 目录结构
 
@@ -177,7 +180,7 @@ docs
 └── stylesheets # 不用管
 ```
 
-上面标记了 `不用管` 的文件或文件夹是一些配置文件，剩下的目录就是按文档类型做的划分，如果是新增文档，你看看你写的内容方向是属于哪个，那就在哪个目录下写文档，文档只支持 `MarkDown` 格；
+上面标记了 `不用管` 的文件或文件夹是一些配置文件，剩下的目录就是按文档类型做的划分，如果是新增文档，你看看你写的内容方向是属于哪个，那就在哪个目录下写文档，文档只支持 `MarkDown` 格式；
 
 比如你要写的内容是 Linux 方向的：
 
@@ -221,11 +224,11 @@ Linux
 
 - 在文章大标题下面标注作者，模板如下：
 
-  ```shell
-  # =============================
-  # Author : mikigo
-  # =============================
-  ```
+	```shell
+	# =============================
+	# Author : mikigo
+	# =============================
+	```
 
 #### 3.2 配置项修改（重要）
 
