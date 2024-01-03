@@ -71,6 +71,11 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.highlight:
       anchor_linenums: true
+      use_pygments: true
+      pygments_lang_class: true
+#      auto_title: true
+#      linenums: true
+      linenums_style: pymdownx-inline
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
@@ -103,6 +108,16 @@ extra:
   generator: false
   version:
     provider: mike
+  social:
+    - icon: fontawesome/brands/slack
+      link: https://linuxdeepin.github.io/deepin-autotest-framework
+      name: YouQu
+    - icon: fontawesome/brands/github
+      link: https://mikigo.github.io/funny-docs
+      name: funny-docs
+    - icon: fontawesome/brands/pied-piper-alt
+      link: http://youqu.uniontech.com/tool
+      name: YouQu Tool
 
 extra_javascript:
   - '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'
@@ -187,6 +202,14 @@ nav:
     - 专利交底书:
       - 技术文档/专利交底书/一种自动化测试用例步骤中断后恢复执行的技术交底书.md
       - 技术文档/专利交底书/一种对使用Linux包管理器安装的Python包进行虚拟化的技术交底书.md
+      - 技术文档/专利交底书/一种自动安装镜像的技术交底书.md
+      - 技术文档/专利交底书/一种针Linux系统异常命令的测试方法技术交底书.md
+      - 技术文档/专利交底书/一种先确定粘贴目录再复制文件的技术交底书.md
+      - 技术文档/专利交底书/一种文件管理器自定义搜索范围和文件的技术交底书.md
+      - 技术文档/专利交底书/一种基于Linux系统执行自动化测试用例实现负载均衡的技术交底书.md
+      - 技术文档/专利交底书/一种基于图像识别的桌面应用控件智能标注的交底书.md
+      - 技术文档/专利交底书/一种基于机器学习智能识别元素控件的UI自动化测试方法.md
+      - 技术文档/专利交底书/一种机器分离的应用响应性能自动化测试方案技术交底书.md
     - 技术调研:
       - 技术文档/技术调研/可用于UOS桌面应用性能自动化工具的调研.md
       - 技术文档/技术调研/命令行用例转换自动化测试调研.md

@@ -34,3 +34,9 @@ hide:
 [留言](/docs/comments){ .md-button .md-button--primary }
 
 ---------------------------
+
+<div align="right">
+    <span id="busuanzi_container_site_pv" style="color:#707070;font-size: small">
+        本站总访问量<span id="busuanzi_value_site_pv"></span>次
+    </span>
+</div>
