@@ -3328,6 +3328,131 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    概述
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#computenova" class="md-nav__link">
+    计算（Compute）Nova
+  </a>
+  
+    <nav class="md-nav" aria-label="计算（Compute）Nova">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nova-api" class="md-nav__link">
+    nova-api
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amqp" class="md-nav__link">
+    消息队列（AMQP）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nova-compute" class="md-nav__link">
+    nova-compute
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cinder" class="md-nav__link">
+    存储管理（Cinder）
+  </a>
+  
+    <nav class="md-nav" aria-label="存储管理（Cinder）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cinder-api" class="md-nav__link">
+    Cinder API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cinder-scheduler" class="md-nav__link">
+    cinder-scheduler
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cinder-volume" class="md-nav__link">
+    cinder-volume
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cinder-backup" class="md-nav__link">
+    cinder-backup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#glance" class="md-nav__link">
+    Glance
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#neutron" class="md-nav__link">
+    网络管理（Neutron）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ceilometer" class="md-nav__link">
+    计量于监控（Ceilometer）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ironic" class="md-nav__link">
+    裸机管理（Ironic）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    其他
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3359,13 +3484,80 @@
 
 
 <h1 id="openstack">OpenStack系统架构设计实战<a class="headerlink" href="#openstack" title="Permanent link">🐟</a></h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 1179 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> 13 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 4 分钟</p>
+</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># =============================</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Author : mikigo</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># =============================</span>
+</code></pre></div>
+<h2 id="_1">概述<a class="headerlink" href="#_1" title="Permanent link">🐟</a></h2>
+<p>OpenStack 是一个开源的云计算管理平台项目，在开源云平台中主题讨论数量最大、社区人数最多、提交代码人数最多的平台。支持几乎所有类型的云环境，项目目标是提供实施简单、可大规模扩展、丰富、标准统一的云计算管理平台。</p>
+<p>OpenStack 有几个核心组件组成：</p>
+<p>计算（Compute）、对象存储（Object Storage）、镜像服务（Image Service）、网络管理（Network）等；</p>
+<p>Github：<a href="https://github.com/openstack">https://github.com/openstack</a></p>
+<p>OpenStack 的用户界面提供了 Web 界面和 Shell 界面，可以通过界面功能进行创建、维护虚拟机等，操作流程有点像 KVM 管理虚拟机的流程；</p>
+<h2 id="computenova">计算（Compute）Nova<a class="headerlink" href="#computenova" title="Permanent link">🐟</a></h2>
+<p>Nova 是一套控制器，用于为单个用户或使用群组启动虚拟机实力。OpenStack中实例的整个生命周期中的所有行为都有 Nova 处理，Nova 管理计算资源的创建、销毁、挂起、迁移等功能。</p>
+<p>但是，Nova自身并不提供任何虚拟化能力，而是使用支持虚拟化（Hypervisor）的 API 来提供。</p>
+<p>Nova 可以多节点部署，支持主流的 Hypervisor 架构，比如：KVM、LXC、QEMU、Xen、Docker 等；也能和 VMware 对接；</p>
+<pre class="mermaid"><code>graph TB;
+A[Nova]--&gt;nava-api;
+A--&gt;AMQP;
+A--&gt;nova-compute</code></pre>
+<hr />
+<h3 id="nova-api">nova-api<a class="headerlink" href="#nova-api" title="Permanent link">🐟</a></h3>
+<p>是用 Python 实现的 Web 服务器，实现 RESTful API 到内部请求消息的转换，实际使用 WSGI 来实现；</p>
+<h3 id="amqp">消息队列（AMQP）<a class="headerlink" href="#amqp" title="Permanent link">🐟</a></h3>
+<p>是一个提供统一消息服务的应用层标准高级消息队列协议，基于此协议的客户端和消息中间件可以喘息消息；主要有 2 个组件：Exchange 和 Queue；</p>
+<h3 id="nova-compute">nova-compute<a class="headerlink" href="#nova-compute" title="Permanent link">🐟</a></h3>
+<p>负责管理虚拟机，单独运行于承载分配虚拟机的主机智商，通过消息队列获取任务然后执行。走的是 qemu 那套虚拟化方案；</p>
+<h2 id="cinder">存储管理（Cinder）<a class="headerlink" href="#cinder" title="Permanent link">🐟</a></h2>
+<p>Cinder 是在虚拟机和具体的存储设备之间引入一个抽象的 “逻辑存储卷”，整合后端存储设备，并通过统一的 API 接口为云平台提供持久性的块设备存储服务。</p>
+<pre class="mermaid"><code>graph TB;
+A[Cinder]--&gt;B[Cinder API];
+A--&gt;cinder-scheduler;
+A--&gt;cinder-volume;
+A--&gt;cinder-backup;
+A--&gt;Glance;</code></pre>
+<hr />
+<h3 id="cinder-api">Cinder API<a class="headerlink" href="#cinder-api" title="Permanent link">🐟</a></h3>
+<p>接受客户端发来的HTTP请求，然后进行用户身份认证和消息分发，本质上是一个 WSGI 服务；</p>
+<h3 id="cinder-scheduler">cinder-scheduler<a class="headerlink" href="#cinder-scheduler" title="Permanent link">🐟</a></h3>
+<p>Cinder 的调度器，主要功能是通过一定的调度算法选择合适的后端存储节点，用来放置新创建的卷；</p>
+<h3 id="cinder-volume">cinder-volume<a class="headerlink" href="#cinder-volume" title="Permanent link">🐟</a></h3>
+<p>运行在存储节点，用于管理存储空间，主要执行卷管理相关的功能，比如：创建、删除、挂载、卸载、生成快照等。</p>
+<h3 id="cinder-backup">cinder-backup<a class="headerlink" href="#cinder-backup" title="Permanent link">🐟</a></h3>
+<p>用于将 cinder 卷备份到其他存储系统上去；</p>
+<h3 id="glance">Glance<a class="headerlink" href="#glance" title="Permanent link">🐟</a></h3>
+<p>提供虚拟机镜像存储和管理服务，比如虚拟机镜像的查询、注册、传输等；</p>
+<p>Glance 是存储服务和 OpenStack 其他组件之间沟通的纽带；</p>
+<h2 id="neutron">网络管理（Neutron）<a class="headerlink" href="#neutron" title="Permanent link">🐟</a></h2>
+<p>网络管理可太重要了，以前是由各个 nova 自己做的，现在 OpenStack 将这块独立出来，进行统一管理；也是 OpenStack 后续发力的重点；</p>
+<p>Neutron 提供了灵活的网络模型、管理IP地址，用户可以创建自己的网络，控制流量，可扩展，实现高级别的多租户、大规模部署网络；</p>
+<p>Neutron定位于网络服务，主要实现网络能力的集成、开放和管理，而网络能力的具体实现必须借助于外部的网络功能实体，如SDN控制器，交换机等。</p>
+<p>主要功能特点如下：</p>
+<p>1）支持创建各种类型网络，如Flat、VLAN、GRE，并可为租户创建自己的业务网络结构，如Web层、应用层、数据层。</p>
+<p>2）可为租户插入各种网络服务，如防火墙、负载均衡、IPS、NAT等。</p>
+<p>3）主流网络设备厂家都提供了插件以便支持对网络的控制和管理（包括SDN控制器）。</p>
+<p>4）支持各种网络虚拟化技术，如VXLAN、NVGRE、VLAN等。</p>
+<h2 id="ceilometer">计量于监控（Ceilometer）<a class="headerlink" href="#ceilometer" title="Permanent link">🐟</a></h2>
+<p>获取系统中用户对各种资源的使用情况，确保资源处于健康状态；</p>
+<p>Ceilometer 获取计量数据的三种方法：通知、轮询、RESTful API；</p>
+<p>测量数据通过 Pipeline 发布，Ceilometer 中的 collector 服务用来接受这些测量数据，并持久化到存储介质中；</p>
+<p>可以对阈值做告警：边界触发器、组合型；</p>
+<h2 id="ironic">裸机管理（Ironic）<a class="headerlink" href="#ironic" title="Permanent link">🐟</a></h2>
+<p>通过 PXE 等裸机管理软件能方便的控制裸机上电，然后通过网络进行操作系统的安装；</p>
+<p>提供了一些功能可以进行自动化装机；</p>
+<h2 id="_2">其他<a class="headerlink" href="#_2" title="Permanent link">🐟</a></h2>
+<p>其他还提供了一些如：大数据服务（Sahara）、数据库服务（Trove）等服务；</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年1月2日 11:32:48</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年1月3日 12:46:57</span>
       
         <br>
         创建日期:
