@@ -9,21 +9,25 @@
       
       
       
+        <link rel="prev" href="../%E4%B8%80%E7%A7%8D%E5%AE%9A%E4%BD%8D%E7%9B%AE%E6%A0%87%E5%9B%BE%E7%89%87%E5%9D%90%E6%A0%87%E7%9A%84%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB%E6%8A%80%E6%9C%AF%E4%BA%A4%E5%BA%95%E4%B9%A6/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+        <link rel="next" href="../../%E6%8A%80%E6%9C%AF%E8%B0%83%E7%A0%94/%E5%8F%AF%E7%94%A8%E4%BA%8EUOS%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8%E6%80%A7%E8%83%BD%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E5%85%B7%E7%9A%84%E8%B0%83%E7%A0%94/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.2.7">
     
     
       
-        <title>数据库系统 - Funny Docs</title>
+        <title>基于shell的测试框架技术交底书 - Funny Docs</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.046329b4.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.046329b4.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.85d0ee34.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.85d0ee34.min.css">
       
       
 
@@ -42,15 +46,15 @@
       
     
     
-      <link rel="stylesheet" href="../../css/toc_extra.css">
+      <link rel="stylesheet" href="../../../css/toc_extra.css">
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-      <link rel="stylesheet" href="../../css/termynal.css">
+      <link rel="stylesheet" href="../../../css/termynal.css">
     
-      <link rel="stylesheet" href="../../css/custom.css">
+      <link rel="stylesheet" href="../../../css/custom.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -79,7 +83,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#shell" class="md-skip">
           跳转至
         </a>
       
@@ -115,7 +119,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../.." title="Funny Docs" class="md-header__button md-logo" aria-label="Funny Docs" data-md-component="logo">
+    <a href="../../.." title="Funny Docs" class="md-header__button md-logo" aria-label="Funny Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -135,7 +139,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              数据库系统
+              基于shell的测试框架技术交底书
             
           </span>
         </div>
@@ -246,7 +250,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
     
@@ -265,7 +269,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/" class="md-tabs__link">
+        <a href="../../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/" class="md-tabs__link">
           
   
     
@@ -285,7 +289,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" class="md-tabs__link">
+        <a href="../../../%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" class="md-tabs__link">
           
   
     
@@ -305,7 +309,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../%E5%89%8D%E5%90%8E%E7%AB%AF/" class="md-tabs__link">
+        <a href="../../../%E5%89%8D%E5%90%8E%E7%AB%AF/" class="md-tabs__link">
           
   
     
@@ -325,7 +329,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" class="md-tabs__link">
+        <a href="../../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" class="md-tabs__link">
           
   
     
@@ -345,7 +349,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="md-tabs__link">
+        <a href="../../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="md-tabs__link">
           
   
     
@@ -365,7 +369,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../Linux/" class="md-tabs__link">
+        <a href="../../../Linux/" class="md-tabs__link">
           
   
     
@@ -381,11 +385,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
           
   
     
@@ -405,7 +411,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/" class="md-tabs__link">
+        <a href="../../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/" class="md-tabs__link">
           
   
     
@@ -425,7 +431,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="md-tabs__link">
+        <a href="../../../%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="md-tabs__link">
           
   
     
@@ -445,7 +451,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="md-tabs__link">
+        <a href="../../../%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="md-tabs__link">
           
   
     
@@ -465,7 +471,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../%E6%8A%95%E7%A8%BF/" class="md-tabs__link">
+        <a href="../../../%E6%8A%95%E7%A8%BF/" class="md-tabs__link">
           
   
     
@@ -485,7 +491,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../comments/" class="md-tabs__link">
+        <a href="../../../comments/" class="md-tabs__link">
           
   
     
@@ -520,7 +526,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Funny Docs" class="md-nav__button md-logo" aria-label="Funny Docs" data-md-component="logo">
+    <a href="../../.." title="Funny Docs" class="md-nav__button md-logo" aria-label="Funny Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -549,7 +555,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -597,7 +603,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/" class="md-nav__link ">
+            <a href="../../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -668,7 +674,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/Pytest%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E8%B5%B7%E9%A3%9E/" class="md-nav__link">
+      <a href="../../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/Pytest%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E8%B5%B7%E9%A3%9E/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -688,7 +694,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/unittest%E2%80%943%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+      <a href="../../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/unittest%E2%80%943%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -758,7 +764,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/UI%E8%87%AA%E5%8A%A8%E5%8C%96/Playwright%E2%80%948%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+      <a href="../../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/UI%E8%87%AA%E5%8A%A8%E5%8C%96/Playwright%E2%80%948%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -778,7 +784,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/UI%E8%87%AA%E5%8A%A8%E5%8C%96/Selenium%E2%80%948%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+      <a href="../../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/UI%E8%87%AA%E5%8A%A8%E5%8C%96/Selenium%E2%80%948%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -798,7 +804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/UI%E8%87%AA%E5%8A%A8%E5%8C%96/Appium%E2%80%946%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+      <a href="../../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/UI%E8%87%AA%E5%8A%A8%E5%8C%96/Appium%E2%80%946%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -864,7 +870,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96/HttpRunner-2%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+      <a href="../../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/%E6%8E%A5%E5%8F%A3%E8%87%AA%E5%8A%A8%E5%8C%96/HttpRunner-2%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -932,7 +938,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/%E6%80%A7%E8%83%BD%E8%87%AA%E5%8A%A8%E5%8C%96/JMeter%E2%80%9410%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+      <a href="../../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/%E6%80%A7%E8%83%BD%E8%87%AA%E5%8A%A8%E5%8C%96/JMeter%E2%80%9410%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -952,7 +958,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/%E6%80%A7%E8%83%BD%E8%87%AA%E5%8A%A8%E5%8C%96/Locust%E2%80%942%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+      <a href="../../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/%E6%80%A7%E8%83%BD%E8%87%AA%E5%8A%A8%E5%8C%96/Locust%E2%80%942%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1018,7 +1024,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%80%9D%E6%83%B3/rpa/" class="md-nav__link">
+      <a href="../../../%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8A%80%E6%9C%AF/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%80%9D%E6%83%B3/rpa/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1076,7 +1082,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" class="md-nav__link ">
+            <a href="../../../%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1147,7 +1153,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82%E5%B7%A5%E5%85%B7/Requests/" class="md-nav__link">
+      <a href="../../../%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82%E5%B7%A5%E5%85%B7/Requests/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1167,7 +1173,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82%E5%B7%A5%E5%85%B7/Httpx/" class="md-nav__link">
+      <a href="../../../%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82%E5%B7%A5%E5%85%B7/Httpx/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1233,7 +1239,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6/Scrapy/" class="md-nav__link">
+      <a href="../../../%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6/Scrapy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1291,7 +1297,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../%E5%89%8D%E5%90%8E%E7%AB%AF/" class="md-nav__link ">
+            <a href="../../../%E5%89%8D%E5%90%8E%E7%AB%AF/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1360,7 +1366,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E5%89%8D%E5%90%8E%E7%AB%AF/%E5%89%8D%E7%AB%AF/Linux%E4%B8%8A%E5%AE%89%E8%A3%85Node.js/" class="md-nav__link">
+      <a href="../../../%E5%89%8D%E5%90%8E%E7%AB%AF/%E5%89%8D%E7%AB%AF/Linux%E4%B8%8A%E5%AE%89%E8%A3%85Node.js/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1428,7 +1434,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E5%89%8D%E5%90%8E%E7%AB%AF/%E5%90%8E%E7%AB%AF/FastAPI%E2%80%948%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+      <a href="../../../%E5%89%8D%E5%90%8E%E7%AB%AF/%E5%90%8E%E7%AB%AF/FastAPI%E2%80%948%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1448,7 +1454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E5%89%8D%E5%90%8E%E7%AB%AF/%E5%90%8E%E7%AB%AF/MySQL%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+      <a href="../../../%E5%89%8D%E5%90%8E%E7%AB%AF/%E5%90%8E%E7%AB%AF/MySQL%E5%9F%BA%E7%A1%80/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1504,7 +1510,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" class="md-nav__link ">
+            <a href="../../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1575,7 +1581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E5%9B%BE%E5%83%8F/OpenCV%28Python%29%E5%9F%BA%E7%A1%80%E2%80%949%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+      <a href="../../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E5%9B%BE%E5%83%8F/OpenCV%28Python%29%E5%9F%BA%E7%A1%80%E2%80%949%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1595,7 +1601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E5%9B%BE%E5%83%8F/MMDetection%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+      <a href="../../../%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E5%9B%BE%E5%83%8F/MMDetection%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1653,7 +1659,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="md-nav__link ">
+            <a href="../../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1736,7 +1742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/Python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E2%80%948%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
+      <a href="../../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/Python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E2%80%948%E5%B0%8F%E6%97%B6%E5%85%A5%E9%97%A8%E7%89%88/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1756,7 +1762,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/Python%E4%BB%8E%E8%BF%9B%E9%98%B6%E5%88%B0%E9%AB%98%E7%BA%A7%E2%80%94%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82%E7%89%88/" class="md-nav__link">
+      <a href="../../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/Python%E4%BB%8E%E8%BF%9B%E9%98%B6%E5%88%B0%E9%AB%98%E7%BA%A7%E2%80%94%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82%E7%89%88/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1776,7 +1782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/Python%E5%8C%85%E6%9E%84%E5%BB%BA%E5%92%8C%E5%8F%91%E5%B8%83/" class="md-nav__link">
+      <a href="../../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/Python%E5%8C%85%E6%9E%84%E5%BB%BA%E5%92%8C%E5%8F%91%E5%B8%83/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1796,7 +1802,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/Python%E7%8E%AF%E5%A2%83%E4%B8%8E%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86/" class="md-nav__link">
+      <a href="../../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/Python%E7%8E%AF%E5%A2%83%E4%B8%8E%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1816,7 +1822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/Linux%E4%B8%8A%E5%AE%89%E8%A3%85Python3.9.9/" class="md-nav__link">
+      <a href="../../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/Linux%E4%B8%8A%E5%AE%89%E8%A3%85Python3.9.9/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1836,7 +1842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/Linux%E4%B8%8A%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E7%94%A8pip3%E8%BF%98%E6%98%AFsudopip3/" class="md-nav__link">
+      <a href="../../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/Linux%E4%B8%8A%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E7%94%A8pip3%E8%BF%98%E6%98%AFsudopip3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1856,7 +1862,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/%E9%85%8D%E7%BD%AEPython%E6%BA%90%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/" class="md-nav__link">
+      <a href="../../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/%E9%85%8D%E7%BD%AEPython%E6%BA%90%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1876,7 +1882,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/%E5%B8%B8%E7%94%A8%E7%9A%84%E8%8E%B7%E5%8F%96%E9%9A%8F%E6%9C%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%96%B9%E6%B3%95/" class="md-nav__link">
+      <a href="../../../%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/%E5%B8%B8%E7%94%A8%E7%9A%84%E8%8E%B7%E5%8F%96%E9%9A%8F%E6%9C%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%96%B9%E6%B3%95/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1942,7 +1948,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../shell入门.md" class="md-nav__link">
+      <a href="../../../shell入门.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2000,7 +2006,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../Linux/" class="md-nav__link ">
+            <a href="../../../Linux/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2075,7 +2081,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Linux/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/KVM%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+      <a href="../../../Linux/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/KVM%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2095,7 +2101,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Linux/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/Docker%E5%85%A5%E9%97%A8/" class="md-nav__link">
+      <a href="../../../Linux/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/Docker%E5%85%A5%E9%97%A8/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2115,7 +2121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Linux/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/Nginx%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/" class="md-nav__link">
+      <a href="../../../Linux/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/Nginx%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2135,7 +2141,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Linux/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/FTP%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+      <a href="../../../Linux/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/FTP%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2207,7 +2213,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Linux/%E6%96%B9%E6%A1%88%E6%95%99%E7%A8%8B/Linux%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+      <a href="../../../Linux/%E6%96%B9%E6%A1%88%E6%95%99%E7%A8%8B/Linux%E5%9F%BA%E7%A1%80/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2227,7 +2233,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Linux/%E6%96%B9%E6%A1%88%E6%95%99%E7%A8%8B/%E9%85%8D%E7%BD%AE%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E6%9C%8D%E5%8A%A1/" class="md-nav__link">
+      <a href="../../../Linux/%E6%96%B9%E6%A1%88%E6%95%99%E7%A8%8B/%E9%85%8D%E7%BD%AE%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E6%9C%8D%E5%8A%A1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2247,7 +2253,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Linux/%E6%96%B9%E6%A1%88%E6%95%99%E7%A8%8B/Linux%E4%B8%8Asudo%E5%85%8D%E5%AF%86/" class="md-nav__link">
+      <a href="../../../Linux/%E6%96%B9%E6%A1%88%E6%95%99%E7%A8%8B/Linux%E4%B8%8Asudo%E5%85%8D%E5%AF%86/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2267,7 +2273,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Linux/%E6%96%B9%E6%A1%88%E6%95%99%E7%A8%8B/Linux%E4%B8%8A%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2VNC%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+      <a href="../../../Linux/%E6%96%B9%E6%A1%88%E6%95%99%E7%A8%8B/Linux%E4%B8%8A%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2VNC%E9%85%8D%E7%BD%AE/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2300,6 +2306,8 @@
       
   
   
+    
+  
   
     
     
@@ -2316,18 +2324,18 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2343,7 +2351,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             技术文档
@@ -2356,6 +2364,8 @@
                 
   
   
+    
+  
   
     
     
@@ -2382,13 +2392,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_2" checked>
         
           <label class="md-nav__link" for="__nav_8_2" id="__nav_8_2_label" tabindex="0">
             
@@ -2401,7 +2411,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_8_2">
             <span class="md-nav__icon md-icon"></span>
             专利交底书
@@ -2414,7 +2424,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/%E4%B8%93%E5%88%A9%E4%BA%A4%E5%BA%95%E4%B9%A6/%E4%B8%80%E7%A7%8D%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E6%AD%A5%E9%AA%A4%E4%B8%AD%E6%96%AD%E5%90%8E%E6%81%A2%E5%A4%8D%E6%89%A7%E8%A1%8C%E7%9A%84%E6%8A%80%E6%9C%AF%E4%BA%A4%E5%BA%95%E4%B9%A6/" class="md-nav__link">
+      <a href="../%E4%B8%80%E7%A7%8D%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E6%AD%A5%E9%AA%A4%E4%B8%AD%E6%96%AD%E5%90%8E%E6%81%A2%E5%A4%8D%E6%89%A7%E8%A1%8C%E7%9A%84%E6%8A%80%E6%9C%AF%E4%BA%A4%E5%BA%95%E4%B9%A6/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2434,7 +2444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/%E4%B8%93%E5%88%A9%E4%BA%A4%E5%BA%95%E4%B9%A6/%E4%B8%80%E7%A7%8D%E5%AF%B9%E4%BD%BF%E7%94%A8Linux%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8%E5%AE%89%E8%A3%85%E7%9A%84Python%E5%8C%85%E8%BF%9B%E8%A1%8C%E8%99%9A%E6%8B%9F%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E4%BA%A4%E5%BA%95%E4%B9%A6/" class="md-nav__link">
+      <a href="../%E4%B8%80%E7%A7%8D%E5%AF%B9%E4%BD%BF%E7%94%A8Linux%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8%E5%AE%89%E8%A3%85%E7%9A%84Python%E5%8C%85%E8%BF%9B%E8%A1%8C%E8%99%9A%E6%8B%9F%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E4%BA%A4%E5%BA%95%E4%B9%A6/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2454,7 +2464,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/%E4%B8%93%E5%88%A9%E4%BA%A4%E5%BA%95%E4%B9%A6/%E4%B8%80%E7%A7%8D%E8%87%AA%E5%8A%A8%E5%AE%89%E8%A3%85%E9%95%9C%E5%83%8F%E7%9A%84%E6%8A%80%E6%9C%AF%E4%BA%A4%E5%BA%95%E4%B9%A6/" class="md-nav__link">
+      <a href="../%E4%B8%80%E7%A7%8D%E8%87%AA%E5%8A%A8%E5%AE%89%E8%A3%85%E9%95%9C%E5%83%8F%E7%9A%84%E6%8A%80%E6%9C%AF%E4%BA%A4%E5%BA%95%E4%B9%A6/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2474,7 +2484,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/%E4%B8%93%E5%88%A9%E4%BA%A4%E5%BA%95%E4%B9%A6/%E4%B8%80%E7%A7%8D%E9%92%88Linux%E7%B3%BB%E7%BB%9F%E5%BC%82%E5%B8%B8%E5%91%BD%E4%BB%A4%E7%9A%84%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95%E6%8A%80%E6%9C%AF%E4%BA%A4%E5%BA%95%E4%B9%A6/" class="md-nav__link">
+      <a href="../%E4%B8%80%E7%A7%8D%E9%92%88Linux%E7%B3%BB%E7%BB%9F%E5%BC%82%E5%B8%B8%E5%91%BD%E4%BB%A4%E7%9A%84%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95%E6%8A%80%E6%9C%AF%E4%BA%A4%E5%BA%95%E4%B9%A6/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2494,47 +2504,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/%E4%B8%93%E5%88%A9%E4%BA%A4%E5%BA%95%E4%B9%A6/%E4%B8%80%E7%A7%8D%E5%85%88%E7%A1%AE%E5%AE%9A%E7%B2%98%E8%B4%B4%E7%9B%AE%E5%BD%95%E5%86%8D%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6%E7%9A%84%E6%8A%80%E6%9C%AF%E4%BA%A4%E5%BA%95%E4%B9%A6/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    一种先确定粘贴目录再复制文件的技术交底书
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/%E4%B8%93%E5%88%A9%E4%BA%A4%E5%BA%95%E4%B9%A6/%E4%B8%80%E7%A7%8D%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E5%99%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%90%9C%E7%B4%A2%E8%8C%83%E5%9B%B4%E5%92%8C%E6%96%87%E4%BB%B6%E7%9A%84%E6%8A%80%E6%9C%AF%E4%BA%A4%E5%BA%95%E4%B9%A6/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    一种文件管理器自定义搜索范围和文件的技术交底书
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/%E4%B8%93%E5%88%A9%E4%BA%A4%E5%BA%95%E4%B9%A6/%E4%B8%80%E7%A7%8D%E5%9F%BA%E4%BA%8ELinux%E7%B3%BB%E7%BB%9F%E6%89%A7%E8%A1%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E5%AE%9E%E7%8E%B0%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E7%9A%84%E6%8A%80%E6%9C%AF%E4%BA%A4%E5%BA%95%E4%B9%A6/" class="md-nav__link">
+      <a href="../%E4%B8%80%E7%A7%8D%E5%9F%BA%E4%BA%8ELinux%E7%B3%BB%E7%BB%9F%E6%89%A7%E8%A1%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E5%AE%9E%E7%8E%B0%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E7%9A%84%E6%8A%80%E6%9C%AF%E4%BA%A4%E5%BA%95%E4%B9%A6/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2554,7 +2524,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/%E4%B8%93%E5%88%A9%E4%BA%A4%E5%BA%95%E4%B9%A6/%E4%B8%80%E7%A7%8D%E5%9F%BA%E4%BA%8E%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB%E7%9A%84%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8%E6%8E%A7%E4%BB%B6%E6%99%BA%E8%83%BD%E6%A0%87%E6%B3%A8%E7%9A%84%E4%BA%A4%E5%BA%95%E4%B9%A6/" class="md-nav__link">
+      <a href="../%E4%B8%80%E7%A7%8D%E5%9F%BA%E4%BA%8E%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB%E7%9A%84%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8%E6%8E%A7%E4%BB%B6%E6%99%BA%E8%83%BD%E6%A0%87%E6%B3%A8%E7%9A%84%E4%BA%A4%E5%BA%95%E4%B9%A6/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2574,7 +2544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/%E4%B8%93%E5%88%A9%E4%BA%A4%E5%BA%95%E4%B9%A6/%E4%B8%80%E7%A7%8D%E5%9F%BA%E4%BA%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%99%BA%E8%83%BD%E8%AF%86%E5%88%AB%E5%85%83%E7%B4%A0%E6%8E%A7%E4%BB%B6%E7%9A%84UI%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/" class="md-nav__link">
+      <a href="../%E4%B8%80%E7%A7%8D%E5%9F%BA%E4%BA%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%99%BA%E8%83%BD%E8%AF%86%E5%88%AB%E5%85%83%E7%B4%A0%E6%8E%A7%E4%BB%B6%E7%9A%84UI%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2594,7 +2564,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/%E4%B8%93%E5%88%A9%E4%BA%A4%E5%BA%95%E4%B9%A6/%E4%B8%80%E7%A7%8D%E6%9C%BA%E5%99%A8%E5%88%86%E7%A6%BB%E7%9A%84%E5%BA%94%E7%94%A8%E5%93%8D%E5%BA%94%E6%80%A7%E8%83%BD%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88%E6%8A%80%E6%9C%AF%E4%BA%A4%E5%BA%95%E4%B9%A6/" class="md-nav__link">
+      <a href="../%E4%B8%80%E7%A7%8D%E6%9C%BA%E5%99%A8%E5%88%86%E7%A6%BB%E7%9A%84%E5%BA%94%E7%94%A8%E5%93%8D%E5%BA%94%E6%80%A7%E8%83%BD%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88%E6%8A%80%E6%9C%AF%E4%BA%A4%E5%BA%95%E4%B9%A6/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2603,6 +2573,56 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%B8%80%E7%A7%8D%E5%AE%9A%E4%BD%8D%E7%9B%AE%E6%A0%87%E5%9B%BE%E7%89%87%E5%9D%90%E6%A0%87%E7%9A%84%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB%E6%8A%80%E6%9C%AF%E4%BA%A4%E5%BA%95%E4%B9%A6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    一种定位目标图片坐标的图像识别技术交底书
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    基于shell的测试框架技术交底书
+  </span>
+  
+
+      </a>
+      
     </li>
   
 
@@ -2666,7 +2686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/%E6%8A%80%E6%9C%AF%E8%B0%83%E7%A0%94/%E5%8F%AF%E7%94%A8%E4%BA%8EUOS%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8%E6%80%A7%E8%83%BD%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E5%85%B7%E7%9A%84%E8%B0%83%E7%A0%94/" class="md-nav__link">
+      <a href="../../%E6%8A%80%E6%9C%AF%E8%B0%83%E7%A0%94/%E5%8F%AF%E7%94%A8%E4%BA%8EUOS%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8%E6%80%A7%E8%83%BD%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E5%85%B7%E7%9A%84%E8%B0%83%E7%A0%94/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2686,7 +2706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/%E6%8A%80%E6%9C%AF%E8%B0%83%E7%A0%94/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%94%A8%E4%BE%8B%E8%BD%AC%E6%8D%A2%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E8%B0%83%E7%A0%94/" class="md-nav__link">
+      <a href="../../%E6%8A%80%E6%9C%AF%E8%B0%83%E7%A0%94/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%94%A8%E4%BE%8B%E8%BD%AC%E6%8D%A2%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E8%B0%83%E7%A0%94/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2706,7 +2726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/%E6%8A%80%E6%9C%AF%E8%B0%83%E7%A0%94/%E3%80%8A%E5%BA%94%E7%94%A8%E4%BA%8E%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%E7%9A%84%E6%A8%A1%E6%8B%9F%E8%BE%93%E5%85%A5%E5%B7%A5%E5%85%B7%E3%80%8B%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/" class="md-nav__link">
+      <a href="../../%E6%8A%80%E6%9C%AF%E8%B0%83%E7%A0%94/%E3%80%8A%E5%BA%94%E7%94%A8%E4%BA%8E%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%E7%9A%84%E6%A8%A1%E6%8B%9F%E8%BE%93%E5%85%A5%E5%B7%A5%E5%85%B7%E3%80%8B%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2726,7 +2746,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/%E6%8A%80%E6%9C%AF%E8%B0%83%E7%A0%94/%E9%92%88%E5%AF%B9PMS%E7%94%A8%E4%BE%8B%E6%95%B0%E6%8D%AE%E6%A3%80%E6%9F%A5%E4%B8%8E%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E7%A8%8BCSV%E6%96%87%E4%BB%B6%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E7%9A%84%E6%96%B9%E6%B3%95%E8%B0%83%E7%A0%94/" class="md-nav__link">
+      <a href="../../%E6%8A%80%E6%9C%AF%E8%B0%83%E7%A0%94/%E9%92%88%E5%AF%B9PMS%E7%94%A8%E4%BE%8B%E6%95%B0%E6%8D%AE%E6%A3%80%E6%9F%A5%E4%B8%8E%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E7%A8%8BCSV%E6%96%87%E4%BB%B6%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E7%9A%84%E6%96%B9%E6%B3%95%E8%B0%83%E7%A0%94/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2796,7 +2816,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/%E6%A0%B9%E5%9B%A0%E5%88%86%E6%9E%90/Python%E8%B0%83%E7%94%A8%E5%8A%A8%E6%80%81%E5%BA%93%E8%BF%90%E8%A1%8C%E6%97%B6%E6%8A%A5%E9%9D%99%E6%80%81TLS%E5%9D%97%E4%B8%8D%E8%83%BD%E5%88%86%E9%85%8D%E5%86%85%E5%AD%98%E6%A0%B9%E5%9B%A0%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A/" class="md-nav__link">
+      <a href="../../%E6%A0%B9%E5%9B%A0%E5%88%86%E6%9E%90/Python%E8%B0%83%E7%94%A8%E5%8A%A8%E6%80%81%E5%BA%93%E8%BF%90%E8%A1%8C%E6%97%B6%E6%8A%A5%E9%9D%99%E6%80%81TLS%E5%9D%97%E4%B8%8D%E8%83%BD%E5%88%86%E9%85%8D%E5%86%85%E5%AD%98%E6%A0%B9%E5%9B%A0%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2816,7 +2836,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/%E6%A0%B9%E5%9B%A0%E5%88%86%E6%9E%90/CentOS8U%E7%9B%98%E5%AE%89%E8%A3%85%E6%97%B6%E6%97%A0%E6%B3%95%E6%AD%A3%E5%B8%B8%E8%BF%9B%E5%85%A5%E5%AE%89%E8%A3%85%E7%95%8C%E9%9D%A2%E6%A0%B9%E5%9B%A0%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A/" class="md-nav__link">
+      <a href="../../%E6%A0%B9%E5%9B%A0%E5%88%86%E6%9E%90/CentOS8U%E7%9B%98%E5%AE%89%E8%A3%85%E6%97%B6%E6%97%A0%E6%B3%95%E6%AD%A3%E5%B8%B8%E8%BF%9B%E5%85%A5%E5%AE%89%E8%A3%85%E7%95%8C%E9%9D%A2%E6%A0%B9%E5%9B%A0%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2836,7 +2856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/%E6%A0%B9%E5%9B%A0%E5%88%86%E6%9E%90/rootfs%E8%BF%9B%E5%85%A5MATE%E6%A1%8C%E9%9D%A2%E5%90%8E%E6%89%93%E5%BC%80%E7%BB%88%E7%AB%AF%E4%B8%8D%E8%83%BD%E6%89%A7%E8%A1%8Creboot%E6%8C%87%E4%BB%A4%E6%A0%B9%E5%9B%A0%E5%88%86%E6%9E%90/" class="md-nav__link">
+      <a href="../../%E6%A0%B9%E5%9B%A0%E5%88%86%E6%9E%90/rootfs%E8%BF%9B%E5%85%A5MATE%E6%A1%8C%E9%9D%A2%E5%90%8E%E6%89%93%E5%BC%80%E7%BB%88%E7%AB%AF%E4%B8%8D%E8%83%BD%E6%89%A7%E8%A1%8Creboot%E6%8C%87%E4%BB%A4%E6%A0%B9%E5%9B%A0%E5%88%86%E6%9E%90/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2894,7 +2914,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/" class="md-nav__link ">
+            <a href="../../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2969,7 +2989,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/%E6%B5%81%E7%A8%8B%E8%A7%84%E8%8C%83/%E6%B5%8B%E8%AF%95%E5%8D%95%E9%A9%B1%E5%8A%A8%E8%87%AA%E5%8A%A8%E5%8C%96/" class="md-nav__link">
+      <a href="../../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/%E6%B5%81%E7%A8%8B%E8%A7%84%E8%8C%83/%E6%B5%8B%E8%AF%95%E5%8D%95%E9%A9%B1%E5%8A%A8%E8%87%AA%E5%8A%A8%E5%8C%96/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2989,7 +3009,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/%E6%B5%81%E7%A8%8B%E8%A7%84%E8%8C%83/%E7%AE%80%E6%98%93%E7%89%88%E6%8A%A5%E5%91%8A%E6%96%B0%E5%A2%9E%E8%A7%84%E8%8C%83/" class="md-nav__link">
+      <a href="../../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/%E6%B5%81%E7%A8%8B%E8%A7%84%E8%8C%83/%E7%AE%80%E6%98%93%E7%89%88%E6%8A%A5%E5%91%8A%E6%96%B0%E5%A2%9E%E8%A7%84%E8%8C%83/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3009,7 +3029,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/%E6%B5%81%E7%A8%8B%E8%A7%84%E8%8C%83/BUG%E5%92%8C%E7%94%A8%E4%BE%8B%E9%99%84%E5%8A%A0%E8%A7%84%E8%8C%83/" class="md-nav__link">
+      <a href="../../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/%E6%B5%81%E7%A8%8B%E8%A7%84%E8%8C%83/BUG%E5%92%8C%E7%94%A8%E4%BE%8B%E9%99%84%E5%8A%A0%E8%A7%84%E8%8C%83/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3029,7 +3049,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/%E6%B5%81%E7%A8%8B%E8%A7%84%E8%8C%83/%E7%A0%94%E5%8F%91%E8%87%AA%E6%B5%8B%E8%A7%84%E8%8C%83/" class="md-nav__link">
+      <a href="../../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/%E6%B5%81%E7%A8%8B%E8%A7%84%E8%8C%83/%E7%A0%94%E5%8F%91%E8%87%AA%E6%B5%8B%E8%A7%84%E8%8C%83/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3101,7 +3121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/%E4%B8%BB%E7%BA%BF%E6%9C%BA%E5%9E%8B%E8%A6%86%E7%9B%96%E7%AD%96%E7%95%A5/" class="md-nav__link">
+      <a href="../../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/%E4%B8%BB%E7%BA%BF%E6%9C%BA%E5%9E%8B%E8%A6%86%E7%9B%96%E7%AD%96%E7%95%A5/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3121,7 +3141,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/%E5%95%86%E4%B8%9A%E5%AE%9A%E5%88%B6%E5%9B%9E%E5%90%88%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/" class="md-nav__link">
+      <a href="../../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/%E5%95%86%E4%B8%9A%E5%AE%9A%E5%88%B6%E5%9B%9E%E5%90%88%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3141,7 +3161,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/%E5%95%86%E5%BA%97%E4%B8%8A%E6%9E%B6%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/" class="md-nav__link">
+      <a href="../../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/%E5%95%86%E5%BA%97%E4%B8%8A%E6%9E%B6%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3161,7 +3181,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E%E6%9B%B4%E6%96%B0%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/" class="md-nav__link">
+      <a href="../../../%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E%E6%9B%B4%E6%96%B0%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3219,7 +3239,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="md-nav__link ">
+            <a href="../../../%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -3250,7 +3270,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/OpenStack%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%AE%9E%E6%88%98/" class="md-nav__link">
+      <a href="../../../%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/OpenStack%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%AE%9E%E6%88%98/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3270,7 +3290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E5%A4%A7%E5%9E%8B%E7%BD%91%E7%AB%99%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84/" class="md-nav__link">
+      <a href="../../../%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E5%A4%A7%E5%9E%8B%E7%BD%91%E7%AB%99%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3322,7 +3342,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="md-nav__link ">
+            <a href="../../../%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -3353,7 +3373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E6%8A%A5%E9%94%99Python%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8D%E7%9B%B8%E7%AD%89/" class="md-nav__link">
+      <a href="../../../%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/%E6%8A%A5%E9%94%99Python%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8D%E7%9B%B8%E7%AD%89/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3373,7 +3393,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/Wayland%E4%B8%8Bsniff%E6%8A%A5%E9%94%99/" class="md-nav__link">
+      <a href="../../../%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/Wayland%E4%B8%8Bsniff%E6%8A%A5%E9%94%99/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3393,7 +3413,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/node-error-01/" class="md-nav__link">
+      <a href="../../../%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/node-error-01/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3439,7 +3459,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../%E6%8A%95%E7%A8%BF/" class="md-nav__link ">
+            <a href="../../../%E6%8A%95%E7%A8%BF/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -3511,7 +3531,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../comments/" class="md-nav__link">
+      <a href="../../../comments/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3566,7 +3586,7 @@
                   
 
   
-    <a href="https://github.com/mikigo/funny-docs/edit/master/docs/ruankao/数据库系统.md" title="编辑此页" class="md-content__button md-icon">
+    <a href="https://github.com/mikigo/funny-docs/edit/master/docs/技术文档/专利交底书/基于shell的测试框架技术交底书.md" title="编辑此页" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -3575,36 +3595,293 @@
     
       
     
-    <a href="https://github.com/mikigo/funny-docs/raw/master/docs/ruankao/数据库系统.md" title="查看本页的源代码" class="md-content__button md-icon">
+    <a href="https://github.com/mikigo/funny-docs/raw/master/docs/技术文档/专利交底书/基于shell的测试框架技术交底书.md" title="查看本页的源代码" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
     </a>
   
 
 
-<h1 id="_1">数据库系统<a class="headerlink" href="#_1" title="Permanent link">🐟</a></h1>
-<p>数据库程序在线访问方式和 ORM 方式的优缺点。</p>
-<p>在线访问方式：在程序中通过数据库提供的程序接口直接访问数据；</p>
-<ul>
-<li>优点：灵活，性能高；</li>
-<li>缺点：需要程序员对数据库有较深了解，同事数据模型的变更会导致相应程序的变更，数据库迁移困难。</li>
-</ul>
-<p>ORM 方式：是一种工具或平台，能够提供应用程序中的数据与关系数据库中的记录之间的相互转换，使得程序无需考虑记录，仅考虑对象。</p>
-<ul>
-<li>优点：简化程序开发，降低了对程序员关于数据库的知识要求，使得程序员可以仅关注与业务逻辑；</li>
-<li>缺点：不太容易处理复杂查询语句，性能比直接使用 SQL 要差。</li>
-</ul>
+<h1 id="shell">基于shell的测试框架技术交底书<a class="headerlink" href="#shell" title="Permanent link">🐟</a></h1>
+<p>0、缩略语和关键术语定义</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>名词</strong></td>
+<td style="text-align: left;"><strong>全称</strong></td>
+<td style="text-align: left;"><strong>描述</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">Linux</td>
+<td style="text-align: left;">/</td>
+<td style="text-align: left;">一种免费使用和自由传播的类UNIX操作系统，基于POSIX的多用户、多任务、支持多线程和多CPU的操作系统。</td>
+</tr>
+<tr>
+<td style="text-align: left;">Shell</td>
+<td style="text-align: left;">/</td>
+<td style="text-align: left;">一个命令解释器，类似于DOS下的command。它接收用户命令，然后调用相应的应用程序。</td>
+</tr>
+<tr>
+<td style="text-align: left;">自动化测试框架</td>
+<td style="text-align: left;">/</td>
+<td style="text-align: left;">提供最基础的自动化测试功能，用于组织、管理和执行那些独立的自动化测试用例，测试完成后统计测试结果。</td>
+</tr>
+<tr>
+<td style="text-align: left;">SAT</td>
+<td style="text-align: left;">Shell Auto Test</td>
+<td style="text-align: left;">基于Shell的自动化测试框架，自定义命名为SAT</td>
+</tr>
+</tbody>
+</table>
+<p><a href=""></a>1、相关技术背景（背景技术），与本发明最相近似的现有实现方案（现有技术）</p>
+<p>如今，人们的衣食住行、社会的各行各业都离不开各类操作系统、软件的正常运作和支持。小到手机里五花八门的APP：骑车、付款、购物，大到关乎国计民生的大系统：铁路运输的调控系统，卫星发射的操控系统，这些产品的质量，重要性不言而喻，而测试工程师则是质量的“把关者”。</p>
+<p>面对产品繁琐的测试点，测试工程师需要消耗大量的时间对其进行测试，随着产品的不断适配与迭代，工作量越来越大，怎么保质保量并且高效的完成测试任务呢？自动化测试就是其中一个解决方案，通过自动化的测试来代替人工手动测试，提高测试效率的同时，还可释放人工人力做其他事情。</p>
+<p>自动化测试实现的方式有很多，简单的几行代码，复杂的几万行代码，但是随着测试内容的增加、或者协同人员的增加，怎么让测试代码更容易管理、更规范、更易于维护？怎么整合测试用例？怎么协调测试资源？代码移植到其他系统能否复用？测试完成后是否能清晰的看到测试结果？这些都是需要面临的问题。</p>
+<p>本专利中的自动化测试框架，主要用于解决以上问题，为自动化测试提供基础运行环境，整合所有测试用例、资源统一进行测试，测试结束后有规范统一的测试报告/日志输出，用于定位问题。让自动化测试真正达到无人值守，完成测试准备、测试、输出测试结果全套流程。</p>
+<p>目前行业内也存在通过Shell实现的自动化测试框架：</p>
+<ol>
+<li>
+<p>shunit2</p>
+</li>
+<li>
+<p>bats-core</p>
+</li>
+</ol>
+<p>以上两款自动化测试框架都能做到，自动整合测试用例、执行测试、测试结束后输出测试报告。</p>
+<p><a href=""></a>1.1、与本发明相关的现有技术一</p>
+<p><a href=""></a>1.1.1、现有技术一的技术方案</p>
+<p><a href=""></a>使用shunit2自动化框架进行测试，需要用户提供测试用例文件，测试文件中可包含多条用例，这里的文件命名和用例命名只要按照框架规范设置，则可以被框架自动识别。</p>
+<p>测试时可批量执行框架根目录下所有测试用例文件，也可以单独执行某一个测试文件，在测试过程中可同步在终端查看测试用例的执行进度，终端会输出每一条用例的执行结果，若执行失败会高亮标记，且展示对应的输出内容与提示信息，也可以在测试结束后查看终端输出的历史记录，获取测试结果。</p>
+<p>1.1.2、现有技术一的缺点</p>
+<p>使用shunit2自动化框架针在批量执行用例时，仅会扫描框架根目录下文件是否为测试文件，并不支持扫描其他路径，若项目中涉及的测试人员、测试模块逐渐增多，那么在用例文件的管理会略显混乱，所有的测试文件都拥挤的存放在同一个目录中，不具备分类管理的能力。</p>
+<p>测试开始以前可以对测试环境进行初始化，保证测试用例执行的正确性，但是若当前环境中不满足某用例依赖条件，框架无法进行进一步措施，例如终止测试、标记关联用例状态。</p>
+<p>测试用例的执行状态仅有‘通过’和‘失败’，但若是功能变更导致测试命令修改，执行测试用例会报错，此时用例状态还是‘失败’，这类‘错误’状态无法被识别，需要根据失败用例进行分析得出结论，这里框架支持的用例执行状态不够丰富。</p>
+<p>自动化测试用例也是通过功能用例转换的，只是通过自动化的形式来执行，但在框架中自动化用例与功能用例的管理没有直接性的关联，若用例执行失败，还需要查看用例代码才能定位对应哪一条功能用例，较为不便。</p>
+<p>测试中和测试完成后，都能看到用例执行状态，执行状态为‘失败’的用例，可以看到其错误输出，辅助定位问题，但是结果执行状态为‘通过’，无法看到命令的标准输出，无法进一步验证执行状态的准确性，例如断言代码错误导致用例执行结果本来应该为‘失败’，结果最终结果为‘通过’，但通过表象无法识别，这里会存在巨大风险。</p>
+<p>测试结果输出在终端，若想保存测试结果只能通过重定向保存本地，但因为测试结果中存在关键字色彩展示，所以重定向的测试报告文件中会包含颜色代码标识，若在Linux以外的操作系统查看测试报告不仅没有色彩，还会影响阅读性，且在其他系统查看测试报告、归档测试报告的场景是比较常见的。</p>
+<p><img alt="" src="../%E5%9F%BA%E4%BA%8Eshell%E7%9A%84%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E6%8A%80%E6%9C%AF%E4%BA%A4%E5%BA%95%E4%B9%A6_assets/wpsopVhLz.jpg" /> </p>
+<p>图1：非Linux系统查看测试报告对比</p>
+<p>除此以外因为该框架开发者为国外研发人员，所以不管是注释，还是测试报告等内容，均不支持中文，所以在框架的使用和测试报告的阅读上不是太友好，同时也都存在一定使用、阅读门槛。</p>
+<p>1.2、与本发明相关的现有技术二</p>
+<p>1.2.1、现有技术二的技术方案</p>
+<p>使用bats-core自动化框架进行测试，总体功能与方案一差异不大，只是实现的方式和展示存在一些差异，但在测试文件管理这方便要更加灵活。</p>
+<p>该框架的测试文件后缀只要以‘.bats’结尾即可识别，对文件路径不存在强依赖情况，所以可以通过不同的测试人员、不同的测试模块，更清晰的分类管理测试文件，且不影响测试文件的批量执行，可以递归执行某目录下所有的测试文件。</p>
+<p>1.2.2、现有技术二的缺点</p>
+<p>bats-core自动化框架与方案一大体上较为相似，所以方案一存在的缺点，方案二大部分都存在。</p>
+<p>除了测试文件管理的实现方式更灵活与优以外，在测试报告的保存上也更优化，重定向之后不会在文档中出现颜色代码标识，在其他系统的阅读性体现的更友好。</p>
+<p><a href=""></a>2、本发明技术方案的详细阐述</p>
+<p><a href=""></a>2.1、本发明所要解决的技术问题</p>
+<p>本发明主要解决以下技术问题：</p>
+<ol>
+<li>
+<p>测试文件在多项目、多人协作场景下管理混乱。</p>
+</li>
+<li>
+<p>测试开始前没有用例执行环境监测流程，需要测试完毕才能暴露问题，没有流程管控能力，若测试量巨大，则会消耗大量时间成本。</p>
+</li>
+<li>
+<p>测试用例执行状态比较单一，针对不通过用例，需要测试完成后进行深入分析定位，同样会消耗不少时间成本。</p>
+</li>
+<li>
+<p>自动化用例与手工用例在测试报告中不具备关联性，需要查看代码才能查出对应功能用例。</p>
+</li>
+<li>
+<p>无完整的测试命令结果输出日志(标准/错误输出)，在用例自检方便存在风险。</p>
+</li>
+<li>
+<p>框架的使用对国人缺乏友好性，例如所有页面展示元素、报告内容、说明文档、代码注释等等，均为英文，具备一定使用门槛，需要大量学习成本。</p>
+</li>
+<li>
+<p>框架可扩展性较低，只能通过二次开发扩展功能，在开发前同样需要消耗大量时间成本。</p>
+</li>
+<li>
+<p>测试完毕后感知与归档测试结果能力较弱，需要人工跟进与处理。</p>
+</li>
+</ol>
+<p><a href=""></a>2.2、本发明提供的完整技术方案</p>
+<p>为了解决上述技术问题，本发明提供了一种新的自动化测试框架，这里命名为SAT(shell auto test)，包含测试文件的合理管理、测试环境监测与控制、测试用例的执行与输出，测试日志/报告的生成与通知，使测试变得更加效率与简单，具体运行流程如下：</p>
+<p><img alt="" src="../%E5%9F%BA%E4%BA%8Eshell%E7%9A%84%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E6%8A%80%E6%9C%AF%E4%BA%A4%E5%BA%95%E4%B9%A6_assets/wps4i29Sh.jpg" /> </p>
+<p>图2：bats-core/shunit2框架与SAT框架运行流程图</p>
+<p>通过以上流程图对比差异，可以初步看出，SAT测试框架使用更友好（可视化菜单、中/英文环境），在整个测试流程中增加了更多的流程控制(运行环境监测、测试环境监测)，实现了更多的实用功能(测试模式、详细日志、机器人通知、邮件归档测试报告/日志)，以达到优化测试流程、提升测试效率得目的。</p>
+<p><strong>方案设计流程：</strong></p>
+<ol>
+<li>进行框架的初步配置，针对根目录下配置文件，有以下配置项：</li>
+</ol>
+<p>(1) 项目名称；</p>
+<p>(2) 测试人员名称；</p>
+<p>(3) 运行权限控制：root/普通用户；</p>
+<p>(4) 环境监测控制：若监测不通过，是否终止测试；</p>
+<p>(5) 语言环境控制：指定语言/自动匹配；</p>
+<ol start="2">
+<li>
+<p>运行一键部署工具，会针对配置文件进行扫描，自动部署与生效配置项，并自动生成对应的目录结构，用于对项目、测试人员、测试资源、用例文件的管理，使之更为清晰化。</p>
+</li>
+<li>
+<p>框架有设计默认项目和默认测试人员，项目中包含Linux系统部分测试内容（文件系统、内核...），可直接运行测试，为用户提供一定的使用参考（README.md中也有详细说明）。</p>
+</li>
+<li>
+<p>一键部署之后，对应的项目目录中会自动生成测试用例模板，此时用户需要根据自己的项目情况，编写对应的测试用例文件。测试用例以函数的形式存在，按照用例模板规范，用例中包含用例信息：用例标题(中/英文)、用例ID(关联功能用例)、测试人员编号、测试命令类型(正常命令、异常命令)、测试命令、断言，这些信息与功能用例强关联，方便管理与定位问题。</p>
+</li>
+<li>
+<p>框架的测试模式支持全量测试、自定义测试，用户可根据不同使用场景，可选择不同的测试方式：</p>
+</li>
+</ol>
+<p>(1) 全量测试：执行项目下所有测试用例</p>
+<p>(2) 自定义测试：仅执行项目下某测试人员、某模块、某条用例</p>
+<ol start="6">
+<li>运行框架启动工具，进行环境检测和初始化：</li>
+</ol>
+<p>(1) 环境检测：检测当前用户权限是否满足框架运行条件；</p>
+<p>(2) 环境初始化：检测当前系统语言环境，加载不同语言配置。根据其他配置项，整合组件运行框架并展示菜单项。</p>
+<ol start="7">
+<li>用户根据引导逐步选择菜单：</li>
+</ol>
+<p><img alt="" src="../%E5%9F%BA%E4%BA%8Eshell%E7%9A%84%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E6%8A%80%E6%9C%AF%E4%BA%A4%E5%BA%95%E4%B9%A6_assets/wpsk8q40Z.jpg" /> </p>
+<p>图3：框架中/英文可视化菜单（菜单1为默认项目，菜单2/3为后续添加项目）</p>
+<ol start="8">
+<li>根据菜单选择的测试场景，组合对应的测试用例，并对用例执行测试环境做检查(检测项可配)，列出检查结果后，若配置文件中检测控制项‘开关状态’为启用，出现检查不通过项，则终止后续测试。</li>
+</ol>
+<p><img alt="" src="../%E5%9F%BA%E4%BA%8Eshell%E7%9A%84%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E6%8A%80%E6%9C%AF%E4%BA%A4%E5%BA%95%E4%B9%A6_assets/wpsui5Z8H.jpg" /> </p>
+<p>图4：检测不通过实例（网卡检测失败，后续数字为影响用例编号）</p>
+<ol start="9">
+<li>若测试环境检测通过，则正是开始执行测试用例。在执行的过程中，框架会对命令执行结果进行解析，初步分析出通过、不通过、错误三种用例执行状态。</li>
+</ol>
+<p><img alt="" src="../%E5%9F%BA%E4%BA%8Eshell%E7%9A%84%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E6%8A%80%E6%9C%AF%E4%BA%A4%E5%BA%95%E4%B9%A6_assets/wps72UWgq.jpg" /> </p>
+<p>图5：执行命令解析流程</p>
+<ol start="10">
+<li>
+<p>同步步骤9初步解析后，再结合断言，得出最终执行状态结果。因为Linux系统有不同架构：x86、arm、mips等等，部分测试用例是区分架构的，并不通用，所以断言功能中额外支持‘不兼容’状态。</p>
+</li>
+<li>
+<p>得出用例执行结果后，框架会输出内容至终端，同时在后台收集命令的标准输出、错误输出、用例信息、用例执行状态等，形成详细的用例运行日志。</p>
+</li>
+</ol>
+<p><img alt="" src="../%E5%9F%BA%E4%BA%8Eshell%E7%9A%84%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E6%8A%80%E6%9C%AF%E4%BA%A4%E5%BA%95%E4%B9%A6_assets/wpsKGQUo8.jpg" />图6：终端输出用例执行状态</p>
+<ol start="12">
+<li>测试完成后整合数据，生成本地测试报告、测试日志（日志单独剥离了error状态日志，方便快速定位用例执行问题），把测试报告内容输出至终端。</li>
+</ol>
+<p><img alt="" src="../%E5%9F%BA%E4%BA%8Eshell%E7%9A%84%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E6%8A%80%E6%9C%AF%E4%BA%A4%E5%BA%95%E4%B9%A6_assets/wpsY8KTwQ.jpg" /> </p>
+<p>图6：测试结果(a/b为测试人员编号，可自定义配置)</p>
+<p><img alt="" src="../%E5%9F%BA%E4%BA%8Eshell%E7%9A%84%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E6%8A%80%E6%9C%AF%E4%BA%A4%E5%BA%95%E4%B9%A6_assets/wpsjkKTEy.jpg" /> </p>
+<p>图7：本地保存测试报告/日志与截取日志部分内容</p>
+<ol start="13">
+<li>触发通知事件，获取企业微信机器人接口地址、测试人员邮箱，若获取成功，则在企业微信进行通知（内容可配），整理测试报告、测试日志等附件，通过邮件发送至测试人员邮箱，快速完成测试结果归档，并通过日志协助问题定位。</li>
+</ol>
+<p><img alt="" src="../%E5%9F%BA%E4%BA%8Eshell%E7%9A%84%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E6%8A%80%E6%9C%AF%E4%BA%A4%E5%BA%95%E4%B9%A6_assets/wpsRzgVMg.jpg" /> </p>
+<p>图8：企业微信机器人通知</p>
+<p><a href=""></a>综上，一套完整的测试流程已经完成，除此之外，框架的扩展性和易用性较好，提供了很多实用型工具与配置，以下例举了部分内容：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">类型</td>
+<td style="text-align: left;">名称</td>
+<td style="text-align: left;">说明</td>
+</tr>
+<tr>
+<td style="text-align: left;">配置</td>
+<td style="text-align: left;">色彩</td>
+<td style="text-align: left;">框架的菜单、提醒、报告等等可视化元素色彩均支持配置，满足个人审美</td>
+</tr>
+<tr>
+<td style="text-align: left;">配置</td>
+<td style="text-align: left;">语言</td>
+<td style="text-align: left;">框架语言可指定中/英文、自动匹配，满足个人阅读习惯</td>
+</tr>
+<tr>
+<td style="text-align: left;">配置</td>
+<td style="text-align: left;">机器人</td>
+<td style="text-align: left;">支持目前国内常用的企业微信、钉钉等办公软件机器人，在配置机器人地址后，测试完成时，机器人会播报测试结果，使用户能第一时间掌握测试结果，该项可缺失</td>
+</tr>
+<tr>
+<td style="text-align: left;">配置</td>
+<td style="text-align: left;">邮箱</td>
+<td style="text-align: left;">在配置邮箱后，在测试完成时，框架会自定扫描测试结果，整合测试结果文件，以附件的形式发送至配置邮箱地址，该项可缺失</td>
+</tr>
+<tr>
+<td style="text-align: left;">配置</td>
+<td style="text-align: left;">框架运行日志</td>
+<td style="text-align: left;">配置启动后，终端和本地都会输出框架运行日志，可清晰的看到框架运行原理，便于理解框架和二次开发</td>
+</tr>
+<tr>
+<td style="text-align: left;">配置</td>
+<td style="text-align: left;">项目</td>
+<td style="text-align: left;">随着项目增加，可配置默认项目以外的其他项目，配置该项后，运行部署工具，会在默认项目平级创建新项目目录，框架提供自动整合支撑</td>
+</tr>
+<tr>
+<td style="text-align: left;">配置</td>
+<td style="text-align: left;">测试人员</td>
+<td style="text-align: left;">随着自动化协作人员增加，用例文件若集中存放，会异常混乱，配置该项后，运行部署工具，会在项目/测试资源目录下自动按照测试人员创建子目录，框架提供自动整合支撑</td>
+</tr>
+<tr>
+<td style="text-align: left;">工具</td>
+<td style="text-align: left;">自动部署工具</td>
+<td style="text-align: left;">主要用于配置项目和测试人员后，一键自动增加菜单、目录结构，增加框架易用性，无需学习/查看代码，即可快速完成框架扩展</td>
+</tr>
+<tr>
+<td style="text-align: left;">工具</td>
+<td style="text-align: left;">代码规范检查工具</td>
+<td style="text-align: left;">自动扫描框架内所有shell文件，指出错误并提示修改建议，解决多人协作下，代码编写风格不规范、差异大的问题</td>
+</tr>
+<tr>
+<td style="text-align: left;">工具</td>
+<td style="text-align: left;">格式规范检查工具</td>
+<td style="text-align: left;">封装了规范的代码格式(换行、缩进等)，自动扫描框架内所有shell文件，对其格式进行自动修改，解决代码不美观、不易读问题</td>
+</tr>
+<tr>
+<td style="text-align: left;">工具</td>
+<td style="text-align: left;">Git提交控制工具</td>
+<td style="text-align: left;">Git提交控制工具：若通过Git管理框架，可一键部署自动代码扫描，针对Shell代码规范与格式做检查，若存在错误项则禁止提交，解决了代码管理约定，执行不到位问题</td>
+</tr>
+</tbody>
+</table>
+<p>2.3、本发明技术方案带来的有益效果</p>
+<p>本发明通过“方案设计流程”部分中步骤1-13与扩展工具/配置，解决了前文提及的所有技术问题：</p>
+<p>(1) 为自动化测试中多项目、多人协作场景，使测试文件的管理更加具备层次与清晰；</p>
+<p>(2) 测试开始前支持更灵活的环境检测，自定义检测项，并增加流程控制功能，使测试流程的进行更具备逻辑性，规避无效测试；</p>
+<p>(3) 增加更丰富的测试用例执行结果状态，减少测试结束后分析定位时间，提高结果分析效率；</p>
+<p>(4) 增强自动化用例与手工用例的关联性，可通过测试结果直接明了的定位出对应的功能用例，并引入到测试报告中，减少问题定位效率；</p>
+<p>(5) 对测试用例执行结果(标准/错误输出)，进行完整的捕获，并整合为测试结果日志，为加强自检强度提供支撑，消除隐患，提高测试用例有效性；</p>
+<p>(6) 自动识别当前系统语言环境，自动匹配中文/英文，包含提示、菜单、终端输出、测试报告等内容，自动切换中文/英文展示，同时增加可视化的操作菜单，用户只需要输出编号，即可完成测试，提高了对国人的友好性，降低使用门槛，提高易用性；</p>
+<p>(7) 框架增加扩展性，详情见“方案设计流程”末尾工具/配置例举部分，提升各种不同场景的适应性；</p>
+<p>(8) 测试完毕后自动生成本地测试报告，同时把测试结果通知到企业微信、测试报告邮件到测试人员邮箱，提高归档/验收效率。</p>
+<p><a href=""></a>2.4、针对上述技术方案，是否还有替代方案同样能完成发明目的</p>
+<p>暂无</p>
+<p><a href=""></a>3、本发明的技术关键点和欲保护点是什么</p>
+<p>本发明的技术关键点包括整个测试框架的运行机制、流程控制与扩展：</p>
+<p>(1) 框架与项目、协作人员相结合的分层管理结构技术方案的设计与实现</p>
+<p>(2) 框架运行过程中流程控制时机、控制项的检查机制技术方案的设计与实现</p>
+<p>(3) 测试过程数据解析、收集与整合技术方案的设计与实现</p>
+<p>(4) 符合大环境下的测试实时汇报与归档技术方案的设计与实现</p>
+<p>(5) 框架整体易用性与扩展性(语言环境的解析与匹配、辅助工具集、自定义配置项)技术方案的设计与实现</p>
+<p>4、附件</p>
+<p>参考文献</p>
+<p>l <a href="https://baike.baidu.com/item/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/6170164?fr=aladdin"><em>自动化测试框架定义</em></a></p>
+<p>l <a href="https://www.runoob.com/linux/linux-shell.html"><em>Shell编程</em></a></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年8月14日 08:02:26</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年1月4日 18:27:34</span>
       
         <br>
         创建日期:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2023年8月13日 09:45:18</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年1月4日 18:27:34</span>
       
     
   </small>
@@ -3692,16 +3969,22 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.instant", "navigation.tracking", "navigation.top", "navigation.tracking", "navigation.tabs", "announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "content.tabs.link", "search.highlight", "search.share", "search.suggest", "header.autohide", "toc.follow"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes", "navigation.instant", "navigation.tracking", "navigation.top", "navigation.tracking", "navigation.tabs", "announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "content.tabs.link", "search.highlight", "search.share", "search.suggest", "header.autohide", "toc.follow"], "search": "../../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
       
         <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
       
-        <script src="../../js/termynal.js"></script>
+        <script src="../../../js/termynal.js"></script>
       
-        <script src="../../js/custom.js"></script>
+        <script src="../../../js/custom.js"></script>
+      
+        <script src="../../../js/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>
