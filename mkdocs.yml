@@ -26,8 +26,8 @@ theme:
     - navigation.top
     - navigation.tracking
     - navigation.tabs
-    - navigation.sections
-    #    - navigation.footer
+#    - navigation.sections
+#    - navigation.footer
     - announce.dismiss
     - content.action.edit
     - content.action.view
