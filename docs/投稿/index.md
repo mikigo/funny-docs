@@ -1,4 +1,7 @@
 ---
+hide:
+    - navigation
+    - toc.integrate
 counter: True
 ---
 # 欢迎投稿
@@ -10,17 +13,18 @@ counter: True
 
 ### 1. Fork 文档仓库
 
-点击网站右上角 `funny-docs` 图标：![](./index_assets/1.png) 或者也可以直接访问地址：[https://github.com/mikigo/funny-docs](https://github.com/mikigo/funny-docs) 进入到文档工程仓库；
+访问地址：[:fontawesome-brands-github:{ .lg .middle } Funny Docs](https://github.com/mikigo/funny-docs){ .md-button } 进入到文档工程仓库；
 
 然后用你自己的 `GitHub` 账号登录；
 
 点击右上角的 `Fork` 按钮：
-
-![](./index_assets/2.png)
+???+ note "点击 Fork 按钮"
+	![](./index_assets/2.png)
 
 然后不用想，直接戳这里：
 
-![](./index_assets/3.png)
+???+ note "点击 Create Fork 按钮"
+	![](./index_assets/3.png)
 
 稍等片刻，就把此仓库 `Fork` 到你的 `GitHub` 中了；
 
@@ -28,7 +32,8 @@ counter: True
 
 将你自己的 `Github` 中 `Fork` 的这个项目克隆下来：
 
-![](./index_assets/4.png)
+???+ note "Git Clone"
+	![](./index_assets/4.png)
 
 终端输入：
 
@@ -52,7 +57,8 @@ git clone git@github.com:king123666/funny-docs.git
 
 在你 `Fork` 的仓库右上角点这里：
 
-![](./index_assets/5.png)
+???+ note "同步代码"
+	![](./index_assets/5.png)
 
 确保 Fork 的仓库和原仓库保持同步；
 
@@ -61,6 +67,7 @@ git clone git@github.com:king123666/funny-docs.git
 ??? note "添加git提交模板"
 	在 `~` 目录下新建文件，并命名为 `gitcommit_template`
 	将以下内容写入文件当中：
+	
 	```shell
 	# commit type :fix（问题修复）、feat（功能开发）、style(风格修改)、refactor(重构)、docs（文档）、chore（其他)、test(测试) + 简单描述. 默认fix,根据情况修改
 	fix: 
@@ -90,6 +97,7 @@ git clone git@github.com:king123666/funny-docs.git
 	
 	此命令将模板加入到 `git` 的提交模板中。
 
+
 添加 `commit` 信息
 
 ```shell
@@ -115,19 +123,23 @@ git push
 
 回到 `Github` 网站点这里：
 
-![](./index_assets/6.png)
+???+ note "开启PR"
+	![](./index_assets/6.png)
 
 再点这里：
 
-![](./index_assets/7.png)
+???+ note "创建PR"
+	![](./index_assets/7.png)
 
 然后你可以写一些你的描述，再点这里：
 
-![](./index_assets/8.png)
+???+ note "确认创建PR"
+	![](./index_assets/8.png)
 
 好了，这样就完成了一个 `PR`，你可以在这里查看：
 
-![](./index_assets/9.png)
+???+ note "查看PR"
+	![](./index_assets/9.png)
 
 ## 编辑文档
 
@@ -216,19 +228,29 @@ Linux
 
 `test.md` 规范：
 
-- 文章大标题用 `一级标题`；
-- 文章各章节用 `二级标题`；
-- 图片或其他资源，在同级目录下新建一个文档同名 +  `_assets` 的目录，`test_assets` 里面放你的图片等资源；
+- ==文章大标题用 `一级标题`==；
 
-- `markdown` 里面图片资源加载使用相对路径；
+- ==文章各章节用 `二级标题`==；
 
-- 在文章大标题下面标注作者，模板如下：
+- ==图片或其他资源，在同级目录下新建一个文档同名 +  `_assets` 的目录，`test_assets` 里面放你的图片等资源==；
 
-	```shell
+- `==markdown` 里面图片资源加载使用相对路径==；
+
+- 在文章大标题下面标注作者，==作者的名称可以用花名，也可以用真是姓名，如果姓名大于2个字，取后面两个字==，模板如下：
+
+	```shell title="1个作者"
 	# =============================
 	# Author : mikigo
 	# =============================
 	```
+
+    ```shell title="多个作者"
+    # =============================
+    # Author : mikigo、山炮、才俊
+    # =============================
+    ```
+
+
 
 #### 3.2 配置项修改（重要）
 
@@ -263,7 +285,8 @@ Linux
 
 `index.md` 是 `Linux ` 这个大类的目录文件，在网站上对应这个界面：
 
-![](./index_assets/10.png)
+!!! note ""
+	![](./index_assets/10.png)
 
 `index.md` 里面也是 `yml` 文件的配置方法，在里面找到 `方案教程`：
 

@@ -1,5 +1,13 @@
 # rootfs进入MATE桌面后打开终端不能执行reboot指令根因分析
 
+```shell
+# =============================
+# Author : 禄烨
+# =============================
+```
+
+
+
 ## 一、相关术语
 
 <center style="color:#C0C0C0;text-decoration">表1 相关术语</center>

@@ -26,7 +26,7 @@ theme:
     - navigation.top
     - navigation.tracking
     - navigation.tabs
-    #    - navigation.sections
+    - navigation.sections
     #    - navigation.footer
     - announce.dismiss
     - content.action.edit
@@ -96,12 +96,13 @@ plugins:
   - mike
   - git-revision-date-localized:
       locale: zh
-      type: datetime
-      timezone: Asia/Shanghai
-      enable_creation_date: true
+#      type: datetime
+#      timezone: Asia/Shanghai
+#      enable_creation_date: true
       exclude:
         - index.md
         - comments.md
+  - git-authors:
   - statistics:
       page_check_metadata: counter
   - toc
@@ -208,7 +209,7 @@ nav:
       - 技术文档/专利交底书/一种自动化测试用例步骤中断后恢复执行的技术交底书.md
       - 技术文档/专利交底书/一种对使用Linux包管理器安装的Python包进行虚拟化的技术交底书.md
       - 技术文档/专利交底书/一种自动安装镜像的技术交底书.md
-      - 技术文档/专利交底书/一种针Linux系统异常命令的测试方法技术交底书.md
+      - 技术文档/专利交底书/一种针对Linux系统异常命令的测试方法技术交底书.md
       - 技术文档/专利交底书/一种基于Linux系统执行自动化测试用例实现负载均衡的技术交底书.md
       - 技术文档/专利交底书/一种基于图像识别的桌面应用控件智能标注的交底书.md
       - 技术文档/专利交底书/一种基于机器学习智能识别元素控件的UI自动化测试方法.md
@@ -229,6 +230,7 @@ nav:
     - 规范文档/index.md
     - 流程规范:
       - 规范文档/流程规范/测试单驱动自动化.md
+      - 规范文档/流程规范/AT执行器使用指北.md
       - 规范文档/流程规范/简易版报告新增规范.md
       - 规范文档/流程规范/BUG和用例附加规范.md
       - 规范文档/流程规范/研发自测规范.md
