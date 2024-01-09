@@ -7,13 +7,13 @@ counter: True
 # 欢迎投稿
 
 !!! note ""
-	文档工程使用 `Github` 管理，投稿走 `PR` 流程；
+	文档工程使用 `GitHub` 管理，投稿走 `PR` 流程；
 
 ## PR（Pull Request）流程
 
 ### 1. Fork 文档仓库
 
-访问地址：[:fontawesome-brands-github:{ .lg .middle } Funny Docs](https://github.com/mikigo/funny-docs){ .md-button } 进入到文档工程仓库；
+访问地址：[:fontawesome-brands-github:{ .lg .middle } Funny Docs](https://github.com/mikigo/funny-docs){ .md-button target="_blank" } 进入到文档工程仓库；
 
 然后用你自己的 `GitHub` 账号登录；
 
@@ -30,7 +30,7 @@ counter: True
 
 ### 2. 克隆这个 Fork 的项目
 
-将你自己的 `Github` 中 `Fork` 的这个项目克隆下来：
+将你自己的 `GitHub` 中 `Fork` 的这个项目克隆下来：
 
 ???+ note "Git Clone"
 	![](./index_assets/4.png)
@@ -62,7 +62,7 @@ git clone git@github.com:king123666/funny-docs.git
 
 确保 Fork 的仓库和原仓库保持同步；
 
-#### 3.2 提交 Github
+#### 3.2 提交 GitHub
 
 ??? note "添加git提交模板"
 	在 `~` 目录下新建文件，并命名为 `gitcommit_template`
@@ -121,7 +121,7 @@ git push
 
 #### 3.3 提交 PR
 
-回到 `Github` 网站点这里：
+回到 `GitHub` 网站点这里：
 
 ???+ note "开启PR"
 	![](./index_assets/6.png)
