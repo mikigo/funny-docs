@@ -11,3 +11,4 @@ mkdocs-minify-plugin
 pymdown-extensions
 mkdocs-statistics-plugin
 mkdocs-toc-plugin
+rich

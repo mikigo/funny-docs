@@ -38,7 +38,7 @@ theme:
     - search.highlight
     - search.share
     - search.suggest
-    - header.autohide
+#    - header.autohide
     - toc.follow
 
 #  logo: "img/logo.png"
@@ -86,8 +86,8 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.arithmatex:
       generic: true
 
@@ -103,6 +103,8 @@ plugins:
         - index.md
         - comments.md
   - git-authors:
+      exclude:
+        - index.md
   - statistics:
       page_check_metadata: counter
   - toc
