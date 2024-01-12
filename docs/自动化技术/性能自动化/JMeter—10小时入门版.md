@@ -30,11 +30,11 @@ Github地址：https://github.com/apache/jmeter
 
 （举例：线程数10个，运行时间5，就是1秒启动2个）
 
-​    ![0](../../img/jmeter/1.png)
+​    ![0](/jmeter/1.png)
 
   
 
-​    ![0](../../img/jmeter/2.png)
+​    ![0](/jmeter/2.png)
 
    
 
@@ -42,7 +42,7 @@ Github地址：https://github.com/apache/jmeter
 
 性能测试中向服务器发送请求，记录响应信息，记录响应时间的最小单元。
 
-​    ![0](../../img/jmeter/3.png)
+​    ![0](/jmeter/3.png)
 
  
 
@@ -56,7 +56,7 @@ Github地址：https://github.com/apache/jmeter
 
 #### （1）循环控制器
 
-​    ![0](../../img/jmeter/4.png)
+​    ![0](/jmeter/4.png)
 
 线程组循环次数与循环控制器循环次数叠加（相乘）
 
@@ -64,15 +64,15 @@ Github地址：https://github.com/apache/jmeter
 
 #### （2）ForEach控制器
 
-​    ![0](../../img/jmeter/5.png)
+​    ![0](/jmeter/5.png)
 
 后面的请求是加在 `ForEach` 控制器下面
 
-​    ![0](../../img/jmeter/6.png)
+​    ![0](/jmeter/6.png)
 
 #### （3）If 控制器
 
-​    ![0](../../img/jmeter/7.png)
+​    ![0](/jmeter/7.png)
 
 注意：条件里面，变量要用 "${}" ,`if` 下面加 `http` 请求
 
@@ -82,9 +82,9 @@ Github地址：https://github.com/apache/jmeter
 2. 在控制器内添加多个请求
 3. 可通过请求名称来控制，或通过请求序号来控制（序号从0开始）
 
-​    ![0](../../img/jmeter/8.png)
+​    ![0](/jmeter/8.png)
 
-​    ![0](../../img/jmeter/9.png)
+​    ![0](/jmeter/9.png)
 
 #### （5）吞吐量控制器
 
@@ -94,9 +94,9 @@ Github地址：https://github.com/apache/jmeter
 
 3. `Percent Executions` 吞吐量百分比（线程组数10个，吞吐量百分比25，每个线程发送2次，百分比25.5，每个线程发送3次）
 
-​    ![0](../../img/jmeter/10.png)
+​    ![0](/jmeter/10.png)
 
-​    ![0](../../img/jmeter/11.png)
+​    ![0](/jmeter/11.png)
 
 ### 定时器
 
@@ -108,11 +108,11 @@ Github地址：https://github.com/apache/jmeter
 
 集合点，等到特定的用户数后再一起执行某个操作。
 
-​    ![0](../../img/jmeter/12.png)
+​    ![0](/jmeter/12.png)
 
-​    ![0](../../img/jmeter/13.png)
+​    ![0](/jmeter/13.png)
 
-​    ![0](../../img/jmeter/14.png)
+​    ![0](/jmeter/14.png)
 
 `Number of Simulated Users to Group by`:集合多少人后再执行请求；
 
@@ -132,43 +132,43 @@ Github地址：https://github.com/apache/jmeter
 
 可以将本地数据文件形成数据池。
 
-​    ![0](../../img/jmeter/15.png)
+​    ![0](/jmeter/15.png)
 
-​    ![0](../../img/jmeter/16.png)
+​    ![0](/jmeter/16.png)
 
 **② 函数助手**
 
 选项-函数助手
 
-​    ![0](../../img/jmeter/17.png)
+​    ![0](/jmeter/17.png)
 
-​    ![0](../../img/jmeter/18.png)
+​    ![0](/jmeter/18.png)
 
-​    ![0](../../img/jmeter/19.png)
+​    ![0](/jmeter/19.png)
 
-​    ![0](../../img/jmeter/20.png)
+​    ![0](/jmeter/20.png)
 
-​    ![0](../../img/jmeter/21.png)
+​    ![0](/jmeter/21.png)
 
 **③ 用户自定义变量**
 
-​    ![0](../../img/jmeter/22.png)
+​    ![0](/jmeter/22.png)
 
-​    ![0](../../img/jmeter/23.png)
+​    ![0](/jmeter/23.png)
 
-​    ![0](../../img/jmeter/24.png)
+​    ![0](/jmeter/24.png)
 
-​    ![0](../../img/jmeter/25.png)
+​    ![0](/jmeter/25.png)
 
 **④计数器**
 
-​    ![0](../../img/jmeter/25.png)
+​    ![0](/jmeter/25.png)
 
-​    ![0](../../img/jmeter/27.png)
+​    ![0](/jmeter/27.png)
 
-​    ![0](../../img/jmeter/28.png)
+​    ![0](/jmeter/28.png)
 
-​    ![0](../../img/jmeter/29.png)
+​    ![0](/jmeter/29.png)
 
 `${__v(name_${N})}` 两层变量用v函数，固定用法。
 
@@ -220,7 +220,7 @@ Github地址：https://github.com/apache/jmeter
 
 在后置处理器中-正则表达式提取器；
 
-​    ![0](../../img/jmeter/30.png)
+​    ![0](/jmeter/30.png)
 
 正则表达式
 
@@ -246,23 +246,23 @@ Github地址：https://github.com/apache/jmeter
 
 任意字符串的取法：（.+?）或（.\*?）
 
-​    ![0](../../img/jmeter/31.png)
+​    ![0](/jmeter/31.png)
 
 数字的取法：
 
 （[0-9]*）,[0-9]表示取0-9的任意数字，*表示任意多次  ##表达式前面的字符不要太多
 
-​    ![0](../../img/jmeter/32.png)
+​    ![0](/jmeter/32.png)
 
 2.http请求默认值
 
 有相同的服务器名称或IP地址时，将其填入请求默认值中，减小工作量。
 
-​    ![0](../../img/jmeter/33.png)
+​    ![0](/jmeter/33.png)
 
-​    ![0](../../img/jmeter/34.png)
+​    ![0](/jmeter/34.png)
 
-​    ![0](../../img/jmeter/35.png)
+​    ![0](/jmeter/35.png)
 
 ### webservice接口测试
 
@@ -270,7 +270,7 @@ soap请求底层是调用的http请求
 
 请求的报文是xml，返回的报文也是xml
 
-​    ![0](../../img/jmeter/36.png)
+​    ![0](/jmeter/36.png)
 
 ### JDBC请求
 
@@ -288,7 +288,7 @@ soap请求底层是调用的http请求
 
 （5）`password`：数据库密码
 
-​    ![0](../../img/jmeter/37.png)
+​    ![0](/jmeter/37.png)
 
 4. 时区设置问题
 
@@ -302,13 +302,13 @@ soap请求底层是调用的http请求
 
 在URL末尾加 `?characterEncoding=UTF-8`
 
-​    ![0](../../img/jmeter/38.png)
+​    ![0](/jmeter/38.png)
 
-​    ![0](../../img/jmeter/39.png)
+​    ![0](/jmeter/39.png)
 
 7. 插入删除更新操作，`Query Type` 都选` update Statement`
 
-​    ![0](../../img/jmeter/40.png)
+​    ![0](/jmeter/40.png)
 
 ### FTP请求
 
@@ -329,13 +329,13 @@ soap请求底层是调用的http请求
 
 密码：
 
-​    ![0](../../img/jmeter/41.png)
+​    ![0](/jmeter/41.png)
 
-​    ![0](../../img/jmeter/42.png)
+​    ![0](/jmeter/42.png)
 
-​    ![0](../../img/jmeter/43.png)
+​    ![0](/jmeter/43.png)
 
-​    ![0](../../img/jmeter/44.png)
+​    ![0](/jmeter/44.png)
 
 ### 场景设置
 
@@ -378,7 +378,7 @@ soap请求底层是调用的http请求
 
 - 启动 `Jmeter-server.bat`
 
-​    ![0](../../img/jmeter/45.png)
+​    ![0](/jmeter/45.png)
 
 ③注意事项
 
@@ -428,21 +428,21 @@ d.脚本不要放在桌面上
 2. 添加配置元件 `CSV Data Set Config` 将文档中` IP` 参数化
 3. 在请求中选择 `[Advanced]`，`implementation` 选择 `HttpClient4`，`Source address` 选择 `IP/Hostname`，并输入 `IP` 参数（`${ip}`）
 
-​    ![0](../../img/jmeter/46.png)
+​    ![0](/jmeter/46.png)
 
-​    ![0](../../img/jmeter/47.png)
+​    ![0](/jmeter/47.png)
 
-​    ![0](../../img/jmeter/48.png)
+​    ![0](/jmeter/48.png)
 
-​    ![0](../../img/jmeter/49.png)
+​    ![0](/jmeter/49.png)
 
 连不上网，需要把“首选 `DNS` 服务器”填上 `192.168.1.1`，
 
-​    ![0](../../img/jmeter/50.png)
+​    ![0](/jmeter/50.png)
 
 将网络禁用后重启；
 
-​    ![0](../../img/jmeter/51.png)
+​    ![0](/jmeter/51.png)
 
 ### 曲线拐点模型分析
 
@@ -460,4 +460,4 @@ x轴代表并发用户数，Y轴代表资源利用率、吞吐量、响应时间
 
 （2）吞吐量：轻负载区增加，重压力区逐步平稳，拐点区急剧下降。
 
-​    ![0](../../img/jmeter/52.png)
+​    ![0](/jmeter/52.png)

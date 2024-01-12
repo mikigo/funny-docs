@@ -15,7 +15,7 @@ counter: True
 
 Requests 是 Python 最久负盛名的 HTTP 库，没有之一；K 神（Kenneth Reitz）的 for humans 系列中最有名的一个；
 
-![](../../img/spider/k.png)
+![](/spider/k.png)
 
 做爬虫、数据分析、接口自动化会经常用到它，非常多有名的 Python 库依赖于 Requests 提供基础能力，比如：httpx（支持异步的 HTTP 库）、locust（性能[负载]测试框架）、HttpRunner（接口自动化框架）等等，都是基于 Requests 构建起来的。
 
@@ -212,7 +212,7 @@ r 为返回值的对象（Response），通常在项目中我一般用 `rsp` 来
 
 rsp 既然是对象，那来看下对象的方法和属性，咱们 Debug 跑一下就很清楚：
 
-![](../../img/spider/rsp.png)
+![](/spider/rsp.png)
 
 接下来讲几个比较常用的属性和方法；
 

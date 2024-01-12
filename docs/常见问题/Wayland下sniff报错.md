@@ -6,7 +6,7 @@
 # ==================================
 ```
 
-![](../img/faq/sniff_error.png)
+/faq/sniff_error.png)
 
 根据 Xlib.xauth 源代码里面这里：
 
@@ -36,7 +36,7 @@ class Xauthority:
 是因为读文件 `filename` 的时候报错，`filename` 要么从环境变量 `XAUTHORITY` 里面拿，要么就赋值 `~/.Xauthority`，而咱们系统中 `~/.Xauthority` 文件是存在的，那么肯定就是环境变量里面 `XAUTHORITY` 的值有问题；
 查看一下：
 
-![](../img/faq/sniff_error2.png)
+/faq/sniff_error2.png)
 
 
 环境变量里面有 `XAUTHORITY`，但是值为空；

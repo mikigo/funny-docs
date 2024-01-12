@@ -313,9 +313,9 @@ sudo systemctl restart docker.service
 
 在 `Pycharm` 添加解释器界面：
 
-![](../../img/docker/1.jpg)
+![](/docker/1.jpg)
 
-![](../../img/docker/2.jpg)
+![](/docker/2.jpg)
 
 输入：`tcp://0.0.0.0:2375`
 

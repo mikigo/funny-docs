@@ -13,7 +13,7 @@ export default defineConfig({
             })
         ]
     },
-    base: 'docs',
+    base: '/',
     lang: 'zh-CN',
     title: "Funny Docs",
     description: "有趣的知识库",

@@ -176,7 +176,7 @@ $ locust -f demo_1.py
 [2023-07-13 17:55:51,182] uos-PC/INFO/locust.main: Starting web interface at http://0.0.0.0:8089 
 ```
 
-![](../../img/locust/1.jpg)
+![](/locust/1.jpg)
 
 第1个"`Number of users`" 总共将运行的用户数；
 
@@ -186,13 +186,13 @@ $ locust -f demo_1.py
 
 
 
-![](../../img/locust/2.jpg)
+![](/locust/2.jpg)
 
 
 
 点击【Start swarming】开始测试：
 
-![](../../img/locust/3.jpg)
+![](/locust/3.jpg)
 
 这玩意儿是一直跑的，不会自己停下来，要停止测试，需要点击右上角【STOP】；
 

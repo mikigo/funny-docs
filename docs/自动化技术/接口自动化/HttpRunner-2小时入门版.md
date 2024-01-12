@@ -301,7 +301,7 @@ if __name__ == '__main__':
 
 看看接口文档，非常简单的一个接口
 
-![](../../img/httprunner/1.png)
+![](/httprunner/1.png)
 
 好，那咱们回到httprunner里面来写用例了；
 
@@ -352,7 +352,7 @@ hrp pytest testcases/demo_1.yml
 
 跑完之后在 `results` 目录下生成一个 `html` 文件，打开它：
 
-![](../../img/httprunner/2.png)
+![](/httprunner/2.png)
 
 ## 七、debugtalk.py底层实现原理
 

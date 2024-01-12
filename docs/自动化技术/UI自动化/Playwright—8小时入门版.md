@@ -62,11 +62,11 @@ playwright codegen
 
 会启动一个“浏览器”窗口和一个“脚本生成器”窗口
 
-![](../../img/playwright/1.png)
+![](/playwright/1.png)
 
 脚本生成器初始状态会有模板代码，你通过浏览器操作的时候，每一步的操作，都会对应在脚本生成器自动生成一行代码，比如，我输入百度的网址：
 
-![](../../img/playwright/2.png)
+![](/playwright/2.png)
 
 在百度首页，点击输入框，输入一个内容，点击“百度一下”，一顿操作下来，代码自动生成如下：
 
@@ -158,7 +158,7 @@ XPath 是一种通用、标准的元素定位方案，它的语法也是标准�
 
 举例：
 
-![](../../img/playwright/3.png)
+![](/playwright/3.png)
 
 ```javascript
 $x("//input[@type='submit']")
@@ -180,7 +180,7 @@ Playwright 会自动检测输入的是 CSS 或 XPath。
 
 在浏览器中调试 CSS 定位：
 
-![](../../img/playwright/4.png)
+![](/playwright/4.png)
 
 ```javascript
 $("#su")
