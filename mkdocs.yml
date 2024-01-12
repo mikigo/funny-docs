@@ -105,6 +105,7 @@ plugins:
   - git-authors:
       exclude:
         - index.md
+        - comments.md
   - statistics:
       page_check_metadata: counter
   - toc
